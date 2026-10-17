@@ -3,6 +3,7 @@ import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { ChevronDown, Stethoscope } from "lucide-react";
 import { learningAreas } from "../content/areas";
 import { site } from "../content/site";
+import SocialLinks from "./SocialLinks";
 
 export default function SiteLayout() {
   const headerRef = useRef<HTMLElement>(null);
@@ -31,7 +32,7 @@ export default function SiteLayout() {
       <div className="footer-brand"><Link className="brand" to="/"><span className="brand-mark"><Stethoscope size={20} aria-hidden="true" /></span><span>El Aula Virtual <strong>del Profe Erik Timal</strong></span></Link><p>Formación y recursos académicos para estudiantes de enfermería.</p></div>
       <div className="footer-links"><span>APRENDER</span><Link to="/cursos">Cursos</Link><Link to="/juegos">Juegos</Link><Link to="/kahoot">Kahoot</Link><Link to="/constancias">Constancias</Link></div>
       <div className="footer-links"><span>INFORMACIÓN</span><Link to="/docente">Responsable académico</Link><Link to="/privacidad">Aviso de privacidad</Link><Link to="/terminos">Términos de uso</Link></div>
-      <div className="footer-contact"><span>CONTACTO ACADÉMICO</span><p>Consulta el canal institucional por el que recibiste acceso a esta aula.</p></div>
+      <div className="footer-contact"><span>SÍGUEME</span><SocialLinks /><p>Encuentra más contenido en mis redes sociales.</p></div>
     </div><div className="footer-bottom"><span>© {new Date().getFullYear()} {site.name}</span><Link to="/">Volver al inicio ↑</Link></div></footer>
   </>;
 }

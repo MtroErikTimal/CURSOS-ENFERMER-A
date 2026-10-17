@@ -4,6 +4,7 @@ import { ArrowRight, ArrowUpRight, BadgeCheck, BookOpen, Check, ChevronDown, Cir
 import { learningAreas } from "../content/areas";
 import { gameQuestions } from "../content/gameQuestions";
 import { site } from "../content/site";
+import SocialLinks from "../components/SocialLinks";
 
 const areaIcons = [BookOpen, HeartPulse, ShieldCheck, Layers3];
 
@@ -79,7 +80,7 @@ export function KahootPage() {
 }
 
 export function TeacherPage() {
-  return <PageIntro eyebrow="RESPONSABLE ACADÉMICO" title={site.instructor} description="Formación en enfermería, terapia respiratoria y educación superior." icon={<Stethoscope size={24} aria-hidden="true" />}><div className="teacher-page-grid"><div className="teacher-portrait"><TeacherPhoto presentation="portrait" /></div><section className="content-panel teacher-credentials"><p className="eyebrow">FORMACIÓN ACADÉMICA</p><h2>Enseñanza con perspectiva profesional.</h2><ul>{site.qualifications.map((qualification) => <li key={qualification}><Check size={16} aria-hidden="true" />{qualification}</li>)}</ul><div className="teacher-bio-note"><CircleHelp size={18} aria-hidden="true" /><p>La semblanza puede ampliarse con una biografía y enlaces profesionales autorizados.</p></div></section></div></PageIntro>;
+  return <PageIntro eyebrow="RESPONSABLE ACADÉMICO" title={site.instructor} description="Formación en enfermería, terapia respiratoria y educación superior." icon={<Stethoscope size={24} aria-hidden="true" />}><div className="teacher-page-grid"><div className="teacher-portrait"><TeacherPhoto presentation="portrait" /></div><section className="content-panel teacher-credentials"><p className="eyebrow">FORMACIÓN ACADÉMICA</p><h2>Enseñanza con perspectiva profesional.</h2><ul>{site.qualifications.map((qualification) => <li key={qualification}><Check size={16} aria-hidden="true" />{qualification}</li>)}</ul><div className="teacher-bio-note"><CircleHelp size={18} aria-hidden="true" /><p>La semblanza puede ampliarse con una biografía y enlaces profesionales autorizados.</p></div><div className="teacher-social"><p className="eyebrow">SÍGUEME EN REDES</p><SocialLinks withLabels /></div></section></div></PageIntro>;
 }
 
 function TeacherPhoto({ presentation }: { presentation: "circle" | "portrait" }) {

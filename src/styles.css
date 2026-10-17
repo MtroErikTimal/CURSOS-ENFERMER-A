@@ -199,6 +199,16 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 .footer-links a { margin: 9px 0; display: block; color: #d3dfd7; font-size: 10px; }
 .footer-links a:hover, .footer-bottom a:hover { color: #a5d0b5; }
 .footer-contact p { margin: 0; }
+.social-links { display: flex; align-items: center; gap: 9px; }
+.social-link { width: 38px; height: 38px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; color: #d5e6d9; background: #ffffff12; border: 1px solid #ffffff24; transition: color .18s ease, background .18s ease, transform .18s ease; }
+.social-link:hover { color: #fff; background: #32765b; transform: translateY(-2px); }
+.social-link:focus-visible { outline-color: #a5d0b5; }
+.footer-contact .social-links { margin: 14px 0; }
+.social-links-labeled { flex-wrap: wrap; gap: 8px; }
+.social-links-labeled .social-link { width: auto; min-height: 39px; padding: 0 11px; color: var(--green); background: #f2f6f1; border-color: #dfe8df; font-size: 10px; font-weight: 600; }
+.social-links-labeled .social-link:hover { color: #fff; background: var(--green); border-color: var(--green); }
+.teacher-social { margin-top: 22px; padding-top: 17px; border-top: 1px solid var(--line); }
+.teacher-social .eyebrow { margin-bottom: 11px; }
 .footer-bottom { min-height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 15px; color: #91a79a; border-top: 1px solid #ffffff20; font-size: 9px; }
 .footer-bottom a { color: #cad9cf; }
 .legal-section { padding: 55px max(10vw, 56px); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; color: #52615a; background: #fff; border-top: 1px solid #ffffff18; }
