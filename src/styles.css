@@ -380,6 +380,24 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 .teacher-photo-placeholder { width: 100%; height: 100%; min-height: 360px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 9px; color: #54735f; background: #e3ece3; }
 .teacher-photo-placeholder > span { width: 92px; height: 92px; display: grid; place-items: center; color: #fff; background: #35765a; border-radius: 50%; font-family: 'Fraunces', Georgia, serif; font-size: 31px; }
 .teacher-photo-placeholder > small { font-size: 10px; }
+.areas-entry-section { padding: 61px max(8vw, 48px); display: flex; align-items: center; justify-content: space-between; gap: 36px; background: #fff; border-top: 1px solid #e8ece5; }
+.areas-entry-section > div:first-child { max-width: 490px; }
+.areas-entry-section .eyebrow { margin-bottom: 11px; }
+.areas-entry-section h2 { color: var(--ink); font-family: 'Fraunces', Georgia, serif; font-size: 32px; font-weight: 500; }
+.areas-entry-section > div:first-child > p:last-child { margin: 9px 0 0; color: #65716d; font-size: 12px; line-height: 1.7; }
+.areas-entry-card { width: min(100%, 355px); min-height: 80px; padding: 16px; flex: 0 0 auto; display: flex; align-items: center; gap: 13px; color: var(--green); background: #edf3ed; border: 1px solid #d8e4d9; transition: background .18s ease, transform .18s ease; }
+.areas-entry-card:hover { background: #e5eee5; transform: translateY(-2px); }
+.areas-entry-icon { width: 43px; height: 43px; flex: 0 0 auto; display: grid; place-items: center; color: #fff; background: var(--green); }
+.areas-entry-card > span:nth-child(2) { flex: 1; }
+.areas-entry-card strong, .areas-entry-card small { display: block; }
+.areas-entry-card strong { color: var(--ink); font-size: 11px; }
+.areas-entry-card small { margin-top: 5px; color: #6f7b73; font-size: 9px; }
+.catalog-empty { max-width: 580px; margin: 0 auto; padding: 35px; color: var(--green); text-align: center; }
+.catalog-empty h2 { margin-top: 13px; color: var(--ink); font-size: 27px; }
+.catalog-empty p { max-width: 380px; margin: 9px auto 19px; color: #69766d; font-size: 11px; line-height: 1.7; }
+.catalog-empty .button { min-height: 42px; }
+.page-area-card { min-height: 136px; align-items: center; }
+.area-card-mark > span { color: #fff; font-family: 'Fraunces', Georgia, serif; font-size: 15px; }
 .teacher-credentials h2 { font-size: 29px; }
 .teacher-credentials ul { margin: 24px 0; padding: 0; display: grid; gap: 12px; list-style: none; }
 .teacher-credentials li { display: flex; align-items: center; gap: 10px; color: #52645a; font-size: 12px; }
@@ -477,6 +495,10 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
   .area-outline-grid { grid-template-columns: 1fr; }
   .area-facts { flex-direction: column; gap: 12px; }
   .home-area-card { padding: 14px; }
+  .areas-entry-section { padding: 48px 22px; align-items: stretch; flex-direction: column; gap: 20px; }
+  .areas-entry-section h2 { font-size: 29px; }
+  .areas-entry-card { width: 100%; }
+  .catalog-empty { padding: 24px 18px; }
   .home-feature-band { padding: 48px 22px; }
   .home-feature-band h2 { font-size: 30px; }
   .home-teacher-band { padding: 34px 22px; gap: 13px; }

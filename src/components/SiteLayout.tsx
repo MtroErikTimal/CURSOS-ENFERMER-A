@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { ChevronDown, Stethoscope } from "lucide-react";
-import { learningAreas } from "../content/areas";
 import { site } from "../content/site";
 import SocialLinks from "./SocialLinks";
 
@@ -20,12 +19,12 @@ export default function SiteLayout() {
       <Link className="brand" to="/" aria-label={`${site.name}, inicio`}><span className="brand-mark"><Stethoscope size={20} aria-hidden="true" /></span><span>El Aula Virtual <strong>del Profe Erik Timal</strong></span></Link>
       <nav className="desktop-nav" aria-label="Navegación principal">
         <NavLink to="/" end>Inicio</NavLink>
-        <details className="nav-dropdown"><summary>Aprender <ChevronDown size={14} aria-hidden="true" /></summary><div className="dropdown-panel"><NavLink to="/cursos">Todos los cursos</NavLink>{learningAreas.map((area) => <NavLink key={area.slug} to={`/areas/${area.slug}`}>{area.title}</NavLink>)}</div></details>
+        <details className="nav-dropdown"><summary>Aprender <ChevronDown size={14} aria-hidden="true" /></summary><div className="dropdown-panel"><NavLink to="/cursos">Todos los cursos</NavLink><NavLink to="/areas">Áreas de aprendizaje</NavLink><NavLink to="/areas/examenes-egreso">Exámenes de egreso</NavLink></div></details>
         <details className="nav-dropdown"><summary>Actividades <ChevronDown size={14} aria-hidden="true" /></summary><div className="dropdown-panel"><NavLink to="/juegos">Juegos de aprendizaje</NavLink><NavLink to="/kahoot">Kahoot en el aula</NavLink><NavLink to="/constancias">Constancias</NavLink></div></details>
         <NavLink to="/docente">El docente</NavLink><NavLink to="/preguntas">Ayuda</NavLink>
       </nav>
       <Link className="button button-small button-dark desktop-access" to="/acceso">Acceso estudiantes <span aria-hidden="true">↗</span></Link>
-      <details className="mobile-nav"><summary aria-label="Abrir menú de navegación"><span className="mobile-menu-icon"><i /><i /><i /></span></summary><nav aria-label="Navegación móvil"><NavLink to="/" end>Inicio</NavLink><NavLink to="/cursos">Todos los cursos</NavLink><details className="mobile-submenu"><summary>Áreas de aprendizaje <ChevronDown size={14} aria-hidden="true" /></summary>{learningAreas.map((area) => <NavLink key={area.slug} to={`/areas/${area.slug}`}>{area.title}</NavLink>)}</details><NavLink to="/juegos">Juegos de aprendizaje</NavLink><NavLink to="/kahoot">Kahoot en el aula</NavLink><NavLink to="/constancias">Constancias</NavLink><NavLink to="/docente">El docente</NavLink><NavLink to="/preguntas">Ayuda</NavLink><NavLink to="/acceso">Acceso estudiantes</NavLink></nav></details>
+      <details className="mobile-nav"><summary aria-label="Abrir menú de navegación"><span className="mobile-menu-icon"><i /><i /><i /></span></summary><nav aria-label="Navegación móvil"><NavLink to="/" end>Inicio</NavLink><NavLink to="/cursos">Todos los cursos</NavLink><NavLink to="/areas">Áreas de aprendizaje</NavLink><NavLink to="/areas/examenes-egreso">Exámenes de egreso</NavLink><NavLink to="/juegos">Juegos de aprendizaje</NavLink><NavLink to="/kahoot">Kahoot en el aula</NavLink><NavLink to="/constancias">Constancias</NavLink><NavLink to="/docente">El docente</NavLink><NavLink to="/preguntas">Ayuda</NavLink><NavLink to="/acceso">Acceso estudiantes</NavLink></nav></details>
     </header>
     <main><Outlet /></main>
     <footer className="site-footer"><div className="footer-main">

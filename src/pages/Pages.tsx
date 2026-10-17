@@ -1,31 +1,28 @@
 import { useState, type FormEvent, type ReactNode } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowRight, ArrowUpRight, BadgeCheck, BookOpen, Check, ChevronDown, CircleHelp, ClipboardCheck, Download, ExternalLink, FileText, Gamepad2, HeartPulse, Layers3, LockKeyhole, RotateCcw, Search, ShieldCheck, Stethoscope } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BadgeCheck, BookOpen, Check, ChevronDown, CircleHelp, ClipboardCheck, Download, ExternalLink, FileText, Gamepad2, HeartPulse, Layers3, LockKeyhole, RotateCcw, ShieldCheck, Stethoscope } from "lucide-react";
 import { learningAreas } from "../content/areas";
 import { gameQuestions } from "../content/gameQuestions";
 import { site } from "../content/site";
 import SocialLinks from "../components/SocialLinks";
 
-const areaIcons = [BookOpen, HeartPulse, ShieldCheck, Layers3];
-
 export function HomePage() {
-  const [search, setSearch] = useState("");
-  const areas = learningAreas.filter((area) => `${area.title} ${area.description}`.toLocaleLowerCase("es").includes(search.trim().toLocaleLowerCase("es")));
   return <>
     <section className="hero"><div className="hero-copy"><p className="eyebrow"><span /> APRENDER PARA CUIDAR MEJOR</p><h1>Aprende enfermería. <em>Transforma el cuidado.</em></h1><p className="hero-description">Bienvenido a {site.name}: un espacio académico para fortalecer conocimientos, desarrollar pensamiento clínico y crecer en enfermería.</p><div className="hero-actions"><Link className="button button-green" to="/cursos">Explorar el aula <ArrowRight size={17} aria-hidden="true" /></Link><Link className="quiet-link" to="/docente">Conocer al docente <ArrowUpRight size={15} aria-hidden="true" /></Link></div><div className="hero-note"><Check size={15} aria-hidden="true" /> Formación para estudiantes y profesionales de enfermería</div></div>
       <div className="hero-visual"><img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1200&q=85" alt="Profesional de la salud en un entorno clínico" /><div className="image-caption"><span className="caption-mark"><HeartPulse size={18} aria-hidden="true" /></span><span><strong>El cuidado se aprende</strong><small>Conocimiento al servicio de las personas</small></span></div><span className="image-index">ENFERMERÍA · EDUCACIÓN</span></div><div className="hero-side-note">FORMACIÓN · REFLEXIÓN · CUIDADO</div>
     </section>
-    <section className="course-section"><div className="section-heading"><div><p className="eyebrow">ÁREAS DE APRENDIZAJE</p><h2>Un aula organizada para avanzar.</h2></div><p className="section-intro">Entra a cada área para consultar su estructura de unidades, lecciones, recursos y actividades.</p></div>
-      <label className="search-field home-area-search"><Search size={17} aria-hidden="true" /><span className="sr-only">Buscar áreas</span><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Buscar un área" /></label>
-      <div className="home-area-grid">{areas.map((area, index) => { const Icon = areaIcons[index % areaIcons.length]; return <Link className="home-area-card" key={area.slug} to={`/areas/${area.slug}`}><span className={`category-icon art-${area.color}`}><Icon size={20} aria-hidden="true" /></span><span><small>ÁREA 0{index + 1}</small><strong>{area.title}</strong><span>{area.description}</span></span><ArrowUpRight size={17} aria-hidden="true" /></Link>; })}{areas.length === 0 && <div className="empty-state"><Search size={20} aria-hidden="true" /><p>No encontramos un área con esos términos.</p><button onClick={() => setSearch("")}>Ver todas las áreas</button></div>}</div>
-    </section>
+    <section className="areas-entry-section"><div><p className="eyebrow">EXPLORA EL AULA</p><h2>Áreas de aprendizaje</h2><p>Consulta las áreas de formación y entra a la que quieres estudiar.</p></div><Link className="areas-entry-card" to="/areas"><span className="areas-entry-icon"><BookOpen size={25} aria-hidden="true" /></span><span><strong>Ver áreas de aprendizaje</strong><small>Explora el catálogo por temas</small></span><ArrowRight size={18} aria-hidden="true" /></Link></section>
     <section className="home-feature-band"><div><p className="eyebrow">APRENDIZAJE ACTIVO</p><h2>Estudia, practica y repasa.</h2><p>Accede a actividades interactivas o juega con tu grupo en una sesión de Kahoot.</p></div><div className="home-feature-links"><Link to="/juegos"><Gamepad2 size={20} aria-hidden="true" /><span><strong>Juegos de aprendizaje</strong><small>Reto interactivo individual</small></span><ArrowRight size={16} aria-hidden="true" /></Link><Link to="/kahoot"><Layers3 size={20} aria-hidden="true" /><span><strong>Kahoot en el aula</strong><small>Reproduce actividades compartidas</small></span><ArrowRight size={16} aria-hidden="true" /></Link></div></section>
     <section className="home-teacher-band"><TeacherPhoto presentation="circle" /><div><p className="eyebrow">RESPONSABLE ACADÉMICO</p><h2>{site.instructor}</h2><p>Enfermería, terapia respiratoria y educación superior.</p></div><Link className="button button-dark" to="/docente">Conocer su formación <ArrowRight size={16} aria-hidden="true" /></Link></section>
   </>;
 }
 
 export function CoursesPage() {
-  return <PageIntro eyebrow="CATÁLOGO ACADÉMICO" title="Cursos y áreas de aprendizaje" description="Cada área tiene una estructura lista para organizar objetivos, unidades, lecciones, recursos y actividades." icon={<BookOpen size={24} aria-hidden="true" />}><div className="page-area-grid">{learningAreas.map((area) => <Link className="page-area-card" key={area.slug} to={`/areas/${area.slug}`}><span className={`area-card-mark art-${area.color}`}><BookOpen size={22} aria-hidden="true" /></span><div><small>ÁREA DE APRENDIZAJE</small><h2>{area.title}</h2><p>{area.description}</p></div><ArrowUpRight size={17} aria-hidden="true" /></Link>)}</div></PageIntro>;
+  return <PageIntro eyebrow="CATÁLOGO ACADÉMICO" title="Todos los cursos" description="Los cursos publicados se mostrarán aquí. También puedes explorar el plan de contenidos por áreas de aprendizaje." icon={<BookOpen size={24} aria-hidden="true" />}><section className="catalog-empty content-panel"><BookOpen size={26} aria-hidden="true" /><h2>Explora las áreas del aula</h2><p>Consulta los temas, unidades y estructura académica organizada por área.</p><Link className="button button-green" to="/areas">Ver áreas de aprendizaje <ArrowRight size={16} aria-hidden="true" /></Link></section></PageIntro>;
+}
+
+export function LearningAreasPage() {
+  return <PageIntro eyebrow="CATÁLOGO ACADÉMICO" title="Áreas de aprendizaje" description="Selecciona un área para abrir su ficha, unidades, lecciones, recursos y actividades." icon={<Layers3 size={24} aria-hidden="true" />}><div className="page-area-grid">{learningAreas.map((area, index) => <Link className="page-area-card" key={area.slug} to={`/areas/${area.slug}`}><span className={`area-card-mark art-${area.color}`}><span>{String(index + 1).padStart(2, "0")}</span></span><div><small>ÁREA DE APRENDIZAJE</small><h2>{area.title}</h2><p>{area.description}</p></div><ArrowUpRight size={17} aria-hidden="true" /></Link>)}</div></PageIntro>;
 }
 
 export function AreaPage() {

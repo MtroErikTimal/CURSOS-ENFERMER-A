@@ -10,6 +10,7 @@ import {
   HomePage,
   KahootPage,
   LegalPage,
+  LearningAreasPage,
   NotFoundPage,
   TeacherPage,
 } from "./pages/Pages";
@@ -24,6 +25,7 @@ export default function PortalApp() {
   return <BrowserRouter basename={import.meta.env.BASE_URL}><Routes><Route element={<SiteLayout />}>
     <Route index element={<HomePage />} />
     <Route path="cursos" element={<CoursesPage />} />
+    <Route path="areas" element={<LearningAreasPage />} />
     <Route path="areas/:slug" element={<AreaPage />} />
     <Route path="juegos" element={<GamePage />} />
     <Route path="kahoot" element={<KahootPage />} />
