@@ -1,0 +1,11 @@
+{
+  "name": "El Aula Virtual del Profe Erik Timal",
+  "short_name": "Aula Enfermería",
+  "description": "Plataforma de aprendizaje y recursos de enfermería.",
+  "lang": "es-MX",
+  "start_url": "/CURSOS-ENFERMER-A/",
+  "scope": "/CURSOS-ENFERMER-A/",
+  "display": "standalone",
+  "background_color": "#f6f7f2",
+  "theme_color": "#176b57"
+}
