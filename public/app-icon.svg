@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#176b57"/>
+  <circle cx="256" cy="210" r="132" fill="#f6f7f2" opacity=".12"/>
+  <path d="M224 105h64v72h72v64h-72v72h-64v-72h-72v-64h72z" fill="#f6f7f2"/>
+  <text x="256" y="405" text-anchor="middle" font-family="Arial,sans-serif" font-size="62" font-weight="700" fill="#f6f7f2">AULA</text>
+</svg>
