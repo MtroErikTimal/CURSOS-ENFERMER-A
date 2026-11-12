@@ -11,9 +11,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
+    const baseUrl = import.meta.env.BASE_URL;
     navigator.serviceWorker
-      .register("/CURSOS-ENFERMER-A/sw.js", {
-        scope: "/CURSOS-ENFERMER-A/",
+      .register(`${baseUrl}sw.js`, {
+        scope: baseUrl,
       })
       .catch((error) => {
         console.error("No se pudo registrar el service worker:", error);
