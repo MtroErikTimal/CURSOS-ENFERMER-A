@@ -1,13 +1,15 @@
 const CACHE_PREFIX = "aula-virtual-";
-const CACHE_NAME = "aula-virtual-v2";
-const BASE_PATH = "/CURSOS-ENFERMER-A/";
-const OFFLINE_URL = `${BASE_PATH}offline.html`;
+const CACHE_NAME = "aula-virtual-v3";
+// El alcance procede del registro del service worker: funciona tanto en
+// la raíz de Vercel como en el subdirectorio de GitHub Pages.
+const BASE_PATH = new URL("./", self.registration.scope).pathname;
+const OFFLINE_URL = new URL("offline.html", self.registration.scope).pathname;
 const APP_ASSETS = [
   BASE_PATH,
   OFFLINE_URL,
-  `${BASE_PATH}app-icon.svg`,
-  `${BASE_PATH}icons/icon-192.png`,
-  `${BASE_PATH}icons/icon-512.png`,
+  new URL("app-icon.svg", self.registration.scope).pathname,
+  new URL("icons/icon-192.png", self.registration.scope).pathname,
+  new URL("icons/icon-512.png", self.registration.scope).pathname,
 ];
 
 self.addEventListener("install", (event) => {
