@@ -1,51 +1,84 @@
-const CACHE_NAME = "aula-virtual-v1";
+const CACHE_PREFIX = "aula-virtual-";
+const CACHE_NAME = "aula-virtual-v2";
 const BASE_PATH = "/CURSOS-ENFERMER-A/";
-const OFFLINE_URL = BASE_PATH + "offline.html";
+const OFFLINE_URL = `${BASE_PATH}offline.html`;
+const APP_ASSETS = [
+  BASE_PATH,
+  OFFLINE_URL,
+  `${BASE_PATH}app-icon.svg`,
+  `${BASE_PATH}icons/icon-192.png`,
+  `${BASE_PATH}icons/icon-512.png`,
+];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll([BASE_PATH, OFFLINE_URL]))
+    caches.open(CACHE_NAME).then(async (cache) => {
+      await cache.addAll(APP_ASSETS);
+    })
   );
   self.skipWaiting();
 });
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(
-        keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
-      )
-    )
+    (async () => {
+      const keys = await caches.keys();
+      await Promise.all(
+        keys
+          .filter((key) => key.startsWith(CACHE_PREFIX) && key !== CACHE_NAME)
+          .map((key) => caches.delete(key))
+      );
+      await self.clients.claim();
+    })()
   );
-  self.clients.claim();
 });
 
 self.addEventListener("fetch", (event) => {
   const request = event.request;
-  const url = new URL(request.url);
+  if (request.method !== "GET") return;
 
-  if (request.method !== "GET" || url.origin !== self.location.origin) return;
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin) return;
+  if (!url.pathname.startsWith(BASE_PATH)) return;
 
   if (request.mode === "navigate") {
     event.respondWith(
-      fetch(request).catch(async () => {
-        const cachedPage = await caches.match(request);
-        return cachedPage || caches.match(OFFLINE_URL);
-      })
+      (async () => {
+        try {
+          const response = await fetch(request);
+          if (response && response.ok) {
+            const cache = await caches.open(CACHE_NAME);
+            await cache.put(request, response.clone());
+          }
+          return response;
+        } catch {
+          const cache = await caches.open(CACHE_NAME);
+          return (
+            (await cache.match(request)) ||
+            (await cache.match(OFFLINE_URL)) ||
+            Response.error()
+          );
+        }
+      })()
     );
     return;
   }
 
   event.respondWith(
-    caches.match(request).then((cached) => {
-      const networkFetch = fetch(request).then((response) => {
-        if (response && response.ok) {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+    (async () => {
+      const cache = await caches.open(CACHE_NAME);
+      const cached = await cache.match(request);
+      if (cached) return cached;
+
+      try {
+        const response = await fetch(request);
+        if (response && response.ok && response.type === "basic") {
+          await cache.put(request, response.clone());
         }
         return response;
-      });
-      return cached || networkFetch;
-    })
+      } catch {
+        return Response.error();
+      }
+    })()
   );
 });
