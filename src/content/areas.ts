@@ -169,9 +169,39 @@ fundamentos.units[0].topics = [
   {
     title: "Higiene, limpieza y desinfección",
     lessons: [
-      { title: "Conceptos y diferencias", summary: "Limpieza, descontaminación, desinfección y esterilización: objetivos y alcances." },
-      { title: "Limpieza del entorno y equipo", summary: "Principios generales para la limpieza de superficies y equipo no crítico, respetando instrucciones del fabricante." },
-      { title: "Prevención de infecciones", summary: "Uso de equipo de protección personal, secuencia de trabajo y prevención de contaminación cruzada." },
+      {
+        title: "Conceptos y diferencias",
+        summary: "Limpieza, descontaminación, desinfección y esterilización: objetivos y alcances.",
+        content: [
+          { heading: "Conceptos esenciales", paragraphs: ["La limpieza remueve físicamente suciedad, polvo y materia orgánica mediante agua, detergente y acción mecánica. Reduce la carga microbiana y prepara la superficie o dispositivo para el siguiente proceso.", "La desinfección inactiva muchos o todos los microorganismos patógenos en objetos inanimados, con excepción de cantidades variables de esporas bacterianas. La esterilización elimina todas las formas de vida microbiana, incluidas las esporas. La antisepsia se realiza sobre tejido vivo y no debe confundirse con la desinfección ambiental."] },
+          { heading: "Niveles de desinfección", bullets: ["Alto nivel: elimina todos los microorganismos excepto, en condiciones habituales, un número elevado de esporas bacterianas.", "Nivel intermedio: actúa frente a micobacterias, bacterias vegetativas, la mayoría de virus y hongos.", "Bajo nivel: actúa frente a muchas bacterias vegetativas y algunos hongos y virus; no es eficaz frente a micobacterias ni esporas bacterianas."] },
+          { heading: "Clasificación de Spaulding", bullets: ["Críticos: penetran tejido estéril o sistema vascular; requieren esterilización.", "Semicríticos: contactan mucosas o piel no intacta; requieren como mínimo desinfección de alto nivel o esterilización cuando esté indicada y sea compatible.", "No críticos: contactan piel intacta o el entorno; requieren limpieza y desinfección según el riesgo y el protocolo."] }
+        ]
+      },
+      {
+        title: "Limpieza del entorno y equipo",
+        summary: "Principios generales para la limpieza de superficies y equipo no crítico, respetando instrucciones del fabricante.",
+        content: [
+          { heading: "Superficies de alto contacto", bullets: ["Barandales, controles de cama y timbres.", "Mesas puente, burós, manijas e interruptores.", "Teclados, pantallas y superficies externas de monitores y equipos, según instrucciones del fabricante.", "Grifos, dispensadores y superficies cercanas a la persona atendida."] },
+          { heading: "Tipos de limpieza", bullets: ["Rutinaria o concurrente: durante la estancia y con la frecuencia establecida, además de cuando exista suciedad o contaminación.", "Terminal: después del egreso, traslado o alta, para preparar el espacio para el siguiente usuario.", "Programada o exhaustiva: incorpora elementos y áreas con frecuencia específica en el programa institucional.", "Ante derrames: activar el procedimiento institucional de contención, limpieza y desinfección."] },
+          { heading: "Secuencia y técnica", paragraphs: ["La limpieza debe avanzar de las áreas más limpias a las más sucias y de arriba hacia abajo, con movimientos sistemáticos en una sola dirección. Deben cambiarse paños y soluciones cuando corresponda para no recontaminar lo ya atendido.", "La limpieza precede a la desinfección. Se aplica el producto autorizado, respetando concentración, compatibilidad y tiempo de contacto indicado en etiqueta, ficha técnica y protocolo."] }
+        ]
+      },
+      {
+        title: "Prevención de infecciones",
+        summary: "Uso de equipo de protección personal, secuencia de trabajo y prevención de contaminación cruzada.",
+        content: [
+          { heading: "Seguridad química", bullets: ["Consultar etiqueta, ficha técnica y hoja de datos de seguridad.", "Usar productos aprobados por la institución para la superficie y el uso previsto.", "Respetar concentración, tiempo de contacto, caducidad y condiciones de almacenamiento.", "No mezclar hipoclorito con amoniaco, ácidos u otros limpiadores; pueden liberarse gases peligrosos.", "Utilizar EPP y ventilación según el riesgo y las indicaciones del producto."] },
+          { heading: "Prevención de contaminación cruzada", bullets: ["Separar materiales de limpieza por áreas o zonas según el sistema institucional.", "Cambiar paños y mopas al ensuciarse o al pasar de una zona contaminada a otra limpia.", "No sacudir textiles ni barrer en seco de forma que disperse polvo.", "Evitar transportar materiales contaminados sobre superficies limpias.", "Realizar higiene de manos antes y después de la tarea y tras retirar guantes."] },
+          { heading: "Responsabilidad profesional", paragraphs: ["El personal de enfermería debe conocer los procedimientos de su unidad, identificar superficies de alto contacto, respetar las instrucciones del fabricante y comunicar derrames, fallas o riesgos observados. No debe improvisar concentraciones ni mezclar sustancias químicas.", "La institución debe contar con un programa de limpieza y desinfección, responsables, capacitación, productos autorizados, documentación y supervisión."] }
+        ]
+      },
+    ],
+    resources: [
+      "Higiene, limpieza y desinfección · Presentación navegable::/materiales/fundamentos-de-enfermeria/presentaciones/presentacion-higiene-limpieza-desinfeccion.html",
+      "Higiene, limpieza y desinfección · Apuntes completos::/materiales/fundamentos-de-enfermeria/apuntes/higiene-limpieza-desinfeccion-guia.html",
+      "Higiene, limpieza y desinfección · Infografía de la secuencia segura::/materiales/fundamentos-de-enfermeria/imagenes/secuencia-limpieza-desinfeccion.svg",
+      "Higiene, limpieza y desinfección · Autoevaluación interactiva::/materiales/fundamentos-de-enfermeria/actividades/autoevaluacion-higiene-limpieza.html",
     ],
   },
 ];
