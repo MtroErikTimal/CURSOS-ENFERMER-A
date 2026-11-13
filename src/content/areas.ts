@@ -131,12 +131,39 @@ fundamentos.units[0].topics = [
   {
     title: "RPBI y manejo de muestras biológicas",
     lessons: [
-      { title: "Identificación y clasificación", summary: "Reconocimiento de residuos peligrosos biológico-infecciosos conforme a la normatividad aplicable y criterios de segregación." },
-      { title: "Envasado, almacenamiento y disposición", summary: "Selección de recipientes, identificación, cierre, almacenamiento temporal y entrega conforme al procedimiento institucional." },
-      { title: "Manejo seguro de muestras", summary: "Identificación, etiquetado, transporte y prevención de derrames o exposiciones durante la toma y el traslado." },
+      {
+        title: "Identificación y clasificación",
+        summary: "Reconocimiento de residuos peligrosos biológico-infecciosos conforme a la normatividad aplicable y criterios de segregación.",
+        content: [
+          { heading: "Concepto y marco normativo", paragraphs: ["Los residuos peligrosos biológico-infecciosos (RPBI) son materiales generados durante la atención a la salud que contienen agentes biológico-infecciosos y pueden representar un riesgo para la salud o el ambiente. No todo residuo hospitalario es RPBI: debe cumplir los criterios de la NOM-087-SEMARNAT-SSA1-2002 y del procedimiento institucional.", "La segregación se realiza en el punto de generación. La clasificación incorrecta aumenta riesgos ocupacionales, costos y volumen de residuos que requieren tratamiento especializado."] },
+          { heading: "Las cinco categorías", bullets: ["Sangre y componentes únicamente en forma líquida.", "Cultivos y cepas de agentes biológico-infecciosos contemplados en la norma.", "Patológicos: tejidos, órganos y partes que cumplen los supuestos normativos.", "Residuos no anatómicos: materiales de curación empapados, saturados o goteando determinados líquidos corporales, según los criterios de la norma.", "Punzocortantes: agujas, lancetas, hojas de bisturí y objetos con capacidad de cortar o puncionar que cumplen los criterios normativos."] },
+          { heading: "Criterio de clasificación", paragraphs: ["La clasificación depende de la naturaleza del residuo, el estado físico, su origen y los criterios normativos; no basta con que se haya generado dentro de un hospital. Por ejemplo, una gasa con una mancha pequeña no debe clasificarse automáticamente como RPBI: se debe revisar si cumple los criterios de empapado, saturación o goteo establecidos en la norma y el protocolo local."] }
+        ]
+      },
+      {
+        title: "Envasado, almacenamiento y disposición",
+        summary: "Selección de recipientes, identificación, cierre, almacenamiento temporal y entrega conforme al procedimiento institucional.",
+        content: [
+          { heading: "Envasado y colores", bullets: ["Rojo: sangre líquida en recipiente hermético; cultivos y cepas en bolsa roja para sólidos o recipiente hermético rojo para líquidos; residuos no anatómicos en bolsa roja para sólidos o recipiente hermético rojo para líquidos.", "Amarillo: residuos patológicos sólidos en bolsa amarilla y líquidos en recipiente hermético amarillo.", "Punzocortantes: recipiente rígido de polipropileno rojo, resistente a punciones y con cierre seguro."] },
+          { heading: "Almacenamiento y manejo integral", paragraphs: ["Las etapas generales son identificación, envasado, almacenamiento temporal, recolección y transporte externo, tratamiento y disposición final. El establecimiento debe contar con un área destinada al almacenamiento temporal y cumplir las condiciones y tiempos máximos que correspondan a su nivel de generación.", "Los residuos no deben mezclarse con basura municipal u otros residuos peligrosos. No se deben compactar, abrir bolsas, recuperar materiales ni trasvasar residuos. El tratamiento y la disposición final se realizan mediante métodos y servicios que cumplan las autorizaciones aplicables."] },
+          { heading: "Seguridad durante la segregación", bullets: ["Usar equipo de protección personal de acuerdo con el riesgo.", "No introducir las manos en bolsas ni recipientes.", "No reencapuchar, doblar ni romper agujas usadas.", "Respetar el límite de llenado y cerrar el recipiente conforme al fabricante y protocolo.", "Ante derrame, fuga o exposición, activar el procedimiento institucional y notificar al responsable."] }
+        ]
+      },
+      {
+        title: "Manejo seguro de muestras",
+        summary: "Identificación, etiquetado, transporte y prevención de derrames o exposiciones durante la toma y el traslado.",
+        content: [
+          { heading: "Obtención e identificación", paragraphs: ["Antes de obtener una muestra, verificar la solicitud y la identidad de la persona con los identificadores institucionales. Explicar el procedimiento, preparar el material y aplicar higiene de manos y precauciones estándar.", "Utilizar un recipiente íntegro, compatible con la muestra y adecuado al análisis. Etiquetar en el momento y lugar establecidos por el protocolo, sin separar la muestra de su identificación."] },
+          { heading: "Conservación y transporte", bullets: ["Cerrar herméticamente y comprobar que el exterior no esté contaminado.", "Colocar en el sistema de embalaje y transporte indicado por el laboratorio.", "Respetar tiempo, temperatura y protección de luz cuando corresponda.", "Acompañar con la solicitud correspondiente y proteger la confidencialidad.", "Ante derrame, fuga o recipiente roto, activar la contingencia; no continuar el traslado ordinario."] },
+          { heading: "Exposición accidental", paragraphs: ["Ante punción, salpicadura o contacto accidental, realizar las acciones inmediatas indicadas por el protocolo institucional, notificar de inmediato y acudir a valoración para determinar seguimiento. No ocultar el incidente ni esperar al siguiente turno."] }
+        ]
+      },
     ],
     resources: [
       "RPBI y manejo de muestras · Presentación PPTX::/materiales/fundamentos-de-enfermeria/presentaciones/RPBI .pptx",
+      "RPBI y manejo de muestras · Apuntes completos::/materiales/fundamentos-de-enfermeria/apuntes/rpbi-manejo-muestras-guia.html",
+      "RPBI · Infografía de clasificación y envasado::/materiales/fundamentos-de-enfermeria/imagenes/clasificacion-rpbi.svg",
+      "RPBI · Autoevaluación interactiva::/materiales/fundamentos-de-enfermeria/actividades/autoevaluacion-rpbi.html",
     ],
   },
   {
