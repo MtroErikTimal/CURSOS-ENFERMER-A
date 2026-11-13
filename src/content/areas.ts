@@ -121,7 +121,7 @@ fundamentos.units[0].topics = [
       },
     ],
     resources: [
-      "Asepsia y antisepsia · Presentación PPTX::/materiales/fundamentos-de-enfermeria/presentaciones/ASEPSIA Y ANTISEPSIS .pptx",
+      "Asepsia y antisepsia · Presentación PPTX::/materiales/fundamentos-de-enfermeria/presentaciones/ASEPSIA Y ANTISEPSIA .pptx",
       "Cadena epidemiológica · Presentación PPTX::/materiales/fundamentos-de-enfermeria/presentaciones/CADENA EPIDEMIOLÓGICA .pptx",
       "Asepsia y antisepsia · Guía completa de estudio::/materiales/fundamentos-de-enfermeria/apuntes/asepsia-antisepsia-guia.html",
       "Asepsia y antisepsia · Infografía de los cinco momentos::/materiales/fundamentos-de-enfermeria/imagenes/cinco-momentos-higiene-manos.svg",
