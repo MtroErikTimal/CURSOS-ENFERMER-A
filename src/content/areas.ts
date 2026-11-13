@@ -375,9 +375,88 @@ fundamentos.units[2].topics = [
   {
     title: "Signos vitales",
     lessons: [
-      { title: "Temperatura, pulso y respiración", summary: "Conceptos, sitios y técnicas de medición, factores que modifican los parámetros y registro." },
-      { title: "Presión arterial y oximetría", summary: "Selección del equipo, técnica de medición, errores frecuentes e interpretación inicial." },
-      { title: "Registro y comunicación de hallazgos", summary: "Identificación de valores fuera de parámetros esperados, verificación y notificación oportuna." },
+      {
+        title: "Fundamentos, homeostasis y valoración integral",
+        summary: "Concepto, importancia clínica, sistemas de regulación, retroalimentación, momentos de valoración y documentación de seis parámetros.",
+        content: [
+          { heading: "Parámetros de valoración", bullets: ["Temperatura corporal: balance entre termogénesis y termólisis.", "Pulso y frecuencia cardiaca: actividad eléctrica y mecánica cardiaca y onda arterial.", "Frecuencia respiratoria: ventilación y patrón respiratorio.", "Presión arterial: interacción entre gasto cardiaco y resistencia vascular.", "SpO₂: estimación no invasiva de saturación periférica de hemoglobina.", "Dolor: experiencia sensorial y emocional que requiere valoración sistemática."] },
+          { heading: "Homeostasis", paragraphs: ["La homeostasis mantiene relativamente estables las condiciones del medio interno. Un sistema de regulación incluye receptor, centro integrador y efector. La retroalimentación negativa contrarresta el cambio inicial; los sistemas nervioso autónomo, endocrino, cardiovascular, respiratorio y renal participan en la regulación.", "Los valores deben interpretarse según edad, estado basal, contexto, síntomas, medicamentos, técnica y tendencia. Una cifra aislada no sustituye la valoración integral."] },
+          { heading: "Momentos de valoración", bullets: ["Al ingreso para establecer una línea basal.", "En intervalos indicados por condición clínica y protocolo.", "Ante síntomas nuevos o cambios del estado general.", "Antes y después de procedimientos, intervenciones o medicamentos que puedan modificar parámetros.", "Para valorar respuesta al tratamiento y antes de traslado o egreso cuando corresponda."] }
+        ]
+      },
+      {
+        title: "Temperatura corporal: producción, pérdida y regulación",
+        summary: "Termogénesis, termólisis, hipotálamo, mecanismos de transferencia de calor, factores modificadores, fiebre, hipertermia, hipotermia y técnica.",
+        content: [
+          { heading: "Regulación", paragraphs: ["La temperatura depende del equilibrio entre producción y pérdida de calor. El hipotálamo integra información de termorreceptores centrales y periféricos. Ante el frío activa vasoconstricción y temblor; ante el calor favorece vasodilatación cutánea y sudoración."] },
+          { heading: "Mecanismos", bullets: ["Producción: metabolismo basal, actividad muscular, temblor, hormonas tiroideas y catecolaminas.", "Pérdida: radiación, conducción, convección y evaporación.", "Factores modificadores: edad, ritmo circadiano, ejercicio, hormonas, estrés, ambiente, hidratación y enfermedad."] },
+          { heading: "Alteraciones y medición", paragraphs: ["Fiebre implica elevación regulada del punto de ajuste hipotalámico; hipertermia es acumulación excesiva de calor sin elevar dicho punto de ajuste. Hipotermia se define como temperatura central menor de 35 °C. Los sitios oral, axilar, timpánico, temporal y rectal tienen limitaciones propias; siempre se registra el sitio y dispositivo utilizado."] }
+        ]
+      },
+      {
+        title: "Pulso y frecuencia cardiaca: automatismo y conducción",
+        summary: "Nodo sinoauricular, sistema de conducción, sístole, diástole, gasto cardiaco, regulación autonómica, sitios anatómicos, técnica y alteraciones.",
+        content: [
+          { heading: "Fisiología", paragraphs: ["El nodo sinoauricular inicia normalmente el impulso eléctrico. La conducción por nodo auriculoventricular, haz de His y fibras de Purkinje coordina la contracción. La frecuencia cardiaca multiplicada por el volumen sistólico determina el gasto cardiaco."] },
+          { heading: "Regulación y factores", bullets: ["Simpático: aumenta frecuencia, conducción y contractilidad.", "Parasimpático: reduce frecuencia y conducción AV.", "Factores: edad, ejercicio, fiebre, dolor, estrés, postura, hidratación, medicamentos, hipoxemia y cardiopatías."] },
+          { heading: "Técnica y características", paragraphs: ["Valorar frecuencia, ritmo, amplitud, simetría y sitio. Palpar con índice y medio, nunca con el pulgar. El pulso irregular, débil o discrepante requiere valoración ampliada y, cuando proceda, auscultación apical y comparación apical-radial."] },
+          { heading: "Referencias y alteraciones", bullets: ["Adulto en reposo: referencia orientativa 60–100 lpm.", "Taquicardia: frecuencia mayor de 100 lpm en adulto en reposo.", "Bradicardia: frecuencia menor de 60 lpm en adulto; valorar contexto.", "Arritmia, déficit de pulso y pulso filiforme requieren interpretación clínica."] }
+        ]
+      },
+      {
+        title: "Frecuencia respiratoria: mecánica y control neural",
+        summary: "Ventilación, músculos respiratorios, centros bulbares y pontinos, quimiorreceptores, patrones respiratorios, alteraciones y técnica de enfermería.",
+        content: [
+          { heading: "Mecánica y regulación", paragraphs: ["La contracción del diafragma aumenta el volumen torácico y permite la inspiración. Redes del bulbo y puente modulan el patrón respiratorio. Los quimiorreceptores centrales responden principalmente a cambios relacionados con CO₂ y pH; los periféricos detectan cambios de PaO₂, PaCO₂ y pH."] },
+          { heading: "Técnica y características", bullets: ["Observar discretamente y contar ciclos completos durante un minuto si el ritmo es irregular o existe preocupación.", "Valorar frecuencia, ritmo, profundidad, esfuerzo, simetría, músculos accesorios y capacidad para hablar.", "Adulto en reposo: referencia orientativa 12–20 rpm."] },
+          { heading: "Alteraciones", paragraphs: ["Reconocer taquipnea, bradipnea, apnea, disnea, ortopnea, hiperpnea y patrones Kussmaul, Cheyne-Stokes y Biot/atáxica. El tiraje, agotamiento, cianosis, alteración de conciencia o dificultad intensa requieren respuesta inmediata."] }
+        ]
+      },
+      {
+        title: "Presión arterial: regulación hemodinámica y técnica",
+        summary: "Gasto cardiaco, resistencia vascular, barorreflejo, sistema renina-angiotensina-aldosterona, medición auscultatoria y PRONAM vigente.",
+        content: [
+          { heading: "Determinantes fisiológicos", paragraphs: ["La presión arterial depende principalmente del gasto cardiaco y la resistencia vascular sistémica. Barorreceptores ajustan rápidamente la respuesta autonómica; riñón, sistema renina-angiotensina-aldosterona, ADH y endotelio participan en la regulación sostenida."] },
+          { heading: "Medición precisa", bullets: ["Reposo previo, ambiente tranquilo y sin conversar.", "Espalda y pies apoyados; piernas sin cruzar.", "Brazo descubierto y apoyado a nivel del corazón.", "Manguito seleccionado según circunferencia del brazo y dispositivo validado.", "Registrar brazo, posición, equipo, cifras, hora y condiciones."] },
+          { heading: "Interpretación normativa", paragraphs: ["No diagnosticar hipertensión con una sola lectura aislada. Para clasificación diagnóstica y decisiones de atención en adultos, consultar el Protocolo Nacional de Atención Médica de Hipertensión Arterial Sistémica vigente. No citar NOM-030-SSA2-2009 como única referencia actual sin verificar su situación normativa."] }
+        ]
+      },
+      {
+        title: "SpO₂: transporte de oxígeno y oximetría de pulso",
+        summary: "Hemoglobina, transporte de oxígeno, principio óptico, técnica, factores de error, limitaciones e interpretación contextual.",
+        content: [
+          { heading: "Fundamento", paragraphs: ["La SpO₂ estima el porcentaje de hemoglobina arterial pulsátil saturada con oxígeno. No equivale a PaO₂, PaCO₂, ventilación ni contenido total de oxígeno. La entrega tisular también depende de hemoglobina y gasto cardiaco."] },
+          { heading: "Técnica y limitaciones", bullets: ["Seleccionar sensor compatible, verificar colocación y esperar señal estable.", "Valorar movimiento, perfusión, temperatura, esmalte, luz ambiental y concordancia del pulso.", "Carboxihemoglobina y metahemoglobina pueden producir lecturas engañosas.", "Registrar SpO₂, pulso, sitio y uso de oxígeno suplementario, dispositivo y flujo cuando corresponda."] },
+          { heading: "Interpretación", paragraphs: ["En adultos sanos a nivel del mar suelen observarse valores de 95–100%, pero la interpretación depende de altitud, enfermedad, perfusión y objetivo terapéutico. Una cifra aparentemente normal no excluye hipercapnia, anemia o entrega tisular deficiente."] }
+        ]
+      },
+      {
+        title: "Dolor: fisiología, escalas y valoración de enfermería",
+        summary: "Nocicepción, transmisión y modulación, clasificación del dolor, valoración OPQRST, escalas y reevaluación.",
+        content: [
+          { heading: "Fisiología y clasificación", paragraphs: ["El dolor es una experiencia sensorial y emocional personal. La nocicepción comprende transducción, transmisión, percepción y modulación. Se clasifica, entre otros criterios, en agudo o crónico y nociceptivo, neuropático o nociplástico."] },
+          { heading: "Valoración OPQRST", bullets: ["Provocación/paliación: qué lo inicia, agrava o alivia.", "Calidad: punzante, quemante, opresivo, eléctrico, cólico, etc.", "Región e irradiación.", "Severidad: escala apropiada.", "Tiempo: inicio, duración, frecuencia y evolución.", "Impacto funcional, sueño, movilidad, apetito y respuesta a intervenciones."] },
+          { heading: "Escalas y registro", paragraphs: ["Preferir autoinforme cuando la persona puede comunicar. Seleccionar escala numérica, visual, de rostros u observacional validada según edad y capacidad. Registrar localización y puntuación, intervención, respuesta y efectos adversos. La NOM-004-SSA3-2012 incluye la valoración del dolor (localización y escala) en la hoja de enfermería."] }
+        ]
+      },
+      {
+        title: "Valoración integrada, registro y comunicación",
+        summary: "Integración de seis parámetros, tendencias, errores frecuentes, signos de alarma y documentación conforme al expediente clínico.",
+        content: [
+          { heading: "Registro", bullets: ["Fecha y hora.", "Temperatura, sitio y dispositivo.", "Frecuencia cardiaca, sitio y ritmo cuando proceda.", "Frecuencia respiratoria y características.", "Presión arterial, brazo y posición.", "SpO₂, sitio y soporte de oxígeno.", "Dolor: localización, escala y puntuación.", "Intervenciones, notificaciones, respuesta y observaciones."] },
+          { heading: "Seguridad clínica", paragraphs: ["Integrar cifras con síntomas, apariencia, perfusión y estado neurológico. Ante dolor torácico nuevo, disnea importante, síncope, alteración de conciencia, signos de choque o deterioro rápido, priorizar respuesta y comunicación sobre completar mecánicamente el registro."] }
+        ]
+      }
+    ],
+    resources: [
+      "Signos vitales · Guía completa de estudio::/materiales/fundamentos-de-enfermeria/apuntes/signos-vitales-guia.html",
+      "Signos vitales · Presentación navegable::/materiales/fundamentos-de-enfermeria/presentaciones/presentacion-signos-vitales.html",
+      "Signos vitales · Práctica de laboratorio y lista de cotejo::/materiales/fundamentos-de-enfermeria/actividades/practica-signos-vitales.html",
+      "Signos vitales · Autoevaluación interactiva::/materiales/fundamentos-de-enfermeria/actividades/autoevaluacion-signos-vitales.html",
+      "NOM-004-SSA3-2012 · Expediente clínico::https://www.dof.gob.mx/nota_detalle.php?codigo=5272787",
+      "PRONAM · Hipertensión arterial sistémica::https://pronamsalud.csg.gob.mx/",
+      "Manual de técnicas de enfermería 2026 · Hospital General de México::https://hgm.salud.gob.mx/interna/dirmed/MANUAL_DE_TECNICAS_2026.pdf",
+      "GPC IMSS-796-16 · Valoración y manejo del dolor agudo en niñas y niños de 3 a 6 años::https://www.imss.gob.mx/sites/all/statics/guiasclinicas/796GER.pdf"
     ],
   },
   {
