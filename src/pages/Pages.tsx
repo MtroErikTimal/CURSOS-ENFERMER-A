@@ -133,18 +133,26 @@ function ContentList({ items, empty }: { items: string[]; empty: string }) {
     const cleanPath = href ? (href.startsWith("/") ? href.slice(1) : href) : "";
     const url = href ? (external ? href : `${import.meta.env.BASE_URL}${cleanPath}`) : null;
     const isPowerPoint = Boolean(url && href && href.toLowerCase().endsWith(".pptx"));
+    const isSlideDeck = Boolean(url && href && href.endsWith("presentacion-higiene-limpieza-desinfeccion.html"));
     const absoluteUrl = isPowerPoint && url ? new URL(url, window.location.origin).href : "";
     const viewerUrl = isPowerPoint ? `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(absoluteUrl)}` : "";
-    return <li className={isPowerPoint ? "resource-presentation" : undefined} key={item}>
-      {isPowerPoint ? <Presentation size={18} aria-hidden="true" /> : <FileText size={17} aria-hidden="true" />}
+    return <li className={isPowerPoint || isSlideDeck ? "resource-presentation" : undefined} key={item}>
+      {isPowerPoint || isSlideDeck ? <Presentation size={18} aria-hidden="true" /> : <FileText size={17} aria-hidden="true" />}
       {url ? <div className="resource-content">
-        {isPowerPoint ? <strong>{label}</strong> : <a href={url} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>{label}</a>}
+        {isPowerPoint || isSlideDeck ? <strong>{label}</strong> : <a href={url} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>{label}</a>}
         {isPowerPoint && <div className="presentation-viewer">
           <p className="presentation-inline-label">Presentación integrada</p>
           <div style={{ position: "relative", width: "100%", paddingTop: "62.5%", marginTop: "12px", overflow: "hidden", borderRadius: "10px", background: "#f3f5f2" }}>
             <iframe src={viewerUrl} title={label} loading="lazy" allowFullScreen style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
           </div>
           <a className="presentation-download" href={url} download><Download size={14} aria-hidden="true" /> Descargar archivo original PPTX</a>
+        </div>}
+        {isSlideDeck && <div className="presentation-viewer">
+          <p className="presentation-inline-label">Presentación navegable integrada</p>
+          <div style={{ position: "relative", width: "100%", paddingTop: "62.5%", marginTop: "12px", overflow: "hidden", borderRadius: "10px", background: "#f3f5f2" }}>
+            <iframe src={url} title={label} loading="lazy" allow="fullscreen" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+          </div>
+          <a className="presentation-download" href={url} target="_blank" rel="noreferrer">Abrir presentación en pantalla completa</a>
         </div>}
       </div> : item}
     </li>;
