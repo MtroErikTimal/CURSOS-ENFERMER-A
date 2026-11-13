@@ -129,8 +129,9 @@ function PageIntro({ eyebrow, title, description, icon, children }: { eyebrow: s
 function ContentList({ items, empty }: { items: string[]; empty: string }) {
   return items.length ? <ul className="resource-list">{items.map((item) => {
     const [label, href] = item.split("::");
-    const external = Boolean(href && /^https?:\\/\\//i.test(href));
-    const url = href ? (external ? href : `${import.meta.env.BASE_URL}${href.replace(/^\\//, "")}`) : null;
+    const external = Boolean(href && (href.startsWith("https://") || href.startsWith("http://")));
+    const cleanPath = href ? (href.startsWith("/") ? href.slice(1) : href) : "";
+    const url = href ? (external ? href : `${import.meta.env.BASE_URL}${cleanPath}`) : null;
     return <li key={item}><FileText size={17} aria-hidden="true" />{url ? <a href={url} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>{label}</a> : item}</li>;
   })}</ul> : <p className="editable-note">{empty}</p>;
 }
