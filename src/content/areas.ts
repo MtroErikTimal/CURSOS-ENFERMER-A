@@ -329,9 +329,43 @@ fundamentos.units[1].topics = [
   {
     title: "Posiciones terapéuticas",
     lessons: [
-      { title: "Posiciones básicas", summary: "Decúbito supino, prono, lateral, Fowler y variantes; indicaciones generales." },
-      { title: "Alineación y protección", summary: "Alineación corporal, protección de prominencias óseas y uso de dispositivos de apoyo." },
-      { title: "Cambios posturales", summary: "Principios de frecuencia individualizada, confort, vigilancia de la piel y prevención de lesiones por presión." },
+      {
+        title: "Concepto, valoración y principios de posicionamiento",
+        summary: "Propósito de las posiciones, valoración previa, alineación corporal, protección de piel y seguridad.",
+        content: [
+          { heading: "Concepto e importancia", paragraphs: ["Una posición terapéutica es la colocación planificada de la persona para favorecer una función, facilitar una valoración o procedimiento, mejorar el confort o disminuir riesgos. La selección depende de la condición clínica, tolerancia, indicación y protocolo institucional.", "El posicionamiento forma parte del cuidado integral: no consiste únicamente en colocar el cuerpo, sino en valorar antes, preparar el entorno, proteger dispositivos, vigilar la respuesta y documentar."] },
+          { heading: "Valoración previa", bullets: ["Identificar conciencia, comprensión, colaboración, movilidad, fuerza, equilibrio y capacidad para mantener la postura.", "Valorar dolor, disnea, circulación, sensibilidad, integridad de la piel y riesgo de caída o lesión por presión.", "Revisar restricciones médicas, quirúrgicas, ortopédicas y dispositivos como oxígeno, sondas, catéteres y drenajes.", "Explicar el procedimiento, solicitar colaboración y consentimiento, proteger intimidad y preparar personal y ayudas necesarias."] },
+          { heading: "Principios de seguridad", bullets: ["Mantener alineación de cabeza, columna, pelvis y extremidades; evitar torsiones e hiperextensiones.", "Distribuir la presión y proteger prominencias óseas con apoyos adecuados, sin comprimir nervios ni vasos.", "Verificar frenos, estabilidad de cama, barandales indicados y accesibilidad del timbre.", "Reevaluar respiración, circulación, dolor, piel y tolerancia después del cambio. Individualizar la frecuencia de cambios posturales."] }
+        ]
+      },
+      {
+        title: "Posiciones anatómicas y de exploración",
+        summary: "Decúbito supino, prono, lateral, Sims, litotomía y genupectoral: definición, colocación y usos frecuentes.",
+        content: [
+          { heading: "Decúbito supino o dorsal", paragraphs: ["La persona permanece acostada boca arriba, con cabeza y tronco alineados y extremidades en posición cómoda. Se utiliza para reposo, valoración de la región anterior, exploración abdominal inicial y diversos cuidados en cama."] },
+          { heading: "Decúbito prono o ventral", paragraphs: ["La persona permanece acostada boca abajo, con cabeza girada o apoyada de acuerdo con el equipo y la indicación. Puede utilizarse para valorar la región posterior y, en pacientes críticos seleccionados, como estrategia respiratoria bajo protocolo especializado. Requiere vigilancia de vía aérea, ojos, piel, dispositivos y tolerancia."] },
+          { heading: "Decúbito lateral", paragraphs: ["La persona se recuesta sobre uno de sus lados, con cabeza, hombros, pelvis y piernas alineados. Se utiliza para descanso, higiene, cuidados de espalda y redistribución de presión; se selecciona el lado de acuerdo con la condición clínica."] },
+          { heading: "Posición de Sims", paragraphs: ["Es una variante semiprona, habitualmente sobre el lado izquierdo, con el tronco ligeramente inclinado hacia delante y la pierna superior más flexionada que la inferior. Se emplea en determinados enemas, exploraciones rectales y cuidados perineales cuando está indicada."] },
+          { heading: "Litotomía o ginecológica", paragraphs: ["Parte de decúbito dorsal, con caderas y rodillas flexionadas, muslos separados y piernas sostenidas en estribos o soportes acolchados. Se utiliza en exploraciones ginecológicas y procedimientos urológicos u obstétricos seleccionados. Debe evitarse la abducción o flexión forzada y vigilar presión, circulación y sensibilidad de las extremidades."] },
+          { heading: "Genupectoral", paragraphs: ["La persona se apoya sobre rodillas y parte anterior del tórax, con caderas elevadas y cabeza girada o apoyada. Se utiliza en algunas exploraciones rectales o procedimientos específicos cuando el profesional lo indica y la persona lo tolera."] }
+        ]
+      },
+      {
+        title: "Posiciones con cabecera elevada e inclinación de cama",
+        summary: "Fowler baja, semi-Fowler, Fowler alta, ortopneica, Trendelenburg y anti-Trendelenburg; indicaciones y precauciones.",
+        content: [
+          { heading: "Fowler y variantes", bullets: ["Fowler baja: cabecera elevada aproximadamente 15–30 grados.", "Semi-Fowler: cabecera elevada aproximadamente 30–45 grados.", "Fowler alta: cabecera elevada aproximadamente 60–90 grados, con apoyo adecuado del tronco y extremidades.", "Los ángulos son referencias didácticas; pueden variar según la cama, condición, tolerancia y protocolo."] },
+          { heading: "Usos frecuentes", paragraphs: ["Las variantes Fowler pueden favorecer confort, descanso, expansión torácica y actividades como alimentación o comunicación. La elevación del tronco puede reducir riesgo de aspiración en situaciones clínicas concretas, por ejemplo durante y después de alimentación enteral, de acuerdo con indicación y protocolo.", "La posición ortopneica es una postura sentada con inclinación anterior y brazos apoyados sobre una mesa o almohadas. Puede aliviar la disnea en algunas personas al facilitar el uso de músculos accesorios; no sustituye la valoración ni el tratamiento de la causa."] },
+          { heading: "Trendelenburg y anti-Trendelenburg", paragraphs: ["Trendelenburg coloca a la persona en decúbito supino con la cabeza más baja que los pies. Anti-Trendelenburg inclina el plano en sentido contrario, con la cabeza más alta que los pies. Ambas requieren una indicación concreta y vigilancia de tolerancia respiratoria, hemodinámica, neurológica y riesgo de deslizamiento.", "Trendelenburg no debe utilizarse de manera rutinaria para tratar hipotensión o choque. La decisión corresponde al equipo clínico y al protocolo institucional."] },
+          { heading: "Reevaluación y registro", bullets: ["Detener y revalorar ante disnea nueva, dolor, mareo, palidez, sudoración, pérdida de equilibrio o intolerancia.", "Registrar posición, motivo, hora, apoyos, estado de piel y dispositivos, tolerancia, respuesta e incidencias.", "Individualizar los cambios posturales; no existe una frecuencia única apropiada para todas las personas."] }
+        ]
+      }
+    ],
+    resources: [
+      "Posiciones terapéuticas · Catálogo ilustrado con definiciones y usos::/materiales/fundamentos-de-enfermeria/apuntes/posiciones-terapeuticas-guia.html",
+      "Posiciones terapéuticas · Presentación navegable::/materiales/fundamentos-de-enfermeria/presentaciones/presentacion-posiciones-terapeuticas.html",
+      "Posiciones terapéuticas · Taller práctico y lista de cotejo::/materiales/fundamentos-de-enfermeria/actividades/practica-posiciones-terapeuticas.html",
+      "Posiciones terapéuticas · Autoevaluación interactiva::/materiales/fundamentos-de-enfermeria/actividades/autoevaluacion-posiciones-terapeuticas.html",
     ],
   },
 ];
@@ -385,6 +419,7 @@ fundamentos.activities = [
   "Unidad 1 · Clasifica residuos de casos simulados y justifica el recipiente o manejo correspondiente con base en la normatividad vigente.",
   "Unidad 2 · Realiza una demostración simulada de preparación del carro de curaciones y manejo de pinza portaobjetos, cuidando la técnica aséptica.",
   "Unidad 2 · En parejas, ejecuta una movilización o transferencia simulada y explica los principios de mecánica corporal y seguridad aplicados.",
+  "Unidad 2 · Practica la selección y colocación de posiciones terapéuticas en simulador; identifica definición, usos, apoyos, riesgos y criterios de reevaluación.",
   "Unidad 3 · Practica la medición y registro de signos vitales y somatometría; realiza una exploración física básica en un escenario simulado.",
   "Unidad 3 · Resuelve un caso de admisión y egreso y completa registros ficticios de enfermería sin utilizar datos reales de pacientes.",
 ];
@@ -405,5 +440,6 @@ fundamentos.bibliography = [
   "Secretaría de Salud de la Ciudad de México. (2014). Manual de procedimientos: manejo de la pinza de traslado (pinza de Bard-Parker). https://data.salud.cdmx.gob.mx/ssdf/portalut/archivo/Actualizaciones/3erTrimestre19/Dir_Juridico_Norma/TEUQ.pdf",
   "Instituto Mexicano del Seguro Social. Procedimientos de enfermería: cuidados de las heridas, clave 2250-003-002. https://www.imss.gob.mx/sites/all/statics/pdf/procedimientos/2250-003-002.pdf",
   "Centers for Disease Control and Prevention. (2024). Standard Precautions for All Patient Care. https://www.cdc.gov/infection-control/hcp/basics/standard-precautions.html",
+  "European Pressure Ulcer Advisory Panel, National Pressure Injury Advisory Panel, & Pan Pacific Pressure Injury Alliance. (2019). Prevention and Treatment of Pressure Ulcers/Injuries: Clinical Practice Guideline.",
   "Comisión Federal para la Protección contra Riesgos Sanitarios. (2025). Residuos peligrosos biológico-infecciosos: NOM-087-SEMARNAT-SSA1-2002 (estado vigente). https://www.gob.mx/cofepris/acciones-y-programas/residuos-peligrosos-biologico-infecciosos",
 ];
