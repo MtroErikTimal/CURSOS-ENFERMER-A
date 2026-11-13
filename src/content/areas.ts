@@ -10,7 +10,7 @@ export type LearningArea = {
   prerequisites: string[];
   units: {
     title: string;
-    topics: { title: string; lessons: { title: string; summary: string; content?: { heading: string; paragraphs: string[]; bullets?: string[] }[] }[] }[];
+    topics: { title: string; lessons: { title: string; summary: string; content?: { heading: string; paragraphs?: string[]; bullets?: string[] }[] }[] }[];
   }[];
   resources: string[];
   activities: string[];
