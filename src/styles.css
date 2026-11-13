@@ -577,3 +577,8 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 .lesson-note-content h4 { margin: 0 0 7px; color: #244b3b; font-size: 11px; }
 .lesson-note-content p, .lesson-note-content li { margin: 0 0 7px; color: #56685d; font-size: 10px; line-height: 1.75; }
 .lesson-note-content ul { margin: 6px 0 0; padding-left: 18px; }
+
+
+.topic-resources { margin: 14px 0 8px; padding: 12px; border-radius: 10px; background: #f2f7f2; border: 1px solid #dce8de; }
+.topic-resources h4 { margin: 0 0 9px; color: #285540; font-size: 11px; }
+.topic-resources .resource-list { margin: 0; }
