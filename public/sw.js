@@ -1,7 +1,6 @@
 const CACHE_PREFIX = "aula-virtual-";
-const CACHE_NAME = "aula-virtual-v3";
-// El alcance procede del registro del service worker: funciona tanto en
-// la raíz de Vercel como en el subdirectorio de GitHub Pages.
+const CACHE_NAME = "aula-virtual-v4";
+// El alcance procede del registro: funciona en Vercel y GitHub Pages.
 const BASE_PATH = new URL("./", self.registration.scope).pathname;
 const OFFLINE_URL = new URL("offline.html", self.registration.scope).pathname;
 const APP_ASSETS = [
@@ -14,25 +13,20 @@ const APP_ASSETS = [
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(async (cache) => {
-      await cache.addAll(APP_ASSETS);
-    })
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_ASSETS))
   );
   self.skipWaiting();
 });
 
 self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    (async () => {
-      const keys = await caches.keys();
-      await Promise.all(
-        keys
-          .filter((key) => key.startsWith(CACHE_PREFIX) && key !== CACHE_NAME)
-          .map((key) => caches.delete(key))
-      );
-      await self.clients.claim();
-    })()
-  );
+  event.waitUntil((async () => {
+    const keys = await caches.keys();
+    await Promise.all(
+      keys.filter((key) => key.startsWith(CACHE_PREFIX) && key !== CACHE_NAME)
+        .map((key) => caches.delete(key))
+    );
+    await self.clients.claim();
+  })());
 });
 
 self.addEventListener("fetch", (event) => {
@@ -40,47 +34,55 @@ self.addEventListener("fetch", (event) => {
   if (request.method !== "GET") return;
 
   const url = new URL(request.url);
-  if (url.origin !== self.location.origin) return;
-  if (!url.pathname.startsWith(BASE_PATH)) return;
+  const isLocal = url.origin === self.location.origin;
 
-  if (request.mode === "navigate") {
-    event.respondWith(
-      (async () => {
-        try {
-          const response = await fetch(request);
-          if (response && response.ok) {
-            const cache = await caches.open(CACHE_NAME);
-            await cache.put(request, response.clone());
-          }
-          return response;
-        } catch {
-          const cache = await caches.open(CACHE_NAME);
-          return (
-            (await cache.match(request)) ||
-            (await cache.match(OFFLINE_URL)) ||
-            Response.error()
-          );
-        }
-      })()
-    );
-    return;
-  }
+  if (isLocal && !url.pathname.startsWith(BASE_PATH)) return;
 
-  event.respondWith(
-    (async () => {
+  // Navegación: primero red; si no hay conexión, usa la última página guardada
+  // o la pantalla offline.
+  if (isLocal && request.mode === "navigate") {
+    event.respondWith((async () => {
       const cache = await caches.open(CACHE_NAME);
-      const cached = await cache.match(request);
-      if (cached) return cached;
-
       try {
         const response = await fetch(request);
-        if (response && response.ok && response.type === "basic") {
+        if (response && response.ok) {
           await cache.put(request, response.clone());
+          // Guarda también la página principal como alternativa offline.
+          if (url.pathname === BASE_PATH) {
+            await cache.put(BASE_PATH, response.clone());
+          }
         }
         return response;
       } catch {
-        return Response.error();
+        return (await cache.match(request)) ||
+          (await cache.match(BASE_PATH)) ||
+          (await cache.match(OFFLINE_URL)) ||
+          Response.error();
       }
-    })()
-  );
+    })());
+    return;
+  }
+
+  // Cachea recursos locales y externos (imágenes y fuentes como Google Fonts).
+  // Las respuestas CORS y opacas también pueden guardarse en Cache Storage.
+  event.respondWith((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    const cached = await cache.match(request);
+    if (cached) return cached;
+
+    try {
+      const response = await fetch(request);
+      if (response && (response.ok || response.type === "opaque")) {
+        try {
+          await cache.put(request, response.clone());
+        } catch (error) {
+          // Si el navegador rechaza guardar un recurso, la página sigue online.
+          console.warn("No se pudo guardar el recurso en caché:", url.href, error);
+        }
+      }
+      return response;
+    } catch {
+      return Response.error();
+    }
+  })());
 });
