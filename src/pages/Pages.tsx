@@ -138,7 +138,7 @@ function ContentList({ items, empty }: { items: string[]; empty: string }) {
     return <li className={isPowerPoint ? "resource-presentation" : undefined} key={item}>
       {isPowerPoint ? <Presentation size={18} aria-hidden="true" /> : <FileText size={17} aria-hidden="true" />}
       {url ? <div className="resource-content">
-        <a href={url} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>{label}</a>
+        {isPowerPoint ? <strong>{label}</strong> : <a href={url} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>{label}</a>}
         {isPowerPoint && <div className="presentation-viewer">
           <p className="presentation-inline-label">Presentación integrada</p>
           <div style={{ position: "relative", width: "100%", paddingTop: "62.5%", marginTop: "12px", overflow: "hidden", borderRadius: "10px", background: "#f3f5f2" }}>
