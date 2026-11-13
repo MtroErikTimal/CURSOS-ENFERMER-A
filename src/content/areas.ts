@@ -251,9 +251,40 @@ fundamentos.units[1].topics = [
   {
     title: "Mecánica corporal",
     lessons: [
-      { title: "Principios de alineación y equilibrio", summary: "Base de sustentación, centro de gravedad, alineación corporal y coordinación de movimientos." },
-      { title: "Ergonomía para el personal de enfermería", summary: "Posturas seguras, flexión de rodillas, acercamiento a la carga y prevención de lesiones." },
-      { title: "Aplicación en el cuidado", summary: "Planeación de movimientos y uso de ayudas para reducir riesgos durante la atención." },
+      {
+        title: "Principios de alineación y equilibrio",
+        summary: "Base de sustentación, centro de gravedad, alineación corporal y coordinación de movimientos.",
+        content: [
+          { heading: "Concepto e importancia", paragraphs: ["La mecánica corporal aplica principios de postura, alineación, equilibrio y movimiento para realizar actividades con menor esfuerzo innecesario y reducir riesgos musculoesqueléticos. En enfermería se utiliza al trabajar junto a la cama, movilizar, transferir y ayudar a cambiar de posición.", "Una técnica corporal adecuada no elimina todos los riesgos ni sustituye las ayudas mecánicas. La movilización manual de personas puede generar cargas elevadas e impredecibles; por ello se priorizan la valoración y los dispositivos apropiados."] },
+          { heading: "Principios biomecánicos", bullets: ["Base de sustentación: área delimitada por los puntos de apoyo; ampliarla de forma cómoda favorece la estabilidad.", "Centro de gravedad: mantenerlo dentro de la base de sustentación ayuda a conservar el equilibrio.", "Alineación corporal: conservar una postura funcional y evitar torsiones o inclinaciones sostenidas.", "Proximidad: acercar la tarea al cuerpo, cuando sea seguro, reduce el brazo de palanca y el esfuerzo.", "Movimiento coordinado: cambiar de dirección moviendo los pies y girando el cuerpo como una unidad."] },
+          { heading: "Postura funcional", paragraphs: ["Adopta una base estable, flexiona caderas y rodillas de manera controlada, mantén la columna en posición neutra y evita trabajar con los brazos extendidos. Mantén hombros relajados y muñecas alineadas. No contengas la respiración ni realices esfuerzos máximos sostenidos."] }
+        ]
+      },
+      {
+        title: "Ergonomía para el personal de enfermería",
+        summary: "Valoración de riesgos, posturas funcionales, ayudas técnicas y prevención de lesiones durante el cuidado.",
+        content: [
+          { heading: "Valoración antes de la tarea", bullets: ["Valorar fuerza, equilibrio, capacidad de colaboración, dolor, mareo, estado cognitivo y riesgo de caída.", "Revisar sondas, catéteres, drenajes, oxígeno y accesos; planear cómo protegerlos.", "Preparar el entorno: frenos, altura de cama, espacio libre, calzado y ruta despejada.", "Seleccionar sábana deslizante, tabla, cinturón de marcha cuando esté indicado o grúa, de acuerdo con el riesgo y las instrucciones del equipo.", "Solicitar personal suficiente; no intentar levantar manualmente a una persona totalmente dependiente."] },
+          { heading: "Prevención de trastornos musculoesqueléticos", paragraphs: ["Los riesgos dependen de la fuerza, repetición, posturas incómodas, duración, recuperación y condiciones del entorno. La prevención requiere capacitación práctica, equipos disponibles y mantenidos, evaluación de riesgos, políticas de movilización segura y reporte temprano de molestias.", "La indicación de flexionar las rodillas y mantener la espalda alineada no convierte en segura una elevación manual de alto riesgo. La fuerza corporal no sustituye una grúa o dispositivo indicado."] },
+          { heading: "Comunicación y equipo", paragraphs: ["Antes de iniciar, una persona coordina la maniobra y todos conocen su función. Se acuerda una señal para comenzar y detenerse. Se explica el procedimiento, se solicita consentimiento y se favorece la participación de la persona hasta donde su condición lo permita."] }
+        ]
+      },
+      {
+        title: "Aplicación en el cuidado y movilización segura",
+        summary: "Planeación de movimientos, selección de ayudas, protección de dispositivos y criterios para detener una maniobra.",
+        content: [
+          { heading: "Secuencia de actuación", bullets: ["Valorar a la persona y determinar si puede colaborar.", "Explicar la maniobra y acordar instrucciones claras.", "Preparar cama, silla, frenos, ruta y equipo.", "Elegir la ayuda técnica y el número de profesionales necesarios.", "Coordinar el movimiento sin tirones, torsiones ni movimientos bruscos.", "Vigilar tolerancia, dolor, mareo y estabilidad; detener ante cualquier signo de alarma.", "Comunicar y registrar el resultado y las incidencias conforme al protocolo."] },
+          { heading: "Situaciones frecuentes", bullets: ["Reposicionamiento en cama: valorar peso y colaboración; usar sábana deslizante y equipo suficiente; evitar arrastrar sobre la piel.", "Transferencia cama-silla: valorar equilibrio y capacidad de carga; bloquear la silla y utilizar tabla o grúa cuando corresponda.", "Persona totalmente dependiente: seguir un plan de movilización con equipo de elevación y personal entrenado; no improvisar levantamientos manuales."] },
+          { heading: "Caso para análisis", paragraphs: ["Una persona adulta mayor requiere pasar de cama a sillón, refiere mareo al incorporarse, presenta debilidad y tiene una venoclisis. Antes de movilizar se debe reevaluar el mareo, valorar capacidad y riesgos, definir ayuda y personal, proteger el acceso y suspender la maniobra si no existen condiciones seguras."] }
+        ]
+      },
+    ],
+    resources: [
+      "Mecánica corporal · Presentación navegable::/materiales/fundamentos-de-enfermeria/presentaciones/presentacion-mecanica-corporal.html",
+      "Mecánica corporal · Guía completa de estudio::/materiales/fundamentos-de-enfermeria/apuntes/mecanica-corporal-guia.html",
+      "Mecánica corporal · Infografía de principios::/materiales/fundamentos-de-enfermeria/imagenes/principios-mecanica-corporal.svg",
+      "Mecánica corporal · Taller práctico y lista de cotejo::/materiales/fundamentos-de-enfermeria/actividades/practica-mecanica-corporal.html",
+      "Mecánica corporal · Autoevaluación interactiva::/materiales/fundamentos-de-enfermeria/actividades/autoevaluacion-mecanica-corporal.html",
     ],
   },
   {
