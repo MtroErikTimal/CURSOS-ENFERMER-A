@@ -1,6 +1,6 @@
 import { useState, type FormEvent, type ReactNode } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowRight, ArrowUpRight, BadgeCheck, BookOpen, Check, ChevronDown, CircleHelp, ClipboardCheck, Download, ExternalLink, FileText, Gamepad2, HeartPulse, Layers3, LockKeyhole, RotateCcw, ShieldCheck, Stethoscope } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BadgeCheck, BookOpen, Check, ChevronDown, CircleHelp, ClipboardCheck, Download, ExternalLink, FileText, Gamepad2, HeartPulse, Layers3, LockKeyhole, Presentation, RotateCcw, ShieldCheck, Stethoscope } from "lucide-react";
 import { learningAreas } from "../content/areas";
 import { gameQuestions } from "../content/gameQuestions";
 import { site } from "../content/site";
@@ -132,7 +132,24 @@ function ContentList({ items, empty }: { items: string[]; empty: string }) {
     const external = Boolean(href && (href.startsWith("https://") || href.startsWith("http://")));
     const cleanPath = href ? (href.startsWith("/") ? href.slice(1) : href) : "";
     const url = href ? (external ? href : `${import.meta.env.BASE_URL}${cleanPath}`) : null;
-    return <li key={item}><FileText size={17} aria-hidden="true" />{url ? <a href={url} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>{label}</a> : item}</li>;
+    const isPowerPoint = Boolean(url && href && href.toLowerCase().endsWith(".pptx"));
+    const absoluteUrl = isPowerPoint && url ? new URL(url, window.location.origin).href : "";
+    const viewerUrl = isPowerPoint ? `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(absoluteUrl)}` : "";
+    return <li className={isPowerPoint ? "resource-presentation" : undefined} key={item}>
+      {isPowerPoint ? <Presentation size={18} aria-hidden="true" /> : <FileText size={17} aria-hidden="true" />}
+      {url ? <div className="resource-content">
+        <a href={url} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>{label}</a>
+        {isPowerPoint && <div className="presentation-viewer">
+          <details>
+            <summary>Ver diapositivas aquí</summary>
+            <div style={{ position: "relative", width: "100%", paddingTop: "62.5%", marginTop: "12px", overflow: "hidden", borderRadius: "10px", background: "#f3f5f2" }}>
+              <iframe src={viewerUrl} title={label} loading="lazy" allowFullScreen style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+            </div>
+          </details>
+          <a className="presentation-download" href={url} download><Download size={14} aria-hidden="true" /> Descargar presentación PPTX</a>
+        </div>}
+      </div> : item}
+    </li>;
   })}</ul> : <p className="editable-note">{empty}</p>;
 }
 
