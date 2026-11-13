@@ -211,9 +211,41 @@ fundamentos.units[1].topics = [
   {
     title: "Carro de curaciones y pinza portaobjetos",
     lessons: [
-      { title: "Organización del carro de curaciones", summary: "Finalidad, distribución del material, preparación y verificación antes de realizar procedimientos." },
-      { title: "Manejo de pinza portaobjetos", summary: "Uso correcto, conservación de la técnica aséptica y prevención de contaminación del material." },
-      { title: "Reposición y seguridad", summary: "Limpieza, reposición, control de insumos y manejo seguro del material utilizado." },
+      {
+        title: "Organización y preparación del carro de curaciones",
+        summary: "Finalidad, zonas de trabajo, inventario, revisión de insumos y preparación segura antes del procedimiento.",
+        content: [
+          { heading: "Finalidad y principios", paragraphs: ["El carro de curaciones facilita el transporte y la organización del material necesario para procedimientos de curación. Su distribución debe favorecer el acceso, la limpieza y la separación entre material limpio, estéril y usado.", "El carro no esteriliza el material. La esterilidad depende de un procesamiento validado, empaque íntegro, indicadores aplicables y manipulación correcta. El inventario debe adaptarse al servicio y al protocolo institucional."] },
+          { heading: "Organización por zonas", bullets: ["Superficie superior: área limpia de trabajo, despejada y desinfectada.", "Cajones y compartimentos: insumos protegidos, identificados y separados por categoría.", "Residuos: recipientes apropiados disponibles cerca del punto de atención, sin comprometer la zona limpia.", "Material usado: nunca se almacena junto al material limpio o estéril ni se reintegra al inventario."] },
+          { heading: "Inventario orientativo", paragraphs: ["Puede incluir EPP según riesgo, gasas, apósitos, compresas, vendas, campos, instrumental estéril, material de irrigación y elementos de fijación. Medicamentos, antisépticos y soluciones se incorporan solo cuando el servicio los autoriza y se cumplen las condiciones de almacenamiento, identificación y control."] },
+          { heading: "Verificación previa", bullets: ["Realizar higiene de manos y revisar limpieza y estado físico del carro.", "Comprobar integridad de empaques, humedad, caducidad e indicadores de esterilización cuando correspondan.", "Retirar material vencido, abierto, dañado, húmedo o de condición dudosa.", "Separar insumos limpios y estériles; no sobrecargar ni colocar objetos personales.", "Confirmar disponibilidad de contenedor rígido para punzocortantes y recipientes para residuos según el procedimiento."] }
+        ]
+      },
+      {
+        title: "Manejo de pinza portaobjetos o de traslado",
+        summary: "Función de la pinza de transferencia, diferencias con otros instrumentos y principios para conservar la técnica aséptica.",
+        content: [
+          { heading: "Aclaración del término", paragraphs: ["En algunos materiales docentes y protocolos locales se utiliza el nombre pinza portaobjeto o portaobjetos para una pinza larga de transferencia. Otros documentos la denominan pinza de traslado, transferencia o auxiliar; algunos manuales describen una pinza tipo Bard-Parker. La nomenclatura y el diseño deben confirmarse con el instrumental y el procedimiento autorizado en cada institución."] },
+          { heading: "Función y diferencias", bullets: ["Pinza de traslado/transferencia: manipula o transfiere material siguiendo una técnica definida.", "Pinza de disección: sujeta tejidos, gasas u otros elementos de acuerdo con su diseño y procedimiento.", "Pinza Kelly o hemostática: sujeta u ocluye estructuras según indicación; no sustituye la pinza de transferencia."] },
+          { heading: "Principios de manejo aséptico", bullets: ["Verificar que el instrumento esté procesado, íntegro y en condiciones definidas por el protocolo.", "Evitar tocar con la pinza superficies no estériles, bordes de recipientes o ropa.", "No realizar movimientos innecesarios ni cruzar entre zonas limpias y contaminadas.", "Si cae, toca una superficie no estéril o existe duda sobre su condición, retirarla y reemplazarla o enviarla a reprocesamiento.", "No devolver al paquete o recipiente material que ya fue retirado, salvo que un procedimiento validado indique expresamente lo contrario."] },
+          { heading: "Precaución sobre soluciones", paragraphs: ["Una solución desinfectante no equivale a esterilización. No se debe asumir que una pinza sumergida en una solución permanece estéril. El uso de soluciones, concentración, compatibilidad, recambio y tiempo de contacto deben estar validados y autorizados por la institución. Cuando el método no esté aprobado, utilizar un dispositivo estéril de transferencia o una alternativa autorizada."] }
+        ]
+      },
+      {
+        title: "Limpieza, reposición y seguridad",
+        summary: "Retiro de material usado, limpieza y desinfección del carro, reposición de insumos y registro de incidencias.",
+        content: [
+          { heading: "Cierre del procedimiento", bullets: ["Retirar el material usado y transportarlo por la ruta establecida al área de reprocesamiento o desecho.", "Depositar punzocortantes inmediatamente en el contenedor rígido autorizado, sin reencapuchar.", "Limpiar y desinfectar el carro con el producto autorizado, respetando compatibilidad, concentración y tiempo de contacto.", "Dejar secar cuando corresponda y realizar higiene de manos.", "Reponer insumos seguros, verificando empaques, identificación y fechas.", "Registrar revisión, reposición, incidencias y responsable cuando el formato institucional lo requiera."] },
+          { heading: "Errores que deben evitarse", bullets: ["Mezclar material estéril con material usado.", "Utilizar paquetes abiertos, húmedos o con esterilidad dudosa.", "Conservar soluciones sin identificación o fecha cuando el protocolo exige rotulado.", "Reintegrar al inventario un insumo que estuvo en contacto con el paciente o el campo de trabajo.", "Suponer que una pinza sumergida en solución desinfectante está automáticamente estéril."] },
+          { heading: "Criterio profesional", paragraphs: ["Ante una duda sobre el procesamiento del instrumental, el producto químico o la organización del carro, detener la preparación, solicitar orientación y seguir el procedimiento institucional vigente. La rapidez nunca debe anteponerse a la seguridad."] }
+        ]
+      },
+    ],
+    resources: [
+      "Carro de curaciones · Presentación navegable::/materiales/fundamentos-de-enfermeria/presentaciones/presentacion-carro-curaciones-pinza-portaobjetos.html",
+      "Carro de curaciones · Apuntes completos::/materiales/fundamentos-de-enfermeria/apuntes/carro-curaciones-pinza-portaobjetos-guia.html",
+      "Carro de curaciones · Infografía de organización segura::/materiales/fundamentos-de-enfermeria/imagenes/organizacion-carro-curaciones.svg",
+      "Carro de curaciones · Autoevaluación interactiva::/materiales/fundamentos-de-enfermeria/actividades/autoevaluacion-carro-curaciones.html",
     ],
   },
   {
@@ -307,6 +339,9 @@ fundamentos.bibliography = [
   "Secretaría de Salud. (2012). NOM-045-SSA2-2005, Para la vigilancia epidemiológica, prevención y control de las infecciones nosocomiales (consultar disposiciones vigentes y aplicables).",
   "Los procedimientos deberán contrastarse con las normas vigentes, las instrucciones de los fabricantes y los protocolos de cada institución antes de su aplicación clínica.",
   "Organización Mundial de la Salud. (2009). WHO Guidelines on Hand Hygiene in Health Care. https://iris.who.int/handle/10665/44102",
+  "Secretaría de Salud de la Ciudad de México. (2015). Técnicas específicas de enfermería: apartado de curaciones. https://www.salud.cdmx.gob.mx/storage/app/media/uploaded-files/3te005tecnicasespecificasdeenfermeria.pdf",
+  "Secretaría de Salud de la Ciudad de México. (2014). Manual de procedimientos: manejo de la pinza de traslado (pinza de Bard-Parker). https://data.salud.cdmx.gob.mx/ssdf/portalut/archivo/Actualizaciones/3erTrimestre19/Dir_Juridico_Norma/TEUQ.pdf",
+  "Instituto Mexicano del Seguro Social. Procedimientos de enfermería: cuidados de las heridas, clave 2250-003-002. https://www.imss.gob.mx/sites/all/statics/pdf/procedimientos/2250-003-002.pdf",
   "Centers for Disease Control and Prevention. (2024). Standard Precautions for All Patient Care. https://www.cdc.gov/infection-control/hcp/basics/standard-precautions.html",
   "Comisión Federal para la Protección contra Riesgos Sanitarios. (2025). Residuos peligrosos biológico-infecciosos: NOM-087-SEMARNAT-SSA1-2002 (estado vigente). https://www.gob.mx/cofepris/acciones-y-programas/residuos-peligrosos-biologico-infecciosos",
 ];
