@@ -362,7 +362,7 @@ fundamentos.units[1].topics = [
       }
     ],
     resources: [
-      "Posiciones terapéuticas · Catálogo ilustrado con definiciones y usos::/materiales/fundamentos-de-enfermeria/apuntes/posiciones-terapeuticas-guia.html",
+      "Posiciones terapéuticas · Atlas ilustrado integrado::/materiales/fundamentos-de-enfermeria/presentaciones/presentacion-atlas-posiciones-terapeuticas.html",
       "Posiciones terapéuticas · Presentación navegable::/materiales/fundamentos-de-enfermeria/presentaciones/presentacion-posiciones-terapeuticas.html",
       "Posiciones terapéuticas · Taller práctico y lista de cotejo::/materiales/fundamentos-de-enfermeria/actividades/practica-posiciones-terapeuticas.html",
       "Posiciones terapéuticas · Autoevaluación interactiva::/materiales/fundamentos-de-enfermeria/actividades/autoevaluacion-posiciones-terapeuticas.html",
