@@ -42,7 +42,7 @@ export function AreaPage() {
         <div>{unit.topics.length ? <ul>{unit.topics.map((topic) => <li className="topic-item" key={topic.title}><strong>{topic.title}</strong>{topic.lessons.length > 0 && <ul>{topic.lessons.map((lesson) => <li key={lesson.title}><strong>{lesson.title}</strong><span>{lesson.summary}</span></li>)}</ul>}</li>)}</ul> : <p>Agrega temas y lecciones a esta unidad en <code>src/content/areas.ts</code>.</p>}</div>
       </details>)}</div>
     </section>
-    <section className="content-panel"><div className="panel-title-row"><div><p className="eyebrow">BIBLIOTECA</p><h2>Recursos de estudio</h2></div><FileText size={21} aria-hidden="true" /></div><ContentList items={area.resources} empty="Agrega aquí presentaciones, lecturas autorizadas, videos y documentos descargables." /></section>
+    <section className="content-panel"><div className="panel-title-row"><div><p className="eyebrow">BIBLIOTECA</p><h2>Recursos de estudio</h2></div><FileText size={21} aria-hidden="true" /></div>{area.slug === "fundamentos-de-enfermeria" && <figure style={{ margin: "18px 0 8px" }}><img src={`${import.meta.env.BASE_URL}images/expediente-clinico-esquema.svg`} alt="Esquema conceptual de los componentes del expediente clínico" style={{ display: "block", width: "100%", maxWidth: "760px", margin: "0 auto", border: "1px solid #dce6dc", borderRadius: "10px" }} /><figcaption style={{ color: "#65746b", fontSize: "12px", marginTop: "8px" }}>Esquema didáctico. La integración documental depende del ámbito de atención y de la normativa aplicable.</figcaption></figure>}<ContentList items={area.resources} empty="Agrega aquí presentaciones, lecturas autorizadas, videos y documentos descargables." /></section>
     <section className="content-panel"><div className="panel-title-row"><div><p className="eyebrow">PRÁCTICA Y REPASO</p><h2>Actividades y evaluación</h2></div><ClipboardCheck size={21} aria-hidden="true" /></div><h3 className="subsection-title">Actividades</h3><ContentList items={area.activities} empty="Agrega aquí actividades y casos ficticios." /><h3 className="subsection-title">Evaluación</h3><ContentList items={area.evaluation} empty="Agrega aquí evaluaciones y criterios de aprobación." /></section>
     <section className="content-panel"><div className="panel-title-row"><div><p className="eyebrow">FUENTES</p><h2>Bibliografía</h2></div><BookOpen size={21} aria-hidden="true" /></div><ContentList items={area.bibliography} empty="Añade referencias verificables y versiones autorizadas. No agregues citas sin confirmar." /></section>
   </div><Link className="back-link" to="/cursos">← Volver al catálogo</Link></PageIntro>;
@@ -127,7 +127,12 @@ function PageIntro({ eyebrow, title, description, icon, children }: { eyebrow: s
 }
 
 function ContentList({ items, empty }: { items: string[]; empty: string }) {
-  return items.length ? <ul className="resource-list">{items.map((item) => <li key={item}><FileText size={17} aria-hidden="true" />{item}</li>)}</ul> : <p className="editable-note">{empty}</p>;
+  return items.length ? <ul className="resource-list">{items.map((item) => {
+    const [label, href] = item.split("::");
+    const external = Boolean(href && /^https?:\\/\\//i.test(href));
+    const url = href ? (external ? href : `${import.meta.env.BASE_URL}${href.replace(/^\\//, "")}`) : null;
+    return <li key={item}><FileText size={17} aria-hidden="true" />{url ? <a href={url} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>{label}</a> : item}</li>;
+  })}</ul> : <p className="editable-note">{empty}</p>;
 }
 
 function EditableList({ title, items }: { title: string; items: string[] }) {
