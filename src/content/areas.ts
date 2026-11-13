@@ -414,7 +414,7 @@ fundamentos.units[2].topics = [
       },
       {
         title: "Presión arterial: regulación hemodinámica y técnica",
-        summary: "Gasto cardiaco, resistencia vascular, barorreflejo, sistema renina-angiotensina-aldosterona, medición auscultatoria y PRONAM vigente.",
+        summary: "Gasto cardiaco, resistencia vascular, barorreflejo, sistema renina-angiotensina-aldosterona, medición automatizada validada y auscultatoria, y criterios PRONAM 2026.",
         content: [
           { heading: "Determinantes fisiológicos", paragraphs: ["La presión arterial depende principalmente del gasto cardiaco y la resistencia vascular sistémica. Barorreceptores ajustan rápidamente la respuesta autonómica; riñón, sistema renina-angiotensina-aldosterona, ADH y endotelio participan en la regulación sostenida."] },
           { heading: "Medición precisa", bullets: ["Reposo previo, ambiente tranquilo y sin conversar.", "Espalda y pies apoyados; piernas sin cruzar.", "Brazo descubierto y apoyado a nivel del corazón.", "Manguito seleccionado según circunferencia del brazo y dispositivo validado.", "Registrar brazo, posición, equipo, cifras, hora y condiciones."] },
@@ -455,7 +455,7 @@ fundamentos.units[2].topics = [
       "Signos vitales · Práctica de laboratorio y lista de cotejo::/materiales/fundamentos-de-enfermeria/actividades/practica-signos-vitales.html",
       "Signos vitales · Autoevaluación interactiva::/materiales/fundamentos-de-enfermeria/actividades/autoevaluacion-signos-vitales.html",
       "NOM-004-SSA3-2012 · Expediente clínico::https://www.dof.gob.mx/nota_detalle.php?codigo=5272787",
-      "PRONAM · Hipertensión arterial sistémica::https://pronamsalud.csg.gob.mx/",
+      "PRONAM 2026 · Hipertensión arterial sistémica (2.ª edición)::https://dof.gob.mx/2026/CSG/PRONAM_Hipertension_arterial_sistemica.pdf",
       "Manual de técnicas de enfermería 2026 · Hospital General de México::https://hgm.salud.gob.mx/interna/dirmed/MANUAL_DE_TECNICAS_2026.pdf",
       "GPC IMSS-796-16 · Valoración y manejo del dolor agudo en niñas y niños de 3 a 6 años::https://www.imss.gob.mx/sites/all/statics/guiasclinicas/796GER.pdf"
     ],
