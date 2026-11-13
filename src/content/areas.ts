@@ -451,6 +451,7 @@ fundamentos.units[2].topics = [
     resources: [
       "Signos vitales · Guía completa de estudio::/materiales/fundamentos-de-enfermeria/apuntes/signos-vitales-guia.html",
       "Signos vitales · Presentación navegable::/materiales/fundamentos-de-enfermeria/presentaciones/presentacion-signos-vitales.html",
+      "Signos vitales · Infografía de los seis parámetros::/materiales/fundamentos-de-enfermeria/imagenes/seis-parametros-signos-vitales.svg",
       "Signos vitales · Práctica de laboratorio y lista de cotejo::/materiales/fundamentos-de-enfermeria/actividades/practica-signos-vitales.html",
       "Signos vitales · Autoevaluación interactiva::/materiales/fundamentos-de-enfermeria/actividades/autoevaluacion-signos-vitales.html",
       "NOM-004-SSA3-2012 · Expediente clínico::https://www.dof.gob.mx/nota_detalle.php?codigo=5272787",
@@ -518,6 +519,9 @@ fundamentos.bibliography = [
   "Secretaría de Salud de la Ciudad de México. (2015). Técnicas específicas de enfermería: apartado de curaciones. https://www.salud.cdmx.gob.mx/storage/app/media/uploaded-files/3te005tecnicasespecificasdeenfermeria.pdf",
   "Secretaría de Salud de la Ciudad de México. (2014). Manual de procedimientos: manejo de la pinza de traslado (pinza de Bard-Parker). https://data.salud.cdmx.gob.mx/ssdf/portalut/archivo/Actualizaciones/3erTrimestre19/Dir_Juridico_Norma/TEUQ.pdf",
   "Instituto Mexicano del Seguro Social. Procedimientos de enfermería: cuidados de las heridas, clave 2250-003-002. https://www.imss.gob.mx/sites/all/statics/pdf/procedimientos/2250-003-002.pdf",
+  "Consejo de Salubridad General. (2026). Protocolo Nacional de Atención Médica: Hipertensión Arterial Sistémica. https://pronamsalud.csg.gob.mx/",
+  "Hospital General de México Dr. Eduardo Liceaga. (2026). Manual de técnicas de enfermería. https://hgm.salud.gob.mx/interna/dirmed/MANUAL_DE_TECNICAS_2026.pdf",
+  "Instituto Mexicano del Seguro Social. (2016). Intervenciones de enfermería para la valoración y manejo del dolor agudo en pacientes de 3 a 6 años (GPC IMSS-796-16). https://www.imss.gob.mx/sites/all/statics/guiasclinicas/796GER.pdf",
   "Centers for Disease Control and Prevention. (2024). Standard Precautions for All Patient Care. https://www.cdc.gov/infection-control/hcp/basics/standard-precautions.html",
   "European Pressure Ulcer Advisory Panel, National Pressure Injury Advisory Panel, & Pan Pacific Pressure Injury Alliance. (2019). Prevention and Treatment of Pressure Ulcers/Injuries: Clinical Practice Guideline.",
   "Comisión Federal para la Protección contra Riesgos Sanitarios. (2025). Residuos peligrosos biológico-infecciosos: NOM-087-SEMARNAT-SSA1-2002 (estado vigente). https://www.gob.mx/cofepris/acciones-y-programas/residuos-peligrosos-biologico-infecciosos",
