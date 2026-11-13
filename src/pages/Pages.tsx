@@ -140,13 +140,11 @@ function ContentList({ items, empty }: { items: string[]; empty: string }) {
       {url ? <div className="resource-content">
         <a href={url} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>{label}</a>
         {isPowerPoint && <div className="presentation-viewer">
-          <details>
-            <summary>Ver diapositivas aquí</summary>
-            <div style={{ position: "relative", width: "100%", paddingTop: "62.5%", marginTop: "12px", overflow: "hidden", borderRadius: "10px", background: "#f3f5f2" }}>
-              <iframe src={viewerUrl} title={label} loading="lazy" allowFullScreen style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
-            </div>
-          </details>
-          <a className="presentation-download" href={url} download><Download size={14} aria-hidden="true" /> Descargar presentación PPTX</a>
+          <p className="presentation-inline-label">Presentación integrada</p>
+          <div style={{ position: "relative", width: "100%", paddingTop: "62.5%", marginTop: "12px", overflow: "hidden", borderRadius: "10px", background: "#f3f5f2" }}>
+            <iframe src={viewerUrl} title={label} loading="lazy" allowFullScreen style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+          </div>
+          <a className="presentation-download" href={url} download><Download size={14} aria-hidden="true" /> Descargar archivo original PPTX</a>
         </div>}
       </div> : item}
     </li>;
