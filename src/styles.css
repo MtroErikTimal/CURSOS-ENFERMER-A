@@ -558,3 +558,22 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+
+/* Lecciones ampliadas: apuntes desplegables por tema */
+.topic-item { margin: 12px 0 !important; color: var(--ink) !important; font-size: 12px !important; }
+.topic-item > strong { display: block; margin: 4px 0 8px; color: #244b3b; font-size: 13px; }
+.topic-item > ul { list-style: none; padding: 0; margin: 8px 0 0; }
+.lesson-list-item { margin: 7px 0 !important; padding: 0 !important; list-style: none; }
+.lesson-note { border: 1px solid #e1e9e2; border-radius: 10px; background: #fbfcfa; overflow: hidden; }
+.lesson-note > summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 13px; cursor: pointer; list-style: none; color: #2e5140; }
+.lesson-note > summary::-webkit-details-marker { display: none; }
+.lesson-note > summary strong { font-size: 11px; }
+.lesson-note > summary svg { flex: 0 0 auto; transition: transform .18s ease; }
+.lesson-note[open] > summary svg { transform: rotate(180deg); }
+.lesson-summary { display: block; padding: 0 13px 10px; color: #64746a; font-size: 10px; line-height: 1.65; }
+.lesson-note-content { padding: 2px 13px 14px; border-top: 1px solid #e8eee8; }
+.lesson-note-content section { padding-top: 12px; }
+.lesson-note-content h4 { margin: 0 0 7px; color: #244b3b; font-size: 11px; }
+.lesson-note-content p, .lesson-note-content li { margin: 0 0 7px; color: #56685d; font-size: 10px; line-height: 1.75; }
+.lesson-note-content ul { margin: 6px 0 0; padding-left: 18px; }
