@@ -10,7 +10,7 @@ export type LearningArea = {
   prerequisites: string[];
   units: {
     title: string;
-    topics: { title: string; lessons: { title: string; summary: string; content?: { heading: string; paragraphs?: string[]; bullets?: string[] }[] }[] }[];
+    topics: { title: string; lessons: { title: string; summary: string; content?: { heading: string; paragraphs?: string[]; bullets?: string[] }[] }[]; resources?: string[] }[];
   }[];
   resources: string[];
   activities: string[];
@@ -120,6 +120,13 @@ fundamentos.units[0].topics = [
         ]
       },
     ],
+    resources: [
+      "Asepsia y antisepsia · Presentación PPTX::/materiales/fundamentos-de-enfermeria/presentaciones/ASEPSIA Y ANTISEPSIS .pptx",
+      "Cadena epidemiológica · Presentación PPTX::/materiales/fundamentos-de-enfermeria/presentaciones/CADENA EPIDEMIOLÓGICA .pptx",
+      "Asepsia y antisepsia · Guía completa de estudio::/materiales/fundamentos-de-enfermeria/apuntes/asepsia-antisepsia-guia.html",
+      "Asepsia y antisepsia · Infografía de los cinco momentos::/materiales/fundamentos-de-enfermeria/imagenes/cinco-momentos-higiene-manos.svg",
+      "Asepsia y antisepsia · Autoevaluación interactiva::/materiales/fundamentos-de-enfermeria/actividades/auto evaluacion-asepsia.html",
+    ],
   },
   {
     title: "RPBI y manejo de muestras biológicas",
@@ -127,6 +134,9 @@ fundamentos.units[0].topics = [
       { title: "Identificación y clasificación", summary: "Reconocimiento de residuos peligrosos biológico-infecciosos conforme a la normatividad aplicable y criterios de segregación." },
       { title: "Envasado, almacenamiento y disposición", summary: "Selección de recipientes, identificación, cierre, almacenamiento temporal y entrega conforme al procedimiento institucional." },
       { title: "Manejo seguro de muestras", summary: "Identificación, etiquetado, transporte y prevención de derrames o exposiciones durante la toma y el traslado." },
+    ],
+    resources: [
+      "RPBI y manejo de muestras · Presentación PPTX::/materiales/fundamentos-de-enfermeria/presentaciones/RPBI .pptx",
     ],
   },
   {
@@ -209,21 +219,16 @@ fundamentos.units[2].topics = [
       { title: "Registros de enfermería", summary: "Análisis del numeral 9.1: habitus exterior, signos vitales, ministración de medicamentos, procedimientos y observaciones." },
       { title: "Calidad y responsabilidad documental", summary: "Legibilidad, oportunidad, objetividad, autoría, trazabilidad y actuación ante omisiones o errores de registro." },
     ],
+    resources: [
+      "Expediente clínico · Guía de estudio::/materiales/expediente-clinico-guia.html",
+      "Expediente clínico · Presentación didáctica::/materiales/presentacion-expediente-clinico.html",
+      "Expediente clínico · Esquema visual::/images/expediente-clinico-esquema.svg",
+      "Expediente clínico · NOM-004-SSA3-2012, texto oficial PDF::https://salud.gob.mx/cdi/archivo/NOM004ssa32012.pdf",
+    ],
   },
 ];
 
-fundamentos.resources = [
-  "Expediente clínico · Guía de estudio::/materiales/expediente-clinico-guia.html",
-  "Expediente clínico · Presentación didáctica de 9 diapositivas::/materiales/presentacion-expediente-clinico.html",
-  "Expediente clínico · Esquema visual::/images/expediente-clinico-esquema.svg",
-  "Expediente clínico · NOM-004-SSA3-2012, texto oficial PDF::https://salud.gob.mx/cdi/archivo/NOM004ssa32012.pdf",
-  "Asepsia y antisepsia · Presentación PPTX::/materiales/fundamentos-de-enfermeria/presentaciones/ASEPSIA Y ANTISEPSIS .pptx",
-  "Asepsia y antisepsia · Guía completa de estudio::/materiales/fundamentos-de-enfermeria/apuntes/asepsia-antisepsia-guia.html",
-  "Asepsia y antisepsia · Infografía de los cinco momentos de higiene de manos::/materiales/fundamentos-de-enfermeria/imagenes/cinco-momentos-higiene-manos.svg",
-  "Asepsia y antisepsia · Autoevaluación interactiva::/materiales/fundamentos-de-enfermeria/actividades/auto evaluacion-asepsia.html",
-  "Cadena epidemiológica · Presentación PPTX::/materiales/fundamentos-de-enfermeria/presentaciones/CADENA EPIDEMIOLÓGICA .pptx",
-  "RPBI y manejo de muestras · Presentación PPTX::/materiales/fundamentos-de-enfermeria/presentaciones/RPBI .pptx",
-];
+fundamentos.resources = [];
 fundamentos.activities = [
   "Unidad 1 · Elabora un esquema que compare asepsia, antisepsia, limpieza, desinfección y esterilización; identifica acciones para interrumpir la cadena epidemiológica.",
   "Unidad 1 · Clasifica residuos de casos simulados y justifica el recipiente o manejo correspondiente con base en la normatividad vigente.",
