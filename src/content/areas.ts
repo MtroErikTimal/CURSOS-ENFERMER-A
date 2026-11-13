@@ -290,9 +290,40 @@ fundamentos.units[1].topics = [
   {
     title: "Movilización y traslado del paciente",
     lessons: [
-      { title: "Valoración previa y preparación", summary: "Identificación de riesgos, nivel de colaboración, dispositivos y número de personas requeridas." },
-      { title: "Movilización en cama y transferencia", summary: "Principios para cambios de posición, desplazamiento en cama y transferencia segura con ayudas." },
-      { title: "Traslado y prevención de caídas", summary: "Preparación del entorno, comunicación, vigilancia y medidas de seguridad durante el traslado." },
+      {
+        title: "Valoración previa y preparación",
+        summary: "Identificación de riesgos, capacidad funcional, dispositivos, nivel de ayuda y equipo necesario.",
+        content: [
+          { heading: "Valoración integral", bullets: ["Valorar conciencia, comprensión, colaboración, fuerza, equilibrio y capacidad para soportar peso.", "Identificar dolor, fatiga, disnea, mareo, riesgo de caída y tolerancia al esfuerzo.", "Revisar restricciones médicas, quirúrgicas o traumatológicas.", "Identificar oxígeno, vías, sondas, drenajes y otros dispositivos que deban protegerse.", "Evaluar entorno, destino, espacio y necesidad de personal o equipo especializado."] },
+          { heading: "Preparación", bullets: ["Explicar el procedimiento, solicitar consentimiento y acordar instrucciones.", "Definir objetivo y nivel de asistencia según la valoración.", "Verificar frenos, altura de superficies, reposapiés y ruta despejada.", "Seleccionar sábana deslizante, tabla, grúa u otra ayuda indicada; revisar capacidad de carga e instrucciones.", "Asignar roles, definir quién coordina y asegurar personal suficiente."] },
+          { heading: "Seguridad", paragraphs: ["No improvisar levantamientos manuales de personas totalmente dependientes ni intentar sostener por fuerza a quien pierde el equilibrio. Si faltan equipo o personal, detener la actividad y gestionar condiciones seguras."] }
+        ]
+      },
+      {
+        title: "Movilización en cama y transferencia",
+        summary: "Cambios de posición, desplazamiento en cama y transferencia segura entre superficies con ayudas apropiadas.",
+        content: [
+          { heading: "Movilización en cama", bullets: ["Explicar el movimiento y valorar tolerancia.", "Usar dispositivos de reducción de fricción cuando estén indicados; evitar arrastrar sobre la sábana.", "Proteger prominencias óseas y evitar cizallamiento, torsiones y tracciones.", "Ajustar la posición final a la indicación clínica, comodidad y respiración."] },
+          { heading: "Transferencia cama-silla", bullets: ["Valorar capacidad para soportar peso, ponerse de pie y mantener equilibrio.", "Colocar silla cerca, bloquear frenos y retirar reposapiés si corresponde.", "Comprobar calzado, altura de superficies y espacio.", "Utilizar tabla o grúa según el plan; no tirar de brazos, axilas, cuello o ropa.", "Verificar alineación, apoyo de pies y acceso al timbre al finalizar."] },
+          { heading: "Incorporación y sedestación", paragraphs: ["Realizar cambios progresivos según tolerancia. Vigilar palidez, sudoración, disnea, dolor, mareo o inestabilidad. Ante síntomas, detener la progresión y revalorar conforme al protocolo."] }
+        ]
+      },
+      {
+        title: "Traslado y prevención de caídas",
+        summary: "Transporte en silla de ruedas o camilla, vigilancia, prevención de incidentes y documentación.",
+        content: [
+          { heading: "Silla de ruedas y camilla", bullets: ["Inspeccionar ruedas, frenos, reposapiés, barandales, asiento y capacidad del equipo.", "Asegurar postura y apoyo de pies; despejar la ruta y controlar velocidad.", "Coordinar transferencias y utilizar dispositivos adecuados.", "Asegurar continuidad de oxígeno, infusiones, drenajes y otros soportes.", "Vigilar a la persona durante el trayecto y aplicar el protocolo en rampas, umbrales y superficies irregulares."] },
+          { heading: "Prevención de caídas", paragraphs: ["Aplicar medidas individualizadas: identificar factores de riesgo, orientar, mantener timbre y objetos al alcance, facilitar calzado adecuado, despejar rutas y ofrecer asistencia. Barandales, cinturones y restricciones no deben usarse de manera automática; requieren valoración de indicación, riesgos y alternativas menos restrictivas."] },
+          { heading: "Criterios para detener y registro", bullets: ["Detener ante dolor intenso, mareo, síncope, disnea, dolor torácico, palidez, sudoración fría, pérdida de equilibrio, falla del equipo o personal insuficiente.", "Documentar valoración, nivel de asistencia, equipo utilizado, tolerancia, posición final, medidas de seguridad, incidentes y notificaciones según política institucional."] }
+        ]
+      },
+    ],
+    resources: [
+      "Movilización y traslado · Presentación navegable::/materiales/fundamentos-de-enfermeria/presentaciones/presentacion-movilizacion-traslado-paciente.html",
+      "Movilización y traslado · Guía completa de estudio::/materiales/fundamentos-de-enfermeria/apuntes/movilizacion-traslado-paciente-guia.html",
+      "Movilización y traslado · Infografía de la ruta segura::/materiales/fundamentos-de-enfermeria/imagenes/flujo-movilizacion-traslado.svg",
+      "Movilización y traslado · Taller práctico y lista de cotejo::/materiales/fundamentos-de-enfermeria/actividades/practica-movilizacion-traslado.html",
+      "Movilización y traslado · Autoevaluación interactiva::/materiales/fundamentos-de-enfermeria/actividades/autoevaluacion-movilizacion-traslado.html",
     ],
   },
   {
