@@ -92,9 +92,12 @@ fundamentos.units[0].topics = [
 ];
 fundamentos.resources = [
   "Guía de estudio: expediente clínico::/materiales/expediente-clinico-guia.html",
-  "Presentación didáctica (9 diapositivas)::/materiales/presentacion-expediente-clinico.html",
+  "Presentación didáctica: expediente clínico (9 diapositivas)::/materiales/presentacion-expediente-clinico.html",
   "Esquema visual del expediente clínico::/images/expediente-clinico-esquema.svg",
   "Texto oficial PDF de la NOM-004-SSA3-2012::https://salud.gob.mx/cdi/archivo/NOM004ssa32012.pdf",
+  "Presentación: RPBI::/materiales/fundamentos-de-enfermeria/presentaciones/RPBI .pptx",
+  "Presentación: Asepsia y antisepsia::/materiales/fundamentos-de-enfermeria/presentaciones/ASEPSIA Y ANTISEPSIA .pptx",
+  "Presentación: Cadena epidemiológica::/materiales/fundamentos-de-enfermeria/presentaciones/CADENA EPIDEMIOLÓGICA .pptx",
 ];
 fundamentos.activities = [
   "Lectura guiada: revisa los numerales 1, 2, 4.4, 5.2, 5.4, 5.5, 5.14 y 9.1 de la NOM-004-SSA3-2012.",
