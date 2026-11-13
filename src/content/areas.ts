@@ -220,7 +220,7 @@ fundamentos.resources = [
   "Asepsia y antisepsia · Presentación PPTX::/materiales/fundamentos-de-enfermeria/presentaciones/ASEPSIA Y ANTISEPSIS .pptx",
   "Asepsia y antisepsia · Guía completa de estudio::/materiales/fundamentos-de-enfermeria/apuntes/asepsia-antisepsia-guia.html",
   "Asepsia y antisepsia · Infografía de los cinco momentos de higiene de manos::/materiales/fundamentos-de-enfermeria/imagenes/cinco-momentos-higiene-manos.svg",
-  "Asepsia y antisepsia · Autoevaluación interactiva::/materiales/fundamentos-de-enfermeria/actividades/autoevaluacion-asepsia.html",
+  "Asepsia y antisepsia · Autoevaluación interactiva::/materiales/fundamentos-de-enfermeria/actividades/auto evaluacion-asepsia.html",
   "Cadena epidemiológica · Presentación PPTX::/materiales/fundamentos-de-enfermeria/presentaciones/CADENA EPIDEMIOLÓGICA .pptx",
   "RPBI y manejo de muestras · Presentación PPTX::/materiales/fundamentos-de-enfermeria/presentaciones/RPBI .pptx",
 ];
