@@ -133,7 +133,7 @@ function ContentList({ items, empty }: { items: string[]; empty: string }) {
     const cleanPath = href ? (href.startsWith("/") ? href.slice(1) : href) : "";
     const url = href ? (external ? href : `${import.meta.env.BASE_URL}${cleanPath}`) : null;
     const isPowerPoint = Boolean(url && href && href.toLowerCase().endsWith(".pptx"));
-    const isSlideDeck = Boolean(url && href && href.endsWith("presentacion-higiene-limpieza-desinfeccion.html"));
+    const isSlideDeck = Boolean(url && href && /\/presentacion-[^/]+\.html$/i.test(href));
     const absoluteUrl = isPowerPoint && url ? new URL(url, window.location.origin).href : "";
     const viewerUrl = isPowerPoint ? `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(absoluteUrl)}` : "";
     return <li className={isPowerPoint || isSlideDeck ? "resource-presentation" : undefined} key={item}>
