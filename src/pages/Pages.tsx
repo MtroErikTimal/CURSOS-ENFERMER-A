@@ -1,6 +1,6 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { Link, useParams, useSearchParams } from "react-router-dom";
-import { ArrowRight, ArrowUpRight, BadgeCheck, BookOpen, Check, ChevronDown, CircleHelp, ClipboardCheck, Download, ExternalLink, FileText, Gamepad2, HeartPulse, Layers3, LockKeyhole, Presentation, RotateCcw, ShieldCheck, Stethoscope } from "lucide-react";
+import { Activity, ArrowRight, ArrowUpRight, Baby, BadgeCheck, BookOpen, Brain, Check, ChevronDown, CircleHelp, ClipboardCheck, ClipboardList, Dna, Download, ExternalLink, FileText, Gamepad2, GraduationCap, HeartPulse, Layers3, LockKeyhole, Microscope, Pill, Presentation, RotateCcw, Scissors, ShieldCheck, Stethoscope, Users } from "lucide-react";
 import { learningAreas } from "../content/areas";
 import { gameQuestions } from "../content/gameQuestions";
 import { topicQuizzes } from "../content/topicQuizzes";
@@ -23,8 +23,28 @@ export function CoursesPage() {
   return <PageIntro eyebrow="CATÁLOGO ACADÉMICO" title="Todos los cursos" description="Los cursos publicados se mostrarán aquí. También puedes explorar el plan de contenidos por áreas de aprendizaje." icon={<BookOpen size={24} aria-hidden="true" />}><section className="catalog-empty content-panel"><BookOpen size={26} aria-hidden="true" /><h2>Explora las áreas del aula</h2><p>Consulta los temas, unidades y estructura académica organizada por área.</p><Link className="button button-green" to="/areas">Ver áreas de aprendizaje <ArrowRight size={16} aria-hidden="true" /></Link></section></PageIntro>;
 }
 
+function AreaIdentityIcon({ slug, size = 23 }: { slug: string; size?: number }) {
+  const common = { size, strokeWidth: 2.1, "aria-hidden": true as const };
+  switch (slug) {
+    case "fundamentos-de-enfermeria": return <BookOpen {...common}/>;
+    case "enfermeria-medico-quirurgica": return <Scissors {...common}/>;
+    case "cuidados-intensivos": return <Activity {...common}/>;
+    case "materno-infantil": return <Baby {...common}/>;
+    case "enfermeria-comunitaria": return <Users {...common}/>;
+    case "anatomia-fisiologia": return <Dna {...common}/>;
+    case "farmacologia": return <Pill {...common}/>;
+    case "proceso-atencion-enfermeria": return <ClipboardList {...common}/>;
+    case "nanda-nic-noc": return <HeartPulse {...common}/>;
+    case "investigacion-enfermeria": return <Microscope {...common}/>;
+    case "calidad-seguridad-paciente": return <ShieldCheck {...common}/>;
+    case "educacion-evaluacion-enfermeria": return <GraduationCap {...common}/>;
+    case "examenes-egreso": return <ClipboardCheck {...common}/>;
+    default: return <BookOpen {...common}/>;
+  }
+}
+
 export function LearningAreasPage() {
-  return <PageIntro eyebrow="CATÁLOGO ACADÉMICO" title="Áreas de aprendizaje" description="Selecciona un área para abrir su ficha, unidades, lecciones, recursos y actividades." icon={<Layers3 size={24} aria-hidden="true" />}><div className="page-area-grid">{learningAreas.map((area, index) => <Link className="page-area-card" key={area.slug} to={`/areas/${area.slug}`}><span className={`area-card-mark art-${area.color}`}><span>{String(index + 1).padStart(2, "0")}</span></span><div><small>ÁREA DE APRENDIZAJE</small><h2>{area.title}</h2><p>{area.description}</p></div><ArrowUpRight size={17} aria-hidden="true" /></Link>)}</div></PageIntro>;
+  return <PageIntro eyebrow="CATÁLOGO ACADÉMICO" title="Áreas de aprendizaje" description="Selecciona un área para abrir su ficha, unidades, lecciones, recursos y actividades." icon={<Layers3 size={24} aria-hidden="true" />}><div className="page-area-grid">{learningAreas.map((area) => <Link className="page-area-card" key={area.slug} to={`/areas/${area.slug}`}><span className={`area-card-mark art-${area.color}`}><AreaIdentityIcon slug={area.slug} size={24}/></span><div><small>ÁREA DE APRENDIZAJE</small><h2>{area.title}</h2><p>{area.description}</p></div><ArrowUpRight size={17} aria-hidden="true" /></Link>)}</div></PageIntro>;
 }
 
 export function AreaPage() {
@@ -40,8 +60,8 @@ export function AreaPage() {
   const previousTopic = activeTopicIndex > 0 ? topics[activeTopicIndex - 1] : undefined;
   const nextTopic = activeTopicIndex >= 0 && activeTopicIndex < topics.length - 1 ? topics[activeTopicIndex + 1] : undefined;
   return <div className={"learning-area-shell" + (isSurgical ? " learning-area-surgical" : "")} data-area={area.slug}>
-    {isSurgical && <header className="surgical-course-banner"><div className="surgical-brand-mark"><Stethoscope size={34}/><HeartPulse size={27}/></div><div className="surgical-brand-copy"><strong>{area.title}</strong><span>Aprende <i>·</i> Aplica <i>·</i> Cuida</span></div><div className="surgical-unit-label"><strong>{activeTopic?.unitTitle || "Aula quirúrgica"}</strong><span>LICENCIATURA EN ENFERMERÍA</span></div></header>}
-    <PageIntro eyebrow={isSurgical ? "AULA DE APRENDIZAJE · FORMACIÓN CLÍNICA" : "AULA DE APRENDIZAJE"} title={area.title} description={area.description} icon={<HeartPulse size={24} aria-hidden="true" />}>
+    {isSurgical && <header className="surgical-course-banner"><div className="surgical-brand-mark"><AreaIdentityIcon slug={area.slug} size={34}/></div><div className="surgical-brand-copy"><strong>{area.title}</strong><span>Aprende <i>·</i> Aplica <i>·</i> Cuida</span></div><div className="surgical-unit-label"><strong>{activeTopic?.unitTitle || "Aula quirúrgica"}</strong><span>LICENCIATURA EN ENFERMERÍA</span></div></header>}
+    <PageIntro eyebrow={isSurgical ? "AULA DE APRENDIZAJE · FORMACIÓN CLÍNICA" : "AULA DE APRENDIZAJE"} title={area.title} description={area.description} icon={<AreaIdentityIcon slug={area.slug} size={24} />}>
       <section className="area-welcome-strip"><div><span className="area-kicker">RUTA DE APRENDIZAJE</span><h2>Estudia. Practica. Integra.</h2><p>{area.level || "Formación en enfermería"}{area.estimatedDuration ? " · " + area.estimatedDuration : ""}</p></div><div className="area-welcome-stats"><span><strong>{topics.length}</strong><small>temas</small></span><span><strong>{topics.reduce((sum, topic) => sum + topic.lessons.length, 0)}</strong><small>lecciones</small></span><span><strong>{area.units.length}</strong><small>unidades</small></span></div></section>
       {area.objectives.length > 0 && <details className="area-objectives-drawer"><summary><BookOpen size={17} /> Propósito y objetivos de la asignatura <ChevronDown size={16} /></summary><div><ul>{area.objectives.map((objective) => <li key={objective}>{objective}</li>)}</ul></div></details>}
       {topics.length > 0 ? <div className="area-study-layout">

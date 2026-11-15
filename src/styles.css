@@ -276,20 +276,21 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 
 .page-area-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 .page-area-card { min-height: 145px; padding: 20px; display: flex; align-items: flex-start; gap: 15px; background: #fff; border: 1px solid var(--line); transition: transform .18s ease, box-shadow .18s ease; }
-.area-card-mark { width: 43px; height: 43px; flex: 0 0 auto; display: grid; place-items: center; color: #fff; }
-.area-card-mark.art-mint { background: #357b62; }
-.area-card-mark.art-blue { background: #496f78; }
-.area-card-mark.art-rose { background: #a47a63; }
-.area-card-mark.art-violet { background: #6b5b99; }
-.area-card-mark.art-amber { background: #93672c; }
-.area-card-mark.art-teal { background: #287b78; }
-.area-card-mark.art-coral { background: #a9564e; }
-.area-card-mark.art-navy { background: #405d86; }
-.area-card-mark.art-plum { background: #805477; }
-.area-card-mark.art-olive { background: #6f783e; }
-.area-card-mark.art-slate { background: #5e7184; }
-.area-card-mark.art-cyan { background: #397b91; }
-.area-card-mark.art-brick { background: #94543d; }
+.area-card-mark { width: 48px; height: 48px; flex: 0 0 auto; display: grid; place-items: center; color: #fff; border-radius: 12px; box-shadow: inset 0 1px 0 #ffffff38, 0 3px 8px #172b2a14; }
+.area-card-mark svg { display: block; }
+.area-card-mark.art-mint { background: #087b68; }
+.area-card-mark.art-blue { background: #2474c5; }
+.area-card-mark.art-rose { background: #c65379; }
+.area-card-mark.art-violet { background: #7653b8; }
+.area-card-mark.art-amber { background: #b87916; }
+.area-card-mark.art-teal { background: #168b91; }
+.area-card-mark.art-coral { background: #d4664f; }
+.area-card-mark.art-navy { background: #344f91; }
+.area-card-mark.art-plum { background: #89517d; }
+.area-card-mark.art-olive { background: #71823b; }
+.area-card-mark.art-slate { background: #586d83; }
+.area-card-mark.art-cyan { background: #218ba7; }
+.area-card-mark.art-brick { background: #a84d3d; }
 .page-area-card > div { flex: 1; }
 .page-area-card h2 { color: var(--ink); font-family: 'Fraunces', Georgia, serif; font-size: 21px; font-weight: 500; }
 .page-area-card p { margin: 8px 0 0; color: var(--muted); font-size: 10px; line-height: 1.65; }
@@ -967,3 +968,7 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
  .surgical-unit-label span{display:none}
  .surgical-topic-navigation button,.surgical-topic-navigation a{font-size:10px;padding:8px}
 }
+
+.page-area-card .area-card-mark { margin-top: 1px; }
+.page-area-card:hover .area-card-mark { transform: translateY(-2px); }
+.area-card-mark { transition: transform .18s ease; }
