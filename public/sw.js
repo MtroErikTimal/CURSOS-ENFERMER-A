@@ -1,5 +1,5 @@
 const CACHE_PREFIX = "aula-virtual-";
-const CACHE_VERSION = "v5";
+const CACHE_VERSION = "v6";
 const SHELL_CACHE = `${CACHE_PREFIX}shell-${CACHE_VERSION}`;
 const PAGE_CACHE = `${CACHE_PREFIX}pages-${CACHE_VERSION}`;
 const ASSET_CACHE = `${CACHE_PREFIX}assets-${CACHE_VERSION}`;
@@ -16,6 +16,7 @@ const APP_ASSETS = [
   new URL("app-icon.svg", self.registration.scope).pathname,
   new URL("icons/icon-192.png", self.registration.scope).pathname,
   new URL("icons/icon-512.png", self.registration.scope).pathname,
+  new URL("icons/apple-touch-icon.png", self.registration.scope).pathname,
 ];
 
 const STATIC_FILE_PATTERN =
@@ -74,14 +75,11 @@ function isSuccessfulCacheResponse(response) {
 self.addEventListener("fetch", (event) => {
   const request = event.request;
 
-  // Nunca interceptar envíos de formularios, escrituras ni otros métodos.
   if (request.method !== "GET") return;
 
   const url = new URL(request.url);
   const isLocal = url.origin === self.location.origin;
 
-  // Los recursos externos (por ejemplo, fuentes de terceros) quedan fuera
-  // de la caché para evitar almacenamiento ilimitado o contenido ajeno.
   if (!isLocal || !url.pathname.startsWith(BASE_PATH)) return;
 
   if (request.mode === "navigate") {
@@ -112,8 +110,6 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Solo guardar archivos estáticos locales. Se excluyen llamadas dinámicas,
-  // datos de API y recursos externos.
   if (!STATIC_FILE_PATTERN.test(url.pathname)) return;
 
   event.respondWith(
