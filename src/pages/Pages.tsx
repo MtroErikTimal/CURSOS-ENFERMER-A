@@ -1,6 +1,6 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { Link, useParams, useSearchParams } from "react-router-dom";
-import { Activity, ArrowRight, ArrowUpRight, Baby, BadgeCheck, BookOpen, Brain, Check, ChevronDown, CircleHelp, ClipboardCheck, ClipboardList, Dna, Download, ExternalLink, FileText, Gamepad2, GraduationCap, HeartPulse, Layers3, LockKeyhole, Microscope, Pill, Presentation, RotateCcw, Scissors, ShieldCheck, Stethoscope, Users } from "lucide-react";
+import { Activity, ArrowRight, ArrowUpRight, Baby, BadgeCheck, BookOpen, Check, ChevronDown, CircleHelp, ClipboardCheck, ClipboardList, Dna, Download, ExternalLink, FileText, Gamepad2, GraduationCap, HeartPulse, Layers3, LockKeyhole, Microscope, Pill, Presentation, RotateCcw, Scissors, ShieldCheck, Stethoscope, Users } from "lucide-react";
 import { learningAreas } from "../content/areas";
 import { gameQuestions } from "../content/gameQuestions";
 import { topicQuizzes } from "../content/topicQuizzes";
