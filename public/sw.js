@@ -1,4 +1,5 @@
 const CACHE_PREFIX = "aula-virtual-";
+// v6: icono Apple incluido en la caché de instalación.
 const CACHE_VERSION = "v6";
 const SHELL_CACHE = `${CACHE_PREFIX}shell-${CACHE_VERSION}`;
 const PAGE_CACHE = `${CACHE_PREFIX}pages-${CACHE_VERSION}`;
