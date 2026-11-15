@@ -11,7 +11,7 @@ import {
   KahootPage,
   LegalPage,
   LearningAreasPage,
-  NotFoundPage,
+  NotFoundPage,\n  ResourcePage,
   TeacherPage,
 } from "./pages/Pages";
 
@@ -26,7 +26,7 @@ export default function PortalApp() {
     <Route index element={<HomePage />} />
     <Route path="cursos" element={<CoursesPage />} />
     <Route path="areas" element={<LearningAreasPage />} />
-    <Route path="areas/:slug" element={<AreaPage />} />
+    <Route path="areas/:slug" element={<AreaPage />} />\n    <Route path="recurso" element={<ResourcePage />} />
     <Route path="juegos" element={<GamePage />} />
     <Route path="kahoot" element={<KahootPage />} />
     <Route path="constancias" element={<CertificatePage />} />
