@@ -1,5 +1,5 @@
 import { useState, type FormEvent, type ReactNode } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, BadgeCheck, BookOpen, Check, ChevronDown, CircleHelp, ClipboardCheck, Download, ExternalLink, FileText, Gamepad2, HeartPulse, Layers3, LockKeyhole, Presentation, RotateCcw, ShieldCheck, Stethoscope } from "lucide-react";
 import { learningAreas } from "../content/areas";
 import { gameQuestions } from "../content/gameQuestions";
@@ -46,6 +46,23 @@ export function AreaPage() {
     <section className="content-panel"><div className="panel-title-row"><div><p className="eyebrow">PRÁCTICA Y REPASO</p><h2>Actividades y evaluación</h2></div><ClipboardCheck size={21} aria-hidden="true" /></div><h3 className="subsection-title">Actividades</h3><ContentList items={area.activities} empty="Agrega aquí actividades y casos ficticios." /><h3 className="subsection-title">Evaluación</h3><ContentList items={area.evaluation} empty="Agrega aquí evaluaciones y criterios de aprobación." /></section>
     <section className="content-panel"><div className="panel-title-row"><div><p className="eyebrow">FUENTES</p><h2>Bibliografía</h2></div><BookOpen size={21} aria-hidden="true" /></div><ContentList items={area.bibliography} empty="Añade referencias verificables y versiones autorizadas. No agregues citas sin confirmar." /></section>
   </div><Link className="back-link" to="/cursos">← Volver al catálogo</Link></PageIntro>;
+}
+
+export function ResourcePage() {
+  const [searchParams] = useSearchParams();
+  const source = searchParams.get("src") ?? "";
+  const label = searchParams.get("label") ?? "Recurso de aprendizaje";
+  let safeSource = "";
+  try {
+    const parsed = new URL(source, window.location.origin);
+    const basePath = import.meta.env.BASE_URL;
+    if (parsed.origin === window.location.origin && parsed.pathname.startsWith(basePath) && parsed.pathname.endsWith(".html")) safeSource = parsed.href;
+  } catch {
+    safeSource = "";
+  }
+  return <PageIntro eyebrow="RECURSO DE APRENDIZAJE" title={label} description="Consulta el material y utiliza el botón Regresar de la parte superior para volver al tema.">
+    {safeSource ? <section className="content-panel resource-page-viewer"><iframe src={safeSource} title={label} loading="eager" /></section> : <section className="content-panel"><h2>Recurso no disponible</h2><p>El enlace no corresponde a un recurso HTML local válido.</p><Link className="button button-green" to="/areas">Volver a las áreas</Link></section>}
+  </PageIntro>;
 }
 
 export function GamePage() {
@@ -139,7 +156,7 @@ function ContentList({ items, empty }: { items: string[]; empty: string }) {
     return <li className={isPowerPoint || isSlideDeck ? "resource-presentation" : undefined} key={item}>
       {isPowerPoint || isSlideDeck ? <Presentation size={18} aria-hidden="true" /> : <FileText size={17} aria-hidden="true" />}
       {url ? <div className="resource-content">
-        {isPowerPoint || isSlideDeck ? <strong>{label}</strong> : <a href={url} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>{label}</a>}
+        {isPowerPoint || isSlideDeck ? <strong>{label}</strong> : (!external && href?.toLowerCase().endsWith(".html") ? <Link to={`/recurso?src=${encodeURIComponent(url)}&label=${encodeURIComponent(label)}`}>{label}</Link> : <a href={url} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>{label}</a>)}
         {isPowerPoint && <div className="presentation-viewer">
           <p className="presentation-inline-label">Presentación integrada</p>
           <div style={{ position: "relative", width: "100%", paddingTop: "62.5%", marginTop: "12px", overflow: "hidden", borderRadius: "10px", background: "#f3f5f2" }}>
