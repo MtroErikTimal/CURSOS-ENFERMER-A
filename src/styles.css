@@ -915,56 +915,57 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 @media(max-width:640px){.area-visual-gallery{padding:12px}.area-visual-gallery-grid{grid-template-columns:1fr;gap:10px}.area-visual-gallery-grid img{max-height:280px}}
 
 
-/* Plantilla visual piloto: Enfermería Médico-Quirúrgica */
-.learning-area-surgical{background:#f2f8fa}
-.surgical-course-banner{min-height:88px;padding:13px clamp(18px,4vw,56px);display:flex;align-items:center;gap:16px;color:#fff;background:linear-gradient(105deg,#07505a,#087b80 58%,#07515c);box-shadow:0 5px 18px #063e4a24}
-.surgical-brand-mark{display:flex;align-items:center;gap:7px;color:#b5f2ee}
+/* Plantilla común de aula: identidad cromática dinámica por asignatura */
+.learning-area-shell{background:var(--area-accent-pale)}
+.surgical-course-banner{min-height:88px;padding:13px clamp(18px,4vw,56px);display:flex;align-items:center;gap:16px;color:#fff;background:linear-gradient(105deg,var(--area-accent-dark),var(--area-accent) 58%,var(--area-accent-dark));box-shadow:0 5px 18px color-mix(in srgb,var(--area-accent-dark) 22%,transparent)}
+.surgical-brand-mark{width:54px;height:54px;flex:0 0 auto;display:grid;place-items:center;color:#fff;background:color-mix(in srgb,var(--area-accent) 72%,white 18%);border:1px solid #ffffff55;border-radius:15px}
 .surgical-brand-copy{display:grid;gap:3px}
 .surgical-brand-copy strong{font-size:clamp(18px,2.5vw,27px);line-height:1.15}
-.surgical-brand-copy span{font-size:12px;color:#d9f5f2;letter-spacing:.04em}
-.surgical-brand-copy i{padding:0 5px;color:#8ee3df;font-style:normal}
-.surgical-unit-label{margin-left:auto;padding:8px 15px;display:grid;gap:3px;text-align:center;color:#063f4b;background:#a9f0ec;border-radius:11px}
-.surgical-unit-label strong{font-size:14px}
+.surgical-brand-copy span{font-size:12px;color:#ffffffd9;letter-spacing:.04em}
+.surgical-brand-copy i{padding:0 5px;color:color-mix(in srgb,var(--area-complement) 72%,white);font-style:normal}
+.surgical-unit-label{max-width:42%;margin-left:auto;padding:8px 15px;display:grid;gap:3px;text-align:center;color:var(--area-accent-dark);background:var(--area-accent-soft);border:1px solid #ffffff55;border-radius:11px}
+.surgical-unit-label strong{font-size:13px;line-height:1.35}
 .surgical-unit-label span{font-size:8px;font-weight:800;letter-spacing:.09em}
-.learning-area-surgical .inner-page{padding-top:23px;background:#f2f8fa}
-.learning-area-surgical .inner-page-heading{display:none}
-.learning-area-surgical .inner-page-content{margin-top:0}
-.learning-area-surgical .area-welcome-strip{margin-bottom:13px;background:linear-gradient(110deg,#07515b,#087f82);border-radius:12px}
-.learning-area-surgical .area-study-layout{grid-template-columns:minmax(220px,260px) minmax(0,1fr);gap:14px}
-.learning-area-surgical .area-topic-sidebar{top:16px;border-color:#c9e1e4;box-shadow:0 4px 15px #07515b12}
-.learning-area-surgical .area-sidebar-heading strong{font-size:18px}
-.learning-area-surgical .area-topic-link{grid-template-columns:25px minmax(0,1fr) 14px;padding:11px 9px}
-.learning-area-surgical .area-topic-link.is-active{color:#fff;background:linear-gradient(105deg,#0875b8,#0786bb);border-color:#0875b8}
-.learning-area-surgical .area-topic-link.is-active strong,.learning-area-surgical .area-topic-link.is-active>span,.learning-area-surgical .area-topic-link.is-active svg{color:#fff;opacity:1}
-.learning-area-surgical .area-topic-main{gap:13px}
-.learning-area-surgical .area-topic-heading{border-color:#c9e1e4;box-shadow:0 3px 12px #07515b0c}
-.learning-area-surgical .area-topic-mark{color:#087b80;background:#e1f5f3}
-.learning-area-surgical .area-learning-section,.learning-area-surgical .area-visual-gallery{border-color:#d2e5e9;box-shadow:0 4px 14px #07515b0c}
-.learning-area-surgical .area-section-icon{color:#087b80;background:#e1f5f3}
-.learning-area-surgical .area-lesson-card{background:#fbfdfe}
-.learning-area-surgical .area-lesson-title strong{font-size:14px}
-.learning-area-surgical .area-lesson-content p,.learning-area-surgical .area-lesson-content li{font-size:14px}
-.surgical-topic-navigation{margin-top:5px;padding:10px;display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:10px;background:#e4f1f4;border-radius:13px}
-.surgical-topic-navigation button,.surgical-topic-navigation a{min-height:43px;padding:9px 12px;display:flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:24px;color:#fff;background:#0879b7;font:inherit;font-size:12px;font-weight:700;text-decoration:none;cursor:pointer}
+.learning-area-shell .inner-page{padding-top:23px;background:var(--area-accent-pale)}
+.learning-area-shell .inner-page-heading{display:none}
+.learning-area-shell .inner-page-content{margin-top:0}
+.learning-area-shell .area-welcome-strip{margin-bottom:13px;background:linear-gradient(110deg,var(--area-accent-dark),var(--area-accent));border-radius:12px}
+.learning-area-shell .area-study-layout{grid-template-columns:minmax(220px,260px) minmax(0,1fr);gap:14px}
+.learning-area-shell .area-topic-sidebar{top:16px;border-color:color-mix(in srgb,var(--area-accent) 25%,white);box-shadow:0 4px 15px color-mix(in srgb,var(--area-accent) 9%,transparent)}
+.learning-area-shell .area-sidebar-heading strong{font-size:18px}
+.learning-area-shell .area-topic-link{grid-template-columns:25px minmax(0,1fr) 14px;padding:11px 9px}
+.learning-area-shell .area-topic-link.is-active{color:#fff;background:linear-gradient(105deg,var(--area-accent-dark),var(--area-accent));border-color:var(--area-accent)}
+.learning-area-shell .area-topic-link.is-active strong,.learning-area-shell .area-topic-link.is-active>span,.learning-area-shell .area-topic-link.is-active svg{color:#fff;opacity:1}
+.learning-area-shell .area-topic-main{gap:13px}
+.learning-area-shell .area-topic-heading{border-color:color-mix(in srgb,var(--area-accent) 22%,white);box-shadow:0 3px 12px color-mix(in srgb,var(--area-accent) 7%,transparent)}
+.learning-area-shell .area-topic-mark{color:var(--area-accent);background:var(--area-accent-soft)}
+.learning-area-shell .area-learning-section,.learning-area-shell .area-visual-gallery{border-color:color-mix(in srgb,var(--area-accent) 20%,white);box-shadow:0 4px 14px color-mix(in srgb,var(--area-accent) 7%,transparent)}
+.learning-area-shell .area-section-icon{color:var(--area-accent);background:var(--area-accent-soft)}
+.learning-area-shell .area-lesson-card{background:var(--area-accent-pale)}
+.learning-area-shell .area-lesson-title strong{font-size:14px}
+.learning-area-shell .area-lesson-content p,.learning-area-shell .area-lesson-content li{font-size:14px}
+.surgical-topic-navigation{margin-top:5px;padding:10px;display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:10px;background:var(--area-accent-soft);border-radius:13px}
+.surgical-topic-navigation button,.surgical-topic-navigation a{min-height:43px;padding:9px 12px;display:flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:24px;color:#fff;background:var(--area-accent);font:inherit;font-size:12px;font-weight:700;text-decoration:none;cursor:pointer}
 .surgical-topic-navigation button:disabled{opacity:.38;cursor:not-allowed}
-.surgical-topic-navigation a{background:#07545e}
+.surgical-topic-navigation a{background:var(--area-accent-dark)}
 .surgical-topic-navigation button span{font-size:20px;line-height:1}
 @media(max-width:760px){
  .surgical-course-banner{min-height:72px;padding:11px 15px;gap:10px}
- .surgical-brand-mark svg:first-child{width:27px}.surgical-brand-mark svg:last-child{width:21px}
+ .surgical-brand-mark{width:42px;height:42px}
+ .surgical-brand-mark svg{width:25px;height:25px}
  .surgical-brand-copy strong{font-size:16px}.surgical-brand-copy span{font-size:10px}
- .surgical-unit-label{padding:7px 9px}.surgical-unit-label strong{font-size:11px}.surgical-unit-label span{font-size:7px}
- .learning-area-surgical .inner-page{padding:15px 12px 36px}
- .learning-area-surgical .area-study-layout{grid-template-columns:minmax(0,1fr)}
- .learning-area-surgical .area-topic-sidebar{position:static;max-height:none}
- .learning-area-surgical .area-topic-link{width:205px;min-width:205px;min-height:66px}
+ .surgical-unit-label{max-width:40%;padding:7px 9px}.surgical-unit-label strong{font-size:10px}.surgical-unit-label span{font-size:7px}
+ .learning-area-shell .inner-page{padding:15px 12px 36px}
+ .learning-area-shell .area-study-layout{grid-template-columns:minmax(0,1fr)}
+ .learning-area-shell .area-topic-sidebar{position:static;max-height:none}
+ .learning-area-shell .area-topic-link{width:205px;min-width:205px;min-height:66px}
  .surgical-topic-navigation{grid-template-columns:1fr 1fr}
  .surgical-topic-navigation a{grid-column:1/-1;grid-row:1}
 }
 @media(max-width:420px){
  .surgical-brand-mark{display:none}
  .surgical-brand-copy strong{font-size:14px}
- .surgical-unit-label{max-width:115px}
+ .surgical-unit-label{max-width:42%}
  .surgical-unit-label span{display:none}
  .surgical-topic-navigation button,.surgical-topic-navigation a{font-size:10px;padding:8px}
 }
