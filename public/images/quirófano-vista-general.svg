@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" role="img" aria-labelledby="t d">
+<title id="t">Vista general de una sala de operaciones</title><desc id="d">Ilustración educativa de un quirófano moderno con mesa quirúrgica, lámparas, monitor, estación de anestesia, mesa de instrumental y áreas de apoyo.</desc>
+<defs>
+ <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#eaf5fb"/><stop offset="1" stop-color="#c8dce8"/></linearGradient>
+ <linearGradient id="wall" x2="0" y2="1"><stop stop-color="#f8fcff"/><stop offset="1" stop-color="#dceaf2"/></linearGradient>
+ <linearGradient id="floor" x2="0" y2="1"><stop stop-color="#b6cedb"/><stop offset="1" stop-color="#7898aa"/></linearGradient>
+ <linearGradient id="blue" x2="0" y2="1"><stop stop-color="#38b7df"/><stop offset="1" stop-color="#087eae"/></linearGradient>
+ <linearGradient id="steel" x2="0" y2="1"><stop stop-color="#f7fbfd"/><stop offset="1" stop-color="#7f9baa"/></linearGradient>
+ <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="12"/></filter>
+</defs>
+<rect width="1440" height="900" rx="30" fill="url(#bg)"/>
+<rect x="40" y="40" width="1360" height="820" rx="28" fill="#fff" opacity=".72"/>
+<path d="M70 90H1370V610H70Z" fill="url(#wall)" stroke="#bdd1dc" stroke-width="5"/>
+<path d="M70 610H1370V810H70Z" fill="url(#floor)"/>
+<path d="M70 610L1370 610L1270 810H170Z" fill="#d9e7ed" opacity=".65"/>
+<!-- wall cabinets and service panel -->
+<rect x="1080" y="180" width="230" height="300" rx="14" fill="#d9e8ef" stroke="#8caab9" stroke-width="7"/>
+<g fill="#f8fcff" stroke="#8ba8b7" stroke-width="5"><rect x="1100" y="200" width="90" height="120" rx="8"/><rect x="1200" y="200" width="90" height="120" rx="8"/><rect x="1100" y="335" width="90" height="120" rx="8"/><rect x="1200" y="335" width="90" height="120" rx="8"/></g>
+<g fill="#4e91b0"><rect x="1115" y="218" width="60" height="8" rx="4"/><rect x="1215" y="218" width="60" height="8" rx="4"/><rect x="1115" y="352" width="60" height="8" rx="4"/><rect x="1215" y="352" width="60" height="8" rx="4"/></g>
+<rect x="880" y="170" width="150" height="110" rx="12" fill="#173e59"/><rect x="892" y="182" width="126" height="84" rx="6" fill="#102b3f"/>
+<path d="M900 225h18l10-20 14 42 13-32 12 10h18l10-22 12 22h18" fill="none" stroke="#59e3b4" stroke-width="5"/>
+<text x="955" y="160" text-anchor="middle" font-family="Arial" font-size="22" font-weight="700" fill="#234b63">MONITORIZACIÓN</text>
+<!-- ceiling light arms -->
+<path d="M470 90V155L520 200M720 90V155L680 200" stroke="#6e8d9d" stroke-width="18" fill="none" stroke-linecap="round"/>
+<g><ellipse cx="520" cy="220" rx="115" ry="32" fill="#7d9cac" opacity=".3"/><ellipse cx="520" cy="204" rx="110" ry="34" fill="#f8fdff" stroke="#7797a8" stroke-width="10"/><ellipse cx="520" cy="204" rx="76" ry="22" fill="#d9f2fb" stroke="#8cb0c0" stroke-width="5"/><g fill="#fff6cf"><circle cx="455" cy="204" r="9"/><circle cx="485" cy="191" r="9"/><circle cx="520" cy="187" r="9"/><circle cx="555" cy="191" r="9"/><circle cx="585" cy="204" r="9"/><circle cx="485" cy="215" r="9"/><circle cx="520" cy="220" r="9"/><circle cx="555" cy="215" r="9"/></g></g>
+<g><ellipse cx="760" cy="220" rx="115" ry="32" fill="#7d9cac" opacity=".3"/><ellipse cx="760" cy="204" rx="110" ry="34" fill="#f8fdff" stroke="#7797a8" stroke-width="10"/><ellipse cx="760" cy="204" rx="76" ry="22" fill="#d9f2fb" stroke="#8cb0c0" stroke-width="5"/><g fill="#fff6cf"><circle cx="695" cy="204" r="9"/><circle cx="725" cy="191" r="9"/><circle cx="760" cy="187" r="9"/><circle cx="795" cy="191" r="9"/><circle cx="825" cy="204" r="9"/><circle cx="725" cy="215" r="9"/><circle cx="760" cy="220" r="9"/><circle cx="795" cy="215" r="9"/></g></g>
+<!-- anesthesia cart -->
+<rect x="170" y="390" width="150" height="165" rx="18" fill="url(#steel)" stroke="#54788c" stroke-width="7"/><rect x="190" y="410" width="110" height="60" rx="8" fill="#173c55"/><path d="M202 445h20l10-20 12 30 12-24 12 14h25" fill="none" stroke="#4ce0b2" stroke-width="4"/><rect x="198" y="485" width="95" height="45" rx="7" fill="#d6e8ef" stroke="#7396a8" stroke-width="4"/><path d="M230 555v45M280 555v45" stroke="#526f80" stroke-width="9"/><circle cx="230" cy="605" r="16" fill="#294e63"/><circle cx="280" cy="605" r="16" fill="#294e63"/><path d="M180 370q-30-65 8-95" stroke="#4b94b2" stroke-width="9" fill="none"/><rect x="145" y="265" width="52" height="92" rx="22" fill="#27b7a4" stroke="#287e82" stroke-width="6"/>
+<!-- operating table -->
+<ellipse cx="690" cy="665" rx="390" ry="55" fill="#476d80" opacity=".24" filter="url(#shadow)"/>
+<path d="M660 515L700 515L750 740L620 740Z" fill="url(#steel)" stroke="#58798a" stroke-width="8"/><path d="M690 545L690 730" stroke="#607e8d" stroke-width="12"/><path d="M550 735H810" stroke="#476b7d" stroke-width="18" stroke-linecap="round"/>
+<path d="M340 490Q360 450 430 455H950Q1010 455 1040 495L1010 565H360Z" fill="#174f70" opacity=".28"/>
+<path d="M350 455H1015L1050 510H325Z" fill="url(#blue)" stroke="#08749e" stroke-width="8"/>
+<path d="M400 445H950L980 485H375Z" fill="#64c9e8" opacity=".8"/>
+<rect x="470" y="420" width="390" height="28" rx="14" fill="#f2fbff" opacity=".85"/>
+<!-- side instrument table -->
+<path d="M1040 565H1290L1330 620H1010Z" fill="#0c83b2" stroke="#176080" stroke-width="8"/><path d="M1045 620L1025 760M1290 620L1310 760" stroke="#607d8b" stroke-width="14"/><path d="M1010 760H1330" stroke="#526f7d" stroke-width="12"/>
+<g stroke="#d8e9ef" stroke-width="7" stroke-linecap="round"><path d="M1060 580l35-28 15 28"/><path d="M1120 580l20-32 20 32"/><path d="M1180 580l10-34 25 34"/><path d="M1240 580l20-28 20 28"/></g>
+<!-- labels -->
+<g font-family="Arial,sans-serif" font-weight="700" fill="#123d59">
+ <g><rect x="360" y="280" width="250" height="56" rx="16" fill="#fff" stroke="#55a9d1" stroke-width="4"/><text x="485" y="317" text-anchor="middle" font-size="26">Lámparas quirúrgicas</text><path d="M485 336L520 168" stroke="#188bbd" stroke-width="5" fill="none"/></g>
+ <g><rect x="70" y="630" width="270" height="58" rx="16" fill="#fff" stroke="#55a9d1" stroke-width="4"/><text x="205" y="668" text-anchor="middle" font-size="25">Equipo de anestesia</text><path d="M205 630L235 555" stroke="#188bbd" stroke-width="5" fill="none"/></g>
+ <g><rect x="560" y="770" width="260" height="58" rx="16" fill="#fff" stroke="#55a9d1" stroke-width="4"/><text x="690" y="808" text-anchor="middle" font-size="25">Mesa quirúrgica</text></g>
+ <g><rect x="1060" y="470" width="270" height="58" rx="16" fill="#fff" stroke="#55a9d1" stroke-width="4"/><text x="1195" y="508" text-anchor="middle" font-size="25">Mesa de instrumental</text><path d="M1195 528L1180 570" stroke="#188bbd" stroke-width="5" fill="none"/></g>
+ <g><rect x="870" y="70" width="270" height="58" rx="16" fill="#fff" stroke="#55a9d1" stroke-width="4"/><text x="1005" y="108" text-anchor="middle" font-size="25">Monitor de signos vitales</text><path d="M1005 128L965 175" stroke="#188bbd" stroke-width="5" fill="none"/></g>
+ <g><rect x="1150" y="70" width="210" height="58" rx="16" fill="#fff" stroke="#55a9d1" stroke-width="4"/><text x="1255" y="108" text-anchor="middle" font-size="25">Área de apoyo</text><path d="M1255 128L1220 180" stroke="#188bbd" stroke-width="5" fill="none"/></g>
+</g>
+<rect x="80" y="825" width="1280" height="1" fill="#aac4d1"/>
+</svg>
