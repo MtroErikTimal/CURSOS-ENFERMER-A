@@ -861,3 +861,45 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
   .topic-quiz-question { font-size: 15px; }
   .topic-quiz-option { align-items: flex-start; font-size: 13px; }
 }
+
+
+/* Misión RPBI: juego integrado en el tema correspondiente */
+.rpbi-game{margin-top:18px;padding:clamp(14px,2.5vw,22px);border:1px solid var(--area-border,#dce8de);border-radius:14px;background:var(--area-soft,#f2f7f2);color:#253d32}
+.rpbi-game-header{padding:20px;border-radius:12px;background:#123d35;color:#fff}
+.rpbi-game-kicker{display:block;font-size:10px;font-weight:800;letter-spacing:1.5px}
+.rpbi-game-header h3{margin:7px 0;font-size:clamp(21px,3vw,27px);color:#fff}
+.rpbi-game-header p{margin:0;color:#e4f0e9;font-size:13px;line-height:1.6}
+.rpbi-game-status{display:flex;justify-content:space-between;gap:12px;margin:17px 0 9px;color:#43564b;font-size:12px}
+.rpbi-game-progress{height:7px;overflow:hidden;border-radius:20px;background:#dce6dd}
+.rpbi-game-progress span{display:block;height:100%;border-radius:inherit;background:#26966b;transition:width .25s ease}
+.rpbi-game-question{margin-top:16px;padding:20px 16px;text-align:center;border:1px solid #dce8de;border-radius:12px;background:#fff}
+.rpbi-game-emoji{display:block;font-size:54px;line-height:1.25}
+.rpbi-game-question h4{margin:7px 0;color:#203c30;font-size:19px}
+.rpbi-game-question p{max-width:620px;margin:0 auto 13px;color:#5d6d63;font-size:13px;line-height:1.6}
+.rpbi-game-question>strong{font-size:13px}
+.rpbi-game-options-title{margin:18px 0 10px;font-size:14px;color:#294638}
+.rpbi-game-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.rpbi-game-option{display:flex;align-items:center;gap:11px;min-width:0;width:100%;padding:12px;border:1px solid #d8e2da;border-radius:10px;background:#fff;color:#263b30;text-align:left;font:inherit;cursor:pointer;transition:border-color .15s,background .15s}
+.rpbi-game-option:hover:not(:disabled){border-color:#4e9874}
+.rpbi-game-option:disabled{cursor:default;opacity:1}
+.rpbi-game-option.is-correct{border:2px solid #26966b;background:#eaf7ee;padding:11px}
+.rpbi-game-option.is-incorrect{border:2px solid #d65b50;background:#fff0ee;padding:11px}
+.rpbi-game-swatch{width:34px;height:42px;flex:0 0 34px;border:2px solid #fff;border-radius:7px;box-shadow:0 0 0 1px #cbd5d1}
+.rpbi-game-option-copy{display:grid;gap:3px;min-width:0}
+.rpbi-game-option-copy strong{font-size:12px;line-height:1.35}
+.rpbi-game-option-copy small{color:#69796f;font-size:10px;line-height:1.4}
+.rpbi-game-mark{margin-left:auto;font-size:18px;font-weight:900}
+.rpbi-game-feedback{margin-top:16px;padding:16px;border:1px solid #d9e4dc;border-radius:10px;background:#fff}
+.rpbi-game-feedback.is-success{border-left:4px solid #26966b}
+.rpbi-game-feedback.is-guidance{border-left:4px solid #c28a35}
+.rpbi-game-feedback h4{margin:0 0 9px;font-size:16px;color:#285540}
+.rpbi-game-feedback.is-guidance h4{color:#8a5b16}
+.rpbi-game-feedback p{margin:7px 0;color:#53645a;font-size:12px;line-height:1.65}
+.rpbi-game-feedback .button{margin-top:8px}
+.rpbi-game-result{padding:25px 10px 12px;text-align:center}
+.rpbi-game-result-emoji{display:block;margin-bottom:8px;font-size:54px}
+.rpbi-game-result h4{margin:9px 0;color:#253d32;font-size:20px}
+.rpbi-game-percentage{display:block;margin:8px 0;font-size:38px;color:#247b58}
+.rpbi-game-result p{max-width:520px;margin:8px auto 16px;color:#5b6b61;font-size:13px;line-height:1.65}
+.rpbi-game-footer{margin-top:18px;padding:12px;border-radius:9px;background:#e9f0ea;color:#596b60;font-size:10px;line-height:1.6}
+@media(max-width:560px){.rpbi-game-options{grid-template-columns:1fr}.rpbi-game-option{padding:11px}.rpbi-game-status{font-size:11px}.rpbi-game-question{padding:16px 12px}}

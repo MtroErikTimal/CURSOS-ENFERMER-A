@@ -6,6 +6,7 @@ import { gameQuestions } from "../content/gameQuestions";
 import { topicQuizzes } from "../content/topicQuizzes";
 import { site } from "../content/site";
 import SocialLinks from "../components/SocialLinks";
+import RPBIGame from "../components/RPBIGame";
 
 export function HomePage() {
   return <>
@@ -51,7 +52,7 @@ export function AreaPage() {
               </details>)}
             </section>
             <section className="area-learning-section area-topic-resources"><div className="area-section-heading"><span className="area-section-icon"><Presentation size={17}/></span><div><h3>Materiales y recursos de este tema</h3><p>Todo el material de consulta y apoyo permanece reunido aquí, sin enlaces a bibliotecas dispersas.</p></div></div><div className="area-resources-panel"><ContentList items={activeTopic.resources ?? []} empty="Este tema aún no tiene materiales vinculados. Los recursos se incorporarán aquí, junto a sus apuntes y actividades."/></div></section>
-            <TopicInteractiveActivity topicTitle={activeTopic.title}/>{topicQuizzes[activeTopic.title] && <TopicQuiz title={activeTopic.title} questions={topicQuizzes[activeTopic.title]} /> }
+            {activeTopic.title === "RPBI y manejo de muestras biológicas" && <RPBIGame />}<TopicInteractiveActivity topicTitle={activeTopic.title}/>{topicQuizzes[activeTopic.title] && <TopicQuiz title={activeTopic.title} questions={topicQuizzes[activeTopic.title]} /> }
           </> : <div className="area-empty-topic"><BookOpen size={28}/><h2>Selecciona un tema</h2><p>Elige un tema del temario para abrir sus apuntes, recursos y actividad.</p></div>}
         </main>
       </div> : <section className="area-curriculum-empty"><span className="area-section-icon"><Layers3 size={20}/></span><h2>Programa académico en construcción</h2><p>Esta asignatura ya tiene una identidad visual. Incorporemos su temario validado, apuntes, recursos y experiencias de aprendizaje.</p><div className="area-empty-checklist"><span>01 · Temas y unidades</span><span>02 · Material de estudio</span><span>03 · Actividades interactivas</span><span>04 · Evaluación y bibliografía</span></div></section>}
