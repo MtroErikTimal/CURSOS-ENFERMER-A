@@ -1,4 +1,4 @@
-import { useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, BadgeCheck, BookOpen, Check, ChevronDown, CircleHelp, ClipboardCheck, Download, ExternalLink, FileText, Gamepad2, HeartPulse, Layers3, LockKeyhole, Presentation, RotateCcw, ShieldCheck, Stethoscope } from "lucide-react";
 import { learningAreas } from "../content/areas";
@@ -29,6 +29,7 @@ export function AreaPage() {
   const { slug } = useParams();
   const area = learningAreas.find((item) => item.slug === slug);
   const [activeTopicKey, setActiveTopicKey] = useState("");
+  useEffect(() => { setActiveTopicKey(""); }, [slug]);
   if (!area) return <NotFoundPage />;
   const topics = area.units.flatMap((unit, unitIndex) => unit.topics.map((topic, topicIndex) => ({ ...topic, unitTitle: unit.title, key: unitIndex + "-" + topicIndex, unitIndex, topicIndex })));
   const activeTopic = topics.find((topic) => topic.key === activeTopicKey) ?? topics[0];
