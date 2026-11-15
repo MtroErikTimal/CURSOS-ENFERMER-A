@@ -506,9 +506,41 @@ fundamentos.units[2].topics = [
   {
     title: "Admisión, estancia y egreso hospitalario",
     lessons: [
-      { title: "Admisión y recepción", summary: "Identificación, recepción, orientación, valoración inicial y pertenencias de la persona usuaria." },
-      { title: "Estancia hospitalaria", summary: "Continuidad del cuidado, comunicación del equipo, seguridad y orientación a paciente y familia." },
-      { title: "Egreso y continuidad", summary: "Preparación del alta, indicaciones, educación, referencias y registro del egreso conforme al proceso institucional." },
+      {
+        title: "Admisión y recepción segura",
+        summary: "Identificación, trato digno, valoración inicial, detección de riesgos y orientación.",
+        content: [
+          { heading: "Recepción", bullets: ["Recibir con trato digno, lenguaje claro y respeto a privacidad, cultura y preferencias.", "Verificar identidad con los identificadores institucionales; nunca utilizar el número de cama como identificador.", "Confirmar documentación e indicación de ingreso según el proceso institucional.", "Orientar sobre habitación, timbre, medidas de seguridad, pertenencias y normas relevantes."] },
+          { heading: "Valoración inicial", bullets: ["Valorar estado general, conciencia, dolor, movilidad, riesgo de caída, piel, dispositivos y necesidades inmediatas.", "Identificar alergias referidas, necesidades de comunicación, idioma, discapacidad y apoyos.", "Registrar valoración, pertenencias, dispositivos, información recibida y acciones realizadas."] },
+          { heading: "Prioridad clínica", paragraphs: ["Ante urgencia o deterioro, priorizar respuesta clínica y activar el sistema correspondiente. Los trámites administrativos no deben retrasar la atención urgente."] }
+        ]
+      },
+      {
+        title: "Estancia hospitalaria y continuidad del cuidado",
+        summary: "Plan individualizado, vigilancia, seguridad, comunicación y entrega-recepción.",
+        content: [
+          { heading: "Cuidados durante la estancia", bullets: ["Ejecutar y reevaluar el plan individualizado.", "Vigilar cambios clínicos, dolor, signos vitales, piel, movilidad y necesidades de la persona.", "Aplicar identificación correcta, higiene de manos, precauciones estándar y prevención de caídas.", "Conciliar y administrar medicamentos conforme a prescripción, competencias y procedimientos.", "Involucrar a la persona y familia autorizada respetando confidencialidad."] },
+          { heading: "Entrega-recepción", paragraphs: ["Transmitir identificación, motivo de ingreso, situación actual, antecedentes relevantes, alergias, medicamentos, riesgos, dispositivos, pendientes y plan inmediato. Utilizar el formato institucional, por ejemplo SBAR/SAER cuando esté adoptado."] },
+          { heading: "Documentación", paragraphs: ["Registrar cuidados, respuesta, incidencias, notificaciones y cambios del plan de manera oportuna, objetiva, legible y atribuible al profesional."] }
+        ]
+      },
+      {
+        title: "Egreso y continuidad después de la hospitalización",
+        summary: "Preparación anticipada, educación, conciliación, signos de alarma, referencias y registro.",
+        content: [
+          { heading: "Planificación del egreso", bullets: ["Confirmar tipo de egreso, indicación y autorización clínica conforme al proceso institucional.", "Valorar condición, movilidad, apoyos, dispositivos y comprensión.", "Revisar indicaciones y conciliación de medicamentos con información autorizada.", "Explicar cuidados, citas, referencias, seguimiento y signos de alarma.", "Comprobar comprensión mediante repetición con palabras propias (teach-back).", "Verificar documentos, pertenencias, destino y transporte seguro."] },
+          { heading: "Tipos de egreso", bullets: ["Alta a domicilio: educación, cuidados, medicamentos, citas y apoyos.", "Traslado o referencia: coordinación con unidad receptora, resumen clínico y transporte apropiado.", "Retiro voluntario: respetar derechos, informar riesgos y alternativas por el profesional responsable y documentar conforme a normativa y política.", "Defunción: actuar con respeto, privacidad y sensibilidad, siguiendo protocolo institucional."] },
+          { heading: "Registro", paragraphs: ["Documentar fecha y hora, condición, educación, documentos entregados, destino, comunicación y salida efectiva. La integración documental se rige por la NOM-004-SSA3-2012 y demás disposiciones aplicables."] }
+        ]
+      }
+    ],
+    resources: [
+      "Admisión, estancia y egreso · Guía completa de estudio::/materiales/fundamentos-de-enfermeria/apuntes/admision-estancia-egreso-guia.html",
+      "Admisión, estancia y egreso · Presentación navegable::/materiales/fundamentos-de-enfermeria/presentaciones/presentacion-admision-estancia-egreso.html",
+      "Admisión, estancia y egreso · Infografía de continuidad del cuidado::/materiales/fundamentos-de-enfermeria/imagenes/ruta-admision-estancia-egreso.svg",
+      "Admisión, estancia y egreso · Taller práctico y lista de cotejo::/materiales/fundamentos-de-enfermeria/actividades/practica-admision-estancia-egreso.html",
+      "Admisión, estancia y egreso · Autoevaluación interactiva::/materiales/fundamentos-de-enfermeria/actividades/autoevaluacion-admision-estancia-egreso.html",
+      "NOM-004-SSA3-2012 · Del expediente clínico::https://www.dof.gob.mx/nota_detalle.php?codigo=5272787"
     ],
   },
   {
