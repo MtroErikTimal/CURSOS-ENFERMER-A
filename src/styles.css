@@ -884,10 +884,10 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 .rpbi-game-option:disabled{cursor:default;opacity:1}
 .rpbi-game-option.is-correct{border:2px solid #26966b;background:#eaf7ee;padding:11px}
 .rpbi-game-option.is-incorrect{border:2px solid #d65b50;background:#fff0ee;padding:11px}
-.rpbi-game-swatch{width:34px;height:42px;flex:0 0 34px;border:2px solid #fff;border-radius:7px;box-shadow:0 0 0 1px #cbd5d1}
-.rpbi-game-option-copy{display:grid;gap:3px;min-width:0}
-.rpbi-game-option-copy strong{font-size:12px;line-height:1.35}
-.rpbi-game-option-copy small{color:#69796f;font-size:10px;line-height:1.4}
+.rpbi-game-container-image{display:grid;place-items:center;width:58px;height:66px;flex:0 0 58px;border-radius:9px;background:#f2f5f2}
+.rpbi-game-container-image svg{display:block;width:52px;height:60px;overflow:visible}
+.rpbi-game-option-copy{display:block;min-width:0}
+.rpbi-game-option-copy strong{font-size:13px;line-height:1.4}
 .rpbi-game-mark{margin-left:auto;font-size:18px;font-weight:900}
 .rpbi-game-feedback{margin-top:16px;padding:16px;border:1px solid #d9e4dc;border-radius:10px;background:#fff}
 .rpbi-game-feedback.is-success{border-left:4px solid #26966b}

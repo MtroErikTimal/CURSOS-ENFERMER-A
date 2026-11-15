@@ -1,15 +1,15 @@
 import { useState } from "react";
 
-type Option = { id: string; name: string; color: string; description: string };
+type Option = { id: string; name: string; color: string };
 type Question = { id: number; image: string; item: string; context: string; correct: string; explanation: string };
 
 const options: Option[] = [
-  { id: "red-liquid", name: "Recipiente hermético rojo", color: "#c62828", description: "Sangre líquida y determinados residuos no anatómicos o cultivos líquidos" },
-  { id: "red-bag", name: "Bolsa roja", color: "#ef4444", description: "Cultivos y cepas sólidos; residuos no anatómicos sólidos" },
-  { id: "yellow-bag", name: "Bolsa amarilla", color: "#eab308", description: "Residuos patológicos sólidos" },
-  { id: "yellow-liquid", name: "Recipiente hermético amarillo", color: "#ca8a04", description: "Residuos patológicos líquidos" },
-  { id: "red-sharps", name: "Recipiente rígido rojo", color: "#b91c1c", description: "Punzocortantes que cumplen los criterios de RPBI" },
-  { id: "ordinary", name: "Residuo común", color: "#64748b", description: "Material no contaminado y no clasificado como RPBI" },
+  { id: "red-liquid", name: "Recipiente hermético rojo", color: "#c62828" },
+  { id: "red-bag", name: "Bolsa roja", color: "#ef4444" },
+  { id: "yellow-bag", name: "Bolsa amarilla", color: "#eab308" },
+  { id: "yellow-liquid", name: "Recipiente hermético amarillo", color: "#ca8a04" },
+  { id: "red-sharps", name: "Recipiente rígido rojo", color: "#b91c1c" },
+  { id: "ordinary", name: "Residuo común", color: "#64748b" },
 ];
 
 const questions: Question[] = [
@@ -86,8 +86,25 @@ export default function RPBIGame() {
             const isSelected = option.id === selected;
             const stateClass = selected !== null && isCorrect ? " is-correct" : isSelected ? " is-incorrect" : "";
             return <button type="button" key={option.id} className={`rpbi-game-option${stateClass}`} onClick={() => answer(option.id)} disabled={selected !== null}>
-              <span className="rpbi-game-swatch" style={{ backgroundColor: option.color }} aria-hidden="true" />
-              <span className="rpbi-game-option-copy"><strong>{option.name}</strong><small>{option.description}</small></span>
+              <span className={`rpbi-game-container-image ${option.id.includes("bag") ? "is-bag" : option.id === "red-liquid" || option.id === "yellow-liquid" ? "is-hermetic" : option.id === "red-sharps" ? "is-sharps" : "is-common"}`} style={{ "--container-color": option.color } as React.CSSProperties} aria-hidden="true">
+                <svg viewBox="0 0 64 72" role="presentation" focusable="false">
+                  {option.id.includes("bag") ? <>
+                    <path d="M21 13 L28 7 L36 7 L43 13 L51 17 L47 27 L44 63 Q32 68 20 63 L17 27 L13 17 Z" fill="var(--container-color)" stroke="#34443b" strokeWidth="1.8" strokeLinejoin="round"/>
+                    <path d="M25 10 Q32 17 39 10 M25 10 L22 4 L42 4 L39 10" fill="none" stroke="#34443b" strokeWidth="2" strokeLinecap="round"/>
+                    <path d="M24 31 Q32 35 40 31" fill="none" stroke="#ffffff" strokeOpacity=".55" strokeWidth="2"/>
+                  </> : option.id === "red-liquid" || option.id === "yellow-liquid" ? <>
+                    <rect x="23" y="7" width="18" height="8" rx="2" fill="var(--container-color)" stroke="#34443b" strokeWidth="1.8"/>
+                    <path d="M26 15 L38 15 L44 24 L44 61 Q32 66 20 61 L20 24 Z" fill="var(--container-color)" stroke="#34443b" strokeWidth="1.8" strokeLinejoin="round"/>
+                    <path d="M23 38 Q32 34 41 38" fill="none" stroke="#ffffff" strokeOpacity=".65" strokeWidth="2"/>
+                    <path d="M25 22 L39 22" stroke="#ffffff" strokeOpacity=".45" strokeWidth="2"/>
+                  </> : <>
+                    <path d="M13 18 L51 18 L48 64 Q32 68 16 64 Z" fill="var(--container-color)" stroke="#34443b" strokeWidth="1.8" strokeLinejoin="round"/>
+                    <path d="M10 14 L54 14 L54 20 L10 20 Z" fill="var(--container-color)" stroke="#34443b" strokeWidth="1.8"/>
+                    {option.id === "red-sharps" ? <path d="M25 14 L25 10 L39 10 L39 14 M27 37 L37 37" fill="none" stroke="#34443b" strokeWidth="2.4" strokeLinecap="round"/> : <path d="M23 34 L41 34 M23 43 L41 43" fill="none" stroke="#ffffff" strokeOpacity=".55" strokeWidth="2"/>}
+                  </>}
+                </svg>
+              </span>
+              <span className="rpbi-game-option-copy"><strong>{option.name}</strong></span>
               {selected !== null && isCorrect && <span className="rpbi-game-mark" aria-label="Respuesta correcta">✓</span>}
               {isSelected && !isCorrect && <span className="rpbi-game-mark" aria-label="Respuesta seleccionada incorrecta">×</span>}
             </button>;
