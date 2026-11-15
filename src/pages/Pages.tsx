@@ -53,7 +53,6 @@ export function AreaPage() {
   const [activeTopicKey, setActiveTopicKey] = useState("");
   useEffect(() => { setActiveTopicKey(""); }, [slug]);
   if (!area) return <NotFoundPage />;
-  const isSurgical = area.slug === "enfermeria-medico-quirurgica";
   const topics = area.units.flatMap((unit, unitIndex) => unit.topics.map((topic, topicIndex) => ({ ...topic, unitTitle: unit.title, key: unitIndex + "-" + topicIndex, unitIndex, topicIndex })));
   const activeTopic = topics.find((topic) => topic.key === activeTopicKey) ?? topics[0];
   const activeTopicIndex = activeTopic ? topics.findIndex((topic) => topic.key === activeTopic.key) : -1;
