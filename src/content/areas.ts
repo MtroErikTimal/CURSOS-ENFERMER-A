@@ -2,7 +2,7 @@ export type LearningArea = {
   slug: string;
   title: string;
   description: string;
-  color: "emerald" | "ocean" | "coral" | "violet" | "amber" | "teal" | "indigo" | "plum" | "sky" | "terracotta" | "olive" | "navy" | "berry";
+  color: "mint" | "blue" | "rose" | "violet" | "amber" | "teal" | "coral" | "navy" | "plum" | "olive" | "slate" | "cyan" | "brick";
   level: string;
   estimatedDuration: string;
   objectives: string[];
@@ -44,19 +44,19 @@ const createArea = (
 });
 
 export const learningAreas: LearningArea[] = [
-  createArea("fundamentos-de-enfermeria", "Fundamentos de Enfermería", "Bases del cuidado, pensamiento enfermero y principios para la práctica profesional.", "emerald"),
-  createArea("enfermeria-medico-quirurgica", "Enfermería Médico-Quirúrgica", "Área temática para organizar contenidos de cuidado médico-quirúrgico.", "ocean"),
-  createArea("cuidados-intensivos", "Enfermería de Cuidados Intensivos", "Área temática para organizar formación relacionada con cuidados críticos.", "coral"),
+  createArea("fundamentos-de-enfermeria", "Fundamentos de Enfermería", "Bases del cuidado, pensamiento enfermero y principios para la práctica profesional.", "blue"),
+  createArea("enfermeria-medico-quirurgica", "Enfermería Médico-Quirúrgica", "Área temática para organizar contenidos de cuidado médico-quirúrgico.", "mint"),
+  createArea("cuidados-intensivos", "Enfermería de Cuidados Intensivos", "Área temática para organizar formación relacionada con cuidados críticos.", "rose"),
   createArea("materno-infantil", "Enfermería Materno-Infantil", "Área temática de atención materna, neonatal e infantil.", "violet"),
   createArea("enfermeria-comunitaria", "Enfermería Comunitaria", "Promoción de la salud y cuidado en contextos comunitarios.", "amber"),
   createArea("anatomia-fisiologia", "Anatomía y Fisiología", "Bases anatómicas y fisiológicas para el estudio del cuidado.", "teal"),
-  createArea("farmacologia", "Farmacología", "Conceptos para el estudio responsable de medicamentos y la seguridad en su manejo.", "indigo"),
-  createArea("proceso-atencion-enfermeria", "Proceso de Atención de Enfermería", "Estructura para organizar el cuidado mediante valoración, planificación y evaluación.", "plum"),
-  createArea("nanda-nic-noc", "NANDA-I, NIC y NOC", "Espacio para contenidos sobre lenguajes estandarizados, sujeto a permisos y versiones autorizadas.", "sky"),
-  createArea("investigacion-enfermeria", "Investigación en Enfermería", "Lectura crítica y fundamentos de investigación aplicados a enfermería.", "terracotta"),
-  createArea("calidad-seguridad-paciente", "Calidad y Seguridad del Paciente", "Cultura de seguridad, prevención de riesgos y mejora de la calidad del cuidado.", "olive"),
-  createArea("educacion-evaluacion-enfermeria", "Educación y Evaluación en Enfermería", "Estrategias para enseñar, aprender y evaluar en contextos de enfermería.", "navy"),
-  createArea("examenes-egreso", "Preparación para Exámenes de Egreso", "Espacio para organizar materiales de preparación académica para el egreso.", "berry"),
+  createArea("farmacologia", "Farmacología", "Conceptos para el estudio responsable de medicamentos y la seguridad en su manejo.", "coral"),
+  createArea("proceso-atencion-enfermeria", "Proceso de Atención de Enfermería", "Estructura para organizar el cuidado mediante valoración, planificación y evaluación.", "navy"),
+  createArea("nanda-nic-noc", "NANDA-I, NIC y NOC", "Espacio para contenidos sobre lenguajes estandarizados, sujeto a permisos y versiones autorizadas.", "plum"),
+  createArea("investigacion-enfermeria", "Investigación en Enfermería", "Lectura crítica y fundamentos de investigación aplicados a enfermería.", "olive"),
+  createArea("calidad-seguridad-paciente", "Calidad y Seguridad del Paciente", "Cultura de seguridad, prevención de riesgos y mejora de la calidad del cuidado.", "slate"),
+  createArea("educacion-evaluacion-enfermeria", "Educación y Evaluación en Enfermería", "Estrategias para enseñar, aprender y evaluar en contextos de enfermería.", "cyan"),
+  createArea("examenes-egreso", "Preparación para Exámenes de Egreso", "Espacio para organizar materiales de preparación académica para el egreso.", "brick"),
 ];
 
 // Fundamentos de Enfermería I: organización didáctica inicial para primer semestre.
@@ -362,6 +362,7 @@ fundamentos.units[1].topics = [
       }
     ],
     resources: [
+      "Posiciones terapéuticas · Guía completa de estudio::/materiales/fundamentos-de-enfermeria/apuntes/posiciones-terapeuticas-guia.html",
       "Posiciones terapéuticas · Atlas ilustrado integrado::/materiales/fundamentos-de-enfermeria/presentaciones/presentacion-atlas-posiciones-terapeuticas.html",
       "Posiciones terapéuticas · Presentación navegable::/materiales/fundamentos-de-enfermeria/presentaciones/presentacion-posiciones-terapeuticas.html",
       "Posiciones terapéuticas · Taller práctico y lista de cotejo::/materiales/fundamentos-de-enfermeria/actividades/practica-posiciones-terapeuticas.html",
@@ -463,30 +464,130 @@ fundamentos.units[2].topics = [
   {
     title: "Somatometría y exploración física",
     lessons: [
-      { title: "Somatometría", summary: "Peso, talla, índice de masa corporal y otras mediciones de acuerdo con edad y condición de la persona." },
-      { title: "Técnicas de exploración física", summary: "Inspección, palpación, percusión y auscultación: principios y secuencia general." },
-      { title: "Valoración y registro", summary: "Preparación, privacidad, consentimiento, hallazgos objetivos y documentación ordenada." },
+      {
+        title: "Fundamentos y técnicas de somatometría",
+        summary: "Peso, talla, IMC y perímetros: equipo, técnica, interpretación y registro.",
+        content: [
+          { heading: "Propósito", paragraphs: ["La somatometría mide dimensiones y proporciones corporales para establecer una línea basal, vigilar cambios y apoyar la valoración integral. Sus resultados no deben interpretarse de forma aislada."] },
+          { heading: "Peso y talla", bullets: ["Verificar báscula nivelada y equipo funcional; explicar el procedimiento y asegurar estabilidad.", "Medir talla con estadímetro, sin calzado y con alineación corporal cuando sea posible.", "Registrar kg, cm o m, fecha, hora, método y limitaciones.", "Si la persona no puede ponerse de pie, usar equipo o método alternativo validado; no improvisar ni estimar sin documentarlo."] },
+          { heading: "Índice de masa corporal", paragraphs: ["IMC = peso en kg / talla en metros al cuadrado. Ejemplo: 70 kg / 1.70² = 24.2 kg/m². En adultos no gestantes se utilizan puntos de corte de referencia de la OMS; no son aplicables de forma automática a niñas, niños, adolescentes, embarazo ni todas las personas mayores. El IMC es una herramienta de tamizaje, no un diagnóstico ni una medición directa de grasa corporal."] },
+          { heading: "Perímetros", bullets: ["Seleccionar perímetro abdominal/cintura, cefálico, braquial u otro según edad y propósito.", "Utilizar cinta no extensible en el punto anatómico estandarizado, horizontal y sin comprimir tejidos.", "Documentar el sitio, técnica, unidad y referencia utilizada; los puntos de corte dependen de población y guía clínica."] }
+        ]
+      },
+      {
+        title: "Técnicas de exploración física",
+        summary: "Inspección, palpación, percusión y auscultación, con secuencia y aplicación por regiones.",
+        content: [
+          { heading: "Inspección", paragraphs: ["Observación sistemática con iluminación adecuada y comparación bilateral cuando proceda. Valora apariencia, coloración, forma, simetría, movimiento, lesiones y esfuerzo respiratorio."] },
+          { heading: "Palpación", paragraphs: ["Exploración mediante manos y dedos para valorar temperatura, textura, humedad, dolor, pulsos, masas, edema y movilidad. La presión superficial o profunda depende del objetivo, competencia y condición de la persona."] },
+          { heading: "Percusión", paragraphs: ["Golpes breves y controlados sobre la superficie corporal o un dedo apoyado para producir sonidos que orientan sobre aire, líquido o densidad de estructuras. Requiere entrenamiento y correlación clínica."] },
+          { heading: "Auscultación", paragraphs: ["Escucha de sonidos corporales con estetoscopio en puntos y secuencia apropiados, por ejemplo ruidos cardiacos, respiratorios, intestinales o vasculares."] },
+          { heading: "Secuencia especial del abdomen", paragraphs: ["En abdomen se utiliza inspección, auscultación, percusión y palpación, porque la manipulación puede modificar los ruidos intestinales. En otras regiones se adapta la secuencia al propósito de la valoración."] }
+        ]
+      },
+      {
+        title: "Preparación, valoración y registro",
+        summary: "Privacidad, consentimiento, bioseguridad, razonamiento clínico y documentación objetiva.",
+        content: [
+          { heading: "Preparación", bullets: ["Verificar identidad, explicar propósito y procedimiento, solicitar consentimiento y respetar intimidad y preferencias.", "Realizar higiene de manos, aplicar precauciones estándar y preparar equipo limpio y funcional.", "Valorar dolor, movilidad, riesgo de caída, estado general y necesidad de asistencia; no forzar posturas."] },
+          { heading: "Registro", paragraphs: ["Documentar fecha, hora, unidades, sitio, método, equipo o limitaciones relevantes. Distinguir datos referidos por la persona de hallazgos observados. Evitar expresiones vagas y no inventar datos ausentes."] },
+          { heading: "Seguridad", bullets: ["Detener la valoración ante dolor intenso, disnea, mareo, pérdida de equilibrio o intolerancia.", "Integrar los hallazgos con antecedentes, síntomas, signos vitales y tendencias.", "Comunicar oportunamente hallazgos anormales o signos de alarma conforme al protocolo institucional."] }
+        ]
+      }
+    ],
+    resources: [
+      "Somatometría y exploración física · Guía completa de estudio::/materiales/fundamentos-de-enfermeria/apuntes/somatometria-exploracion-fisica-guia.html",
+      "Somatometría y exploración física · Presentación navegable::/materiales/fundamentos-de-enfermeria/presentaciones/presentacion-somatometria-exploracion-fisica.html",
+      "Somatometría y exploración física · Infografía::/materiales/fundamentos-de-enfermeria/imagenes/somatometria-exploracion-infografia.svg",
+      "Somatometría y exploración física · Taller práctico y lista de cotejo::/materiales/fundamentos-de-enfermeria/actividades/practica-somatometria-exploracion.html",
+      "Somatometría y exploración física · Autoevaluación interactiva::/materiales/fundamentos-de-enfermeria/actividades/autoevaluacion-somatometria.html",
+      "OMS · Obesidad y sobrepeso: conceptos y criterios de referencia::https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight"
     ],
   },
   {
     title: "Admisión, estancia y egreso hospitalario",
     lessons: [
-      { title: "Admisión y recepción", summary: "Identificación, recepción, orientación, valoración inicial y pertenencias de la persona usuaria." },
-      { title: "Estancia hospitalaria", summary: "Continuidad del cuidado, comunicación del equipo, seguridad y orientación a paciente y familia." },
-      { title: "Egreso y continuidad", summary: "Preparación del alta, indicaciones, educación, referencias y registro del egreso conforme al proceso institucional." },
+      {
+        title: "Admisión y recepción segura",
+        summary: "Identificación, trato digno, valoración inicial, detección de riesgos y orientación.",
+        content: [
+          { heading: "Recepción", bullets: ["Recibir con trato digno, lenguaje claro y respeto a privacidad, cultura y preferencias.", "Verificar identidad con los identificadores institucionales; nunca utilizar el número de cama como identificador.", "Confirmar documentación e indicación de ingreso según el proceso institucional.", "Orientar sobre habitación, timbre, medidas de seguridad, pertenencias y normas relevantes."] },
+          { heading: "Valoración inicial", bullets: ["Valorar estado general, conciencia, dolor, movilidad, riesgo de caída, piel, dispositivos y necesidades inmediatas.", "Identificar alergias referidas, necesidades de comunicación, idioma, discapacidad y apoyos.", "Registrar valoración, pertenencias, dispositivos, información recibida y acciones realizadas."] },
+          { heading: "Prioridad clínica", paragraphs: ["Ante urgencia o deterioro, priorizar respuesta clínica y activar el sistema correspondiente. Los trámites administrativos no deben retrasar la atención urgente."] }
+        ]
+      },
+      {
+        title: "Estancia hospitalaria y continuidad del cuidado",
+        summary: "Plan individualizado, vigilancia, seguridad, comunicación y entrega-recepción.",
+        content: [
+          { heading: "Cuidados durante la estancia", bullets: ["Ejecutar y reevaluar el plan individualizado.", "Vigilar cambios clínicos, dolor, signos vitales, piel, movilidad y necesidades de la persona.", "Aplicar identificación correcta, higiene de manos, precauciones estándar y prevención de caídas.", "Conciliar y administrar medicamentos conforme a prescripción, competencias y procedimientos.", "Involucrar a la persona y familia autorizada respetando confidencialidad."] },
+          { heading: "Entrega-recepción", paragraphs: ["Transmitir identificación, motivo de ingreso, situación actual, antecedentes relevantes, alergias, medicamentos, riesgos, dispositivos, pendientes y plan inmediato. Utilizar el formato institucional, por ejemplo SBAR/SAER cuando esté adoptado."] },
+          { heading: "Documentación", paragraphs: ["Registrar cuidados, respuesta, incidencias, notificaciones y cambios del plan de manera oportuna, objetiva, legible y atribuible al profesional."] }
+        ]
+      },
+      {
+        title: "Egreso y continuidad después de la hospitalización",
+        summary: "Preparación anticipada, educación, conciliación, signos de alarma, referencias y registro.",
+        content: [
+          { heading: "Planificación del egreso", bullets: ["Confirmar tipo de egreso, indicación y autorización clínica conforme al proceso institucional.", "Valorar condición, movilidad, apoyos, dispositivos y comprensión.", "Revisar indicaciones y conciliación de medicamentos con información autorizada.", "Explicar cuidados, citas, referencias, seguimiento y signos de alarma.", "Comprobar comprensión mediante repetición con palabras propias (teach-back).", "Verificar documentos, pertenencias, destino y transporte seguro."] },
+          { heading: "Tipos de egreso", bullets: ["Alta a domicilio: educación, cuidados, medicamentos, citas y apoyos.", "Traslado o referencia: coordinación con unidad receptora, resumen clínico y transporte apropiado.", "Retiro voluntario: respetar derechos, informar riesgos y alternativas por el profesional responsable y documentar conforme a normativa y política.", "Defunción: actuar con respeto, privacidad y sensibilidad, siguiendo protocolo institucional."] },
+          { heading: "Registro", paragraphs: ["Documentar fecha y hora, condición, educación, documentos entregados, destino, comunicación y salida efectiva. La integración documental se rige por la NOM-004-SSA3-2012 y demás disposiciones aplicables."] }
+        ]
+      }
+    ],
+    resources: [
+      "Admisión, estancia y egreso · Guía completa de estudio::/materiales/fundamentos-de-enfermeria/apuntes/admision-estancia-egreso-guia.html",
+      "Admisión, estancia y egreso · Presentación navegable::/materiales/fundamentos-de-enfermeria/presentaciones/presentacion-admision-estancia-egreso.html",
+      "Admisión, estancia y egreso · Infografía de continuidad del cuidado::/materiales/fundamentos-de-enfermeria/imagenes/ruta-admision-estancia-egreso.svg",
+      "Admisión, estancia y egreso · Taller práctico y lista de cotejo::/materiales/fundamentos-de-enfermeria/actividades/practica-admision-estancia-egreso.html",
+      "Admisión, estancia y egreso · Autoevaluación interactiva::/materiales/fundamentos-de-enfermeria/actividades/autoevaluacion-admision-estancia-egreso.html",
+      "NOM-004-SSA3-2012 · Del expediente clínico::https://www.dof.gob.mx/nota_detalle.php?codigo=5272787"
     ],
   },
   {
     title: "Expediente clínico y registros de enfermería",
     lessons: [
-      { title: "Concepto, propósito y alcance", summary: "Definición del expediente clínico, importancia para la continuidad del cuidado y campo de aplicación de la NOM-004-SSA3-2012." },
-      { title: "Integración y confidencialidad", summary: "Organización documental, conservación y protección de la información de la persona usuaria." },
-      { title: "Registros de enfermería", summary: "Análisis del numeral 9.1: habitus exterior, signos vitales, ministración de medicamentos, procedimientos y observaciones." },
-      { title: "Calidad y responsabilidad documental", summary: "Legibilidad, oportunidad, objetividad, autoría, trazabilidad y actuación ante omisiones o errores de registro." },
+      {
+        title: "Concepto, propósito y alcance",
+        summary: "Definición del expediente clínico, importancia para la continuidad del cuidado y campo de aplicación de la NOM-004-SSA3-2012.",
+        content: [
+          { heading: "Concepto", paragraphs: ["El expediente clínico es el conjunto único de información y datos personales de una persona usuaria, integrado en un establecimiento de atención médica. Puede contener documentos escritos, gráficos, imagenológicos, electrónicos y otros soportes en los que se registra la atención otorgada.", "Es una herramienta clínica, legal, ética, administrativa y de comunicación. Favorece continuidad, seguridad, evaluación de la atención y coordinación interdisciplinaria. No es un simple archivo de formatos: debe reflejar de manera cronológica y coherente la atención realmente proporcionada."] },
+          { heading: "Marco normativo", paragraphs: ["En México, la NOM-004-SSA3-2012 establece criterios obligatorios para la elaboración, integración, uso, manejo, archivo, conservación, propiedad, titularidad y confidencialidad del expediente clínico. Debe consultarse el texto oficial y la normativa complementaria aplicable al tipo de establecimiento y servicio."] },
+          { heading: "Principios de uso", bullets: ["Identificar correctamente a la persona y vincular cada registro con su atención.", "Documentar hechos, valoraciones, intervenciones y respuestas que efectivamente ocurrieron.", "Mantener orden cronológico, legibilidad, oportunidad y trazabilidad.", "Proteger datos personales y limitar el acceso a personas autorizadas.", "No sustituir el juicio profesional ni los protocolos institucionales por formatos prellenados."] }
+        ]
+      },
+      {
+        title: "Integración y confidencialidad",
+        summary: "Organización documental, conservación y protección de la información de la persona usuaria.",
+        content: [
+          { heading: "Integración", paragraphs: ["El contenido del expediente depende del tipo de atención y de los servicios prestados. Puede integrar datos de identificación, historia clínica, notas médicas, notas de enfermería, indicaciones, resultados de laboratorio y gabinete, interconsultas, consentimientos informados y documentos de referencia o egreso, según corresponda."] },
+          { heading: "Acceso y confidencialidad", bullets: ["Consultar únicamente expedientes necesarios para las funciones asignadas.", "Evitar comentar información clínica en espacios públicos o canales no autorizados.", "No fotografiar, copiar ni compartir datos identificables sin autorización y fundamento institucional.", "Resguardar pantallas, impresiones, contraseñas y documentos físicos.", "Entregar información solo a la persona usuaria, representante o autoridad que corresponda conforme a la normativa."] },
+          { heading: "Conservación y manejo", paragraphs: ["El establecimiento debe aplicar las reglas de archivo, conservación, custodia y seguridad que correspondan. En sistemas electrónicos deben protegerse los accesos, la integridad, la disponibilidad y la trazabilidad de las modificaciones. El estudiante debe trabajar con expedientes simulados o datos debidamente desidentificados en actividades académicas."] }
+        ]
+      },
+      {
+        title: "Registros de enfermería",
+        summary: "Análisis del numeral 9.1: habitus exterior, signos vitales, ministración de medicamentos, procedimientos y observaciones.",
+        content: [
+          { heading: "Contenido mínimo aplicable", paragraphs: ["La NOM-004-SSA3-2012, en el apartado 9.1, establece elementos para la hoja de enfermería. Entre ellos se encuentran el habitus exterior, la gráfica de signos vitales, ministración de medicamentos con fecha, hora, cantidad y vía prescrita, procedimientos realizados y observaciones. Deben revisarse además los requisitos generales de las notas y los formatos institucionales vigentes."] },
+          { heading: "Cómo redactar", bullets: ["Registrar en el momento de la atención o tan pronto como sea posible conforme al procedimiento institucional.", "Utilizar lenguaje claro, objetivo, preciso y términos aceptados.", "Distinguir lo referido por la persona de lo observado o medido.", "Anotar valores con unidades, fecha, hora y contexto cuando corresponda.", "Describir intervención, respuesta y comunicación realizada; evitar juicios, etiquetas o suposiciones.", "Identificar al autor del registro con los datos y firma que establezca la normativa y el sistema institucional."] },
+          { heading: "Ejemplo educativo", paragraphs: ["Registro objetivo simulado: “08:15 h. Persona alerta, responde coherentemente. Refiere dolor 4/10 en región… Se mide PA…, FC…, FR…, temperatura… Se coloca en posición de confort y se informa al profesional responsable. Se revalora a las…”. Los datos deben corresponder a una situación ficticia de aprendizaje; nunca copiar información real de pacientes."] }
+        ]
+      },
+      {
+        title: "Calidad y responsabilidad documental",
+        summary: "Legibilidad, oportunidad, objetividad, autoría, trazabilidad y actuación ante omisiones o errores de registro.",
+        content: [
+          { heading: "Criterios de calidad", bullets: ["Exactitud: el registro corresponde a lo ocurrido y medido.", "Integridad: incluye los datos requeridos sin omisiones deliberadas.", "Oportunidad: se realiza en el tiempo establecido.", "Legibilidad y claridad: permite comprender quién hizo qué, cuándo y cuál fue la respuesta.", "Trazabilidad: permite identificar al autor y las modificaciones autorizadas.", "Confidencialidad: mantiene protegida la información.", "Conforme a la NOM-004-SSA3-2012, las notas deben incluir fecha, hora, nombre completo y firma de quien las elabora; redactarse en lenguaje técnico-médico, sin abreviaturas, con letra legible y sin enmendaduras ni tachaduras."] },
+          { heading: "Corrección de errores", paragraphs: ["No borrar, ocultar, alterar ni falsificar registros. Si existe un error, seguir el mecanismo de corrección establecido por la normativa y el sistema institucional, conservando la trazabilidad. Las anotaciones tardías o aclaraciones deben identificarse como tales y nunca simular que se hicieron en otro momento."] },
+          { heading: "Responsabilidad profesional", paragraphs: ["La documentación forma parte del cuidado y de la responsabilidad profesional. Registrar una intervención no realizada o copiar notas sin verificar puede comprometer la seguridad de la persona y la integridad del expediente. Ante dudas, consultar al docente o responsable y el procedimiento vigente."] }
+        ]
+      },
     ],
     resources: [
       "Expediente clínico · Guía de estudio::/materiales/expediente-clinico-guia.html",
       "Expediente clínico · Presentación didáctica::/materiales/presentacion-expediente-clinico.html",
+      "Expediente clínico · Evaluación interactiva::/materiales/evaluacion-expediente-clinico.html",
       "Expediente clínico · Esquema visual::/images/expediente-clinico-esquema.svg",
       "Expediente clínico · NOM-004-SSA3-2012, texto oficial PDF::https://salud.gob.mx/cdi/archivo/NOM004ssa32012.pdf",
     ],
@@ -513,7 +614,8 @@ fundamentos.evaluation = [
 fundamentos.bibliography = [
   "Secretaría de Salud. (2012, 15 de octubre). Norma Oficial Mexicana NOM-004-SSA3-2012, Del expediente clínico. Diario Oficial de la Federación.",
   "Secretaría de Medio Ambiente y Recursos Naturales. (2003). NOM-087-SEMARNAT-SSA1-2002, Protección ambiental—Salud ambiental—Residuos peligrosos biológico-infecciosos—Clasificación y especificaciones de manejo.",
-  "Secretaría de Salud. (2012). NOM-045-SSA2-2005, Para la vigilancia epidemiológica, prevención y control de las infecciones nosocomiales (consultar disposiciones vigentes y aplicables).",
+  "Secretaría de Salud. (2009, 20 de noviembre). NOM-045-SSA2-2005, Para la vigilancia epidemiológica, prevención y control de las infecciones nosocomiales. Diario Oficial de la Federación. Norma vigente hasta que se publique la disposición que la sustituya. https://platiica.economia.gob.mx/normalizacion/nom-045-ssa2-2005/",
+  "Secretaría de Salud. (2026). PROY-NOM-045-SSA-2026, Para la vigilancia epidemiológica, prevención y control de las infecciones asociadas a la atención de la salud. Proyecto sometido a consulta pública; no citar como norma vigente. https://dof.gob.mx/normasOficiales/9547/salud/salud.html",
   "Los procedimientos deberán contrastarse con las normas vigentes, las instrucciones de los fabricantes y los protocolos de cada institución antes de su aplicación clínica.",
   "Organización Mundial de la Salud. (2009). WHO Guidelines on Hand Hygiene in Health Care. https://iris.who.int/handle/10665/44102",
   "Secretaría de Salud de la Ciudad de México. (2015). Técnicas específicas de enfermería: apartado de curaciones. https://www.salud.cdmx.gob.mx/storage/app/media/uploaded-files/3te005tecnicasespecificasdeenfermeria.pdf",

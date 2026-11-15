@@ -1,5 +1,5 @@
-import { useState, type FormEvent, type ReactNode } from "react";
-import { Link, useParams, useSearchParams } from "react-router-dom";
+import { useEffect, useState, type FormEvent, type ReactNode } from "react";
+import { Link, useParams } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, BadgeCheck, BookOpen, Check, ChevronDown, CircleHelp, ClipboardCheck, Download, ExternalLink, FileText, Gamepad2, HeartPulse, Layers3, LockKeyhole, Presentation, RotateCcw, ShieldCheck, Stethoscope } from "lucide-react";
 import { learningAreas } from "../content/areas";
 import { gameQuestions } from "../content/gameQuestions";
@@ -29,24 +29,35 @@ export function LearningAreasPage() {
 export function AreaPage() {
   const { slug } = useParams();
   const area = learningAreas.find((item) => item.slug === slug);
+  const [activeTopicKey, setActiveTopicKey] = useState("");
+  useEffect(() => { setActiveTopicKey(""); }, [slug]);
   if (!area) return <NotFoundPage />;
-  return <PageIntro eyebrow="ÁREA DE APRENDIZAJE" title={area.title} description={area.description} icon={<HeartPulse size={24} aria-hidden="true" />}><div className={`area-detail-layout area-theme-${area.color}`}>
-    <section className="content-panel area-objective">
-      <p className="eyebrow">DISEÑO ACADÉMICO</p><h2>Ficha del área</h2>
-      <div className="area-facts"><div><small>NIVEL</small><p>{area.level || "Por definir"}</p></div><div><small>DURACIÓN ESTIMADA</small><p>{area.estimatedDuration || "Por definir"}</p></div></div>
-      <div className="area-outline-grid"><EditableList title="Objetivos de aprendizaje" items={area.objectives} /><EditableList title="Competencias" items={area.competencies} /><EditableList title="Requisitos previos" items={area.prerequisites} /></div>
-    </section>
-    <section className="content-panel">
-      <div className="panel-title-row"><div><p className="eyebrow">CONTENIDO DEL CURSO</p><h2>Unidades y temas</h2></div><Layers3 size={21} aria-hidden="true" /></div>
-      <div className="unit-list">{area.units.map((unit, index) => <details className="unit-item" key={unit.title}>
-        <summary><span className="unit-index">0{index + 1}</span><strong>{unit.title}</strong><ChevronDown size={17} aria-hidden="true" /></summary>
-        <div>{unit.topics.length ? <ul>{unit.topics.map((topic) => <li className="topic-item" key={topic.title}><strong>{topic.title}</strong>{topic.lessons.length > 0 && <ul>{topic.lessons.map((lesson) => <li className="lesson-list-item" key={lesson.title}><details className="lesson-note"><summary><strong>{lesson.title}</strong><ChevronDown size={15} aria-hidden="true" /></summary><span className="lesson-summary">{lesson.summary}</span>{lesson.content && <div className="lesson-note-content">{lesson.content.map((section) => <section key={section.heading}><h4>{section.heading}</h4>{section.paragraphs?.map((paragraph, paragraphIndex) => <p key={paragraphIndex}>{paragraph}</p>)}{section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}</section>)}</div>}</details></li>)}</ul>}{topic.resources?.length ? <div className="topic-resources"><h4>Materiales y recursos de este tema</h4><ContentList items={topic.resources} empty="" /></div> : null}{topicQuizzes[topic.title] && <TopicQuiz title={topic.title} questions={topicQuizzes[topic.title]} />}</li>)}</ul> : <p>Agrega temas y lecciones a esta unidad en <code>src/content/areas.ts</code>.</p>}</div>
-      </details>)}</div>
-    </section>
-    <section className="content-panel"><div className="panel-title-row"><div><p className="eyebrow">BIBLIOTECA</p><h2>Recursos de estudio</h2></div><FileText size={21} aria-hidden="true" /></div>{area.slug === "fundamentos-de-enfermeria" && <figure style={{ margin: "18px 0 8px" }}><img src={`${import.meta.env.BASE_URL}images/expediente-clinico-esquema.svg`} alt="Esquema conceptual de los componentes del expediente clínico" style={{ display: "block", width: "100%", maxWidth: "760px", margin: "0 auto", border: "1px solid #dce6dc", borderRadius: "10px" }} /><figcaption style={{ color: "#65746b", fontSize: "12px", marginTop: "8px" }}>Esquema didáctico. La integración documental depende del ámbito de atención y de la normativa aplicable.</figcaption></figure>}{area.slug === "fundamentos-de-enfermeria" && <figure style={{ margin: "18px 0 8px" }}><img src={`${import.meta.env.BASE_URL}materiales/fundamentos-de-enfermeria/imagenes/cinco-momentos-higiene-manos.svg`} alt="Infografía de los cinco momentos para la higiene de manos" style={{ display: "block", width: "100%", maxWidth: "760px", margin: "0 auto", border: "1px solid #dce6dc", borderRadius: "10px" }} /><figcaption style={{ color: "#65746b", fontSize: "12px", marginTop: "8px" }}>Cinco momentos para la higiene de manos. Fuente: Organización Mundial de la Salud.</figcaption></figure>}<ContentList items={area.resources} empty="Los materiales están organizados dentro de cada tema, en la sección Materiales y recursos." /></section>
-    <section className="content-panel"><div className="panel-title-row"><div><p className="eyebrow">PRÁCTICA Y REPASO</p><h2>Actividades y evaluación</h2></div><ClipboardCheck size={21} aria-hidden="true" /></div><h3 className="subsection-title">Actividades</h3><ContentList items={area.activities} empty="Agrega aquí actividades y casos ficticios." /><h3 className="subsection-title">Evaluación</h3><ContentList items={area.evaluation} empty="Agrega aquí evaluaciones y criterios de aprobación." /></section>
-    <section className="content-panel"><div className="panel-title-row"><div><p className="eyebrow">FUENTES</p><h2>Bibliografía</h2></div><BookOpen size={21} aria-hidden="true" /></div><ContentList items={area.bibliography} empty="Añade referencias verificables y versiones autorizadas. No agregues citas sin confirmar." /></section>
-  </div><Link className="back-link" to="/cursos">← Volver al catálogo</Link></PageIntro>;
+  const topics = area.units.flatMap((unit, unitIndex) => unit.topics.map((topic, topicIndex) => ({ ...topic, unitTitle: unit.title, key: unitIndex + "-" + topicIndex, unitIndex, topicIndex })));
+  const activeTopic = topics.find((topic) => topic.key === activeTopicKey) ?? topics[0];
+  return <div className="learning-area-shell" data-area={area.slug}>
+    <PageIntro eyebrow="AULA DE APRENDIZAJE" title={area.title} description={area.description} icon={<HeartPulse size={24} aria-hidden="true" />}>
+      <section className="area-welcome-strip"><div><span className="area-kicker">RUTA DE APRENDIZAJE</span><h2>Estudia. Practica. Integra.</h2><p>{area.level || "Formación en enfermería"}{area.estimatedDuration ? " · " + area.estimatedDuration : ""}</p></div><div className="area-welcome-stats"><span><strong>{topics.length}</strong><small>temas</small></span><span><strong>{topics.reduce((sum, topic) => sum + topic.lessons.length, 0)}</strong><small>lecciones</small></span><span><strong>{area.units.length}</strong><small>unidades</small></span></div></section>
+      {area.objectives.length > 0 && <details className="area-objectives-drawer"><summary><BookOpen size={17} /> Propósito y objetivos de la asignatura <ChevronDown size={16} /></summary><div><ul>{area.objectives.map((objective) => <li key={objective}>{objective}</li>)}</ul></div></details>}
+      {topics.length > 0 ? <div className="area-study-layout">
+        <aside className="area-topic-sidebar" aria-label="Temario de la asignatura"><div className="area-sidebar-heading"><span className="area-kicker">CONTENIDO</span><strong>Temario</strong><small>Selecciona un tema para estudiar</small></div>
+          {area.units.map((unit, unitIndex) => <section className="area-sidebar-unit" key={unit.title}><h3><span>{String(unitIndex + 1).padStart(2,"0")}</span>{unit.title}</h3>{unit.topics.length ? <nav>{unit.topics.map((topic, topicIndex) => { const key=unitIndex+"-"+topicIndex; const selected=(activeTopic?.key ?? "0-0")===key; return <button type="button" className={"area-topic-link"+(selected?" is-active":"")} key={key} onClick={()=>setActiveTopicKey(key)} aria-current={selected?"page":undefined}><span>{String(topicIndex+1).padStart(2,"0")}</span><strong>{topic.title}</strong><ArrowRight size={15}/></button>; })}</nav> : <p className="area-no-topics">Temas por desarrollar.</p>}</section>)}
+        </aside>
+        <main className="area-topic-main" key={activeTopic?.key}>
+          {activeTopic ? <>
+            <div className="area-topic-heading"><div><span className="area-kicker">{activeTopic.unitTitle}</span><h2>{activeTopic.title}</h2><p>{activeTopic.lessons.length} lecciones · Recursos y práctica aplicada</p></div><span className="area-topic-mark"><BookOpen size={24}/></span></div>
+            <section className="area-learning-section"><div className="area-section-heading"><span className="area-section-icon"><BookOpen size={17}/></span><div><h3>Apuntes y lecciones</h3><p>Abre cada lección para consultar su contenido.</p></div></div>
+              {activeTopic.lessons.map((lesson, lessonIndex)=><details className="area-lesson-card" key={lesson.title}><summary><span className="area-lesson-number">{String(lessonIndex+1).padStart(2,"0")}</span><span className="area-lesson-title"><strong>{lesson.title}</strong><small>{lesson.summary}</small></span><ChevronDown size={18}/></summary>
+                {lesson.content && <div className="area-lesson-content">{lesson.content.map((section)=><section key={section.heading}><h4>{section.heading}</h4>{section.paragraphs?.map((paragraph,index)=><p key={index}>{paragraph}</p>)}{section.bullets && <ul>{section.bullets.map((bullet)=><li key={bullet}>{bullet}</li>)}</ul>}</section>)}</div>}
+              </details>)}
+            </section>
+            <section className="area-learning-section area-topic-resources"><div className="area-section-heading"><span className="area-section-icon"><Presentation size={17}/></span><div><h3>Materiales y recursos de este tema</h3><p>Todo el material de consulta y apoyo permanece reunido aquí, sin enlaces a bibliotecas dispersas.</p></div></div><div className="area-resources-panel"><ContentList items={activeTopic.resources ?? []} empty="Este tema aún no tiene materiales vinculados. Los recursos se incorporarán aquí, junto a sus apuntes y actividades."/></div></section>
+            <TopicInteractiveActivity topicTitle={activeTopic.title}/>{topicQuizzes[activeTopic.title] && <TopicQuiz title={activeTopic.title} questions={topicQuizzes[activeTopic.title]} /> }
+          </> : <div className="area-empty-topic"><BookOpen size={28}/><h2>Selecciona un tema</h2><p>Elige un tema del temario para abrir sus apuntes, recursos y actividad.</p></div>}
+        </main>
+      </div> : <section className="area-curriculum-empty"><span className="area-section-icon"><Layers3 size={20}/></span><h2>Programa académico en construcción</h2><p>Esta asignatura ya tiene una identidad visual. Incorporemos su temario validado, apuntes, recursos y experiencias de aprendizaje.</p><div className="area-empty-checklist"><span>01 · Temas y unidades</span><span>02 · Material de estudio</span><span>03 · Actividades interactivas</span><span>04 · Evaluación y bibliografía</span></div></section>}
+      <Link className="area-back-link" to="/areas">← Volver a todas las asignaturas</Link>
+    </PageIntro>
+  </div>;
 }
 
 type TopicQuizProps = {
@@ -97,21 +108,41 @@ function TopicQuiz({ title, questions }: TopicQuizProps) {
   </section>;
 }
 
-export function ResourcePage() {
-  const [searchParams] = useSearchParams();
-  const source = searchParams.get("src") ?? "";
-  const label = searchParams.get("label") ?? "Recurso de aprendizaje";
-  let safeSource = "";
-  try {
-    const parsed = new URL(source, window.location.origin);
-    const basePath = import.meta.env.BASE_URL;
-    if (parsed.origin === window.location.origin && parsed.pathname.startsWith(basePath) && parsed.pathname.endsWith(".html")) safeSource = parsed.href;
-  } catch {
-    safeSource = "";
-  }
-  return <PageIntro eyebrow="RECURSO DE APRENDIZAJE" title={label} description="Consulta el material y utiliza el botón Regresar de la parte superior para volver al tema.">
-    {safeSource ? <section className="content-panel resource-page-viewer"><iframe src={safeSource} title={label} loading="eager" /></section> : <section className="content-panel"><h2>Recurso no disponible</h2><p>El enlace no corresponde a un recurso HTML local válido.</p><Link className="button button-green" to="/areas">Volver a las áreas</Link></section>}
-  </PageIntro>;
+
+type TopicActivityMode = "case" | "sequence" | "classify" | "checklist" | "calculation" | "match";
+type TopicActivityConfig = { mode: TopicActivityMode; title: string; instruction: string; items: string[]; answer: string[]; options?: string[]; explanation: string; };
+const topicActivityConfigs: Record<string, TopicActivityConfig> = {
+ "Asepsia y antisepsia": {mode:"case",title:"Decisión clínica: protege el campo",instruction:"Durante una curación, el borde del campo estéril entra en contacto con la sábana. ¿Qué haces?",items:["Detener el procedimiento, considerar contaminado el campo afectado y sustituir el material necesario.","Continuar porque el contacto fue breve.","Cubrir la zona con una gasa estéril y continuar."],answer:["Detener el procedimiento, considerar contaminado el campo afectado y sustituir el material necesario."],explanation:"La esterilidad comprometida no se recupera cubriendo el área. Detén el procedimiento, reemplaza el material afectado y restablece la técnica según el protocolo."},
+ "RPBI y manejo de muestras biológicas": {mode:"classify",title:"Estación de segregación RPBI",instruction:"Clasifica cada residuo en la categoría indicada. Aplica los criterios normativos, no solamente el lugar donde se generó.",items:["Aguja hipodérmica usada","Sangre líquida","Tejido humano patológico","Cultivo de microorganismos","Gasa empapada y goteando sangre"],options:["Punzocortante","Sangre líquida","Patológico","Cultivo y cepa","No anatómico"],answer:["Punzocortante","Sangre líquida","Patológico","Cultivo y cepa","No anatómico"],explanation:"La segregación se realiza en el punto de generación conforme a las categorías y criterios de la NOM-087-SEMARNAT-SSA1-2002."},
+ "Higiene, limpieza y desinfección": {mode:"sequence",title:"Secuencia de reprocesamiento",instruction:"Selecciona los pasos en el orden correcto, conforme al protocolo y al fabricante.",items:["Almacenar y conservar el equipo procesado de forma segura.","Aplicar el método de desinfección o esterilización que corresponda.","Enjuagar y secar cuando lo indique el procedimiento.","Retirar suciedad mediante limpieza.","Preparar el área y el equipo de protección según el riesgo."],answer:["Preparar el área y el equipo de protección según el riesgo.","Retirar suciedad mediante limpieza.","Enjuagar y secar cuando lo indique el procedimiento.","Aplicar el método de desinfección o esterilización que corresponda.","Almacenar y conservar el equipo procesado de forma segura."],explanation:"La limpieza precede a la desinfección o esterilización. Método, concentración, tiempo y compatibilidad dependen de las instrucciones del fabricante y del protocolo."},
+ "Carro de curaciones y pinza portaobjetos": {mode:"checklist",title:"Prepara el carro de curaciones",instruction:"Marca los elementos y verificaciones indispensables antes de iniciar. Después comprueba tu selección.",items:["Higiene de manos y limpieza/desinfección de la superficie.","Verificar integridad, limpieza y disponibilidad del material.","Separar material limpio del contaminado.","Comprobar caducidad e integridad de empaques estériles.","Preparar contenedor para residuos y punzocortantes según el procedimiento.","Reutilizar material desechable si parece limpio."],answer:["Higiene de manos y limpieza/desinfección de la superficie.","Verificar integridad, limpieza y disponibilidad del material.","Separar material limpio del contaminado.","Comprobar caducidad e integridad de empaques estériles.","Preparar contenedor para residuos y punzocortantes según el procedimiento."],explanation:"La preparación requiere organización, verificación de integridad y separación de áreas. Los dispositivos de un solo uso no se reutilizan."},
+ "Mecánica corporal": {mode:"case",title:"Simulador de postura segura",instruction:"Vas a movilizar una carga cercana al cuerpo. ¿Qué combinación reduce el esfuerzo y protege tu espalda?",items:["Acercar la carga, ampliar la base de sustentación, flexionar caderas y rodillas y evitar torsión del tronco.","Separar la carga del cuerpo y flexionar solamente la espalda.","Girar el tronco mientras sostienes la carga."],answer:["Acercar la carga, ampliar la base de sustentación, flexionar caderas y rodillas y evitar torsión del tronco."],explanation:"Una base estable, carga próxima y movimiento coordinado de caderas y rodillas disminuyen el brazo de palanca. Solicita ayuda o equipo cuando sea necesario."},
+ "Movilización y traslado del paciente": {mode:"case",title:"Escenario de movilización segura",instruction:"La persona presenta debilidad y refiere mareo al sentarse. ¿Cuál es la prioridad?",items:["Detener la transferencia, asegurar la posición, valorar síntomas y solicitar apoyo según el protocolo.","Continuar rápidamente para terminar el traslado.","Pedirle que se levante sin asistencia."],answer:["Detener la transferencia, asegurar la posición, valorar síntomas y solicitar apoyo según el protocolo."],explanation:"La seguridad y la valoración prevalecen sobre completar la maniobra. Reevalúa tolerancia, riesgo de caída y necesidad de apoyo."},
+ "Posiciones terapéuticas": {mode:"match",title:"Relaciona posición y propósito",instruction:"Asocia cada situación con la posición más apropiada dentro del escenario simulado.",items:["Facilitar expansión torácica en una persona con disnea, si la tolera.","Exploración o procedimiento indicado que requiere acceso posterior.","Procedimiento ginecológico que requiere acceso perineal."],options:["Fowler o semifowler","Decúbito lateral","Litotomía"],answer:["Fowler o semifowler","Decúbito lateral","Litotomía"],explanation:"La selección depende de indicación, tolerancia, contraindicaciones, privacidad y seguridad; nunca se debe forzar una postura."},
+ "Signos vitales": {mode:"calculation",title:"Interpreta el índice de masa corporal",instruction:"Caso simulado: peso 72 kg y talla 1.68 m. Calcula el IMC (peso / talla²) e introduce el resultado con un decimal.",items:["25.5"],answer:["25.5"],explanation:"72 / (1.68 × 1.68) = 25.5 kg/m². El IMC es una medida de cribado, no sustituye la valoración integral."},
+ "Somatometría y exploración física": {mode:"calculation",title:"Reto de somatometría",instruction:"Caso simulado: peso 64 kg y talla 1.60 m. Calcula el IMC con un decimal.",items:["25.0"],answer:["25.0"],explanation:"64 / (1.60 × 1.60) = 25.0 kg/m². Registra valor, unidad, fecha, hora, técnica y condiciones relevantes."},
+ "Admisión, estancia y egreso hospitalario": {mode:"sequence",title:"Ruta de admisión segura",instruction:"Ordena las acciones prioritarias para recibir a una persona estable. Ante urgencia, no retrases la atención clínica por trámites.",items:["Registrar valoración, información recibida y acciones realizadas.","Orientar sobre el entorno, medidas de seguridad y timbre de llamado.","Valorar estado general, riesgos y necesidades inmediatas.","Recibir con trato digno y verificar identidad con identificadores institucionales."],answer:["Recibir con trato digno y verificar identidad con identificadores institucionales.","Valorar estado general, riesgos y necesidades inmediatas.","Orientar sobre el entorno, medidas de seguridad y timbre de llamado.","Registrar valoración, información recibida y acciones realizadas."],explanation:"La secuencia integra identificación, valoración, orientación y registro. Ante deterioro o urgencia, se prioriza la respuesta clínica."},
+ "Expediente clínico y registros de enfermería": {mode:"case",title:"Auditoría de una nota de enfermería",instruction:"¿Cuál registro ofrece mayor calidad documental?",items:["08:15 h. Persona alerta y orientada. Refiere dolor 4/10. Se registran signos vitales con unidades, intervención realizada, respuesta y comunicación al responsable.","Paciente bien, se encuentra estable. Se dieron cuidados.","Se deja nota al final del turno de procedimientos no verificados."],answer:["08:15 h. Persona alerta y orientada. Refiere dolor 4/10. Se registran signos vitales con unidades, intervención realizada, respuesta y comunicación al responsable."],explanation:"Un registro útil es oportuno, objetivo, claro, completo, cronológico y atribuible. Documenta solo hechos realmente observados, medidos o realizados."}
+};
+function TopicInteractiveActivity({topicTitle}:{topicTitle:string}) {
+ const config=topicActivityConfigs[topicTitle];
+ const [selected,setSelected]=useState<string[]>([]);
+ const [assignments,setAssignments]=useState<Record<string,string>>({});
+ const [checked,setChecked]=useState(false);
+ const [answer,setAnswer]=useState("");
+ if(!config) return <section className="area-activity-card"><div className="area-section-heading"><span className="area-section-icon"><Gamepad2 size={17}/></span><div><h3>Actividad de aplicación</h3><p>Analiza el contenido y realiza la práctica propuesta por tu docente.</p></div></div><p>La actividad interactiva específica de este tema está pendiente de diseño.</p></section>;
+ const reset=()=>{setSelected([]);setAssignments({});setChecked(false);setAnswer("");};
+ const isCorrect=()=>config.mode==="case"?config.answer.includes(answer):config.mode==="sequence"?selected.every((item,index)=>item===config.answer[index]):config.mode==="classify"||config.mode==="match"?config.items.every((item,index)=>assignments[item]===config.answer[index]):config.mode==="checklist"?config.answer.every((item)=>selected.includes(item))&&selected.every((item)=>config.answer.includes(item)):Number(answer).toFixed(1)===config.answer[0];
+ const ready=config.mode==="case"?!answer:config.mode==="sequence"?selected.length!==config.items.length:config.mode==="classify"||config.mode==="match"?Object.keys(assignments).length!==config.items.length:config.mode==="checklist"?selected.length===0:!answer.trim();
+ return <section className={"area-activity-card activity-"+config.mode}><div className="area-activity-top"><span className="area-activity-badge"><Gamepad2 size={16}/> EXPERIENCIA INTERACTIVA</span><span className="area-activity-type">{({case:"CASO CLÍNICO",sequence:"ORDENA EL PROCESO",classify:"CLASIFICACIÓN",checklist:"LISTA DE VERIFICACIÓN",calculation:"CÁLCULO APLICADO",match:"RELACIONA CONCEPTOS"} as Record<TopicActivityMode,string>)[config.mode]}</span></div><h3>{config.title}</h3><p className="area-activity-instruction">{config.instruction}</p>
+ {config.mode==="case" && <div className="activity-choice-list">{config.items.map((item)=><button type="button" key={item} className={"activity-choice"+(answer===item?" selected":"")} onClick={()=>{setAnswer(item);setChecked(false);}}>{item}</button>)}</div>}
+ {config.mode==="sequence" && <div className="activity-sequence"><div className="activity-sequence-pool"><strong>Pasos disponibles</strong>{config.items.filter((item)=>!selected.includes(item)).map((item)=><button type="button" key={item} onClick={()=>{setSelected((current)=>[...current,item]);setChecked(false);}}>{item}<ArrowRight size={14}/></button>)}</div><div className="activity-sequence-answer"><strong>Tu secuencia</strong>{selected.length?selected.map((item,index)=><button type="button" key={item} onClick={()=>{setSelected((current)=>current.filter((value)=>value!==item));setChecked(false);}}><span>{index+1}</span>{item}<small>Quitar</small></button>):<p>Selecciona los pasos en el orden que consideres correcto.</p>}</div></div>}
+ {(config.mode==="classify"||config.mode==="match") && <div className="activity-classify-list">{config.items.map((item)=><label key={item}><span>{item}</span><select value={assignments[item]??""} onChange={(event)=>{setAssignments((current)=>({...current,[item]:event.target.value}));setChecked(false);}}><option value="">Seleccionar opción</option>{config.options?.map((option)=><option key={option} value={option}>{option}</option>)}</select></label>)}</div>}
+ {config.mode==="checklist" && <div className="activity-checklist">{config.items.map((item)=><label key={item}><input type="checkbox" checked={selected.includes(item)} onChange={(event)=>{setSelected((current)=>event.target.checked?[...current,item]:current.filter((value)=>value!==item));setChecked(false);}}/><span>{item}</span></label>)}</div>}
+ {config.mode==="calculation" && <label className="activity-number-entry">Tu resultado (kg/m²)<input inputMode="decimal" value={answer} onChange={(event)=>{setAnswer(event.target.value.replace(/[^0-9.]/g,""));setChecked(false);}} placeholder="Ej. 24.8"/></label>}
+ <div className="area-activity-actions"><button type="button" className="area-activity-submit" onClick={()=>setChecked(true)} disabled={ready}>Comprobar actividad</button><button type="button" className="area-activity-reset" onClick={reset}>Reiniciar</button></div>
+ {checked && <div className={"area-activity-feedback "+(isCorrect()?"is-correct":"is-review")}><strong>{isCorrect()?"¡Muy bien!":"Vamos a revisar tu respuesta"}</strong><p>{config.explanation}</p><small>{isCorrect()?"Has completado la experiencia.":"Revisa la explicación y vuelve a intentarlo."}</small></div>}
+ </section>;
 }
 
 export function GamePage() {
@@ -200,33 +231,40 @@ function ContentList({ items, empty }: { items: string[]; empty: string }) {
     const url = href ? (external ? href : `${import.meta.env.BASE_URL}${cleanPath}`) : null;
     const isPowerPoint = Boolean(url && href && href.toLowerCase().endsWith(".pptx"));
     const isSlideDeck = Boolean(url && href && /\/presentacion-[^/]+\.html$/i.test(href));
+    const isInteractiveAssessment = Boolean(url && href && /\/(?:auto.?evaluacion|evaluacion)-[^/]+\.html$/i.test(href));
     const absoluteUrl = isPowerPoint && url ? new URL(url, window.location.origin).href : "";
     const viewerUrl = isPowerPoint ? `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(absoluteUrl)}` : "";
-    return <li className={isPowerPoint || isSlideDeck ? "resource-presentation" : undefined} key={item}>
-      {isPowerPoint || isSlideDeck ? <Presentation size={18} aria-hidden="true" /> : <FileText size={17} aria-hidden="true" />}
+    return <li className={isPowerPoint || isSlideDeck || isInteractiveAssessment ? "resource-presentation" : undefined} key={item}>
+      {isPowerPoint || isSlideDeck ? <Presentation size={18} aria-hidden="true" /> : isInteractiveAssessment ? <ClipboardCheck size={18} aria-hidden="true" /> : <FileText size={17} aria-hidden="true" />}
       {url ? <div className="resource-content">
-        {isPowerPoint || isSlideDeck ? <strong>{label}</strong> : (!external && href?.toLowerCase().endsWith(".html") ? <Link to={`/recurso?src=${encodeURIComponent(url)}&label=${encodeURIComponent(label)}`}>{label}</Link> : <a href={url} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>{label}</a>)}
+        {isPowerPoint || isSlideDeck || isInteractiveAssessment ? <strong>{label}</strong> : <a href={url} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>{label}</a>}
+        {isInteractiveAssessment && <details style={{ marginTop: "12px", border: "1px solid #dce8de", borderRadius: "10px", background: "#fbfcfa", overflow: "hidden" }}>
+          <summary style={{ padding: "12px 14px", cursor: "pointer", color: "#285540", fontSize: "11px", fontWeight: 700 }}>Resolver autoevaluación aquí</summary>
+          <div style={{ padding: "0 12px 12px" }}>
+            <p style={{ margin: "4px 0 10px", color: "#64746a", fontSize: "10px" }}>Contesta las preguntas y revisa la retroalimentación sin salir del tema.</p>
+            <div style={{ position: "relative", width: "100%", height: "560px", overflow: "hidden", borderRadius: "8px", background: "#f3f5f2" }}>
+              <iframe src={url} title={label} loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+            </div>
+            <a className="presentation-download" href={url} target="_blank" rel="noreferrer">Abrir evaluación en pantalla completa</a>
+          </div>
+        </details>}
         {isPowerPoint && <div className="presentation-viewer">
           <p className="presentation-inline-label">Presentación integrada</p>
-          <div className="presentation-frame">
-            <iframe className="presentation-frame-embed" src={viewerUrl} title={label} loading="lazy" allowFullScreen />
+          <div style={{ position: "relative", width: "100%", paddingTop: "62.5%", marginTop: "12px", overflow: "hidden", borderRadius: "10px", background: "#f3f5f2" }}>
+            <iframe src={viewerUrl} title={label} loading="lazy" allowFullScreen style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
           </div>
           <a className="presentation-download" href={url} download><Download size={14} aria-hidden="true" /> Descargar archivo original PPTX</a>
         </div>}
         {isSlideDeck && <div className="presentation-viewer">
           <p className="presentation-inline-label">Presentación navegable integrada</p>
-          <div className="presentation-frame">
-            <iframe className="presentation-frame-embed" src={url} title={label} loading="lazy" allow="fullscreen" />
+          <div style={{ position: "relative", width: "100%", paddingTop: "62.5%", marginTop: "12px", overflow: "hidden", borderRadius: "10px", background: "#f3f5f2" }}>
+            <iframe src={url} title={label} loading="lazy" allow="fullscreen" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
           </div>
           <a className="presentation-download" href={url} target="_blank" rel="noreferrer">Abrir presentación en pantalla completa</a>
         </div>}
       </div> : item}
     </li>;
   })}</ul> : <p className="editable-note">{empty}</p>;
-}
-
-function EditableList({ title, items }: { title: string; items: string[] }) {
-  return <div className="editable-list"><h3>{title}</h3>{items.length ? <ul>{items.map((item) => <li key={item}>{item}</li>)}</ul> : <p>Agrega contenido en <code>src/content/areas.ts</code>.</p>}</div>;
 }
 
 function extractKahootId(source: string) {
