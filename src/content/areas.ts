@@ -362,6 +362,7 @@ fundamentos.units[1].topics = [
       }
     ],
     resources: [
+      "Posiciones terapéuticas · Guía completa de estudio::/materiales/fundamentos-de-enfermeria/apuntes/posiciones-terapeuticas-guia.html",
       "Posiciones terapéuticas · Atlas ilustrado integrado::/materiales/fundamentos-de-enfermeria/presentaciones/presentacion-atlas-posiciones-terapeuticas.html",
       "Posiciones terapéuticas · Presentación navegable::/materiales/fundamentos-de-enfermeria/presentaciones/presentacion-posiciones-terapeuticas.html",
       "Posiciones terapéuticas · Taller práctico y lista de cotejo::/materiales/fundamentos-de-enfermeria/actividades/practica-posiciones-terapeuticas.html",
@@ -586,6 +587,7 @@ fundamentos.units[2].topics = [
     resources: [
       "Expediente clínico · Guía de estudio::/materiales/expediente-clinico-guia.html",
       "Expediente clínico · Presentación didáctica::/materiales/presentacion-expediente-clinico.html",
+      "Expediente clínico · Evaluación interactiva::/materiales/evaluacion-expediente-clinico.html",
       "Expediente clínico · Esquema visual::/images/expediente-clinico-esquema.svg",
       "Expediente clínico · NOM-004-SSA3-2012, texto oficial PDF::https://salud.gob.mx/cdi/archivo/NOM004ssa32012.pdf",
     ],
