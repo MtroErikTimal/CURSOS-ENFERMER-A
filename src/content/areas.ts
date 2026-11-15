@@ -463,9 +463,44 @@ fundamentos.units[2].topics = [
   {
     title: "Somatometría y exploración física",
     lessons: [
-      { title: "Somatometría", summary: "Peso, talla, índice de masa corporal y otras mediciones de acuerdo con edad y condición de la persona." },
-      { title: "Técnicas de exploración física", summary: "Inspección, palpación, percusión y auscultación: principios y secuencia general." },
-      { title: "Valoración y registro", summary: "Preparación, privacidad, consentimiento, hallazgos objetivos y documentación ordenada." },
+      {
+        title: "Fundamentos y técnicas de somatometría",
+        summary: "Peso, talla, IMC y perímetros: equipo, técnica, interpretación y registro.",
+        content: [
+          { heading: "Propósito", paragraphs: ["La somatometría mide dimensiones y proporciones corporales para establecer una línea basal, vigilar cambios y apoyar la valoración integral. Sus resultados no deben interpretarse de forma aislada."] },
+          { heading: "Peso y talla", bullets: ["Verificar báscula nivelada y equipo funcional; explicar el procedimiento y asegurar estabilidad.", "Medir talla con estadímetro, sin calzado y con alineación corporal cuando sea posible.", "Registrar kg, cm o m, fecha, hora, método y limitaciones.", "Si la persona no puede ponerse de pie, usar equipo o método alternativo validado; no improvisar ni estimar sin documentarlo."] },
+          { heading: "Índice de masa corporal", paragraphs: ["IMC = peso en kg / talla en metros al cuadrado. Ejemplo: 70 kg / 1.70² = 24.2 kg/m². En adultos no gestantes se utilizan puntos de corte de referencia de la OMS; no son aplicables de forma automática a niñas, niños, adolescentes, embarazo ni todas las personas mayores. El IMC es una herramienta de tamizaje, no un diagnóstico ni una medición directa de grasa corporal."] },
+          { heading: "Perímetros", bullets: ["Seleccionar perímetro abdominal/cintura, cefálico, braquial u otro según edad y propósito.", "Utilizar cinta no extensible en el punto anatómico estandarizado, horizontal y sin comprimir tejidos.", "Documentar el sitio, técnica, unidad y referencia utilizada; los puntos de corte dependen de población y guía clínica."] }
+        ]
+      },
+      {
+        title: "Técnicas de exploración física",
+        summary: "Inspección, palpación, percusión y auscultación, con secuencia y aplicación por regiones.",
+        content: [
+          { heading: "Inspección", paragraphs: ["Observación sistemática con iluminación adecuada y comparación bilateral cuando proceda. Valora apariencia, coloración, forma, simetría, movimiento, lesiones y esfuerzo respiratorio."] },
+          { heading: "Palpación", paragraphs: ["Exploración mediante manos y dedos para valorar temperatura, textura, humedad, dolor, pulsos, masas, edema y movilidad. La presión superficial o profunda depende del objetivo, competencia y condición de la persona."] },
+          { heading: "Percusión", paragraphs: ["Golpes breves y controlados sobre la superficie corporal o un dedo apoyado para producir sonidos que orientan sobre aire, líquido o densidad de estructuras. Requiere entrenamiento y correlación clínica."] },
+          { heading: "Auscultación", paragraphs: ["Escucha de sonidos corporales con estetoscopio en puntos y secuencia apropiados, por ejemplo ruidos cardiacos, respiratorios, intestinales o vasculares."] },
+          { heading: "Secuencia especial del abdomen", paragraphs: ["En abdomen se utiliza inspección, auscultación, percusión y palpación, porque la manipulación puede modificar los ruidos intestinales. En otras regiones se adapta la secuencia al propósito de la valoración."] }
+        ]
+      },
+      {
+        title: "Preparación, valoración y registro",
+        summary: "Privacidad, consentimiento, bioseguridad, razonamiento clínico y documentación objetiva.",
+        content: [
+          { heading: "Preparación", bullets: ["Verificar identidad, explicar propósito y procedimiento, solicitar consentimiento y respetar intimidad y preferencias.", "Realizar higiene de manos, aplicar precauciones estándar y preparar equipo limpio y funcional.", "Valorar dolor, movilidad, riesgo de caída, estado general y necesidad de asistencia; no forzar posturas."] },
+          { heading: "Registro", paragraphs: ["Documentar fecha, hora, unidades, sitio, método, equipo o limitaciones relevantes. Distinguir datos referidos por la persona de hallazgos observados. Evitar expresiones vagas y no inventar datos ausentes."] },
+          { heading: "Seguridad", bullets: ["Detener la valoración ante dolor intenso, disnea, mareo, pérdida de equilibrio o intolerancia.", "Integrar los hallazgos con antecedentes, síntomas, signos vitales y tendencias.", "Comunicar oportunamente hallazgos anormales o signos de alarma conforme al protocolo institucional."] }
+        ]
+      }
+    ],
+    resources: [
+      "Somatometría y exploración física · Guía completa de estudio::/materiales/fundamentos-de-enfermeria/apuntes/somatometria-exploracion-fisica-guia.html",
+      "Somatometría y exploración física · Presentación navegable::/materiales/fundamentos-de-enfermeria/presentaciones/presentacion-somatometria-exploracion-fisica.html",
+      "Somatometría y exploración física · Infografía::/materiales/fundamentos-de-enfermeria/imagenes/somatometria-exploracion-infografia.svg",
+      "Somatometría y exploración física · Taller práctico y lista de cotejo::/materiales/fundamentos-de-enfermeria/actividades/practica-somatometria-exploracion.html",
+      "Somatometría y exploración física · Autoevaluación interactiva::/materiales/fundamentos-de-enfermeria/actividades/autoevaluacion-somatometria.html",
+      "OMS · Obesidad y sobrepeso: conceptos y criterios de referencia::https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight"
     ],
   },
   {
