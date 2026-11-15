@@ -83,14 +83,15 @@ export default function RPBIGame() {
         <h3>♻️ Misión RPBI</h3>
         <p>Identifica cada residuo y deposítalo en el contenedor correcto.</p>
       </header>
-      {selected !== null && <div className={`rpbi-game-celebration ${selected === current.correct ? "is-correct" : "is-incorrect"}`} aria-hidden="true">
-        {selected === current.correct && <span className="rpbi-game-celebration-label">¡MUY BIEN!</span>}
-        <span className="rpbi-game-celebration-symbol">{selected === current.correct ? "✓" : "×"}</span>
-        {selected === current.correct && <span className="rpbi-game-confetti">{Array.from({ length: 30 }, (_, piece) => <i key={piece} style={{ "--confetti-left": `${(piece * 37) % 100}%`, "--confetti-delay": `${(piece % 7) * -0.09}s`, "--confetti-rotate": `${piece * 47}deg` } as React.CSSProperties} />)}</span>}
-      </div>}
       {!finished ? <>
         <div className="rpbi-game-status"><strong>Residuo {index + 1} de {game.length}</strong><strong>⭐ {score} aciertos</strong></div>
         <div className="rpbi-game-progress" role="progressbar" aria-label="Progreso del juego" aria-valuemin={0} aria-valuemax={game.length} aria-valuenow={index + 1}><span style={{ width: `${((index + 1) / game.length) * 100}%` }} /></div>
+        <div className="rpbi-game-play-area">
+          {selected !== null && <div className={`rpbi-game-celebration ${selected === current.correct ? "is-correct" : "is-incorrect"}`} aria-hidden="true">
+            {selected === current.correct && <span className="rpbi-game-celebration-label">¡MUY BIEN!</span>}
+            <span className="rpbi-game-celebration-symbol">{selected === current.correct ? "✓" : "×"}</span>
+            {selected === current.correct && <span className="rpbi-game-confetti">{Array.from({ length: 42 }, (_, piece) => <i key={piece} style={{ "--confetti-left": `${(piece * 37) % 100}%`, "--confetti-hue": (piece * 47) % 360, "--confetti-delay": `${(piece % 7) * -0.09}s`, "--confetti-rotate": `${piece * 47}deg` } as React.CSSProperties} />)}</span>}
+          </div>}
         <div className="rpbi-game-question">
           <span className="rpbi-game-emoji" aria-hidden="true">{current.image}</span>
           <h4>{current.item}</h4>
@@ -134,6 +135,7 @@ export default function RPBIGame() {
           <p>{current.explanation}</p>
           <button type="button" className="button button-dark" onClick={next}>{index + 1 === game.length ? "Ver resultado" : "Siguiente residuo"} <span aria-hidden="true">→</span></button>
         </div>}
+        </div>
       </> : <div className="rpbi-game-result" aria-live="polite">
         <span className="rpbi-game-result-emoji" aria-hidden="true">{score >= 8 ? "🏆" : score >= 6 ? "👏" : "📚"}</span>
         <span className="rpbi-game-kicker">MISIÓN COMPLETADA</span>
