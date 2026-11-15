@@ -59,6 +59,259 @@ export const learningAreas: LearningArea[] = [
   createArea("examenes-egreso", "Preparación para Exámenes de Egreso", "Espacio para organizar materiales de preparación académica para el egreso.", "brick"),
 ];
 
+// Enfermería Médico-Quirúrgica: programa progresivo de licenciatura.
+const medicoQuirurgica = learningAreas.find((area) => area.slug === "enfermeria-medico-quirurgica")!;
+medicoQuirurgica.description = "Formación teórico-práctica para el cuidado integral de la persona adulta con problemas médico-quirúrgicos, desde el entorno perioperatorio hasta los procedimientos y la vigilancia clínica.";
+medicoQuirurgica.level = "Licenciatura en Enfermería";
+medicoQuirurgica.estimatedDuration = "Curso teórico-práctico · organización modular en siete unidades";
+medicoQuirurgica.objectives = [
+  "Analizar la organización, infraestructura, funcionamiento y normas de circulación del área quirúrgica.",
+  "Identificar el instrumental, equipo, mobiliario y material de consumo quirúrgico de acuerdo con su función y uso seguro.",
+  "Aplicar principios de asepsia, antisepsia, esterilización y mantenimiento del campo estéril en escenarios simulados.",
+  "Distinguir las funciones y responsabilidades del equipo quirúrgico y aplicar medidas de seguridad del paciente.",
+  "Planificar cuidados de enfermería en las etapas preoperatoria, transoperatoria y posoperatoria.",
+  "Describir los principios, secuencia, indicaciones generales y cuidados de enfermería asociados con procedimientos quirúrgicos frecuentes.",
+  "Reconocer oportunamente complicaciones perioperatorias y comunicar hallazgos mediante registros clínicos objetivos."
+];
+medicoQuirurgica.competencies = [
+  "Organiza el entorno y prepara el material quirúrgico con criterios de seguridad, funcionalidad y prevención de infecciones.",
+  "Reconoce instrumental y equipo quirúrgico, explica su función y participa en su manejo dentro de su nivel de formación y supervisión.",
+  "Mantiene la técnica aséptica e identifica rupturas del campo estéril para corregirlas oportunamente.",
+  "Colabora con el equipo interdisciplinario y utiliza comunicación estructurada para prevenir eventos adversos.",
+  "Desarrolla el proceso de enfermería perioperatorio a partir de la valoración, priorización, intervención y evaluación.",
+  "Fundamenta los cuidados relacionados con procedimientos y técnicas quirúrgicas en evidencia, normas y protocolos institucionales."
+];
+medicoQuirurgica.prerequisites = [
+  "Bases de anatomía y fisiología humana.",
+  "Fundamentos de enfermería, higiene de manos, bioseguridad y técnica aséptica.",
+  "Conocimientos introductorios de farmacología, valoración clínica y proceso de atención de enfermería."
+];
+medicoQuirurgica.units = [
+  {
+    title: "Unidad 1. Entorno quirúrgico y organización del quirófano",
+    topics: [
+      { title: "Concepto, objetivos y estructura del área quirúrgica", lessons: [
+        { title: "El área quirúrgica: concepto y finalidad", summary: "Características del área quirúrgica, objetivos, ubicación, acceso controlado y relación con otros servicios.", content: [
+          { heading: "1. Concepto de área quirúrgica", paragraphs: ["El área quirúrgica es el conjunto organizado de espacios, instalaciones, equipos y recursos humanos destinados a realizar procedimientos quirúrgicos y otros procedimientos invasivos que requieren condiciones controladas de seguridad, asepsia, vigilancia y soporte. Su diseño busca facilitar el trabajo coordinado, limitar la contaminación, proteger al paciente y permitir una respuesta oportuna ante emergencias.", "No debe entenderse únicamente como la sala donde se realiza la operación. Incluye espacios de recepción y preparación, salas de operaciones, áreas de apoyo, recuperación postanestésica, almacenamiento y circulación diferenciada, de acuerdo con el diseño y la normativa aplicable al establecimiento."] },
+          { heading: "2. Objetivos del área quirúrgica", bullets: ["Proporcionar un entorno seguro para la realización de procedimientos quirúrgicos.", "Reducir el riesgo de infección mediante limpieza, desinfección, esterilización y control de circulación.", "Facilitar el acceso oportuno a equipo, instrumental, medicamentos, gases medicinales y tecnología.", "Permitir vigilancia continua del paciente y respuesta organizada ante complicaciones.", "Favorecer la comunicación, coordinación y trazabilidad de las actividades del equipo quirúrgico."] },
+          { heading: "3. Organización y acceso", paragraphs: ["El acceso se controla para limitar el tránsito a personal autorizado y con indumentaria apropiada. Los circuitos de personas, pacientes, instrumental, ropa y residuos deben organizarse para disminuir cruces innecesarios entre material limpio, estéril y contaminado. La distribución exacta varía según el tipo y tamaño del hospital, por lo que el estudiante debe reconocer el plano y los procedimientos locales antes de ingresar."] }
+        ] },
+        { title: "Áreas negra, gris y blanca: organización y circulación", summary: "Zonificación funcional, restricciones de acceso, indumentaria y rutas de circulación.", content: [
+          { heading: "1. Zonificación funcional", paragraphs: ["En la enseñanza del área quirúrgica suele utilizarse una clasificación didáctica en zona negra, zona gris y zona blanca. Esta nomenclatura ayuda a comprender el incremento progresivo de las restricciones de circulación y control de asepsia desde el acceso hasta la sala de operaciones. La denominación, los límites físicos y los requisitos concretos pueden variar entre instituciones; siempre prevalece el plano y protocolo local.", "La zonificación no significa que una zona por sí sola sea estéril. La esterilidad corresponde al material, equipo o campo que ha sido procesado y mantenido bajo condiciones validadas. Las superficies del quirófano requieren limpieza y desinfección conforme a los procedimientos establecidos."] },
+          { heading: "2. Zona negra", bullets: ["Área de acceso y transición entre el hospital y el área quirúrgica.", "Puede incluir recepción, vestidores, oficinas y espacios administrativos o de preparación inicial.", "Se controla el ingreso y se realiza el cambio a la indumentaria quirúrgica requerida.", "Se verifica la documentación, identidad, preparación y condiciones iniciales del paciente conforme al circuito institucional."] },
+          { heading: "3. Zona gris", bullets: ["Área semirrestringida o de transición controlada, según la nomenclatura institucional.", "Puede comprender pasillos internos, áreas de lavado quirúrgico, preparación de material y apoyos limpios.", "El personal utiliza uniforme quirúrgico y cubrecabello; otros elementos se seleccionan conforme al riesgo y protocolo.", "Se limita el tránsito y se mantienen separaciones entre circuitos limpios y contaminados."] },
+          { heading: "4. Zona blanca", bullets: ["Área restringida que comprende las salas de operaciones y espacios con requisitos estrictos de control.", "Se exige indumentaria quirúrgica y barreras adicionales según la actividad y las políticas del establecimiento.", "Las puertas deben permanecer cerradas tanto como sea posible y se evita el tránsito innecesario.", "La sala debe estar preparada, con equipo funcional, superficies procesadas y condiciones ambientales controladas."] },
+          { heading: "5. Circulación segura", paragraphs: ["Antes de trasladar material o pacientes, identifica la ruta autorizada y el estado del material. No transportes material estéril junto con residuos o equipo contaminado. El instrumental usado se coloca en contenedores apropiados, cerrados y señalizados, y se envía al circuito de reprocesamiento. Ante dudas sobre una ruta o barrera, consulta al personal responsable en lugar de improvisar."] }
+        ] },
+        { title: "Distribución física y espacios de apoyo", summary: "Sala de operaciones, lavado quirúrgico, recuperación, almacenes y áreas de soporte.", content: [
+          { heading: "Espacios habituales", bullets: ["Sala de operaciones: espacio donde se realiza el procedimiento, con mesa quirúrgica, lámparas, equipo de anestesia, monitorización y conexiones necesarias.", "Área de lavado quirúrgico: destinada al lavado o preparación quirúrgica de manos y antebrazos conforme al método aprobado.", "Área de preparación y almacenamiento: resguarda insumos, equipos y material procesado, protegiendo su integridad y trazabilidad.", "Unidad de cuidados postanestésicos: permite vigilancia y recuperación inmediata después de la anestesia, con capacidad de respuesta ante deterioro.", "Áreas de transferencia, vestidores y circulación: facilitan el ingreso controlado de personal y pacientes.", "Áreas de descontaminación y manejo de material usado: mantienen separación del material contaminado y siguen el circuito de reprocesamiento."] },
+          { heading: "Condiciones ambientales y equipo", paragraphs: ["La ventilación, presión diferencial cuando aplique, temperatura, humedad, filtración, iluminación y suministro de energía y gases medicinales se diseñan y mantienen conforme a normas técnicas y criterios de ingeniería hospitalaria. El personal de enfermería verifica condiciones operativas visibles y reporta fallas; no modifica parámetros de instalaciones por iniciativa propia.", "Antes de iniciar una cirugía se comprueba disponibilidad y funcionamiento del equipo requerido, aspiración, iluminación, mesa, electrocirugía y monitorización, de acuerdo con la lista de preparación institucional."] }
+        ] }
+      ]},
+      { title: "Personal, indumentaria y seguridad ambiental", lessons: [
+        { title: "Indumentaria quirúrgica y conducta dentro del área", summary: "Uso de uniforme, gorro, mascarilla y barreras; higiene personal y disciplina de circulación.", content: [
+          { heading: "Principios de indumentaria", paragraphs: ["La indumentaria quirúrgica funciona como barrera y forma parte de las medidas de control de contaminación. Debe utilizarse de acuerdo con la zona, actividad, evaluación del riesgo y política institucional. El uniforme quirúrgico no sustituye la higiene de manos ni la técnica aséptica.", "El cabello se mantiene completamente cubierto en las áreas que lo requieren. La mascarilla se utiliza según la actividad y las políticas de control de infecciones; la protección ocular, bata y guantes se seleccionan según el riesgo de salpicaduras, exposición o participación en el procedimiento."] },
+          { heading: "Conducta segura", bullets: ["Ingresar únicamente con autorización y después de recibir orientación sobre las normas del servicio.", "Mantener puertas cerradas y limitar conversaciones, movimientos y tránsito innecesarios.", "No ingresar alimentos, bebidas ni objetos personales no autorizados.", "No tocar mesas, campos, instrumental o superficies estériles sin función y entrenamiento.", "Reportar daños, derrames, fallas de equipo, exposición ocupacional o incumplimientos de barreras.", "Respetar privacidad, dignidad y confidencialidad del paciente en todo momento."] }
+        ] },
+        { title: "Limpieza, desinfección y preparación de la sala", summary: "Limpieza entre procedimientos, limpieza terminal y verificación del entorno.", content: [
+          { heading: "Limpieza y desinfección", paragraphs: ["La limpieza elimina suciedad y materia orgánica; la desinfección reduce o inactiva microorganismos en superficies y objetos inanimados según el producto y nivel utilizado. Son procesos distintos y complementarios. La selección del producto, concentración, compatibilidad, tiempo de contacto y método debe seguir las instrucciones del fabricante y el protocolo institucional.", "La sala se procesa antes y después de los procedimientos y al final de la jornada conforme a la clasificación de áreas, contaminación observada y política del hospital. El personal asignado utiliza equipo de protección y respeta el tiempo de contacto del desinfectante."] },
+          { heading: "Verificación previa", bullets: ["Confirmar que la limpieza fue registrada y que las superficies están secas cuando corresponda.", "Verificar disponibilidad de contenedores y material de limpieza.", "Comprobar que el mobiliario y equipo se encuentran íntegros y funcionales.", "Asegurar que no existan residuos, material usado o elementos ajenos al procedimiento.", "Reportar cualquier condición que impida iniciar de manera segura."] }
+        ] }
+      ]}
+    ]
+  },
+  {
+    title: "Unidad 2. Material, instrumental y equipo quirúrgico",
+    topics: [
+      { title: "Clasificación y reconocimiento del material", lessons: [
+        { title: "Instrumental quirúrgico: clasificación por función", summary: "Instrumental de corte, disección, hemostasia, prensión, separación, sutura y aspiración.", content: [
+          { heading: "Criterios de clasificación", paragraphs: ["El instrumental quirúrgico se clasifica de manera funcional para facilitar su identificación, selección, preparación y entrega durante el procedimiento. Un mismo instrumento puede tener variantes de tamaño, forma, curvatura y mecanismo; por ello, el nombre debe acompañarse de la identificación visual y del uso previsto.", "El estudiante debe aprender a reconocer el instrumento, describir sus partes, explicar su función general y manipularlo con medidas de seguridad. La selección concreta corresponde al procedimiento, preferencia del equipo, técnica y protocolo institucional."] },
+          { heading: "Grupos funcionales", bullets: ["Corte y disección: bisturíes, hojas, tijeras de Mayo y Metzenbaum.", "Hemostasia: pinzas Kelly, Crile, mosquito y otras pinzas hemostáticas.", "Prensión y sujeción: pinzas de disección con y sin dientes, Foerster y pinzas de campo.", "Separación y exposición: separadores manuales y autoestáticos.", "Sutura: portaagujas, pinzas auxiliares y tijeras para sutura.", "Aspiración: cánulas y sistemas de aspiración apropiados.", "Instrumental especializado: osteótomos, pinzas vasculares, laparoscópicos u otros según especialidad."] },
+          { heading: "Identificación y cuidado", bullets: ["Verificar nombre, integridad, articulaciones, alineación, filo, aislamiento y funcionamiento.", "Separar instrumentos dañados y reportarlos; no utilizarlos hasta su evaluación.", "Evitar sobrecargar charolas y proteger puntas y filos.", "Realizar conteo y control conforme a política institucional.", "Enviar el material usado a reprocesamiento mediante contenedor seguro y trazable."] }
+        ] },
+        { title: "Instrumental de corte, hemostasia y prensión", summary: "Características y diferencias entre instrumentos frecuentes y sus indicaciones generales.", content: [
+          { heading: "Instrumental de corte", paragraphs: ["El bisturí se utiliza para incisión y corte de tejidos; las hojas se seleccionan por número y diseño de acuerdo con la técnica. Las tijeras Mayo suelen emplearse para tejidos más resistentes o material, mientras que las Metzenbaum se destinan a disección y corte delicado de tejidos. La distinción no sustituye la indicación del cirujano ni el protocolo de seguridad."] },
+          { heading: "Instrumental de hemostasia", paragraphs: ["Las pinzas hemostáticas permiten ocluir temporalmente vasos o tejidos para controlar sangrado. Existen variantes rectas o curvas y de diferentes tamaños, como mosquito, Kelly y Crile. La presión y el sitio de aplicación dependen de la estructura y técnica; no debe asumirse que todas son intercambiables."] },
+          { heading: "Instrumental de prensión", paragraphs: ["Las pinzas de disección permiten sujetar tejidos o material. Las variantes con dientes ofrecen una sujeción distinta de las atraumáticas sin dientes. Las pinzas de campo fijan campos quirúrgicos cuando su uso está indicado. Se debe evitar una fuerza excesiva que pueda lesionar tejidos o deformar el material."] }
+        ] },
+        { title: "Separadores, portaagujas y material de sutura", summary: "Instrumentos de exposición, cierre de tejidos y materiales asociados.", content: [
+          { heading: "Separación y exposición", paragraphs: ["Los separadores mantienen tejidos apartados para mejorar la exposición del campo. Pueden ser manuales o autoestáticos. Su tamaño, apoyo y fuerza deben ser adecuados para evitar lesiones por presión o tracción prolongada."] },
+          { heading: "Portaagujas y suturas", paragraphs: ["El portaagujas sostiene la aguja durante la sutura. Las agujas varían en forma, curvatura, punta y cuerpo; el hilo se selecciona por material, calibre, absorción y características del tejido. La selección depende del procedimiento y de la decisión del equipo quirúrgico.", "En la preparación se verifica integridad del empaque, identificación, calibre, tipo de aguja, caducidad cuando aplique y condiciones de esterilidad. Los materiales abiertos y no utilizados se manejan conforme a la política institucional; nunca se presume que pueden reutilizarse."] }
+        ] },
+        { title: "Mobiliario, equipo y material de consumo", summary: "Mesa quirúrgica, lámpara, electrocirugía, aspiración, anestesia, monitorización y consumibles.", content: [
+          { heading: "Mobiliario y equipo", bullets: ["Mesa quirúrgica y accesorios de posicionamiento.", "Lámpara quirúrgica y sistemas de iluminación auxiliar.", "Máquina de anestesia, ventilación y monitorización bajo responsabilidad del equipo correspondiente.", "Unidad de electrocirugía y placa de retorno cuando corresponda.", "Sistema de aspiración, recipientes y tubuladuras.", "Mesas de instrumental, mesas auxiliares y soportes para soluciones."] },
+          { heading: "Material de consumo", bullets: ["Gasas, compresas, campos y batas quirúrgicas.", "Guantes estériles y dispositivos de barrera.", "Suturas, hojas de bisturí y dispositivos de cierre.", "Soluciones y antisépticos aprobados para el procedimiento.", "Drenajes, sondas, catéteres y apósitos según indicación.", "Contenedores para punzocortantes y residuos conforme a clasificación."] },
+          { heading: "Comprobación y trazabilidad", paragraphs: ["Antes del procedimiento se confirma disponibilidad, integridad, compatibilidad y funcionamiento. Se verifica la esterilidad del empaque, indicadores, fecha o vigencia aplicable, lote y condiciones de almacenamiento. Las fallas se reportan y el material dudoso se retira del uso."] }
+        ] }
+      ]}
+    ]
+  },
+  {
+    title: "Unidad 3. Asepsia, esterilización y manejo del campo estéril",
+    topics: [
+      { title: "Principios de prevención de infección quirúrgica", lessons: [
+        { title: "Asepsia quirúrgica y técnica estéril", summary: "Principios para conservar la esterilidad de materiales, superficies y campos.", content: [
+          { heading: "Fundamento", paragraphs: ["La técnica estéril busca evitar la introducción de microorganismos en tejidos, cavidades o sitios que deben permanecer protegidos durante un procedimiento. Se basa en preparación adecuada, uso de material procesado, barreras estériles, manipulación correcta y vigilancia continua del campo.", "La esterilidad de un objeto depende de un proceso validado y de que el empaque y almacenamiento conserven su integridad. La apariencia limpia no demuestra esterilidad."] },
+          { heading: "Principios esenciales", bullets: ["Solo material estéril entra en contacto con el campo estéril.", "Los bordes del campo y las superficies por debajo del nivel establecido se consideran contaminados según la técnica enseñada.", "Mantener el campo a la vista y evitar abandonarlo o darle la espalda.", "La humedad puede permitir transferencia microbiana; un campo mojado o con empaque comprometido se considera contaminado.", "Ante duda razonable sobre esterilidad, no utilizar el material.", "La ruptura de técnica se comunica y corrige inmediatamente, reemplazando los elementos afectados."] }
+        ] },
+        { title: "Lavado quirúrgico, vestido y enguantado", summary: "Preparación de manos y colocación de bata y guantes estériles mediante técnica aprobada.", content: [
+          { heading: "Preparación", paragraphs: ["La preparación quirúrgica de manos reduce la flora transitoria y disminuye la flora residente antes de colocarse bata y guantes estériles. Puede realizarse mediante lavado con antiséptico o preparación quirúrgica con solución alcohólica aprobada, siguiendo exactamente las instrucciones del producto y el protocolo institucional.", "Se retiran joyas y accesorios de manos y muñecas, se mantienen uñas naturales cortas y se evita el uso de uñas artificiales conforme a las políticas de prevención de infecciones. Las lesiones cutáneas deben notificarse y manejarse de acuerdo con el protocolo."] },
+          { heading: "Vestido y enguantado", bullets: ["Realizar preparación quirúrgica de manos y antebrazos con la técnica y tiempo establecidos.", "Mantener manos por encima de los codos durante el lavado y permitir secado completo cuando corresponda.", "Secar con toalla estéril sin regresar sobre áreas ya secadas.", "Colocar bata estéril evitando contacto con superficies no estériles.", "Colocar guantes mediante técnica cerrada o abierta según el momento y protocolo.", "Si se contamina una zona, detenerse y cambiar bata o guantes según corresponda."] }
+        ] },
+        { title: "Empaques, indicadores y conservación de esterilidad", summary: "Verificación del material estéril, integridad del empaque, indicadores y almacenamiento.", content: [
+          { heading: "Verificación antes de abrir", bullets: ["Comprobar integridad del empaque, sellos y ausencia de humedad, perforaciones o aperturas.", "Revisar identificación del contenido, lote y datos de trazabilidad disponibles.", "Comprobar indicadores químicos y liberación del proceso según el sistema institucional.", "Respetar condiciones de almacenamiento y vigencia definidas por el fabricante y la institución.", "No utilizar paquetes cuya esterilidad sea dudosa o cuyo indicador no cumpla los criterios establecidos."] },
+          { heading: "Apertura y transferencia", paragraphs: ["La apertura debe permitir presentar el contenido sin tocarlo ni contaminarlo. Se aplica la técnica de apertura y transferencia enseñada por el servicio, manteniendo distancia y orientación apropiadas. El material abierto se considera sujeto a control continuo; no debe dejarse sin vigilancia ni mezclarse con material no estéril."] }
+        ] }
+      ]},
+      { title: "Procesamiento del instrumental", lessons: [
+        { title: "Limpieza, desinfección y esterilización del instrumental", summary: "Etapas del reprocesamiento y responsabilidades del personal.", content: [
+          { heading: "Secuencia general", bullets: ["Pretratamiento y traslado seguro del material usado.", "Recepción y clasificación en el área de descontaminación.", "Limpieza manual o automatizada según instrucciones del fabricante.", "Inspección de limpieza, integridad y funcionalidad.", "Preparación, empaque y selección del método compatible.", "Esterilización o desinfección de alto nivel cuando esté indicada.", "Liberación, almacenamiento y distribución con trazabilidad."] },
+          { heading: "Puntos críticos", paragraphs: ["La materia orgánica residual puede impedir la eficacia del proceso. La limpieza es indispensable antes de la desinfección o esterilización. Los parámetros, ciclos y controles dependen del dispositivo, método, equipo y normas aplicables; el estudiante no debe improvisar concentraciones, tiempos o temperaturas.", "Los dispositivos complejos, articulados o con lúmenes requieren procedimientos específicos y cumplimiento estricto de las instrucciones del fabricante. El material de un solo uso no debe reprocesarse salvo que exista autorización regulatoria y un proceso institucional permitido."] }
+        ] },
+        { title: "Métodos de esterilización y control del proceso", summary: "Vapor, baja temperatura, controles físicos, químicos y biológicos.", content: [
+          { heading: "Métodos", paragraphs: ["El vapor saturado bajo presión es un método ampliamente utilizado para materiales compatibles y correctamente preparados. Existen métodos de baja temperatura para dispositivos sensibles al calor o humedad, como determinados procesos con peróxido de hidrógeno u otras tecnologías autorizadas. La elección depende de compatibilidad, validación y especificaciones del fabricante."] },
+          { heading: "Monitoreo", bullets: ["Controles físicos: parámetros registrados por el equipo durante el ciclo.", "Indicadores químicos: evidencian exposición a determinadas condiciones del proceso, pero no sustituyen otros controles.", "Indicadores biológicos: evalúan la capacidad del proceso para inactivar microorganismos de prueba y se utilizan según la política de control.", "Trazabilidad: relaciona carga, ciclo, equipo, fecha, operador, controles y destino del material."] }
+        ] }
+      ]}
+    ]
+  },
+  {
+    title: "Unidad 4. Equipo quirúrgico y cirugía segura",
+    topics: [
+      { title: "Integrantes y funciones del equipo", lessons: [
+        { title: "Enfermera instrumentista y enfermera circulante", summary: "Responsabilidades, coordinación y límites de actuación en el entorno quirúrgico.", content: [
+          { heading: "Enfermería instrumentista", bullets: ["Prepara y organiza la mesa de instrumental y el campo estéril.", "Comprueba integridad y disponibilidad del instrumental y material requerido.", "Participa en el conteo de gasas, compresas, agujas e instrumental conforme al protocolo.", "Entrega instrumental anticipándose a la secuencia del procedimiento sin perder el control del campo.", "Vigila la técnica estéril y comunica de inmediato cualquier contaminación o discrepancia."] },
+          { heading: "Enfermería circulante", bullets: ["Coordina actividades no estériles y facilita recursos durante la intervención.", "Verifica identidad, documentación, sitio y procedimiento junto con el equipo.", "Colabora en posicionamiento, seguridad, preparación de piel y conexión de equipos dentro de sus competencias.", "Realiza registros, gestiona muestras y apoya conteos junto con instrumentista.", "Mantiene comunicación con áreas de apoyo y vigila condiciones de seguridad."] },
+          { heading: "Trabajo en equipo", paragraphs: ["Las funciones se distribuyen según la formación, acreditación, competencias y políticas del establecimiento. La comunicación debe ser clara, confirmada y respetuosa. Cualquier integrante puede expresar una preocupación de seguridad y solicitar pausa cuando detecte una discrepancia."] }
+        ] },
+        { title: "Roles del equipo interdisciplinario", summary: "Cirujano, anestesiología, enfermería, personal técnico y apoyo.", content: [
+          { heading: "Coordinación", paragraphs: ["El equipo quirúrgico puede incluir cirujano, ayudantes, anestesiólogo, enfermería instrumentista, circulante, personal técnico y otros profesionales según el procedimiento. Cada integrante tiene responsabilidades definidas; la seguridad depende de coordinación, comunicación, respeto mutuo y reconocimiento de límites profesionales."] },
+          { heading: "Comunicación segura", bullets: ["Utilizar identificación inequívoca del paciente y del procedimiento.", "Confirmar verbalmente indicaciones críticas, alergias y riesgos.", "Comunicar cambios hemodinámicos, fallas de equipo y eventos inesperados.", "Evitar conversaciones ajenas al procedimiento durante momentos críticos.", "Realizar entrega estructurada al área de recuperación."] }
+        ] }
+      ]},
+      { title: "Verificación y prevención de eventos adversos", lessons: [
+        { title: "Lista de verificación de cirugía segura", summary: "Pausas de seguridad antes de anestesia, antes de incisión y antes de salir de quirófano.", content: [
+          { heading: "Tres momentos", bullets: ["Entrada o antes de la inducción anestésica: confirmar identidad, procedimiento, sitio, consentimiento, marcaje cuando aplique, evaluación de vía aérea, alergias, riesgo de sangrado y equipo.", "Pausa quirúrgica antes de la incisión: presentación del equipo, confirmación conjunta del paciente, procedimiento y sitio, anticipación de eventos críticos, profilaxis y disponibilidad de imágenes.", "Salida antes de que el paciente abandone la sala: confirmar procedimiento realizado, conteos, identificación de muestras, problemas de equipo y plan de recuperación."] },
+          { heading: "Uso efectivo", paragraphs: ["La lista debe realizarse de forma verbal y participativa, con atención del equipo y oportunidad para resolver discrepancias. No es un trámite de firmas ni debe completarse de memoria sin comunicación. Se utiliza la versión institucional vigente y se adapta al procedimiento sin eliminar verificaciones esenciales."] }
+        ] },
+        { title: "Conteo quirúrgico, muestras y prevención de errores", summary: "Conteos, trazabilidad, identificación de muestras y comunicación de discrepancias.", content: [
+          { heading: "Conteo", paragraphs: ["Los conteos de gasas, compresas, agujas e instrumental se realizan en los momentos definidos por el protocolo, con participación de los responsables. Deben ser audibles, visibles y documentados. Si existe discrepancia, se informa inmediatamente y se activa el procedimiento institucional; no se continúa como si el conteo fuera correcto."] },
+          { heading: "Muestras", bullets: ["Confirmar identificación del paciente y origen anatómico de la muestra.", "Verbalizar nombre, sitio, lateralidad y estudio solicitado.", "Seleccionar recipiente y medio de conservación conforme a la prueba.", "Etiquetar de acuerdo con la política institucional, idealmente en presencia de quien verifica.", "Documentar entrega y traslado con trazabilidad."] }
+        ] }
+      ]}
+    ]
+  },
+  {
+    title: "Unidad 5. Atención de enfermería perioperatoria",
+    topics: [
+      { title: "Etapa preoperatoria", lessons: [
+        { title: "Valoración y preparación preoperatoria", summary: "Valoración integral, verificación de requisitos, educación y preparación física y emocional.", content: [
+          { heading: "Valoración", bullets: ["Confirmar identidad, procedimiento, sitio y consentimiento conforme a política.", "Revisar antecedentes, alergias, medicamentos, ayuno indicado y estudios disponibles.", "Valorar estado respiratorio, cardiovascular, neurológico, nutricional, piel, movilidad y dolor.", "Identificar riesgos de sangrado, tromboembolia, infección, lesión por presión y dificultades de vía aérea.", "Valorar ansiedad, comprensión, apoyos, barreras de comunicación y necesidades culturales."] },
+          { heading: "Preparación", paragraphs: ["La preparación incluye educación, apoyo emocional, higiene y preparación de piel según protocolo, retiro o resguardo de objetos cuando esté indicado, verificación de dispositivos y documentación. Las indicaciones sobre ayuno, medicamentos, profilaxis y preparación intestinal dependen de la cirugía, condición clínica y prescripción; no deben generalizarse ni modificarse por iniciativa del estudiante."] }
+        ] },
+        { title: "Consentimiento, expediente y traslado seguro", summary: "Verificación documental, derechos del paciente y continuidad de información.", content: [
+          { heading: "Consentimiento informado", paragraphs: ["El consentimiento informado es un proceso de comunicación y decisión libre, no solo una firma. El profesional autorizado explica naturaleza, beneficios, riesgos, alternativas y consecuencias relevantes. Enfermería verifica que el documento y proceso estén disponibles conforme a la política y comunica dudas o ausencia de consentimiento antes de continuar."] },
+          { heading: "Traslado", bullets: ["Utilizar identificadores institucionales y confirmar destino.", "Entregar información relevante: alergias, riesgos, dispositivos, preparación, medicamentos y pendientes.", "Asegurar barandales, frenos, oxígeno y monitorización cuando estén indicados.", "Mantener privacidad, abrigo y acompañamiento según condición.", "Documentar entrega-recepción."] }
+        ] }
+      ]},
+      { title: "Etapa transoperatoria", lessons: [
+        { title: "Recepción, posicionamiento y vigilancia", summary: "Identificación, prevención de lesiones, preparación de piel y colaboración durante la cirugía.", content: [
+          { heading: "Recepción y verificación", paragraphs: ["Al recibir al paciente se realiza una transferencia estructurada, se confirma identidad y se revisan procedimiento, sitio, alergias, ayuno indicado, documentación y riesgos. Las discrepancias se resuelven antes de avanzar."] },
+          { heading: "Posicionamiento", bullets: ["Seleccionar posición según procedimiento, anestesia y condición del paciente.", "Proteger prominencias óseas y puntos de presión con dispositivos adecuados.", "Evitar hiperextensión, compresión nerviosa, tracción y limitación circulatoria.", "Comprobar alineación, fijación segura y acceso a monitorización.", "Reevaluar y documentar según protocolo, especialmente ante cambios de posición."] }
+        ] },
+        { title: "Vigilancia intraoperatoria y documentación", summary: "Apoyo a la seguridad, control de material, muestras, registros y respuesta ante cambios.", content: [
+          { heading: "Vigilancia y colaboración", paragraphs: ["Durante la cirugía enfermería mantiene control del entorno, disponibilidad de recursos, integridad del campo, conteos, trazabilidad de muestras y comunicación. La monitorización fisiológica y administración de anestésicos corresponden a los profesionales responsables, con colaboración del equipo según sus competencias."] },
+          { heading: "Registro", bullets: ["Documentar tiempos y datos requeridos por el formato institucional.", "Registrar equipo, material, soluciones, dispositivos y muestras conforme al protocolo.", "Anotar incidentes, acciones correctivas y comunicación al equipo.", "Evitar registros retrospectivos no identificados o datos no verificados."] }
+        ] }
+      ]},
+      { title: "Etapa posoperatoria inmediata", lessons: [
+        { title: "Recuperación postanestésica y entrega", summary: "Recepción estructurada, valoración ABCDE, vigilancia y criterios de escalamiento.", content: [
+          { heading: "Recepción y valoración", paragraphs: ["La transferencia a recuperación debe incluir procedimiento realizado, tipo de anestesia, antecedentes relevantes, alergias, pérdidas estimadas, líquidos y medicamentos administrados, dispositivos, drenajes, muestras, incidencias y plan inmediato. La valoración inicial prioriza vía aérea, respiración, circulación, estado neurológico, temperatura, dolor, náusea y herida."] },
+          { heading: "Vigilancia", bullets: ["Mantener monitorización y frecuencia de valoración conforme a condición y protocolo.", "Identificar obstrucción de vía aérea, hipoventilación, hipoxemia o deterioro del estado de conciencia.", "Vigilar sangrado, perfusión, dolor, náusea, temperatura y eliminación.", "Comprobar permeabilidad y fijación de accesos, sondas y drenajes.", "Escalar de inmediato signos de deterioro o complicaciones."] }
+        ] }
+      ]}
+    ]
+  },
+  {
+    title: "Unidad 6. Procedimientos y técnicas quirúrgicas frecuentes",
+    topics: [
+      { title: "Procedimientos básicos y manejo de heridas", lessons: [
+        { title: "Tiempos quirúrgicos e instrumental asociado", summary: "Diéresis, hemostasia, exposición, disección y síntesis como secuencia didáctica.", content: [
+          { heading: "Tiempos quirúrgicos", bullets: ["Diéresis o incisión: apertura de tejidos con bisturí o tijeras según técnica.", "Hemostasia: control del sangrado mediante métodos mecánicos, térmicos, químicos u otros indicados.", "Exposición: separación y retracción de tejidos para visualizar el campo.", "Disección: separación cuidadosa de planos y estructuras anatómicas.", "Síntesis: aproximación y cierre de tejidos mediante suturas, grapas u otros dispositivos."] },
+          { heading: "Relación con el instrumental", paragraphs: ["La secuencia orienta la preparación y anticipación del instrumental, pero los tiempos pueden variar, repetirse o combinarse según el procedimiento. El estudiante debe identificar el instrumental asociado y comprender los principios de seguridad, sin realizar maniobras invasivas fuera de su competencia o supervisión."] }
+        ] },
+        { title: "Suturas, grapas, drenajes y apósitos", summary: "Tipos, indicaciones generales, vigilancia y cuidados de enfermería.", content: [
+          { heading: "Suturas y dispositivos de cierre", paragraphs: ["Las suturas pueden clasificarse por absorción, origen, estructura y calibre. También se utilizan grapas, adhesivos tisulares y tiras de aproximación. La elección depende de tejido, tensión, contaminación, técnica y criterio del equipo quirúrgico. Enfermería verifica material, integridad, identificación y cuidados posteriores."] },
+          { heading: "Drenajes", paragraphs: ["Los drenajes permiten evacuar aire, sangre, exudado u otros líquidos según indicación. Pueden ser abiertos o cerrados, pasivos o activos. Los cuidados incluyen mantener fijación, permeabilidad según protocolo, sistema por debajo del sitio cuando corresponda, medición y registro de características y volumen, y vigilancia de dolor, fuga, obstrucción o desplazamiento. No se manipulan ni irrigan sin indicación y competencia."] },
+          { heading: "Herida quirúrgica", bullets: ["Valorar apósito, integridad, sangrado, exudado, dolor, edema y cambios en piel circundante.", "Realizar curación con técnica indicada y material apropiado.", "Mantener higiene de manos y técnica aséptica según riesgo.", "Educar sobre cuidado, higiene, actividad y signos de infección o dehiscencia.", "Documentar hallazgos y comunicar cambios relevantes."] }
+        ] }
+      ]},
+      { title: "Procedimientos por especialidad", lessons: [
+        { title: "Cirugía abdominal y digestiva", summary: "Principios de apendicectomía, colecistectomía, hernioplastia y cuidados asociados.", content: [
+          { heading: "Panorama general", paragraphs: ["Los procedimientos abdominales pueden ser abiertos o mínimamente invasivos. La apendicectomía, colecistectomía y reparación de hernias son ejemplos frecuentes. La indicación, técnica y evolución dependen del diagnóstico, condición clínica y valoración del equipo quirúrgico."] },
+          { heading: "Cuidados de enfermería", bullets: ["Valorar dolor, náusea, distensión, tolerancia oral y recuperación de la función intestinal según procedimiento.", "Vigilar herida, drenajes, sangrado, temperatura y signos de infección.", "Favorecer movilización temprana y ejercicios respiratorios cuando estén indicados.", "Identificar dolor creciente, vómito persistente, fiebre, distensión progresiva o deterioro general y comunicarlo.", "Proporcionar educación para el alta y seguimiento."] }
+        ] },
+        { title: "Cirugía traumatológica, vascular y de tejidos blandos", summary: "Principios de osteosíntesis, amputación, desbridamiento y cirugía vascular.", content: [
+          { heading: "Cuidados y vigilancia", bullets: ["Valorar dolor, edema, color, temperatura, sensibilidad, movilidad y perfusión distal.", "Vigilar apósitos, sangrado, inmovilización, yesos y dispositivos.", "Identificar cambios neurovasculares, síndrome compartimental sospechado o deterioro de perfusión y escalar de inmediato.", "Prevenir caídas, lesiones por presión y complicaciones de inmovilidad.", "Respetar restricciones de carga y movilidad prescritas."] }
+        ] },
+        { title: "Cirugía ginecológica, urológica y mínimamente invasiva", summary: "Principios de procedimientos frecuentes, dispositivos y cuidados posteriores.", content: [
+          { heading: "Cuidados de enfermería", bullets: ["Proteger privacidad, intimidad y trato digno.", "Vigilar dolor, sangrado, eliminación urinaria y características de drenajes.", "Observar signos de infección, retención urinaria o complicaciones relacionadas con anestesia.", "Verificar indicaciones sobre movilización, dieta, dispositivos y seguimiento.", "Ofrecer educación clara y sensible, respetando preferencias y contexto de la persona."] }
+        ] }
+      ]}
+    ]
+  },
+  {
+    title: "Unidad 7. Complicaciones y continuidad del cuidado quirúrgico",
+    topics: [
+      { title: "Complicaciones perioperatorias", lessons: [
+        { title: "Complicaciones respiratorias, cardiovasculares y hemorrágicas", summary: "Reconocimiento temprano de deterioro y respuesta inicial dentro de competencias.", content: [
+          { heading: "Complicaciones respiratorias", bullets: ["Obstrucción de vía aérea, hipoventilación, hipoxemia, broncoaspiración y atelectasia.", "Valorar frecuencia y esfuerzo respiratorio, saturación, coloración, nivel de conciencia y permeabilidad de vía aérea.", "Ante deterioro, solicitar ayuda, activar respuesta institucional y seguir indicaciones del equipo responsable."] },
+          { heading: "Complicaciones cardiovasculares y hemorrágicas", bullets: ["Hipotensión, hipertensión, arritmias, choque y hemorragia.", "Vigilar pulso, presión arterial, perfusión, estado mental, diuresis y sangrado.", "Reconocer cambios bruscos o tendencias desfavorables y comunicarlos sin demora.", "No retrasar la activación de respuesta por completar registros o trámites."] }
+        ] },
+        { title: "Infección, tromboembolia, dolor y alteraciones de la herida", summary: "Prevención, vigilancia, educación y detección de signos de alarma.", content: [
+          { heading: "Complicaciones", bullets: ["Infección del sitio quirúrgico: eritema progresivo, calor, dolor creciente, secreción purulenta o fiebre, según contexto.", "Dehiscencia y evisceración: separación de bordes o exposición de tejidos; requieren respuesta inmediata según protocolo.", "Tromboembolia venosa: dolor o edema unilateral y, ante embolia pulmonar, disnea súbita, dolor torácico o hipoxemia.", "Dolor no controlado, náusea, vómito, retención urinaria, íleo y alteraciones hidroelectrolíticas."] },
+          { heading: "Prevención y respuesta", paragraphs: ["La prevención integra movilización y profilaxis indicadas, medidas de higiene, técnica aséptica, vigilancia de heridas, hidratación y manejo del dolor según prescripción. Ante signos de alarma se realiza valoración inmediata, se solicita ayuda y se sigue el protocolo institucional. Las intervenciones farmacológicas y procedimientos se ejecutan únicamente dentro de competencias y órdenes autorizadas."] }
+        ] }
+      ]},
+      { title: "Alta, educación y continuidad", lessons: [
+        { title: "Educación para el alta posquirúrgica", summary: "Autocuidado, tratamiento, herida, actividad, alimentación, seguimiento y signos de alarma.", content: [
+          { heading: "Educación centrada en la persona", bullets: ["Explicar cuidados de herida y apósitos según indicación.", "Revisar medicamentos, dosis, horarios, precauciones y conciliación con el plan prescrito.", "Orientar sobre actividad, movilización, alimentación y restricciones específicas.", "Indicar cuidado de drenajes o dispositivos si la persona egresa con ellos.", "Confirmar citas, resultados pendientes y vías de contacto.", "Enseñar signos de alarma y cuándo acudir a urgencias.", "Verificar comprensión con la técnica de repetición con palabras propias."] },
+          { heading: "Continuidad del cuidado", paragraphs: ["La entrega de información debe ser comprensible, accesible y congruente con el procedimiento realizado. Se consideran alfabetización en salud, idioma, discapacidad, apoyos y recursos disponibles. La educación se registra y se adapta cuando la persona o cuidador requiere demostración o refuerzo."] }
+        ] }
+      ]}
+    ]
+  }
+];
+medicoQuirurgica.resources = [];
+medicoQuirurgica.activities = [
+  "Unidad 1 · Elaborar un plano funcional del área quirúrgica y clasificar zonas, accesos y circuitos de circulación.",
+  "Unidad 2 · Estaciones de identificación de instrumental: nombrar, clasificar por función, describir partes y justificar cuidados.",
+  "Unidad 3 · Demostrar apertura de paquetes, preparación de campo y reconocimiento de rupturas de técnica estéril en simulación.",
+  "Unidad 4 · Simular la lista de verificación de cirugía segura, conteos y entrega-recepción mediante comunicación estructurada.",
+  "Unidad 5 · Resolver un caso perioperatorio integrando valoración, preparación, traslado, vigilancia y recuperación.",
+  "Unidad 6 · Resolver estaciones de tiempos quirúrgicos, suturas, drenajes y cuidados de heridas mediante material didáctico y simuladores.",
+  "Unidad 7 · Analizar casos de complicaciones posoperatorias y priorizar acciones de enfermería y escalamiento."
+];
+medicoQuirurgica.evaluation = [
+  "Evaluación diagnóstica sobre fundamentos de enfermería, anatomía, fisiología, bioseguridad y farmacología.",
+  "Cuestionarios de aplicación y razonamiento clínico al cierre de cada unidad.",
+  "Listas de cotejo para reconocimiento de instrumental, técnica estéril, seguridad quirúrgica y cuidados perioperatorios.",
+  "Rúbricas para simulación de roles, comunicación, conteos, entrega-recepción y respuesta ante complicaciones.",
+  "Caso integrador: planificación del cuidado de una persona desde la preparación preoperatoria hasta el alta.",
+  "Criterios sugeridos: seguridad y bioseguridad (30%), razonamiento clínico (25%), ejecución técnica simulada (20%), comunicación y registro (15%) y profesionalismo (10%)."
+];
+medicoQuirurgica.bibliography = [
+  "Association of periOperative Registered Nurses. (2025). Guidelines for Perioperative Practice. AORN.",
+  "World Health Organization. (2009). WHO Guidelines for Safe Surgery 2009: Safe Surgery Saves Lives. https://iris.who.int/handle/10665/44185",
+  "World Health Organization. (2016). Global Guidelines for the Prevention of Surgical Site Infection (2nd ed.). https://www.who.int/publications/i/item/9789241549882",
+  "World Health Organization. (2018). Implementation Manual: WHO Surgical Safety Checklist 2009. https://www.who.int/publications/i/item/9789241598590",
+  "Association for the Advancement of Medical Instrumentation. (2017). ANSI/AAMI ST79: Comprehensive Guide to Steam Sterilization and Sterility Assurance in Health Care Facilities.",
+  "Phillips, N. (Ed.). (2021). Berry & Kohn's Operating Room Technique (14th ed.). Elsevier.",
+  "Rothrock, J. C. (Ed.). (2023). Alexander's Care of the Patient in Surgery (17th ed.). Elsevier.",
+  "Secretaría de Salud. Consultar la normativa mexicana vigente aplicable a infraestructura, equipamiento, expediente clínico, prevención de infecciones, esterilización, RPBI y seguridad del paciente.",
+  "Los procedimientos clínicos deben ajustarse a guías vigentes, instrucciones del fabricante, competencias profesionales y protocolos de cada institución."
+];
+
 // Fundamentos de Enfermería I: organización didáctica inicial para primer semestre.
 const fundamentos = learningAreas.find((area) => area.slug === "fundamentos-de-enfermeria")!;
 fundamentos.level = "Licenciatura en Enfermería · Primer semestre";
