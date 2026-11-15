@@ -903,3 +903,5 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 .rpbi-game-result p{max-width:520px;margin:8px auto 16px;color:#5b6b61;font-size:13px;line-height:1.65}
 .rpbi-game-footer{margin-top:18px;padding:12px;border-radius:9px;background:#e9f0ea;color:#596b60;font-size:10px;line-height:1.6}
 @media(max-width:560px){.rpbi-game-options{grid-template-columns:1fr}.rpbi-game-option{padding:11px}.rpbi-game-status{font-size:11px}.rpbi-game-question{padding:16px 12px}}
+
+.area-lesson-visual{margin:14px 0 6px;padding:10px;background:linear-gradient(145deg,#f6fbfc,#fff);border:1px solid #dce9ee;border-radius:14px;overflow:hidden}.area-lesson-visual img{display:block;width:100%;height:auto;max-height:560px;object-fit:contain;border-radius:9px}.area-lesson-visual figcaption{padding:8px 4px 0;color:#617487;font-size:10px;line-height:1.5;text-align:center}@media(max-width:640px){.area-lesson-visual{margin:12px 0;padding:7px}.area-lesson-visual img{max-height:420px}}
