@@ -30,6 +30,13 @@ export function AreaPage() {
   const area = learningAreas.find((item) => item.slug === slug);
   if (!area) return <NotFoundPage />;
   return <PageIntro eyebrow="ÁREA DE APRENDIZAJE" title={area.title} description={area.description} icon={<HeartPulse size={24} aria-hidden="true" />}><div className="area-detail-layout">
+    {area.slug === "fundamentos-de-enfermeria" && <section className="content-panel positions-atlas-feature">
+      <div className="panel-title-row"><div><p className="eyebrow">RECURSO VISUAL DESTACADO</p><h2>Atlas ilustrado de posiciones terapéuticas</h2><p>Explora las 12 posiciones con su ilustración, nombre, definición y usos frecuentes.</p></div><Presentation size={22} aria-hidden="true" /></div>
+      <div style={{ position: "relative", width: "100%", minHeight: "720px", marginTop: "14px", overflow: "hidden", border: "1px solid #dce6dc", borderRadius: "12px", background: "#f6f7f2" }}>
+        <iframe src={`${import.meta.env.BASE_URL}materiales/fundamentos-de-enfermeria/presentaciones/presentacion-atlas-posiciones-terapeuticas.html`} title="Atlas ilustrado de posiciones terapéuticas" loading="lazy" allow="fullscreen" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", minHeight: "720px", border: 0 }} />
+      </div>
+      <p style={{ marginTop: "12px" }}><a className="presentation-download" href={`${import.meta.env.BASE_URL}materiales/fundamentos-de-enfermeria/presentaciones/presentacion-atlas-posiciones-terapeuticas.html`} target="_blank" rel="noreferrer">Abrir el atlas en pantalla completa <ExternalLink size={14} aria-hidden="true" /></a></p>
+    </section>}
     <section className="content-panel area-objective">
       <p className="eyebrow">DISEÑO ACADÉMICO</p><h2>Ficha del área</h2>
       <div className="area-facts"><div><small>NIVEL</small><p>{area.level || "Por definir"}</p></div><div><small>DURACIÓN ESTIMADA</small><p>{area.estimatedDuration || "Por definir"}</p></div></div>
