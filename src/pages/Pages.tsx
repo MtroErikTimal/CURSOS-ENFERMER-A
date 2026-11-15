@@ -33,10 +33,15 @@ export function AreaPage() {
   const [activeTopicKey, setActiveTopicKey] = useState("");
   useEffect(() => { setActiveTopicKey(""); }, [slug]);
   if (!area) return <NotFoundPage />;
+  const isSurgical = area.slug === "enfermeria-medico-quirurgica";
   const topics = area.units.flatMap((unit, unitIndex) => unit.topics.map((topic, topicIndex) => ({ ...topic, unitTitle: unit.title, key: unitIndex + "-" + topicIndex, unitIndex, topicIndex })));
   const activeTopic = topics.find((topic) => topic.key === activeTopicKey) ?? topics[0];
-  return <div className="learning-area-shell" data-area={area.slug}>
-    <PageIntro eyebrow="AULA DE APRENDIZAJE" title={area.title} description={area.description} icon={<HeartPulse size={24} aria-hidden="true" />}>
+  const activeTopicIndex = activeTopic ? topics.findIndex((topic) => topic.key === activeTopic.key) : -1;
+  const previousTopic = activeTopicIndex > 0 ? topics[activeTopicIndex - 1] : undefined;
+  const nextTopic = activeTopicIndex >= 0 && activeTopicIndex < topics.length - 1 ? topics[activeTopicIndex + 1] : undefined;
+  return <div className={"learning-area-shell" + (isSurgical ? " learning-area-surgical" : "")} data-area={area.slug}>
+    {isSurgical && <header className="surgical-course-banner"><div className="surgical-brand-mark"><Stethoscope size={34}/><HeartPulse size={27}/></div><div className="surgical-brand-copy"><strong>{area.title}</strong><span>Aprende <i>·</i> Aplica <i>·</i> Cuida</span></div><div className="surgical-unit-label"><strong>{activeTopic?.unitTitle || "Aula quirúrgica"}</strong><span>LICENCIATURA EN ENFERMERÍA</span></div></header>}
+    <PageIntro eyebrow={isSurgical ? "AULA DE APRENDIZAJE · FORMACIÓN CLÍNICA" : "AULA DE APRENDIZAJE"} title={area.title} description={area.description} icon={<HeartPulse size={24} aria-hidden="true" />}>
       <section className="area-welcome-strip"><div><span className="area-kicker">RUTA DE APRENDIZAJE</span><h2>Estudia. Practica. Integra.</h2><p>{area.level || "Formación en enfermería"}{area.estimatedDuration ? " · " + area.estimatedDuration : ""}</p></div><div className="area-welcome-stats"><span><strong>{topics.length}</strong><small>temas</small></span><span><strong>{topics.reduce((sum, topic) => sum + topic.lessons.length, 0)}</strong><small>lecciones</small></span><span><strong>{area.units.length}</strong><small>unidades</small></span></div></section>
       {area.objectives.length > 0 && <details className="area-objectives-drawer"><summary><BookOpen size={17} /> Propósito y objetivos de la asignatura <ChevronDown size={16} /></summary><div><ul>{area.objectives.map((objective) => <li key={objective}>{objective}</li>)}</ul></div></details>}
       {topics.length > 0 ? <div className="area-study-layout">
@@ -54,6 +59,7 @@ export function AreaPage() {
             </section>
             <section className="area-learning-section area-topic-resources"><div className="area-section-heading"><span className="area-section-icon"><Presentation size={17}/></span><div><h3>Materiales y recursos de este tema</h3><p>Todo el material de consulta y apoyo permanece reunido aquí, sin enlaces a bibliotecas dispersas.</p></div></div><div className="area-resources-panel"><ContentList items={activeTopic.resources ?? []} empty="Este tema aún no tiene materiales vinculados. Los recursos se incorporarán aquí, junto a sus apuntes y actividades."/></div></section>
             {activeTopic.title === "RPBI y manejo de muestras biológicas" && <RPBIGame />}<TopicInteractiveActivity topicTitle={activeTopic.title}/>{topicQuizzes[activeTopic.title] && <TopicQuiz title={activeTopic.title} questions={topicQuizzes[activeTopic.title]} /> }
+            {isSurgical && <nav className="surgical-topic-navigation" aria-label="Navegación entre temas"><button type="button" disabled={!previousTopic} onClick={()=>previousTopic && setActiveTopicKey(previousTopic.key)}><span>‹</span> Anterior</button><Link to="/areas"><BookOpen size={17}/> Todas las asignaturas</Link><button type="button" disabled={!nextTopic} onClick={()=>nextTopic && setActiveTopicKey(nextTopic.key)}>Siguiente <span>›</span></button></nav>}
           </> : <div className="area-empty-topic"><BookOpen size={28}/><h2>Selecciona un tema</h2><p>Elige un tema del temario para abrir sus apuntes, recursos y actividad.</p></div>}
         </main>
       </div> : <section className="area-curriculum-empty"><span className="area-section-icon"><Layers3 size={20}/></span><h2>Programa académico en construcción</h2><p>Esta asignatura ya tiene una identidad visual. Incorporemos su temario validado, apuntes, recursos y experiencias de aprendizaje.</p><div className="area-empty-checklist"><span>01 · Temas y unidades</span><span>02 · Material de estudio</span><span>03 · Actividades interactivas</span><span>04 · Evaluación y bibliografía</span></div></section>}
