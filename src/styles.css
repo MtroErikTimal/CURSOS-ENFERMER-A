@@ -988,3 +988,11 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 @keyframes rpbi-feedback-pop{0%{opacity:0;scale:.35}70%{opacity:1;scale:1.12}100%{opacity:1;scale:1}}
 @keyframes rpbi-confetti-fall{0%{translate:0 -15px;rotate:0deg;opacity:0}12%{opacity:1}100%{translate:var(--confetti-drift, 18px) 290px;rotate:540deg;opacity:0}}
 @media(prefers-reduced-motion:reduce){.rpbi-game-celebration,.rpbi-game-confetti i{animation:none!important}.rpbi-game-confetti{display:none}}
+
+
+/* Transiciones globales al cambiar de apartado */
+.route-transition{min-width:0;animation:section-enter .34s cubic-bezier(.2,.7,.25,1) both;transform-origin:50% 8%}
+.area-topic-main{animation:topic-enter .26s cubic-bezier(.2,.7,.25,1) both}
+@keyframes section-enter{from{opacity:0;transform:translate3d(0,12px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes topic-enter{from{opacity:0;transform:translate3d(0,8px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@media(prefers-reduced-motion:reduce){.route-transition,.area-topic-main{animation:none!important;transform:none!important;opacity:1!important}}
