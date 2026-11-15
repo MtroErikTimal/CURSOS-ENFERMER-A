@@ -546,10 +546,42 @@ fundamentos.units[2].topics = [
   {
     title: "Expediente clínico y registros de enfermería",
     lessons: [
-      { title: "Concepto, propósito y alcance", summary: "Definición del expediente clínico, importancia para la continuidad del cuidado y campo de aplicación de la NOM-004-SSA3-2012." },
-      { title: "Integración y confidencialidad", summary: "Organización documental, conservación y protección de la información de la persona usuaria." },
-      { title: "Registros de enfermería", summary: "Análisis del numeral 9.1: habitus exterior, signos vitales, ministración de medicamentos, procedimientos y observaciones." },
-      { title: "Calidad y responsabilidad documental", summary: "Legibilidad, oportunidad, objetividad, autoría, trazabilidad y actuación ante omisiones o errores de registro." },
+      {
+        title: "Concepto, propósito y alcance",
+        summary: "Definición del expediente clínico, importancia para la continuidad del cuidado y campo de aplicación de la NOM-004-SSA3-2012.",
+        content: [
+          { heading: "Concepto", paragraphs: ["El expediente clínico es el conjunto único de información y datos personales de una persona usuaria, integrado en un establecimiento de atención médica. Puede contener documentos escritos, gráficos, imagenológicos, electrónicos y otros soportes en los que se registra la atención otorgada.", "Es una herramienta clínica, legal, ética, administrativa y de comunicación. Favorece continuidad, seguridad, evaluación de la atención y coordinación interdisciplinaria. No es un simple archivo de formatos: debe reflejar de manera cronológica y coherente la atención realmente proporcionada."] },
+          { heading: "Marco normativo", paragraphs: ["En México, la NOM-004-SSA3-2012 establece criterios obligatorios para la elaboración, integración, uso, manejo, archivo, conservación, propiedad, titularidad y confidencialidad del expediente clínico. Debe consultarse el texto oficial y la normativa complementaria aplicable al tipo de establecimiento y servicio."] },
+          { heading: "Principios de uso", bullets: ["Identificar correctamente a la persona y vincular cada registro con su atención.", "Documentar hechos, valoraciones, intervenciones y respuestas que efectivamente ocurrieron.", "Mantener orden cronológico, legibilidad, oportunidad y trazabilidad.", "Proteger datos personales y limitar el acceso a personas autorizadas.", "No sustituir el juicio profesional ni los protocolos institucionales por formatos prellenados."] }
+        ]
+      },
+      {
+        title: "Integración y confidencialidad",
+        summary: "Organización documental, conservación y protección de la información de la persona usuaria.",
+        content: [
+          { heading: "Integración", paragraphs: ["El contenido del expediente depende del tipo de atención y de los servicios prestados. Puede integrar datos de identificación, historia clínica, notas médicas, notas de enfermería, indicaciones, resultados de laboratorio y gabinete, interconsultas, consentimientos informados y documentos de referencia o egreso, según corresponda."] },
+          { heading: "Acceso y confidencialidad", bullets: ["Consultar únicamente expedientes necesarios para las funciones asignadas.", "Evitar comentar información clínica en espacios públicos o canales no autorizados.", "No fotografiar, copiar ni compartir datos identificables sin autorización y fundamento institucional.", "Resguardar pantallas, impresiones, contraseñas y documentos físicos.", "Entregar información solo a la persona usuaria, representante o autoridad que corresponda conforme a la normativa."] },
+          { heading: "Conservación y manejo", paragraphs: ["El establecimiento debe aplicar las reglas de archivo, conservación, custodia y seguridad que correspondan. En sistemas electrónicos deben protegerse los accesos, la integridad, la disponibilidad y la trazabilidad de las modificaciones. El estudiante debe trabajar con expedientes simulados o datos debidamente desidentificados en actividades académicas."] }
+        ]
+      },
+      {
+        title: "Registros de enfermería",
+        summary: "Análisis del numeral 9.1: habitus exterior, signos vitales, ministración de medicamentos, procedimientos y observaciones.",
+        content: [
+          { heading: "Contenido mínimo aplicable", paragraphs: ["La NOM-004-SSA3-2012, en el apartado 9.1, establece elementos para la hoja de enfermería. Entre ellos se encuentran el habitus exterior, la gráfica de signos vitales, ministración de medicamentos con fecha, hora, cantidad y vía prescrita, procedimientos realizados y observaciones. Deben revisarse además los requisitos generales de las notas y los formatos institucionales vigentes."] },
+          { heading: "Cómo redactar", bullets: ["Registrar en el momento de la atención o tan pronto como sea posible conforme al procedimiento institucional.", "Utilizar lenguaje claro, objetivo, preciso y términos aceptados.", "Distinguir lo referido por la persona de lo observado o medido.", "Anotar valores con unidades, fecha, hora y contexto cuando corresponda.", "Describir intervención, respuesta y comunicación realizada; evitar juicios, etiquetas o suposiciones.", "Identificar al autor del registro con los datos y firma que establezca la normativa y el sistema institucional."] },
+          { heading: "Ejemplo educativo", paragraphs: ["Registro objetivo simulado: “08:15 h. Persona alerta, responde coherentemente. Refiere dolor 4/10 en región… Se mide PA…, FC…, FR…, temperatura… Se coloca en posición de confort y se informa al profesional responsable. Se revalora a las…”. Los datos deben corresponder a una situación ficticia de aprendizaje; nunca copiar información real de pacientes."] }
+        ]
+      },
+      {
+        title: "Calidad y responsabilidad documental",
+        summary: "Legibilidad, oportunidad, objetividad, autoría, trazabilidad y actuación ante omisiones o errores de registro.",
+        content: [
+          { heading: "Criterios de calidad", bullets: ["Exactitud: el registro corresponde a lo ocurrido y medido.", "Integridad: incluye los datos requeridos sin omisiones deliberadas.", "Oportunidad: se realiza en el tiempo establecido.", "Legibilidad y claridad: permite comprender quién hizo qué, cuándo y cuál fue la respuesta.", "Trazabilidad: permite identificar al autor y las modificaciones autorizadas.", "Confidencialidad: mantiene protegida la información."] },
+          { heading: "Corrección de errores", paragraphs: ["No borrar, ocultar, alterar ni falsificar registros. Si existe un error, seguir el mecanismo de corrección establecido por la normativa y el sistema institucional, conservando la trazabilidad. Las anotaciones tardías o aclaraciones deben identificarse como tales y nunca simular que se hicieron en otro momento."] },
+          { heading: "Responsabilidad profesional", paragraphs: ["La documentación forma parte del cuidado y de la responsabilidad profesional. Registrar una intervención no realizada o copiar notas sin verificar puede comprometer la seguridad de la persona y la integridad del expediente. Ante dudas, consultar al docente o responsable y el procedimiento vigente."] }
+        ]
+      },
     ],
     resources: [
       "Expediente clínico · Guía de estudio::/materiales/expediente-clinico-guia.html",
