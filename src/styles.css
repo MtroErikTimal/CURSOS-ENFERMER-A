@@ -973,3 +973,18 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 .page-area-card .area-card-mark { margin-top: 1px; }
 .page-area-card:hover .area-card-mark { transform: translateY(-2px); }
 .area-card-mark { transition: transform .18s ease; }
+
+
+/* Efectos inmediatos de respuesta para Misión RPBI */
+.rpbi-game{position:relative}
+.rpbi-game-celebration{position:absolute;z-index:5;top:42%;left:50%;display:grid;place-items:center;width:170px;height:170px;transform:translate(-50%,-50%);pointer-events:none;animation:rpbi-feedback-pop .42s cubic-bezier(.2,.85,.25,1.2) both}
+.rpbi-game-celebration-symbol{display:grid;place-items:center;width:112px;height:112px;border-radius:50%;font-size:104px;font-weight:950;line-height:1;text-shadow:0 5px 14px rgba(0,0,0,.13)}
+.rpbi-game-celebration.is-correct .rpbi-game-celebration-symbol{color:#fff;background:#16a34a;border:7px solid #dcfce7}
+.rpbi-game-celebration.is-incorrect .rpbi-game-celebration-symbol{color:#dc2626;background:rgba(255,255,255,.96);border:7px solid #fecaca;font-size:142px}
+.rpbi-game-celebration-label{position:absolute;z-index:2;top:-8px;padding:6px 13px;border-radius:999px;background:#166534;color:#fff;font-size:13px;font-weight:900;letter-spacing:1px;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.rpbi-game-confetti{position:absolute;inset:-115px -90px;overflow:hidden}
+.rpbi-game-confetti i{position:absolute;top:-18px;left:var(--confetti-left);width:9px;height:15px;border-radius:2px;background:hsl(calc((var(--confetti-left) * 3.6)),85%,52%);animation:rpbi-confetti-fall 1.25s ease-out var(--confetti-delay) both;transform:rotate(var(--confetti-rotate))}
+.rpbi-game-confetti i:nth-child(3n){width:6px;height:10px;border-radius:50%}
+@keyframes rpbi-feedback-pop{0%{opacity:0;scale:.35}70%{opacity:1;scale:1.12}100%{opacity:1;scale:1}}
+@keyframes rpbi-confetti-fall{0%{translate:0 -15px;rotate:0deg;opacity:0}12%{opacity:1}100%{translate:var(--confetti-drift, 18px) 290px;rotate:540deg;opacity:0}}
+@media(prefers-reduced-motion:reduce){.rpbi-game-celebration,.rpbi-game-confetti i{animation:none!important}.rpbi-game-confetti{display:none}}

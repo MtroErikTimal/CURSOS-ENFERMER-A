@@ -22,7 +22,7 @@ const questions: Question[] = [
   { id: 7, image: "🩸", item: "Recipiente desechable con sangre líquida", context: "Recipiente desechable que contiene sangre líquida y se descarta como residuo sólido.", correct: "red-bag", explanation: "La norma incluye los recipientes desechables que contienen sangre líquida dentro de los residuos no anatómicos. El recipiente desechable se deposita en bolsa roja; la sangre líquida por separado va en recipiente hermético rojo." },
   { id: 8, image: "🔬", item: "Utensilio desechable de cultivo", context: "Utensilio desechable utilizado para contener, transferir o inocular un cultivo infeccioso.", correct: "red-bag", explanation: "Los utensilios desechables empleados en el manejo de cultivos y cepas se incluyen en esa categoría. Si son sólidos, se depositan en bolsa roja." },
   { id: 9, image: "🗡️", item: "Hoja de bisturí usada", context: "Hoja de bisturí usada que cumple los criterios de punzocortante RPBI.", correct: "red-sharps", explanation: "Las hojas de bisturí incluidas en la norma van en recipiente rígido rojo, resistente a perforaciones y con cierre seguro." },
-  { id: 10, image: "🧻", item: "Papel de envoltura limpio", context: "Envoltura exterior limpia, sin contaminación biológica ni otra característica peligrosa.", correct: "ordinary", explanation: "No todo residuo generado en un hospital es RPBI. La envoltura limpia se separa como residuo común conforme al sistema institucional." },,
+  { id: 10, image: "🧻", item: "Papel de envoltura limpio", context: "Envoltura exterior limpia, sin contaminación biológica ni otra característica peligrosa.", correct: "ordinary", explanation: "No todo residuo generado en un hospital es RPBI. La envoltura limpia se separa como residuo común conforme al sistema institucional." },
 
   { id: 11, image: "🧫", item: "Cultivo microbiológico líquido", context: "Medio líquido que contiene un cultivo de agente biológico-infeccioso.", correct: "red-liquid", explanation: "Los cultivos y cepas de agentes biológico-infecciosos en estado líquido se depositan en recipiente hermético rojo." },
   { id: 12, image: "🩸", item: "Torunda con una mancha pequeña de sangre", context: "Material con una mancha superficial, sin estar empapado, saturado ni presentar goteo.", correct: "ordinary", explanation: "Una mancha pequeña no basta por sí sola para clasificar el residuo como RPBI. La NOM-087 considera material de curación empapado, saturado o goteando sangre; aplica el protocolo institucional para el residuo no RPBI." },
@@ -83,6 +83,11 @@ export default function RPBIGame() {
         <h3>♻️ Misión RPBI</h3>
         <p>Identifica cada residuo y deposítalo en el contenedor correcto.</p>
       </header>
+      {selected !== null && <div className={`rpbi-game-celebration ${selected === current.correct ? "is-correct" : "is-incorrect"}`} aria-hidden="true">
+        {selected === current.correct && <span className="rpbi-game-celebration-label">¡MUY BIEN!</span>}
+        <span className="rpbi-game-celebration-symbol">{selected === current.correct ? "✓" : "×"}</span>
+        {selected === current.correct && <span className="rpbi-game-confetti">{Array.from({ length: 30 }, (_, piece) => <i key={piece} style={{ "--confetti-left": `${(piece * 37) % 100}%`, "--confetti-delay": `${(piece % 7) * -0.09}s`, "--confetti-rotate": `${piece * 47}deg` } as React.CSSProperties} />)}</span>}
+      </div>}
       {!finished ? <>
         <div className="rpbi-game-status"><strong>Residuo {index + 1} de {game.length}</strong><strong>⭐ {score} aciertos</strong></div>
         <div className="rpbi-game-progress" role="progressbar" aria-label="Progreso del juego" aria-valuemin={0} aria-valuemax={game.length} aria-valuenow={index + 1}><span style={{ width: `${((index + 1) / game.length) * 100}%` }} /></div>
