@@ -1,0 +1,9 @@
+# Proceso de Atención de Enfermería (PAE)
+
+Carpeta destinada a los recursos de **Proceso de Atención de Enfermería (PAE)**.
+
+Puedes subir aquí PDF, DOC/DOCX, PPT/PPTX, imágenes, SVG, videos MP4 y actividades HTML.
+
+Nombra los archivos indicando unidad y tema cuando sea posible. Ejemplo: `u1-introduccion-proceso-atencion-enfermeria.pdf`.
+
+Los recursos que subas aquí quedarán almacenados en el repositorio. Para mostrarlos dentro de una lección de la plataforma habrá que enlazarlos desde el contenido de esa asignatura.
