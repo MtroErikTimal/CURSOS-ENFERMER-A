@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1080" role="img" aria-labelledby="title desc">
+<title id="title">Atlas de instrumental de corte, hemostasia y prensión</title><desc id="desc">Lámina educativa con esquemas de bisturí, hojas, tijeras Mayo y Metzenbaum, pinzas mosquito, Kelly, Crile, Adson, Allis y Babcock.</desc>
+<defs><style>
+.bg{fill:#f5f8f7}.panel{fill:#fff;stroke:#d5e1dc;stroke-width:2}.h{font:700 34px Arial,sans-serif;fill:#173b32}.sub{font:16px Arial,sans-serif;fill:#526b63}.tag{font:700 18px Arial,sans-serif;fill:#176b57}.lbl{font:700 17px Arial,sans-serif;fill:#203d35}.small{font:14px Arial,sans-serif;fill:#536b64}.metal{fill:none;stroke:#718c91;stroke-width:12;stroke-linecap:round;stroke-linejoin:round}.thin{fill:none;stroke:#718c91;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}.dark{fill:#365c58}.accent{fill:#d7a45a}.line{stroke:#d5e1dc;stroke-width:2}
+</style></defs>
+<rect class="bg" width="1500" height="1080"/>
+<text x="55" y="65" class="h">ATLAS DE INSTRUMENTAL QUIRÚRGICO</text><text x="55" y="98" class="sub">Corte · Hemostasia · Prensión | Esquemas didácticos para reconocimiento morfológico</text>
+<!-- panel 1 -->
+<rect class="panel" x="45" y="130" width="690" height="400" rx="20"/><text x="75" y="175" class="tag">01 · CORTE E INCISIÓN</text>
+<g transform="translate(85 205)"><rect x="5" y="48" width="255" height="36" rx="18" class="dark"/><path d="M260 48 L350 30 L385 48 L350 66 L260 84Z" class="accent"/><text x="5" y="120" class="lbl">Mango de bisturí + hoja</text><text x="5" y="145" class="small">La hoja debe ser compatible con el mango.</text></g>
+<g transform="translate(470 210)"><path d="M0 45 Q45 0 110 12 L140 28 L110 42 Q55 50 0 45Z" fill="#b9c8c7" stroke="#718c91" stroke-width="3"/><path d="M10 100 L135 70 L165 86 L140 105Z" fill="#b9c8c7" stroke="#718c91" stroke-width="3"/><path d="M15 155 L125 155 L155 180 L125 195 L15 175Z" fill="#b9c8c7" stroke="#718c91" stroke-width="3"/><text x="0" y="225" class="lbl">Perfiles de hojas</text><text x="0" y="250" class="small">10 · 11 · 15 (formas esquemáticas)</text></g>
+<line x1="75" y1="475" x2="700" y2="475" class="line"/><text x="75" y="505" class="small">Mayo: construcción robusta · Metzenbaum: diseño más ligero y delicado</text>
+<!-- panel 2 -->
+<rect class="panel" x="765" y="130" width="690" height="400" rx="20"/><text x="795" y="175" class="tag">02 · HEMOSTASIA</text>
+<g transform="translate(820 205)">
+<g transform="translate(0 0)"><circle cx="40" cy="65" r="23" class="thin"/><circle cx="100" cy="65" r="23" class="thin"/><path d="M55 50 L100 8 L205 8 M85 50 L115 25 L205 25" class="thin"/><path d="M205 8 L245 18 L205 25" class="thin"/><path d="M118 28 L142 45" class="thin"/><text x="0" y="125" class="lbl">Mosquito</text><text x="0" y="148" class="small">Pequeña · puntas finas</text></g>
+<g transform="translate(285 0)"><circle cx="40" cy="65" r="23" class="thin"/><circle cx="100" cy="65" r="23" class="thin"/><path d="M55 50 L100 8 L210 8 M85 50 L115 25 L210 25" class="thin"/><path d="M118 28 L142 45" class="thin"/><text x="0" y="125" class="lbl">Kelly</text><text x="0" y="148" class="small">Estriado distal habitual</text></g>
+<g transform="translate(0 190)"><circle cx="40" cy="25" r="23" class="thin"/><circle cx="100" cy="25" r="23" class="thin"/><path d="M55 10 L100 -30 L205 -30 M85 10 L115 -10 L205 -10" class="thin"/><path d="M118 -8 L142 5" class="thin"/><text x="0" y="80" class="lbl">Crile</text><text x="0" y="103" class="small">Estriado completo habitual</text></g>
+<g transform="translate(285 190)"><circle cx="40" cy="25" r="23" class="thin"/><circle cx="100" cy="25" r="23" class="thin"/><path d="M55 10 L100 -30 L220 -30 M85 10 L115 -10 L220 -10" class="thin"/><path d="M118 -8 L142 5" class="thin"/><text x="0" y="80" class="lbl">Pean / robusta</text><text x="0" y="103" class="small">Mandíbulas más amplias</text></g>
+</g>
+<text x="795" y="505" class="small">Los patrones y dimensiones varían entre modelos y fabricantes.</text>
+<!-- panel 3 -->
+<rect class="panel" x="45" y="555" width="1410" height="390" rx="20"/><text x="75" y="600" class="tag">03 · PRENSIÓN Y SUJECIÓN</text>
+<g transform="translate(90 650)">
+<g><path d="M25 20 L120 110 M120 20 L25 110" class="metal"/><path d="M20 10 L5 0 M125 10 L140 0" class="thin"/><text x="0" y="155" class="lbl">Adson</text><text x="-5" y="178" class="small">Con o sin dientes</text></g>
+<g transform="translate(260 0)"><path d="M25 20 L120 110 M120 20 L25 110" class="metal"/><path d="M20 10 L5 0 M125 10 L140 0" class="thin"/><text x="0" y="155" class="lbl">DeBakey</text><text x="-5" y="178" class="small">Estrías finas atraumáticas</text></g>
+<g transform="translate(540 0)"><circle cx="35" cy="30" r="20" class="thin"/><circle cx="105" cy="30" r="20" class="thin"/><path d="M50 45 L70 100 L90 45 M70 100 L70 125" class="metal"/><path d="M57 96 L83 96" class="thin"/><text x="0" y="155" class="lbl">Allis</text><text x="-5" y="178" class="small">Dientes de agarre</text></g>
+<g transform="translate(820 0)"><circle cx="35" cy="30" r="20" class="thin"/><circle cx="105" cy="30" r="20" class="thin"/><path d="M50 45 L70 100 L90 45" class="metal"/><ellipse cx="70" cy="115" rx="28" ry="15" fill="none" stroke="#718c91" stroke-width="7"/><text x="0" y="155" class="lbl">Babcock</text><text x="-5" y="178" class="small">Mandíbulas fenestradas</text></g>
+<g transform="translate(1100 0)"><circle cx="35" cy="30" r="20" class="thin"/><circle cx="105" cy="30" r="20" class="thin"/><path d="M50 45 L70 100 L90 45" class="metal"/><ellipse cx="70" cy="110" rx="34" ry="22" fill="none" stroke="#718c91" stroke-width="7"/><text x="0" y="155" class="lbl">Foerster</text><text x="-5" y="178" class="small">Sujeta gasas / torundas</text></g>
+</g>
+<rect x="75" y="865" width="1350" height="48" rx="12" fill="#e7f0ec"/><text x="95" y="895" class="small">Regla de seguridad: selecciona según tejido y técnica; evita presión excesiva, verifica integridad y controla filos y puntas.</text>
+<text x="55" y="1010" class="small">Material educativo esquemático. No sustituye el catálogo institucional, las instrucciones del fabricante ni la supervisión clínica.</text>
+</svg>
