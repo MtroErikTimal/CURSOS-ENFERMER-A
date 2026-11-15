@@ -1,0 +1,46 @@
+import { useState } from "react";
+type Choice={icon:string;title:string;detail:string;correct:boolean;feedback:string};
+type Stage={eyebrow:string;title:string;instruction:string;icon:string;choices:Choice[];multi?:boolean};
+const stages:Stage[]=[
+{eyebrow:"ETAPA 1 · RECONOCE",title:"¿Qué procedimiento corresponde?",instruction:"Identifica el concepto a partir de cada situación clínica.",icon:"🧠",choices:[
+{icon:"🧼",title:"Higiene de manos",detail:"Fricción o lavado de manos en los momentos indicados.",correct:true,feedback:"La higiene de manos es una medida esencial para reducir la transmisión de microorganismos."},
+{icon:"🧴",title:"Antisepsia",detail:"Aplicar un antiséptico autorizado sobre piel antes de un procedimiento.",correct:true,feedback:"La antisepsia se realiza sobre tejidos vivos mediante productos apropiados."},
+{icon:"🧽",title:"Desinfección",detail:"Procesar una superficie u objeto inanimado con un desinfectante indicado.",correct:true,feedback:"La desinfección se aplica a objetos o superficies; su nivel depende del riesgo y del producto."},
+{icon:"♨️",title:"Esterilización",detail:"Proceso validado que elimina todas las formas de vida microbiana, incluidas las esporas.",correct:true,feedback:"La esterilización requiere un proceso validado y controlado."}]},
+{eyebrow:"ETAPA 2 · DETECTA",title:"Encuentra la ruptura de asepsia",instruction:"Durante una curación simulada, identifica la conducta que compromete la técnica aséptica.",icon:"🔎",choices:[
+{icon:"🧤",title:"El guante toca la sábana y después el material estéril",detail:"Se continúa sin cambiar el guante.",correct:false,feedback:"Hay riesgo de contaminación por contacto. Detén la acción y cambia el guante o material afectado según el protocolo."},
+{icon:"📦",title:"Se comprueba integridad y vigencia del empaque",detail:"El paquete está seco, cerrado y con indicadores revisados.",correct:true,feedback:"Verificar integridad, vigencia y proceso del paquete ayuda a preservar la condición estéril."},
+{icon:"👐",title:"Se realiza higiene de manos antes de colocarse guantes",detail:"Se sigue la técnica y el momento indicados.",correct:true,feedback:"Los guantes no sustituyen la higiene de manos."},
+{icon:"↔️",title:"Se mantiene el campo estéril dentro del área de trabajo",detail:"Se evita cruzar por encima y se vigila continuamente.",correct:true,feedback:"Mantener el campo a la vista y evitar movimientos sobre él reduce el riesgo de contaminación."}]},
+{eyebrow:"ETAPA 3 · PREPARA",title:"Arma una práctica segura",instruction:"Selecciona todas las acciones necesarias para preparar y conservar un campo estéril.",icon:"🛡️",multi:true,choices:[
+{icon:"🧼",title:"Realizar higiene de manos",detail:"Antes de la actividad y en los momentos indicados.",correct:true,feedback:"La higiene de manos es indispensable."},
+{icon:"📦",title:"Revisar empaque, integridad, humedad e indicadores",detail:"No utilizar paquetes dañados, húmedos o con indicadores no conformes.",correct:true,feedback:"La inspección del empaque y del proceso es esencial."},
+{icon:"🧤",title:"Usar guantes como sustituto de higiene de manos",detail:"Omitir higiene porque se utilizarán guantes.",correct:false,feedback:"Los guantes no sustituyen la higiene de manos."},
+{icon:"🧺",title:"Separar material estéril del no estéril",detail:"Organizar el espacio y evitar cruces o contactos.",correct:true,feedback:"La separación y organización protegen el campo."},
+{icon:"👀",title:"Mantener el campo a la vista y vigilar su integridad",detail:"Ante duda o contaminación, detenerse y reemplazar lo afectado.",correct:true,feedback:"La esterilidad debe mantenerse durante toda la actividad."},
+{icon:"💧",title:"Utilizar material estéril que se humedeció",detail:"Continuar porque el empaque no se rompió.",correct:false,feedback:"La humedad puede comprometer la barrera estéril. No utilices el paquete."}]},
+{eyebrow:"ETAPA 4 · DESAFÍO FINAL",title:"Decisiones para cuidar sin contaminar",instruction:"Resuelve estas cinco situaciones y demuestra tus conocimientos.",icon:"🏅",choices:[
+{icon:"🧴",title:"¿Dónde se aplica un antiséptico?",detail:"Sobre piel o tejido vivo, según indicación y fabricante.",correct:true,feedback:"La antisepsia se realiza en tejidos vivos."},
+{icon:"🧽",title:"¿Qué se procesa mediante desinfección?",detail:"Superficies y objetos inanimados compatibles con el producto.",correct:true,feedback:"La desinfección se aplica a objetos y superficies."},
+{icon:"♨️",title:"¿Qué distingue a la esterilización?",detail:"Elimina todas las formas de vida microbiana, incluidas las esporas.",correct:true,feedback:"Esa es la finalidad de un proceso de esterilización validado."},
+{icon:"🧤",title:"¿Los guantes reemplazan la higiene de manos?",detail:"No. La higiene se realiza en los momentos indicados.",correct:true,feedback:"Los guantes no reemplazan la higiene de manos."},
+{icon:"🚫",title:"¿Qué hacer ante una ruptura del campo estéril?",detail:"Detenerse, comunicarlo y reemplazar el material o campo comprometido.",correct:true,feedback:"Nunca se debe ocultar ni ignorar una ruptura de la técnica."}]}
+];
+export default function ZonaEsterilGame(){
+const [stageIndex,setStageIndex]=useState(0),[selected,setSelected]=useState<string[]>([]),[checked,setChecked]=useState(false),[score,setScore]=useState(0),[completed,setCompleted]=useState(false);
+const stage=stages[stageIndex],correctCount=stage.choices.filter(c=>c.correct).length,chosen=stage.choices.filter(c=>selected.includes(c.title));
+const good=stage.multi?selected.length===correctCount&&chosen.every(c=>c.correct):selected.length===1&&chosen[0]?.correct;
+const toggle=(title:string)=>{if(checked)return;setSelected(old=>stage.multi?(old.includes(title)?old.filter(x=>x!==title):[...old,title]):[title]);};
+const verify=()=>{if(!selected.length||checked)return;setChecked(true);if(good)setScore(x=>x+1);};
+const next=()=>{if(stageIndex===stages.length-1){setCompleted(true);return;}setStageIndex(x=>x+1);setSelected([]);setChecked(false);};
+const restart=()=>{setStageIndex(0);setSelected([]);setChecked(false);setScore(0);setCompleted(false);};
+return <section className="sterile-mission" aria-label="Misión Zona Estéril">
+<header className="sterile-hero"><div className="sterile-hero-art" aria-hidden="true"><span>🧼</span><span>🧤</span><span>🛡️</span></div><div><span className="sterile-kicker">SIMULADOR CLÍNICO · ENFERMERÍA</span><h2>🧼 Misión: Zona Estéril</h2><p>Protege al paciente. Reconoce riesgos y conserva la técnica aséptica.</p></div></header>
+{!completed?<><div className="sterile-progress-head"><strong>Etapa {stageIndex+1} de 4</strong><span>⭐ {score} etapas superadas</span></div><div className="sterile-progress"><span style={{width:`${(stageIndex+1)*25}%`}}/></div>
+<div className="sterile-stage-heading"><span>{stage.icon}</span><div><small>{stage.eyebrow}</small><h3>{stage.title}</h3><p>{stage.instruction}</p></div></div>
+<div className={`sterile-choice-grid ${stage.multi?"is-multi":""}`}>{stage.choices.map(c=>{const active=selected.includes(c.title),state=checked?(c.correct?"is-right":active?"is-wrong":""):active?"is-picked":"";return <button type="button" key={c.title} className={`sterile-choice ${state}`} onClick={()=>toggle(c.title)} disabled={checked}><span className="sterile-choice-icon">{c.icon}</span><span className="sterile-choice-copy"><strong>{c.title}</strong><small>{c.detail}</small></span><span className="sterile-choice-mark">{checked?(c.correct?"✓":active?"×":""):active?"✓":""}</span></button>;})}</div>
+{checked&&<div className={`sterile-feedback ${good?"is-success":"is-error"}`} role="status" aria-live="polite"><strong>{good?"¡Excelente trabajo!":"Revisa tu decisión"}</strong>{chosen.map(c=><p key={c.title}>{c.feedback}</p>)}{!good&&<p>Observa las tarjetas marcadas y repasa los principios antes de avanzar.</p>}</div>}
+<div className="sterile-controls">{!checked?<button type="button" className="button button-green" onClick={verify} disabled={!selected.length}>Comprobar respuesta</button>:<button type="button" className="button button-dark" onClick={next}>{stageIndex===3?"Finalizar misión":"Siguiente etapa"} →</button>}</div><p className="sterile-note">Actividad educativa. Aplica siempre las indicaciones del fabricante, la normativa y los protocolos vigentes de tu institución.</p>
+</>:<div className="sterile-result"><span className="sterile-result-medal">{score===4?"🏆":"🎓"}</span><small>MISIÓN COMPLETADA</small><h3>{score===4?"¡Guardián de la esterilidad!":"¡Buen trabajo, sigue practicando!"}</h3><strong>{score} de 4 etapas superadas</strong><p>{score===4?"Has demostrado reconocer principios esenciales para prevenir la contaminación y proteger el campo estéril.":"Repasa las explicaciones y vuelve a intentar la misión para fortalecer tus decisiones clínicas."}</p><button type="button" className="button button-green" onClick={restart}>↻ Volver a jugar</button></div>}
+</section>;
+}
