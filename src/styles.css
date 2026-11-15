@@ -280,6 +280,16 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 .area-card-mark.art-mint { background: #357b62; }
 .area-card-mark.art-blue { background: #496f78; }
 .area-card-mark.art-rose { background: #a47a63; }
+.area-card-mark.art-violet { background: #6b5b99; }
+.area-card-mark.art-amber { background: #93672c; }
+.area-card-mark.art-teal { background: #287b78; }
+.area-card-mark.art-coral { background: #a9564e; }
+.area-card-mark.art-navy { background: #405d86; }
+.area-card-mark.art-plum { background: #805477; }
+.area-card-mark.art-olive { background: #6f783e; }
+.area-card-mark.art-slate { background: #5e7184; }
+.area-card-mark.art-cyan { background: #397b91; }
+.area-card-mark.art-brick { background: #94543d; }
 .page-area-card > div { flex: 1; }
 .page-area-card h2 { color: var(--ink); font-family: 'Fraunces', Georgia, serif; font-size: 21px; font-weight: 500; }
 .page-area-card p { margin: 8px 0 0; color: var(--muted); font-size: 10px; line-height: 1.65; }
