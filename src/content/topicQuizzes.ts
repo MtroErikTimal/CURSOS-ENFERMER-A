@@ -8,6 +8,48 @@ export type TopicQuizQuestion = {
 };
 
 export const topicQuizzes: Record<string, TopicQuizQuestion[]> = {
+  "Concepto, objetivos y estructura del área quirúrgica": [
+    {
+      prompt: "¿Cuál enunciado describe mejor a la unidad quirúrgica?",
+      options: ["Es únicamente la sala donde se realiza la incisión", "Es un conjunto organizado de áreas, servicios, personal y equipo para la atención pre, trans y posquirúrgica", "Es un almacén de instrumental estéril", "Es un área exclusiva para recuperación anestésica"],
+      answer: 1,
+      explanation: "La unidad quirúrgica integra espacios y recursos para la atención durante los periodos preoperatorio, transoperatorio y posoperatorio.",
+      success: "¡Excelente! Comprendiste que la unidad quirúrgica es un sistema de atención y no solo una sala.",
+      suggestion: "Repasa la definición de unidad quirúrgica de la NOM-016-SSA3-2012 y reconoce sus áreas y servicios relacionados."
+    },
+    {
+      prompt: "¿Cuál es el propósito principal de controlar los accesos y la circulación en el área quirúrgica?",
+      options: ["Reducir el tiempo de limpieza exclusivamente", "Evitar que el personal conozca otras áreas", "Disminuir tránsito innecesario y cruces entre circuitos, protegiendo al paciente y las condiciones de asepsia", "Mantener cerradas todas las puertas incluso durante una emergencia"],
+      answer: 2,
+      explanation: "El acceso controlado y la circulación organizada reducen oportunidades de contaminación y facilitan el funcionamiento seguro.",
+      success: "¡Muy bien! Relacionaste la circulación con la prevención de riesgos.",
+      suggestion: "Recuerda que el control de circulación protege al paciente, al personal y al material; no es una medida administrativa aislada."
+    },
+    {
+      prompt: "Según la NOM-016-SSA3-2012, ¿qué se entiende por unidad quirúrgica?",
+      options: ["Un espacio destinado solo al almacenamiento de ropa", "El conjunto de servicios, áreas y locales con infraestructura y equipo para la atención pre, trans y posquirúrgica", "La central de esterilización exclusivamente", "Un área de consulta externa"],
+      answer: 1,
+      explanation: "La norma define la unidad quirúrgica como un conjunto de servicios, áreas y locales con infraestructura y equipamiento para la atención en los periodos pre, trans y posquirúrgicos.",
+      success: "¡Correcto! Identificaste la definición normativa de unidad quirúrgica.",
+      suggestion: "Consulta el numeral 4.26 de la NOM-016-SSA3-2012 y vuelve a relacionar la definición con las áreas que la integran."
+    },
+    {
+      prompt: "Durante la verificación previa se detecta que el sistema de aspiración no funciona. ¿Qué conducta es más segura?",
+      options: ["Iniciar y solicitar apoyo si se necesita", "Sustituirlo con cualquier equipo disponible sin verificar", "Informar al responsable y resolver la falla antes de iniciar, de acuerdo con el protocolo", "Ignorar la falla si el paciente está estable"],
+      answer: 2,
+      explanation: "La disponibilidad de equipo funcional forma parte de la preparación segura. Las fallas deben comunicarse y resolverse antes del procedimiento, conforme al protocolo.",
+      success: "¡Excelente criterio de seguridad! Reconociste que una falla crítica debe atenderse antes de iniciar.",
+      suggestion: "Repasa la responsabilidad de enfermería en la verificación del entorno y el equipo, así como los límites de actuación."
+    },
+    {
+      prompt: "¿Qué debe hacerse con el instrumental después de utilizarse?",
+      options: ["Regresarlo directamente al almacén estéril", "Colocarlo en el circuito y contenedor definidos para material usado y reprocesamiento", "Mezclarlo con material limpio para ahorrar traslados", "Dejarlo en la sala hasta el siguiente procedimiento"],
+      answer: 1,
+      explanation: "El material usado debe manejarse de forma segura y trasladarse por la ruta institucional hacia descontaminación y reprocesamiento.",
+      success: "¡Muy bien! Diferenciaste el circuito del material estéril del circuito del material utilizado.",
+      suggestion: "Repasa el flujo del material y la separación entre material limpio, estéril y contaminado."
+    }
+  ],
   "Asepsia y antisepsia": [
     {
       prompt: "Durante una curación, un paquete de material estéril se humedece antes de abrirlo. ¿Cómo debe considerarse?",
