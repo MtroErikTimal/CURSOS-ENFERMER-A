@@ -739,3 +739,14 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 .area-topic-heading{padding:15px}.area-topic-heading h2{font-size:21px}.area-topic-mark{width:40px;height:40px}.area-learning-section,.area-activity-card{padding:12px;border-radius:12px}.area-lesson-card summary{padding:10px 8px;grid-template-columns:25px minmax(0,1fr) 16px;gap:7px}.area-lesson-content{padding:0 10px 12px}.area-lesson-content p,.area-lesson-content li{font-size:11px;line-height:1.7}.activity-sequence{grid-template-columns:1fr}.activity-classify-list label{grid-template-columns:minmax(0,1fr)}.area-empty-checklist{grid-template-columns:1fr}
 }
 @media(max-width:380px){.area-welcome-stats span{padding:8px 6px}.area-welcome-stats strong{font-size:17px}.area-topic-link{width:165px;min-width:165px}.area-activity-top{align-items:flex-start;flex-direction:column}}
+
+/* Legibilidad reforzada en el aula */
+.learning-area-shell .area-topic-link strong{font-size:12px}
+.learning-area-shell .area-lesson-title strong{font-size:13px}
+.learning-area-shell .area-lesson-title small{font-size:11px}
+.learning-area-shell .area-lesson-content p,.learning-area-shell .area-lesson-content li{font-size:13px;line-height:1.75}
+.learning-area-shell .area-activity-instruction{font-size:13px}
+.learning-area-shell .activity-choice,.learning-area-shell .activity-checklist label,.learning-area-shell .activity-classify-list label span{font-size:12px}
+.learning-area-shell .area-section-heading h3{font-size:15px}
+.learning-area-shell .area-section-heading p{font-size:11px}
+@media(max-width:680px){.learning-area-shell .area-topic-link strong{font-size:11px}.learning-area-shell .area-lesson-title strong{font-size:12px}.learning-area-shell .area-lesson-title small{font-size:10.5px}.learning-area-shell .area-lesson-content p,.learning-area-shell .area-lesson-content li{font-size:12px}.learning-area-shell .area-activity-instruction{font-size:12px}}
