@@ -1,5 +1,5 @@
 import { useEffect, useState, type FormEvent, type ReactNode } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, BadgeCheck, BookOpen, Check, ChevronDown, CircleHelp, ClipboardCheck, Download, ExternalLink, FileText, Gamepad2, HeartPulse, Layers3, LockKeyhole, Presentation, RotateCcw, ShieldCheck, Stethoscope } from "lucide-react";
 import { learningAreas } from "../content/areas";
 import { gameQuestions } from "../content/gameQuestions";
@@ -282,4 +282,17 @@ function extractKahootId(source: string) {
   } catch {
     return null;
   }
+}
+
+export function ResourcePage() {
+  const [searchParams] = useSearchParams();
+  const src = searchParams.get("src") ?? "";
+  const label = searchParams.get("label") ?? "Material de estudio";
+  const safeLocalResource = src.startsWith(import.meta.env.BASE_URL) && !src.startsWith("//");
+  return <PageIntro eyebrow="RECURSO DE ESTUDIO" title={label} description="Consulta este material sin salir del entorno de aprendizaje." icon={<FileText size={24} aria-hidden="true" />}>
+    {safeLocalResource ? <div style={{ position: "relative", width: "100%", minHeight: "72vh", overflow: "hidden", border: "1px solid #dfe7e2", borderRadius: "14px", background: "#fff" }}>
+      <iframe src={src} title={label} loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", minHeight: "72vh", border: 0 }} />
+    </div> : <section className="content-panel"><p>Este recurso no tiene una dirección local válida. Regresa al tema y vuelve a abrirlo desde sus materiales.</p></section>}
+    <Link className="back-link" to="/areas">← Volver al aula</Link>
+  </PageIntro>;
 }
