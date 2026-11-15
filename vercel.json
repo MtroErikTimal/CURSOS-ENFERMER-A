@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    { "source": "/areas/:path*", "destination": "/" },
+    { "source": "/cursos", "destination": "/" },
+    { "source": "/juegos", "destination": "/" },
+    { "source": "/kahoot", "destination": "/" },
+    { "source": "/constancias", "destination": "/" },
+    { "source": "/docente", "destination": "/" },
+    { "source": "/preguntas", "destination": "/" },
+    { "source": "/acceso", "destination": "/" },
+    { "source": "/privacidad", "destination": "/" },
+    { "source": "/terminos", "destination": "/" }
+  ]
+}

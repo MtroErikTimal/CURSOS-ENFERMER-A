@@ -1,6 +1,6 @@
 import { useState, type FormEvent, type ReactNode } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowRight, ArrowUpRight, BadgeCheck, BookOpen, Check, ChevronDown, CircleHelp, ClipboardCheck, Download, ExternalLink, FileText, Gamepad2, HeartPulse, Layers3, LockKeyhole, RotateCcw, ShieldCheck, Stethoscope } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BadgeCheck, BookOpen, Check, ChevronDown, CircleHelp, ClipboardCheck, Download, ExternalLink, FileText, Gamepad2, HeartPulse, Layers3, LockKeyhole, Presentation, RotateCcw, ShieldCheck, Stethoscope } from "lucide-react";
 import { learningAreas } from "../content/areas";
 import { gameQuestions } from "../content/gameQuestions";
 import { site } from "../content/site";
@@ -39,10 +39,10 @@ export function AreaPage() {
       <div className="panel-title-row"><div><p className="eyebrow">CONTENIDO DEL CURSO</p><h2>Unidades y temas</h2></div><Layers3 size={21} aria-hidden="true" /></div>
       <div className="unit-list">{area.units.map((unit, index) => <details className="unit-item" key={unit.title}>
         <summary><span className="unit-index">0{index + 1}</span><strong>{unit.title}</strong><ChevronDown size={17} aria-hidden="true" /></summary>
-        <div>{unit.topics.length ? <ul>{unit.topics.map((topic) => <li className="topic-item" key={topic.title}><strong>{topic.title}</strong>{topic.lessons.length > 0 && <ul>{topic.lessons.map((lesson) => <li key={lesson.title}><strong>{lesson.title}</strong><span>{lesson.summary}</span></li>)}</ul>}</li>)}</ul> : <p>Agrega temas y lecciones a esta unidad en <code>src/content/areas.ts</code>.</p>}</div>
+        <div>{unit.topics.length ? <ul>{unit.topics.map((topic) => <li className="topic-item" key={topic.title}><strong>{topic.title}</strong>{topic.lessons.length > 0 && <ul>{topic.lessons.map((lesson) => <li className="lesson-list-item" key={lesson.title}><details className="lesson-note"><summary><strong>{lesson.title}</strong><ChevronDown size={15} aria-hidden="true" /></summary><span className="lesson-summary">{lesson.summary}</span>{lesson.content && <div className="lesson-note-content">{lesson.content.map((section) => <section key={section.heading}><h4>{section.heading}</h4>{section.paragraphs?.map((paragraph, paragraphIndex) => <p key={paragraphIndex}>{paragraph}</p>)}{section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}</section>)}</div>}</details></li>)}</ul>}{topic.resources?.length ? <div className="topic-resources"><h4>Materiales y recursos de este tema</h4><ContentList items={topic.resources} empty="" /></div> : null}</li>)}</ul> : <p>Agrega temas y lecciones a esta unidad en <code>src/content/areas.ts</code>.</p>}</div>
       </details>)}</div>
     </section>
-    <section className="content-panel"><div className="panel-title-row"><div><p className="eyebrow">BIBLIOTECA</p><h2>Recursos de estudio</h2></div><FileText size={21} aria-hidden="true" /></div><ContentList items={area.resources} empty="Agrega aquí presentaciones, lecturas autorizadas, videos y documentos descargables." /></section>
+    <section className="content-panel"><div className="panel-title-row"><div><p className="eyebrow">BIBLIOTECA</p><h2>Recursos de estudio</h2></div><FileText size={21} aria-hidden="true" /></div>{area.slug === "fundamentos-de-enfermeria" && <figure style={{ margin: "18px 0 8px" }}><img src={`${import.meta.env.BASE_URL}images/expediente-clinico-esquema.svg`} alt="Esquema conceptual de los componentes del expediente clínico" style={{ display: "block", width: "100%", maxWidth: "760px", margin: "0 auto", border: "1px solid #dce6dc", borderRadius: "10px" }} /><figcaption style={{ color: "#65746b", fontSize: "12px", marginTop: "8px" }}>Esquema didáctico. La integración documental depende del ámbito de atención y de la normativa aplicable.</figcaption></figure>}{area.slug === "fundamentos-de-enfermeria" && <figure style={{ margin: "18px 0 8px" }}><img src={`${import.meta.env.BASE_URL}materiales/fundamentos-de-enfermeria/imagenes/cinco-momentos-higiene-manos.svg`} alt="Infografía de los cinco momentos para la higiene de manos" style={{ display: "block", width: "100%", maxWidth: "760px", margin: "0 auto", border: "1px solid #dce6dc", borderRadius: "10px" }} /><figcaption style={{ color: "#65746b", fontSize: "12px", marginTop: "8px" }}>Cinco momentos para la higiene de manos. Fuente: Organización Mundial de la Salud.</figcaption></figure>}<ContentList items={area.resources} empty="Los materiales están organizados dentro de cada tema, en la sección Materiales y recursos." /></section>
     <section className="content-panel"><div className="panel-title-row"><div><p className="eyebrow">PRÁCTICA Y REPASO</p><h2>Actividades y evaluación</h2></div><ClipboardCheck size={21} aria-hidden="true" /></div><h3 className="subsection-title">Actividades</h3><ContentList items={area.activities} empty="Agrega aquí actividades y casos ficticios." /><h3 className="subsection-title">Evaluación</h3><ContentList items={area.evaluation} empty="Agrega aquí evaluaciones y criterios de aprobación." /></section>
     <section className="content-panel"><div className="panel-title-row"><div><p className="eyebrow">FUENTES</p><h2>Bibliografía</h2></div><BookOpen size={21} aria-hidden="true" /></div><ContentList items={area.bibliography} empty="Añade referencias verificables y versiones autorizadas. No agregues citas sin confirmar." /></section>
   </div><Link className="back-link" to="/cursos">← Volver al catálogo</Link></PageIntro>;
@@ -127,7 +127,36 @@ function PageIntro({ eyebrow, title, description, icon, children }: { eyebrow: s
 }
 
 function ContentList({ items, empty }: { items: string[]; empty: string }) {
-  return items.length ? <ul className="resource-list">{items.map((item) => <li key={item}><FileText size={17} aria-hidden="true" />{item}</li>)}</ul> : <p className="editable-note">{empty}</p>;
+  return items.length ? <ul className="resource-list">{items.map((item) => {
+    const [label, href] = item.split("::");
+    const external = Boolean(href && (href.startsWith("https://") || href.startsWith("http://")));
+    const cleanPath = href ? (href.startsWith("/") ? href.slice(1) : href) : "";
+    const url = href ? (external ? href : `${import.meta.env.BASE_URL}${cleanPath}`) : null;
+    const isPowerPoint = Boolean(url && href && href.toLowerCase().endsWith(".pptx"));
+    const isSlideDeck = Boolean(url && href && /\/presentacion-[^/]+\.html$/i.test(href));
+    const absoluteUrl = isPowerPoint && url ? new URL(url, window.location.origin).href : "";
+    const viewerUrl = isPowerPoint ? `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(absoluteUrl)}` : "";
+    return <li className={isPowerPoint || isSlideDeck ? "resource-presentation" : undefined} key={item}>
+      {isPowerPoint || isSlideDeck ? <Presentation size={18} aria-hidden="true" /> : <FileText size={17} aria-hidden="true" />}
+      {url ? <div className="resource-content">
+        {isPowerPoint || isSlideDeck ? <strong>{label}</strong> : <a href={url} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>{label}</a>}
+        {isPowerPoint && <div className="presentation-viewer">
+          <p className="presentation-inline-label">Presentación integrada</p>
+          <div style={{ position: "relative", width: "100%", paddingTop: "62.5%", marginTop: "12px", overflow: "hidden", borderRadius: "10px", background: "#f3f5f2" }}>
+            <iframe src={viewerUrl} title={label} loading="lazy" allowFullScreen style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+          </div>
+          <a className="presentation-download" href={url} download><Download size={14} aria-hidden="true" /> Descargar archivo original PPTX</a>
+        </div>}
+        {isSlideDeck && <div className="presentation-viewer">
+          <p className="presentation-inline-label">Presentación navegable integrada</p>
+          <div style={{ position: "relative", width: "100%", paddingTop: "62.5%", marginTop: "12px", overflow: "hidden", borderRadius: "10px", background: "#f3f5f2" }}>
+            <iframe src={url} title={label} loading="lazy" allow="fullscreen" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+          </div>
+          <a className="presentation-download" href={url} target="_blank" rel="noreferrer">Abrir presentación en pantalla completa</a>
+        </div>}
+      </div> : item}
+    </li>;
+  })}</ul> : <p className="editable-note">{empty}</p>;
 }
 
 function EditableList({ title, items }: { title: string; items: string[] }) {
