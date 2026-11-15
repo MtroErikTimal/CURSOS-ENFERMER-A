@@ -141,12 +141,23 @@ function ContentList({ items, empty }: { items: string[]; empty: string }) {
     const url = href ? (external ? href : `${import.meta.env.BASE_URL}${cleanPath}`) : null;
     const isPowerPoint = Boolean(url && href && href.toLowerCase().endsWith(".pptx"));
     const isSlideDeck = Boolean(url && href && /\/presentacion-[^/]+\.html$/i.test(href));
+    const isInteractiveAssessment = Boolean(url && href && /\/(?:auto.?evaluacion|evaluacion)-[^/]+\.html$/i.test(href));
     const absoluteUrl = isPowerPoint && url ? new URL(url, window.location.origin).href : "";
     const viewerUrl = isPowerPoint ? `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(absoluteUrl)}` : "";
-    return <li className={isPowerPoint || isSlideDeck ? "resource-presentation" : undefined} key={item}>
-      {isPowerPoint || isSlideDeck ? <Presentation size={18} aria-hidden="true" /> : <FileText size={17} aria-hidden="true" />}
+    return <li className={isPowerPoint || isSlideDeck || isInteractiveAssessment ? "resource-presentation" : undefined} key={item}>
+      {isPowerPoint || isSlideDeck ? <Presentation size={18} aria-hidden="true" /> : isInteractiveAssessment ? <ClipboardCheck size={18} aria-hidden="true" /> : <FileText size={17} aria-hidden="true" />}
       {url ? <div className="resource-content">
-        {isPowerPoint || isSlideDeck ? <strong>{label}</strong> : <a href={url} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>{label}</a>}
+        {isPowerPoint || isSlideDeck || isInteractiveAssessment ? <strong>{label}</strong> : <a href={url} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>{label}</a>}
+        {isInteractiveAssessment && <details style={{ marginTop: "12px", border: "1px solid #dce8de", borderRadius: "10px", background: "#fbfcfa", overflow: "hidden" }}>
+          <summary style={{ padding: "12px 14px", cursor: "pointer", color: "#285540", fontSize: "11px", fontWeight: 700 }}>Resolver autoevaluación aquí</summary>
+          <div style={{ padding: "0 12px 12px" }}>
+            <p style={{ margin: "4px 0 10px", color: "#64746a", fontSize: "10px" }}>Contesta las preguntas y revisa la retroalimentación sin salir del tema.</p>
+            <div style={{ position: "relative", width: "100%", height: "560px", overflow: "hidden", borderRadius: "8px", background: "#f3f5f2" }}>
+              <iframe src={url} title={label} loading="lazy" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 }} />
+            </div>
+            <a className="presentation-download" href={url} target="_blank" rel="noreferrer">Abrir evaluación en pantalla completa</a>
+          </div>
+        </details>}
         {isPowerPoint && <div className="presentation-viewer">
           <p className="presentation-inline-label">Presentación integrada</p>
           <div style={{ position: "relative", width: "100%", paddingTop: "62.5%", marginTop: "12px", overflow: "hidden", borderRadius: "10px", background: "#f3f5f2" }}>
