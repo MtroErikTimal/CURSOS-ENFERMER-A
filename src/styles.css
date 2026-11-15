@@ -751,3 +751,83 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
   .resource-page-viewer { padding: 8px; }
   .resource-page-viewer iframe { min-height: 72vh; height: 72vh; }
 }
+
+
+/* Recursos de estudio: distribución compacta, referencias legibles y presentaciones amplias */
+.resource-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 12px;
+}
+.resource-list li {
+  min-width: 0;
+  align-items: flex-start;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  line-height: 1.55;
+}
+.resource-list li > svg {
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+.resource-list li a {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.resource-list li.resource-presentation {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+}
+.resource-content {
+  width: 100%;
+  min-width: 0;
+}
+.presentation-inline-label {
+  margin: 4px 0 0;
+  color: #64746a;
+  font-size: 13px;
+  font-weight: 600;
+}
+.presentation-frame {
+  position: relative;
+  width: 100%;
+  height: clamp(620px, 86vh, 1000px);
+  margin-top: 12px;
+  overflow: hidden;
+  border: 1px solid #dfe7df;
+  border-radius: 12px;
+  background: #f3f5f2;
+}
+.presentation-frame-embed {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.presentation-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 12px;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.topic-resources {
+  margin-top: 12px;
+  padding: 13px;
+}
+.topic-resources h4 {
+  margin-bottom: 10px;
+}
+@media (max-width: 700px) {
+  .resource-list { grid-template-columns: minmax(0, 1fr); gap: 9px; }
+  .resource-list li.resource-presentation { grid-column: 1; }
+  .presentation-frame { height: clamp(500px, 78vh, 760px); }
+}
