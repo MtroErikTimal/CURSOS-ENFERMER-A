@@ -217,10 +217,6 @@ function ContentList({ items, empty }: { items: string[]; empty: string }) {
   })}</ul> : <p className="editable-note">{empty}</p>;
 }
 
-function EditableList({ title, items }: { title: string; items: string[] }) {
-  return <div className="editable-list"><h3>{title}</h3>{items.length ? <ul>{items.map((item) => <li key={item}>{item}</li>)}</ul> : <p>Agrega contenido en <code>src/content/areas.ts</code>.</p>}</div>;
-}
-
 function extractKahootId(source: string) {
   const pattern = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
   const value = source.trim();
