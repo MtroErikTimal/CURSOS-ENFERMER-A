@@ -80,7 +80,7 @@ export function AreaPage() {
               </details>)}
             </section>
             <section className="area-learning-section area-topic-resources"><div className="area-section-heading"><span className="area-section-icon"><Presentation size={17}/></span><div><h3>Materiales y recursos de este tema</h3><p>Todo el material de consulta y apoyo permanece reunido aquí, sin enlaces a bibliotecas dispersas.</p></div></div><div className="area-resources-panel"><ContentList items={activeTopic.resources ?? []} empty="Este tema aún no tiene materiales vinculados. Los recursos se incorporarán aquí, junto a sus apuntes y actividades."/></div></section>
-            {activeTopic.title === "RPBI y manejo de muestras biológicas" ? <RPBIGame /> : <><TopicInteractiveActivity topicTitle={activeTopic.title}/>{topicQuizzes[activeTopic.title] && <TopicQuiz title={activeTopic.title} questions={topicQuizzes[activeTopic.title]} />}</>}
+            {activeTopic.title === "RPBI y manejo de muestras biológicas" ? <RPBIGame /> : topicActivityConfigs[activeTopic.title] ? <TopicInteractiveActivity topicTitle={activeTopic.title}/> : topicQuizzes[activeTopic.title] ? <TopicQuiz title={activeTopic.title} questions={topicQuizzes[activeTopic.title]} /> : null}
             <nav className="surgical-topic-navigation" aria-label="Navegación entre temas"><button type="button" disabled={!previousTopic} onClick={()=>previousTopic && setActiveTopicKey(previousTopic.key)}><span>‹</span> Anterior</button><Link to="/areas"><BookOpen size={17}/> Todas las asignaturas</Link><button type="button" disabled={!nextTopic} onClick={()=>nextTopic && setActiveTopicKey(nextTopic.key)}>Siguiente <span>›</span></button></nav>
           </> : <div className="area-empty-topic"><BookOpen size={28}/><h2>Selecciona un tema</h2><p>Elige un tema del temario para abrir sus apuntes, recursos y actividad.</p></div>}
         </main>
@@ -123,7 +123,7 @@ function TopicQuiz({ title, questions }: TopicQuizProps) {
   }
 
   return <section className="topic-quiz" aria-live="polite">
-    <div className="topic-quiz-heading"><span><Gamepad2 size={18} aria-hidden="true" /></span><div><p className="eyebrow">RETO INTERACTIVO</p><h3>Comprueba lo aprendido</h3><small>{title}</small></div></div>
+    <div className="topic-quiz-heading"><span><Gamepad2 size={18} aria-hidden="true" /></span><div><p className="eyebrow">EXPERIENCIA INTERACTIVA</p><h3>Comprueba lo aprendido</h3><small>{title}</small></div></div>
     {!finished ? <>
       <div className="topic-quiz-progress"><span>Pregunta {questionIndex + 1} de {questions.length}</span><span>{score} aciertos</span></div>
       <div className="topic-quiz-track"><span style={{ width: `${((questionIndex + 1) / questions.length) * 100}%` }} /></div>
