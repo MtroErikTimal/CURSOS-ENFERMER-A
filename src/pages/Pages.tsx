@@ -3,6 +3,7 @@ import { Link, useParams, useSearchParams } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, BadgeCheck, BookOpen, Check, ChevronDown, CircleHelp, ClipboardCheck, Download, ExternalLink, FileText, Gamepad2, HeartPulse, Layers3, LockKeyhole, Presentation, RotateCcw, ShieldCheck, Stethoscope } from "lucide-react";
 import { learningAreas } from "../content/areas";
 import { gameQuestions } from "../content/gameQuestions";
+import { topicQuizzes } from "../content/topicQuizzes";
 import { site } from "../content/site";
 import SocialLinks from "../components/SocialLinks";
 
@@ -29,7 +30,7 @@ export function AreaPage() {
   const { slug } = useParams();
   const area = learningAreas.find((item) => item.slug === slug);
   if (!area) return <NotFoundPage />;
-  return <PageIntro eyebrow="ÁREA DE APRENDIZAJE" title={area.title} description={area.description} icon={<HeartPulse size={24} aria-hidden="true" />}><div className="area-detail-layout">
+  return <PageIntro eyebrow="ÁREA DE APRENDIZAJE" title={area.title} description={area.description} icon={<HeartPulse size={24} aria-hidden="true" />}><div className={`area-detail-layout area-theme-${area.color}`}>
     <section className="content-panel area-objective">
       <p className="eyebrow">DISEÑO ACADÉMICO</p><h2>Ficha del área</h2>
       <div className="area-facts"><div><small>NIVEL</small><p>{area.level || "Por definir"}</p></div><div><small>DURACIÓN ESTIMADA</small><p>{area.estimatedDuration || "Por definir"}</p></div></div>
@@ -39,13 +40,61 @@ export function AreaPage() {
       <div className="panel-title-row"><div><p className="eyebrow">CONTENIDO DEL CURSO</p><h2>Unidades y temas</h2></div><Layers3 size={21} aria-hidden="true" /></div>
       <div className="unit-list">{area.units.map((unit, index) => <details className="unit-item" key={unit.title}>
         <summary><span className="unit-index">0{index + 1}</span><strong>{unit.title}</strong><ChevronDown size={17} aria-hidden="true" /></summary>
-        <div>{unit.topics.length ? <ul>{unit.topics.map((topic) => <li className="topic-item" key={topic.title}><strong>{topic.title}</strong>{topic.lessons.length > 0 && <ul>{topic.lessons.map((lesson) => <li className="lesson-list-item" key={lesson.title}><details className="lesson-note"><summary><strong>{lesson.title}</strong><ChevronDown size={15} aria-hidden="true" /></summary><span className="lesson-summary">{lesson.summary}</span>{lesson.content && <div className="lesson-note-content">{lesson.content.map((section) => <section key={section.heading}><h4>{section.heading}</h4>{section.paragraphs?.map((paragraph, paragraphIndex) => <p key={paragraphIndex}>{paragraph}</p>)}{section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}</section>)}</div>}</details></li>)}</ul>}{topic.resources?.length ? <div className="topic-resources"><h4>Materiales y recursos de este tema</h4><ContentList items={topic.resources} empty="" /></div> : null}</li>)}</ul> : <p>Agrega temas y lecciones a esta unidad en <code>src/content/areas.ts</code>.</p>}</div>
+        <div>{unit.topics.length ? <ul>{unit.topics.map((topic) => <li className="topic-item" key={topic.title}><strong>{topic.title}</strong>{topic.lessons.length > 0 && <ul>{topic.lessons.map((lesson) => <li className="lesson-list-item" key={lesson.title}><details className="lesson-note"><summary><strong>{lesson.title}</strong><ChevronDown size={15} aria-hidden="true" /></summary><span className="lesson-summary">{lesson.summary}</span>{lesson.content && <div className="lesson-note-content">{lesson.content.map((section) => <section key={section.heading}><h4>{section.heading}</h4>{section.paragraphs?.map((paragraph, paragraphIndex) => <p key={paragraphIndex}>{paragraph}</p>)}{section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}</section>)}</div>}</details></li>)}</ul>}{topic.resources?.length ? <div className="topic-resources"><h4>Materiales y recursos de este tema</h4><ContentList items={topic.resources} empty="" /></div> : null}{topicQuizzes[topic.title] && <TopicQuiz title={topic.title} questions={topicQuizzes[topic.title]} />}</li>)}</ul> : <p>Agrega temas y lecciones a esta unidad en <code>src/content/areas.ts</code>.</p>}</div>
       </details>)}</div>
     </section>
     <section className="content-panel"><div className="panel-title-row"><div><p className="eyebrow">BIBLIOTECA</p><h2>Recursos de estudio</h2></div><FileText size={21} aria-hidden="true" /></div>{area.slug === "fundamentos-de-enfermeria" && <figure style={{ margin: "18px 0 8px" }}><img src={`${import.meta.env.BASE_URL}images/expediente-clinico-esquema.svg`} alt="Esquema conceptual de los componentes del expediente clínico" style={{ display: "block", width: "100%", maxWidth: "760px", margin: "0 auto", border: "1px solid #dce6dc", borderRadius: "10px" }} /><figcaption style={{ color: "#65746b", fontSize: "12px", marginTop: "8px" }}>Esquema didáctico. La integración documental depende del ámbito de atención y de la normativa aplicable.</figcaption></figure>}{area.slug === "fundamentos-de-enfermeria" && <figure style={{ margin: "18px 0 8px" }}><img src={`${import.meta.env.BASE_URL}materiales/fundamentos-de-enfermeria/imagenes/cinco-momentos-higiene-manos.svg`} alt="Infografía de los cinco momentos para la higiene de manos" style={{ display: "block", width: "100%", maxWidth: "760px", margin: "0 auto", border: "1px solid #dce6dc", borderRadius: "10px" }} /><figcaption style={{ color: "#65746b", fontSize: "12px", marginTop: "8px" }}>Cinco momentos para la higiene de manos. Fuente: Organización Mundial de la Salud.</figcaption></figure>}<ContentList items={area.resources} empty="Los materiales están organizados dentro de cada tema, en la sección Materiales y recursos." /></section>
     <section className="content-panel"><div className="panel-title-row"><div><p className="eyebrow">PRÁCTICA Y REPASO</p><h2>Actividades y evaluación</h2></div><ClipboardCheck size={21} aria-hidden="true" /></div><h3 className="subsection-title">Actividades</h3><ContentList items={area.activities} empty="Agrega aquí actividades y casos ficticios." /><h3 className="subsection-title">Evaluación</h3><ContentList items={area.evaluation} empty="Agrega aquí evaluaciones y criterios de aprobación." /></section>
     <section className="content-panel"><div className="panel-title-row"><div><p className="eyebrow">FUENTES</p><h2>Bibliografía</h2></div><BookOpen size={21} aria-hidden="true" /></div><ContentList items={area.bibliography} empty="Añade referencias verificables y versiones autorizadas. No agregues citas sin confirmar." /></section>
   </div><Link className="back-link" to="/cursos">← Volver al catálogo</Link></PageIntro>;
+}
+
+type TopicQuizProps = {
+  title: string;
+  questions: typeof topicQuizzes[string];
+};
+
+function TopicQuiz({ title, questions }: TopicQuizProps) {
+  const [questionIndex, setQuestionIndex] = useState(0);
+  const [choice, setChoice] = useState<number | null>(null);
+  const [score, setScore] = useState(0);
+  const [finished, setFinished] = useState(false);
+  const question = questions[questionIndex];
+
+  function retryQuestion() {
+    setChoice(null);
+  }
+
+  function nextQuestion() {
+    if (questionIndex + 1 >= questions.length) {
+      setFinished(true);
+      return;
+    }
+    setQuestionIndex((current) => current + 1);
+    setChoice(null);
+  }
+
+  function restartQuiz() {
+    setQuestionIndex(0);
+    setChoice(null);
+    setScore(0);
+    setFinished(false);
+  }
+
+  return <section className="topic-quiz" aria-live="polite">
+    <div className="topic-quiz-heading"><span><Gamepad2 size={18} aria-hidden="true" /></span><div><p className="eyebrow">RETO INTERACTIVO</p><h3>Comprueba lo aprendido</h3><small>{title}</small></div></div>
+    {!finished ? <>
+      <div className="topic-quiz-progress"><span>Pregunta {questionIndex + 1} de {questions.length}</span><span>{score} aciertos</span></div>
+      <div className="topic-quiz-track"><span style={{ width: `${((questionIndex + 1) / questions.length) * 100}%` }} /></div>
+      <h4 className="topic-quiz-question">{question.prompt}</h4>
+      <div className="topic-quiz-options">{question.options.map((option, index) => <button type="button" className={`topic-quiz-option${choice === index ? " is-selected" : ""}${choice !== null && index === question.answer ? " is-correct" : ""}${choice === index && choice !== question.answer ? " is-incorrect" : ""}`} key={option} disabled={choice !== null} onClick={() => { setChoice(index); if (index === question.answer) setScore((current) => current + 1); }}><span>{String.fromCharCode(65 + index)}</span>{option}{choice !== null && index === question.answer && <Check size={17} aria-hidden="true" />}</button>)}</div>
+      {choice !== null && <div className={`topic-quiz-feedback ${choice === question.answer ? "is-success" : "is-guidance"}`} role="status">
+        <strong>{choice === question.answer ? question.success : "Vamos a reforzar este concepto"}</strong>
+        <p>{choice === question.answer ? question.explanation : question.suggestion}</p>
+        {choice === question.answer ? <button type="button" className="button button-green" onClick={nextQuestion}>{questionIndex + 1 === questions.length ? "Ver resultado" : "Siguiente pregunta"} <ArrowRight size={15} aria-hidden="true" /></button> : <button type="button" className="button button-dark" onClick={retryQuestion}>Intentar de nuevo <RotateCcw size={15} aria-hidden="true" /></button>}
+      </div>}
+    </> : <div className="topic-quiz-result"><BadgeCheck size={28} aria-hidden="true" /><p className="eyebrow">RETO COMPLETADO</p><h4>{score} de {questions.length} respuestas correctas</h4><p>{score === questions.length ? "¡Excelente trabajo! Dominaste las preguntas de este tema." : "Buen esfuerzo. Repasa las sugerencias y vuelve a intentarlo para fortalecer tu aprendizaje."}</p><button type="button" className="button button-dark" onClick={restartQuiz}><RotateCcw size={15} aria-hidden="true" /> Volver a jugar</button></div>}
+  </section>;
 }
 
 export function ResourcePage() {
