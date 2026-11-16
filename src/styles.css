@@ -1025,3 +1025,58 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 .sterile-play-area{position:relative;isolation:isolate;margin-top:8px}
 .sterile-play-area .rpbi-game-celebration{top:45%}
 @media(max-width:620px){.sterile-stage-order{gap:4px}.sterile-step{flex-direction:column;justify-content:center;gap:4px;padding:7px 3px}.sterile-step small{max-width:100%;font-size:9px}}
+
+
+/* Misión Carro de Curaciones: experiencia interactiva con efectos de RPBI */
+.cart-mission{margin:22px 0;padding:clamp(14px,2.5vw,22px);border:1px solid color-mix(in srgb,var(--area-accent) 24%,#dce8de);border-radius:15px;background:var(--area-accent-pale);color:#253d32}
+.cart-mission-hero{display:flex;align-items:center;gap:17px;padding:19px;border-radius:12px;background:linear-gradient(110deg,var(--area-accent-dark),var(--area-accent));color:#fff}
+.cart-mission-art{min-width:76px;height:94px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;border-radius:11px;background:#ffffff24;font-size:25px}
+.cart-mission-kicker{font-size:9px;font-weight:850;letter-spacing:1.2px;opacity:.9}
+.cart-mission-hero h3{margin:6px 0;color:#fff;font-size:clamp(19px,3vw,26px)}
+.cart-mission-hero p{margin:0;color:#f1f7f3;font-size:12px;line-height:1.55}
+.cart-mission-status{display:flex;justify-content:space-between;gap:10px;margin:17px 0 8px;color:#43536b;font-size:12px}
+.cart-mission-progress{height:7px;overflow:hidden;border-radius:20px;background:var(--area-accent-soft)}
+.cart-mission-progress span{display:block;height:100%;border-radius:inherit;background:var(--area-accent);transition:width .25s ease}
+.cart-mission-order{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:13px 0 18px}
+.cart-mission-step{min-width:0;display:flex;align-items:center;gap:7px;padding:8px 6px;border:1px solid color-mix(in srgb,var(--area-accent) 18%,#dce6eb);border-radius:10px;background:#fff;color:#64748b}
+.cart-mission-step>span{display:grid;place-items:center;flex:0 0 27px;height:27px;border-radius:50%;background:#edf1f5;color:#526273;font-size:12px;font-weight:900}
+.cart-mission-step small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10px;font-weight:750}
+.cart-mission-step.is-active{border-color:var(--area-accent);background:var(--area-accent-soft);color:var(--area-accent-dark)}
+.cart-mission-step.is-active>span,.cart-mission-step.is-complete>span{background:var(--area-accent);color:#fff}
+.cart-mission-step.is-complete{color:var(--area-accent-dark)}
+.cart-mission-play-area{position:relative;isolation:isolate}
+.cart-mission-play-area .rpbi-game-celebration{top:42%}
+.cart-mission-heading{display:flex;align-items:flex-start;gap:13px;margin:18px 0 14px}
+.cart-mission-heading>span{display:grid;place-items:center;flex:0 0 52px;height:52px;border-radius:14px;background:#fff;font-size:28px;box-shadow:0 3px 12px #142d4614}
+.cart-mission-heading small{color:var(--area-accent-dark);font-size:9px;font-weight:850;letter-spacing:1px}
+.cart-mission-heading h4{margin:4px 0;color:#263747;font-size:18px}
+.cart-mission-heading p{margin:0;color:#627286;font-size:12px;line-height:1.55}
+.cart-mission-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.cart-mission-option{display:flex;align-items:center;gap:10px;min-width:0;padding:12px;border:1px solid #d8e2da;border-radius:10px;background:#fff;color:#263b30;text-align:left;font:inherit;cursor:pointer;transition:border-color .15s,background .15s,transform .15s}
+.cart-mission-option:hover:not(:disabled){border-color:var(--area-accent);transform:translateY(-1px)}
+.cart-mission-option:disabled{cursor:default;opacity:1}
+.cart-mission-option.is-picked{border:2px solid var(--area-accent);padding:11px;background:var(--area-accent-soft)}
+.cart-mission-option.is-right{border:2px solid #23945d;padding:11px;background:#eaf8ef}
+.cart-mission-option.is-wrong{border:2px solid #d84b4b;padding:11px;background:#fff0f0}
+.cart-mission-option-icon{display:grid;place-items:center;flex:0 0 42px;height:42px;border-radius:9px;background:#f1f5f9;font-size:23px}
+.cart-mission-option-copy{display:grid;gap:4px;min-width:0}
+.cart-mission-option-copy strong{font-size:12px;line-height:1.35}
+.cart-mission-option-copy small{color:#64748b;font-size:10px;line-height:1.45}
+.cart-mission-option-mark{margin-left:auto;font-size:20px;font-weight:900;color:var(--area-accent-dark)}
+.cart-mission-option.is-right .cart-mission-option-mark{color:#16834e}
+.cart-mission-option.is-wrong .cart-mission-option-mark{color:#c62828}
+.cart-mission-feedback{margin-top:14px;padding:14px 16px;border-radius:10px;background:#fff;font-size:12px;line-height:1.6}
+.cart-mission-feedback strong{display:block;margin-bottom:5px}
+.cart-mission-feedback p{margin:5px 0;color:#526273}
+.cart-mission-feedback.is-success{border-left:4px solid #21965b}
+.cart-mission-feedback.is-error{border-left:4px solid #d97706}
+.cart-mission-controls{display:flex;justify-content:flex-end;margin-top:15px}
+.cart-mission-controls button:disabled{opacity:.45;cursor:not-allowed}
+.cart-mission-note{margin:13px 0 0;color:#718096;font-size:9px;line-height:1.5}
+.cart-mission-result{display:flex;align-items:center;flex-direction:column;padding:28px 12px 18px;text-align:center}
+.cart-mission-result>span{font-size:62px;margin-bottom:9px}
+.cart-mission-result small{color:var(--area-accent-dark);font-size:9px;font-weight:850;letter-spacing:1px}
+.cart-mission-result h4{margin:7px 0;color:var(--area-accent-dark);font-size:22px}
+.cart-mission-result>strong{font-size:15px;color:#263747}
+.cart-mission-result p{max-width:500px;color:#607184;font-size:12px;line-height:1.65}
+@media(max-width:620px){.cart-mission-hero{gap:11px;padding:14px}.cart-mission-art{min-width:59px;height:82px;font-size:21px}.cart-mission-order{gap:4px}.cart-mission-step{flex-direction:column;justify-content:center;gap:4px;padding:7px 3px}.cart-mission-step small{max-width:100%;font-size:9px}.cart-mission-options{grid-template-columns:1fr}.cart-mission-option{padding:11px}.cart-mission-option.is-picked,.cart-mission-option.is-right,.cart-mission-option.is-wrong{padding:10px}}
