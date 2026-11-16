@@ -28,7 +28,8 @@ const stages:Stage[]=[
 export default function ZonaEsterilGame(){
 const [stageIndex,setStageIndex]=useState(0),[selected,setSelected]=useState<string[]>([]),[checked,setChecked]=useState(false),[score,setScore]=useState(0),[completed,setCompleted]=useState(false);
 const stage=stages[stageIndex],correctCount=stage.choices.filter(c=>c.correct).length,chosen=stage.choices.filter(c=>selected.includes(c.title));
-const expected=(c:Choice)=>stageIndex===1?!c.correct:c.correct;\nconst good=stage.multi?selected.length===correctCount&&chosen.every(c=>c.correct):selected.length===1&&expected(chosen[0]);
+const expected=(c:Choice)=>stageIndex===1?!c.correct:c.correct;
+const good=stage.multi?selected.length===correctCount&&chosen.every(c=>c.correct):selected.length===1&&expected(chosen[0]);
 const toggle=(title:string)=>{if(checked)return;setSelected(old=>stage.multi?(old.includes(title)?old.filter(x=>x!==title):[...old,title]):[title]);};
 const verify=()=>{if(!selected.length||checked)return;setChecked(true);if(good)setScore(x=>x+1);};
 const next=()=>{if(stageIndex===stages.length-1){setCompleted(true);return;}setStageIndex(x=>x+1);setSelected([]);setChecked(false);};
