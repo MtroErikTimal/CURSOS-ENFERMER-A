@@ -171,6 +171,30 @@ export const topicQuizzes: Record<string, TopicQuizQuestion[]> = {
       explanation: "La torsión del tronco con los pies fijos aumenta la tensión; es preferible girar moviendo los pies.",
       success: "¡Muy bien! Identificaste un movimiento que aumenta el riesgo de lesión.",
       suggestion: "Para cambiar de dirección, desplaza los pies y gira el cuerpo en conjunto en lugar de torcer la columna."
+    },
+    {
+      prompt: "¿Qué posición coloca a la persona semisentada con el respaldo elevado aproximadamente entre 45° y 60°?",
+      options: ["Decúbito prono", "Fowler", "Sims", "Trendelenburg"],
+      answer: 1,
+      explanation: "La posición Fowler eleva el tronco; el ángulo exacto puede variar según la clasificación y la indicación clínica.",
+      success: "¡Correcto! Reconociste una posición de elevación del tronco.",
+      suggestion: "Relaciona Fowler con la posición semisentada y distingue sus variantes según el grado de elevación."
+    },
+    {
+      prompt: "¿Cuál es una característica de la posición de Sims?",
+      options: ["Decúbito lateral oblicuo con la pierna superior flexionada", "Acostado sobre el abdomen con ambas piernas extendidas", "Supino con las piernas apoyadas en estribos", "Cabeza más baja que los pies"],
+      answer: 0,
+      explanation: "Sims es una variante semiprona o lateral oblicua, con la pierna superior flexionada.",
+      success: "¡Muy bien! Identificaste la posición de Sims.",
+      suggestion: "Repasa las diferencias entre decúbito lateral, Sims y prono."
+    },
+    {
+      prompt: "¿Qué cuidado debe priorizarse al mantener una posición terapéutica?",
+      options: ["Mantener la misma posición sin reevaluar", "Vigilar alineación, piel, puntos de presión y tolerancia", "Retirar todos los apoyos", "Colocar las articulaciones en extensión máxima"],
+      answer: 1,
+      explanation: "La vigilancia de piel, alineación y tolerancia permite detectar complicaciones y adaptar el plan de posicionamiento.",
+      success: "¡Excelente! Relacionaste el posicionamiento con la prevención de lesiones.",
+      suggestion: "Recuerda individualizar los apoyos y la frecuencia de cambios posturales según la valoración clínica."
     }
   ],
   "Movilización y traslado del paciente": [
