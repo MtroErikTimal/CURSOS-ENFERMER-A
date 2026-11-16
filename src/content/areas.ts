@@ -639,49 +639,7 @@ fundamentos.units[1].topics = [
       "Movilización y traslado · Autoevaluación interactiva::/materiales/fundamentos-de-enfermeria/actividades/autoevaluacion-movilizacion-traslado.html",
     ],
   },
-  {
-    title: "Posiciones terapéuticas",
-    lessons: [
-      {
-        title: "Concepto, valoración y principios de posicionamiento",
-        summary: "Propósito de las posiciones, valoración previa, alineación corporal, protección de piel y seguridad.",
-        content: [
-          { heading: "Concepto e importancia", paragraphs: ["Una posición terapéutica es la colocación planificada de la persona para favorecer una función, facilitar una valoración o procedimiento, mejorar el confort o disminuir riesgos. La selección depende de la condición clínica, tolerancia, indicación y protocolo institucional.", "El posicionamiento forma parte del cuidado integral: no consiste únicamente en colocar el cuerpo, sino en valorar antes, preparar el entorno, proteger dispositivos, vigilar la respuesta y documentar."] },
-          { heading: "Valoración previa", bullets: ["Identificar conciencia, comprensión, colaboración, movilidad, fuerza, equilibrio y capacidad para mantener la postura.", "Valorar dolor, disnea, circulación, sensibilidad, integridad de la piel y riesgo de caída o lesión por presión.", "Revisar restricciones médicas, quirúrgicas, ortopédicas y dispositivos como oxígeno, sondas, catéteres y drenajes.", "Explicar el procedimiento, solicitar colaboración y consentimiento, proteger intimidad y preparar personal y ayudas necesarias."] },
-          { heading: "Principios de seguridad", bullets: ["Mantener alineación de cabeza, columna, pelvis y extremidades; evitar torsiones e hiperextensiones.", "Distribuir la presión y proteger prominencias óseas con apoyos adecuados, sin comprimir nervios ni vasos.", "Verificar frenos, estabilidad de cama, barandales indicados y accesibilidad del timbre.", "Reevaluar respiración, circulación, dolor, piel y tolerancia después del cambio. Individualizar la frecuencia de cambios posturales."] }
-        ]
-      },
-      {
-        title: "Posiciones anatómicas y de exploración",
-        summary: "Decúbito supino, prono, lateral, Sims, litotomía y genupectoral: definición, colocación y usos frecuentes.",
-        content: [
-          { heading: "Decúbito supino o dorsal", paragraphs: ["La persona permanece acostada boca arriba, con cabeza y tronco alineados y extremidades en posición cómoda. Se utiliza para reposo, valoración de la región anterior, exploración abdominal inicial y diversos cuidados en cama."] },
-          { heading: "Decúbito prono o ventral", paragraphs: ["La persona permanece acostada boca abajo, con cabeza girada o apoyada de acuerdo con el equipo y la indicación. Puede utilizarse para valorar la región posterior y, en pacientes críticos seleccionados, como estrategia respiratoria bajo protocolo especializado. Requiere vigilancia de vía aérea, ojos, piel, dispositivos y tolerancia."] },
-          { heading: "Decúbito lateral", paragraphs: ["La persona se recuesta sobre uno de sus lados, con cabeza, hombros, pelvis y piernas alineados. Se utiliza para descanso, higiene, cuidados de espalda y redistribución de presión; se selecciona el lado de acuerdo con la condición clínica."] },
-          { heading: "Posición de Sims", paragraphs: ["Es una variante semiprona, habitualmente sobre el lado izquierdo, con el tronco ligeramente inclinado hacia delante y la pierna superior más flexionada que la inferior. Se emplea en determinados enemas, exploraciones rectales y cuidados perineales cuando está indicada."] },
-          { heading: "Litotomía o ginecológica", paragraphs: ["Parte de decúbito dorsal, con caderas y rodillas flexionadas, muslos separados y piernas sostenidas en estribos o soportes acolchados. Se utiliza en exploraciones ginecológicas y procedimientos urológicos u obstétricos seleccionados. Debe evitarse la abducción o flexión forzada y vigilar presión, circulación y sensibilidad de las extremidades."] },
-          { heading: "Genupectoral", paragraphs: ["La persona se apoya sobre rodillas y parte anterior del tórax, con caderas elevadas y cabeza girada o apoyada. Se utiliza en algunas exploraciones rectales o procedimientos específicos cuando el profesional lo indica y la persona lo tolera."] }
-        ]
-      },
-      {
-        title: "Posiciones con cabecera elevada e inclinación de cama",
-        summary: "Fowler baja, semi-Fowler, Fowler alta, ortopneica, Trendelenburg y anti-Trendelenburg; indicaciones y precauciones.",
-        content: [
-          { heading: "Fowler y variantes", bullets: ["Fowler baja: cabecera elevada aproximadamente 15–30 grados.", "Semi-Fowler: cabecera elevada aproximadamente 30–45 grados.", "Fowler alta: cabecera elevada aproximadamente 60–90 grados, con apoyo adecuado del tronco y extremidades.", "Los ángulos son referencias didácticas; pueden variar según la cama, condición, tolerancia y protocolo."] },
-          { heading: "Usos frecuentes", paragraphs: ["Las variantes Fowler pueden favorecer confort, descanso, expansión torácica y actividades como alimentación o comunicación. La elevación del tronco puede reducir riesgo de aspiración en situaciones clínicas concretas, por ejemplo durante y después de alimentación enteral, de acuerdo con indicación y protocolo.", "La posición ortopneica es una postura sentada con inclinación anterior y brazos apoyados sobre una mesa o almohadas. Puede aliviar la disnea en algunas personas al facilitar el uso de músculos accesorios; no sustituye la valoración ni el tratamiento de la causa."] },
-          { heading: "Trendelenburg y anti-Trendelenburg", paragraphs: ["Trendelenburg coloca a la persona en decúbito supino con la cabeza más baja que los pies. Anti-Trendelenburg inclina el plano en sentido contrario, con la cabeza más alta que los pies. Ambas requieren una indicación concreta y vigilancia de tolerancia respiratoria, hemodinámica, neurológica y riesgo de deslizamiento.", "Trendelenburg no debe utilizarse de manera rutinaria para tratar hipotensión o choque. La decisión corresponde al equipo clínico y al protocolo institucional."] },
-          { heading: "Reevaluación y registro", bullets: ["Detener y revalorar ante disnea nueva, dolor, mareo, palidez, sudoración, pérdida de equilibrio o intolerancia.", "Registrar posición, motivo, hora, apoyos, estado de piel y dispositivos, tolerancia, respuesta e incidencias.", "Individualizar los cambios posturales; no existe una frecuencia única apropiada para todas las personas."] }
-        ]
-      }
-    ],
-    resources: [
-      "Posiciones terapéuticas · Guía completa de estudio::/materiales/fundamentos-de-enfermeria/apuntes/posiciones-terapeuticas-guia.html",
-      "Posiciones terapéuticas · Atlas ilustrado integrado::/materiales/fundamentos-de-enfermeria/presentaciones/presentacion-atlas-posiciones-terapeuticas.html",
-      "Posiciones terapéuticas · Presentación navegable::/materiales/fundamentos-de-enfermeria/presentaciones/presentacion-posiciones-terapeuticas.html",
-      "Posiciones terapéuticas · Taller práctico y lista de cotejo::/materiales/fundamentos-de-enfermeria/actividades/practica-posiciones-terapeuticas.html",
-      "Posiciones terapéuticas · Autoevaluación interactiva::/materiales/fundamentos-de-enfermeria/actividades/autoevaluacion-posiciones-terapeuticas.html",
-    ],
-  },
+
 ];
 
 fundamentos.units[2].title = "Unidad 3. Valoración, documentación y continuidad del cuidado";
@@ -702,7 +660,7 @@ fundamentos.units[2].topics = [
         title: "Temperatura corporal: producción, pérdida y regulación",
         summary: "Termogénesis, termólisis, hipotálamo, mecanismos de transferencia de calor, factores modificadores, fiebre, hipertermia, hipotermia y técnica.",
         content: [
-          { heading: "Regulación", paragraphs: ["La temperatura depende del equilibrio entre producción y pérdida de calor. El hipotálamo integra información de termorreceptores centrales y periféricos. Ante el frío activa vasoconstricción y temblor; ante el calor favorece vasodilatación cutánea y sudoración."] },
+          { heading: "Regulación", paragraphs: ["La temperatura depende del equilibrio entre producción y pérdida de calor. El hipotálamo integra información de termorreceptores centrales y periféricos. Ante el frío activa vasoconstricción y temblor; ante el calor favorece vasodilatación cutánea y sudoración."], image: "recursos-asignaturas/fundamentos-de-enfermeria/IMG_5142.png", imageAlt: "Esquema visual de los mecanismos de regulación de la temperatura corporal: producción, pérdida de calor e integración hipotalámica." },
           { heading: "Mecanismos", bullets: ["Producción: metabolismo basal, actividad muscular, temblor, hormonas tiroideas y catecolaminas.", "Pérdida: radiación, conducción, convección y evaporación.", "Factores modificadores: edad, ritmo circadiano, ejercicio, hormonas, estrés, ambiente, hidratación y enfermedad."] },
           { heading: "Alteraciones y medición", paragraphs: ["Fiebre implica elevación regulada del punto de ajuste hipotalámico; hipertermia es acumulación excesiva de calor sin elevar dicho punto de ajuste. Hipotermia se define como temperatura central menor de 35 °C. Los sitios oral, axilar, timpánico, temporal y rectal tienen limitaciones propias; siempre se registra el sitio y dispositivo utilizado."] }
         ]
