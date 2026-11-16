@@ -1012,3 +1012,16 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 .sterile-controls{display:flex;justify-content:flex-end;margin-top:16px}.sterile-controls button:disabled{opacity:.45;cursor:not-allowed}.sterile-note{margin:14px 0 0;color:#718096;font-size:9px;line-height:1.5}
 .sterile-result{display:flex;align-items:center;flex-direction:column;padding:30px 12px 20px;text-align:center}.sterile-result-medal{font-size:65px;margin-bottom:10px}.sterile-result h3{margin:7px 0;color:var(--area-accent-dark);font-size:23px}.sterile-result>strong{font-size:16px;color:#263747}.sterile-result p{max-width:500px;color:#607184;font-size:12px;line-height:1.65}
 @media(max-width:620px){.sterile-choice-grid{grid-template-columns:1fr}.sterile-hero{gap:12px;padding:15px}.sterile-hero-art{min-width:65px;height:86px;font-size:23px}.sterile-choice{padding:11px}.sterile-choice.is-picked,.sterile-choice.is-right,.sterile-choice.is-wrong{padding:10px}}
+
+
+/* Misión Zona Estéril: mismos efectos de acierto/error que Misión RPBI */
+.sterile-stage-order{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:15px 0 4px}
+.sterile-step{min-width:0;display:flex;align-items:center;gap:7px;padding:8px 6px;border:1px solid color-mix(in srgb,var(--area-accent) 18%,#dce6eb);border-radius:10px;background:#fff;color:#64748b;transition:background .2s,border-color .2s,color .2s}
+.sterile-step>span{display:grid;place-items:center;flex:0 0 27px;height:27px;border-radius:50%;background:#edf1f5;color:#526273;font-size:12px;font-weight:900}
+.sterile-step small{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:10px;font-weight:750}
+.sterile-step.is-active{border-color:var(--area-accent);background:var(--area-accent-soft);color:var(--area-accent-dark)}
+.sterile-step.is-active>span,.sterile-step.is-complete>span{background:var(--area-accent);color:#fff}
+.sterile-step.is-complete{border-color:color-mix(in srgb,var(--area-accent) 30%,#dce6eb);color:var(--area-accent-dark)}
+.sterile-play-area{position:relative;isolation:isolate;margin-top:8px}
+.sterile-play-area .rpbi-game-celebration{top:45%}
+@media(max-width:620px){.sterile-stage-order{gap:4px}.sterile-step{flex-direction:column;justify-content:center;gap:4px;padding:7px 3px}.sterile-step small{max-width:100%;font-size:9px}}
