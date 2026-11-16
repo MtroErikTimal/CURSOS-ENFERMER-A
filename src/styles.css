@@ -1080,3 +1080,17 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 .cart-mission-result>strong{font-size:15px;color:#263747}
 .cart-mission-result p{max-width:500px;color:#607184;font-size:12px;line-height:1.65}
 @media(max-width:620px){.cart-mission-hero{gap:11px;padding:14px}.cart-mission-art{min-width:59px;height:82px;font-size:21px}.cart-mission-order{gap:4px}.cart-mission-step{flex-direction:column;justify-content:center;gap:4px;padding:7px 3px}.cart-mission-step small{max-width:100%;font-size:9px}.cart-mission-options{grid-template-columns:1fr}.cart-mission-option{padding:11px}.cart-mission-option.is-picked,.cart-mission-option.is-right,.cart-mission-option.is-wrong{padding:10px}}
+
+/* Atlas integrado: una ficha por posición, con imagen y explicación clínica */
+.positions-atlas-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-top:15px}
+.position-atlas-card{min-width:0;overflow:hidden;border:1px solid color-mix(in srgb,var(--area-accent) 22%,#dce8ed);border-radius:14px;background:#fff;box-shadow:0 5px 16px rgba(25,65,85,.055)}
+.position-atlas-card figure{margin:0;padding:10px 10px 0}
+.position-atlas-card img{display:block;width:100%;height:230px;object-fit:contain;border-radius:9px;background:#f7fafc}
+.position-atlas-card figcaption{display:flex;align-items:center;gap:9px;padding:11px 3px 8px;color:var(--area-accent-dark)}
+.position-atlas-card figcaption span{display:grid;place-items:center;flex:0 0 28px;height:28px;border-radius:50%;background:var(--area-accent-soft);font-size:11px;font-weight:850}
+.position-atlas-card figcaption strong{font-size:15px;line-height:1.3}
+.position-atlas-copy{padding:0 14px 14px;color:#4c5d6c;font-size:12px;line-height:1.6}
+.position-atlas-copy p{margin:7px 0}
+.position-atlas-copy strong{color:#263f52}
+.position-atlas-note{margin:15px 0 0;padding:12px 14px;border-left:4px solid var(--area-accent);border-radius:7px;background:#fff;color:#536477;font-size:11px;line-height:1.6}
+@media(max-width:640px){.positions-atlas-grid{grid-template-columns:1fr;gap:12px}.position-atlas-card img{height:220px}.position-atlas-copy{font-size:12px}}
