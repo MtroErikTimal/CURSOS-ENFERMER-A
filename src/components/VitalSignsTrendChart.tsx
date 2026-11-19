@@ -10,6 +10,10 @@ type Reading = {
   diastolic: number;
   spo2: number;
   pain: number;
+  temperatureSite: string;
+  oxygenSupport: string;
+  oxygenFlow: string;
+  observations: string;
 };
 
 type Metric = "temperature" | "pulse" | "respiratory" | "pressure" | "spo2" | "pain";
@@ -24,9 +28,9 @@ const metricLabels: Record<Metric, string> = {
 };
 
 const sampleReadings: Reading[] = [
-  { id: 1, time: "07:00", temperature: 37.2, pulse: 88, respiratory: 18, systolic: 122, diastolic: 78, spo2: 97, pain: 2 },
-  { id: 2, time: "11:00", temperature: 37.8, pulse: 96, respiratory: 20, systolic: 124, diastolic: 80, spo2: 96, pain: 3 },
-  { id: 3, time: "15:00", temperature: 37.5, pulse: 90, respiratory: 18, systolic: 120, diastolic: 76, spo2: 97, pain: 2 },
+  { id: 1, time: "07:00", temperature: 37.2, pulse: 88, respiratory: 18, systolic: 122, diastolic: 78, spo2: 97, pain: 2, temperatureSite: "Oral", oxygenSupport: "Aire ambiente", oxygenFlow: "", observations: "Persona consciente y cooperadora." },
+  { id: 2, time: "11:00", temperature: 37.8, pulse: 96, respiratory: 20, systolic: 124, diastolic: 80, spo2: 96, pain: 3, temperatureSite: "Axilar", oxygenSupport: "Aire ambiente", oxygenFlow: "", observations: "Refiere malestar general." },
+  { id: 3, time: "15:00", temperature: 37.5, pulse: 90, respiratory: 18, systolic: 120, diastolic: 76, spo2: 97, pain: 2, temperatureSite: "Oral", oxygenSupport: "Puntas nasales", oxygenFlow: "2", observations: "Se revalora después de intervención indicada." },
 ];
 
 function valuesFor(reading: Reading, metric: Metric) {
@@ -48,6 +52,10 @@ export default function VitalSignsTrendChart() {
     diastolic: "80",
     spo2: "97",
     pain: "0",
+    temperatureSite: "Oral",
+    oxygenSupport: "Aire ambiente",
+    oxygenFlow: "",
+    observations: "",
   });
 
   const chart = useMemo(() => {
@@ -91,6 +99,10 @@ export default function VitalSignsTrendChart() {
       diastolic: numeric.diastolic,
       spo2: numeric.spo2,
       pain: numeric.pain,
+      temperatureSite: form.temperatureSite,
+      oxygenSupport: form.oxygenSupport,
+      oxygenFlow: form.oxygenSupport === "Aire ambiente" ? "" : form.oxygenFlow.trim(),
+      observations: form.observations.trim(),
     };
     setReadings((current) => (editingId === null ? [...current, entry] : current.map((reading) => reading.id === editingId ? { ...entry, id: editingId } : reading)).sort((a, b) => a.time.localeCompare(b.time)));
     setEditingId(null);
@@ -99,7 +111,7 @@ export default function VitalSignsTrendChart() {
 
   function editReading(reading: Reading) {
     setEditingId(reading.id);
-    setForm({ time: reading.time, temperature: String(reading.temperature), pulse: String(reading.pulse), respiratory: String(reading.respiratory), systolic: String(reading.systolic), diastolic: String(reading.diastolic), spo2: String(reading.spo2), pain: String(reading.pain) });
+    setForm({ time: reading.time, temperature: String(reading.temperature), pulse: String(reading.pulse), respiratory: String(reading.respiratory), systolic: String(reading.systolic), diastolic: String(reading.diastolic), spo2: String(reading.spo2), pain: String(reading.pain), temperatureSite: reading.temperatureSite, oxygenSupport: reading.oxygenSupport, oxygenFlow: reading.oxygenFlow, observations: reading.observations });
     setMessage(`Editando la medición de las ${reading.time}. Guarda los cambios para actualizar la gráfica.`);
   }
 
@@ -146,7 +158,11 @@ export default function VitalSignsTrendChart() {
           <label>Presión diastólica (mmHg)<input type="number" required min="20" max="200" value={form.diastolic} onChange={(event) => setForm({ ...form, diastolic: event.target.value })} /></label>
           <label>SpO₂ (%)<input type="number" required min="50" max="100" value={form.spo2} onChange={(event) => setForm({ ...form, spo2: event.target.value })} /></label>
           <label>Dolor (0–10)<input type="number" required min="0" max="10" value={form.pain} onChange={(event) => setForm({ ...form, pain: event.target.value })} /></label>
+          <label>Sitio de temperatura<select required value={form.temperatureSite} onChange={(event) => setForm({ ...form, temperatureSite: event.target.value })}><option>Oral</option><option>Axilar</option><option>Timpánica</option><option>Temporal</option><option>Rectal</option><option>Otro / especificar</option></select></label>
+          <label>Soporte de oxígeno<select value={form.oxygenSupport} onChange={(event) => setForm({ ...form, oxygenSupport: event.target.value })}><option>Aire ambiente</option><option>Puntas nasales</option><option>Mascarilla simple</option><option>Mascarilla con reservorio</option><option>Otro dispositivo</option></select></label>
+          {form.oxygenSupport !== "Aire ambiente" && <label>Flujo indicado (L/min)<input type="text" inputMode="decimal" placeholder="Ej. 2" value={form.oxygenFlow} onChange={(event) => setForm({ ...form, oxygenFlow: event.target.value })} /></label>}
         </div>
+        <label className="vitals-trend-observations">Observaciones de enfermería<textarea rows={3} maxLength={500} placeholder="Estado general, síntomas referidos, posición, intervenciones y respuesta..." value={form.observations} onChange={(event) => setForm({ ...form, observations: event.target.value })} /></label>
         <div className="vitals-trend-actions">
           <button className="vitals-trend-primary" type="submit">{editingId === null ? "＋ Agregar medición" : "Guardar cambios"}</button>
           {editingId !== null && <button className="vitals-trend-secondary" type="button" onClick={cancelEdit}>Cancelar edición</button>}
@@ -185,8 +201,8 @@ export default function VitalSignsTrendChart() {
       <section className="vitals-trend-table-panel">
         <div className="vitals-trend-section-title"><strong>Hoja de mediciones</strong><span>{readings.length} {readings.length === 1 ? "registro" : "registros"}</span></div>
         {readings.length === 0 ? <p className="vitals-trend-empty">Todavía no hay mediciones registradas.</p> : (
-          <div className="vitals-trend-table-wrap"><table><thead><tr><th>Hora</th><th>Temp.</th><th>FC</th><th>FR</th><th>PA</th><th>SpO₂</th><th>Dolor</th><th>Acciones</th></tr></thead><tbody>
-            {readings.map((reading) => <tr key={reading.id}><td>{reading.time}</td><td>{reading.temperature.toFixed(1)} °C</td><td>{reading.pulse}</td><td>{reading.respiratory}</td><td>{reading.systolic}/{reading.diastolic}</td><td>{reading.spo2}%</td><td>{reading.pain}/10</td><td><div className="vitals-trend-actions"><button type="button" className="vitals-trend-secondary" onClick={() => editReading(reading)} aria-label={`Editar registro de las ${reading.time}`}>Editar</button><button type="button" className="vitals-trend-delete" onClick={() => { setReadings((current) => current.filter((item) => item.id !== reading.id)); if (editingId === reading.id) setEditingId(null); }} aria-label={`Eliminar registro de las ${reading.time}`}>Eliminar</button></div></td></tr>)}
+          <div className="vitals-trend-table-wrap"><table><thead><tr><th>Hora</th><th>Temp.</th><th>FC</th><th>FR</th><th>PA</th><th>SpO₂</th><th>Dolor</th><th>Sitio T°</th><th>Oxígeno</th><th>Flujo</th><th>Observaciones</th><th>Acciones</th></tr></thead><tbody>
+            {readings.map((reading) => <tr key={reading.id}><td>{reading.time}</td><td>{reading.temperature.toFixed(1)} °C</td><td>{reading.pulse}</td><td>{reading.respiratory}</td><td>{reading.systolic}/{reading.diastolic}</td><td>{reading.spo2}%</td><td>{reading.pain}/10</td><td>{reading.temperatureSite}</td><td>{reading.oxygenSupport}</td><td>{reading.oxygenFlow ? reading.oxygenFlow + " L/min" : "—"}</td><td>{reading.observations || "—"}</td><td><div className="vitals-trend-actions"><button type="button" className="vitals-trend-secondary" onClick={() => editReading(reading)} aria-label={`Editar registro de las ${reading.time}`}>Editar</button><button type="button" className="vitals-trend-delete" onClick={() => { setReadings((current) => current.filter((item) => item.id !== reading.id)); if (editingId === reading.id) setEditingId(null); }} aria-label={`Eliminar registro de las ${reading.time}`}>Eliminar</button></div></td></tr>)}
           </tbody></table></div>
         )}
       </section>
