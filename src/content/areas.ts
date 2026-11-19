@@ -204,6 +204,7 @@ medicoQuirurgica.units = [
         { heading: "10. Práctica de laboratorio: montaje simulado", paragraphs: ["En equipos, prepara dos superficies simuladas: mesa de Mayo y mesa posterior. Utiliza instrumental de entrenamiento, tarjetas o imágenes; no emplees material clínico destinado a pacientes. El docente asignará un procedimiento ficticio y una lista de recursos para organizar."], bullets: ["Identifica y separa el instrumental por tiempos quirúrgicos.", "Selecciona el material de uso inmediato para la mesa de Mayo y reserva el complementario en la mesa posterior.", "Ubica suturas, agujas y cortopunzantes en zonas definidas y seguras.", "Realiza una comprobación verbal de integridad, esterilidad, disponibilidad y conteo simulado.", "Representa una ruptura del campo o una discrepancia de conteo y explica cómo comunicarla y actuar.", "Cierra con una reflexión sobre coordinación, anticipación, seguridad y límites de competencia."] },
         { heading: "Atlas visual y apoyo de aprendizaje", paragraphs: ["Utiliza el atlas de mobiliario y equipo para reconocer la mesa quirúrgica y las superficies auxiliares. Complementa con el atlas de instrumental para organizar las familias funcionales. Las ilustraciones son esquemas didácticos y no sustituyen la observación de los modelos reales ni los protocolos del hospital."], image: "images/atlas-mobiliario-equipo-consumo-quirurgico.svg", imageAlt: "Atlas didáctico de mobiliario, equipo y material de consumo de la sala quirúrgica." }
       ]}
+      ]}
     ]
   },
   {
