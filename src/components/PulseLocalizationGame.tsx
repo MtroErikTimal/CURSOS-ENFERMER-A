@@ -3,14 +3,14 @@ import { useState } from "react";
 type PulseSite = { id: string; name: string; clue: string; feedback: string; x: number; y: number; view: "anterior" | "posterior" };
 
 const sites: PulseSite[] = [
-  { id:"temporal", name:"Temporal", clue:"Se palpa en la región lateral de la cabeza, por delante del pabellón auricular. Es útil para valorar la circulación superficial de la cabeza.", feedback:"Ubicación: región temporal, lateral a la frente y anterior a la oreja.", x:100, y:66, view:"anterior" },
-  { id:"carotideo", name:"Carotídeo", clue:"Se localiza en el cuello, a un lado de la tráquea y medial al músculo esternocleidomastoideo. Palpa un solo lado a la vez; nunca comprimas ambos.", feedback:"Ubicación: surco entre la tráquea y el borde anterior del esternocleidomastoideo.", x:100, y:119, view:"anterior" },
+  { id:"temporal", name:"Temporal", clue:"Se palpa en la región lateral de la cabeza, por delante del pabellón auricular. Es útil para valorar la circulación superficial de la cabeza.", feedback:"Ubicación: región temporal, lateral a la frente y anterior a la oreja.", x:78, y:66, view:"anterior" },
+  { id:"carotideo", name:"Carotídeo", clue:"Se localiza en el cuello, a un lado de la tráquea y medial al músculo esternocleidomastoideo. Palpa un solo lado a la vez; nunca comprimas ambos.", feedback:"Ubicación: surco entre la tráquea y el borde anterior del esternocleidomastoideo.", x:88, y:119, view:"anterior" },
   { id:"braquial", name:"Braquial", clue:"Se explora en la cara anterior del pliegue del codo, hacia el lado medial del tendón del bíceps. Es un sitio utilizado para la toma manual de presión arterial.", feedback:"Ubicación: fosa antecubital, medial al tendón del bíceps.", x:63, y:257, view:"anterior" },
   { id:"radial", name:"Radial", clue:"Se palpa en la muñeca, del lado del pulgar, sobre el trayecto de la arteria que llega a la mano.", feedback:"Ubicación: cara anterior-lateral de la muñeca, lado del pulgar.", x:45, y:328, view:"anterior" },
   { id:"femoral", name:"Femoral", clue:"Se localiza en la región inguinal, inferior al ligamento inguinal, aproximadamente a mitad de camino entre la espina ilíaca anterosuperior y la sínfisis del pubis.", feedback:"Ubicación: región inguinal, sobre el trayecto de la arteria femoral.", x:100, y:420, view:"anterior" },
   { id:"pedio", name:"Pedio (dorsal del pie)", clue:"Se busca en el dorso del pie, generalmente lateral al tendón del extensor largo del dedo gordo, hacia el primer espacio intermetatarsiano.", feedback:"Ubicación: dorso del pie, cerca del primer espacio intermetatarsiano. Puede variar anatómicamente.", x:100, y:585, view:"anterior" },
   { id:"popliteo", name:"Poplíteo", clue:"Se palpa profundamente en la región posterior de la rodilla, con la articulación ligeramente flexionada y la musculatura relajada.", feedback:"Ubicación: fosa poplítea, detrás de la rodilla.", x:300, y:421, view:"posterior" },
-  { id:"tibial", name:"Tibial posterior", clue:"Se localiza detrás y ligeramente por debajo del maléolo medial, entre este y el tendón de Aquiles.", feedback:"Ubicación: región posteroinferior al maléolo medial, detrás del tobillo interno.", x:327, y:566, view:"posterior" }
+  { id:"tibial", name:"Tibial posterior", clue:"Se localiza detrás y ligeramente por debajo del maléolo medial, entre este y el tendón de Aquiles.", feedback:"Ubicación: región posteroinferior al maléolo medial, detrás del tobillo interno.", x:320, y:566, view:"posterior" }
 ];
 
 export default function PulseLocalizationGame() {
