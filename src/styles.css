@@ -1095,3 +1095,41 @@ button:focus-visible, a:focus-visible, summary:focus-visible, input:focus-visibl
 .position-atlas-copy strong{color:#263f52}
 .position-atlas-note{margin:15px 0 0;padding:12px 14px;border-left:4px solid var(--area-accent);border-radius:7px;background:#fff;color:#536477;font-size:11px;line-height:1.6}
 @media(max-width:640px){.positions-atlas-grid{grid-template-columns:1fr;gap:12px}.position-atlas-card img{height:220px}.position-atlas-copy{font-size:12px}}
+
+/* Misión interactiva: localización anatómica de pulsos */
+.pulse-map-game{margin:22px 0;padding:clamp(14px,3vw,24px);border:1px solid #dce7e0;border-radius:16px;background:#f8fbf8;color:#263b33}
+.pulse-map-hero{display:flex;align-items:center;gap:14px;padding:17px;border-radius:13px;background:linear-gradient(115deg,#174f43,#28765f);color:#fff}
+.pulse-map-icon{display:grid;place-items:center;flex:0 0 54px;height:54px;border-radius:14px;background:#ffffff20;font-size:35px}
+.pulse-map-hero small,.pulse-map-clue small,.pulse-map-result small{font-size:9px;font-weight:850;letter-spacing:1px;opacity:.85}
+.pulse-map-hero h3{margin:5px 0;color:#fff;font-size:clamp(18px,3vw,24px)}
+.pulse-map-hero p{margin:0;color:#e5f1e9;font-size:11px;line-height:1.6}
+.pulse-map-status{display:flex;justify-content:space-between;gap:12px;margin:18px 0 8px;color:#52665b;font-size:11px}
+.pulse-map-status strong{color:#176b57}
+.pulse-map-progress{height:7px;overflow:hidden;border-radius:20px;background:#e1ebe3}
+.pulse-map-progress span{display:block;height:100%;border-radius:inherit;background:#26815f;transition:width .25s}
+.pulse-map-clue{margin:15px 0 12px;padding:15px 16px;border-left:4px solid #26775c;border-radius:9px;background:#eaf3ec}
+.pulse-map-clue small{color:#287457}
+.pulse-map-clue p{margin:7px 0 0;color:#30483b;font-size:13px;line-height:1.65}
+.pulse-map-legend{display:flex;justify-content:space-around;gap:10px;margin:13px auto 5px;color:#64776d;font-size:10px;font-weight:750}
+.pulse-map-body{position:relative;width:min(100%,440px);margin:0 auto;aspect-ratio:400/620}
+.pulse-map-body svg{display:block;width:100%;height:100%}
+.pulse-map-point{position:absolute;z-index:2;display:grid;place-items:center;width:clamp(22px,5.5vw,29px);height:clamp(22px,5.5vw,29px);padding:0;transform:translate(-50%,-50%);border:2px solid #fff;border-radius:50%;background:#28775d;box-shadow:0 1px 7px #153b2e55;color:#fff;cursor:pointer;transition:transform .15s,background .15s}
+.pulse-map-point:hover:not(:disabled){transform:translate(-50%,-50%) scale(1.17)}
+.pulse-map-point span{font-size:14px;font-weight:900}
+.pulse-map-point.is-wrong{background:#c83f3f}
+.pulse-map-point.is-correct{background:#17834e}
+.pulse-map-point:disabled{cursor:default}
+.pulse-map-hint{margin:7px 0;text-align:center;color:#718078;font-size:10px}
+.pulse-map-feedback{margin-top:13px;padding:14px 15px;border-radius:10px;background:#fff;font-size:12px;line-height:1.6}
+.pulse-map-feedback strong{display:block;margin-bottom:5px}
+.pulse-map-feedback p{margin:4px 0 12px;color:#52645a}
+.pulse-map-feedback.is-success{border-left:4px solid #218452}
+.pulse-map-feedback.is-error{border-left:4px solid #d18b31}
+.pulse-map-result{display:flex;align-items:center;flex-direction:column;padding:28px 12px;text-align:center}
+.pulse-map-result>span{font-size:56px}
+.pulse-map-result small{margin-top:8px;color:#247253}
+.pulse-map-result h4{margin:7px 0;color:#1b5e46;font-size:22px}
+.pulse-map-result>strong{color:#334c3d;font-size:15px}
+.pulse-map-result p{max-width:480px;color:#617267;font-size:12px;line-height:1.65}
+.pulse-map-note{margin:15px 0 0;padding:11px 13px;border-radius:8px;background:#edf2ed;color:#65756a;font-size:10px;line-height:1.6}
+@media(max-width:520px){.pulse-map-hero{align-items:flex-start;padding:13px}.pulse-map-icon{flex-basis:44px;height:44px;font-size:29px}.pulse-map-point{width:25px;height:25px}}
