@@ -17,6 +17,7 @@ import PulseOximetryGame from "../components/PulseOximetryGame";
 import TemperatureGame from "../components/TemperatureGame";
 import VitalSignsCaseGame from "../components/VitalSignsCaseGame";
 import VitalSignsRecord from "../components/VitalSignsRecord";
+import VitalSignsTrendChart from "../components/VitalSignsTrendChart";
 
 export function HomePage() {
   return <>
@@ -105,6 +106,7 @@ export function AreaPage() {
                 {lesson.title === "Temperatura corporal: producción, pérdida y regulación" && <TemperatureGame />}
                 {lesson.title === "Fundamentos, homeostasis y valoración integral" && <VitalSignsCaseGame />}
                 {lesson.title === "Fundamentos, homeostasis y valoración integral" && <VitalSignsRecord />}
+                {lesson.title === "Fundamentos, homeostasis y valoración integral" && <VitalSignsTrendChart />}
               </details>)}
             </section>
             <section className="area-learning-section area-topic-resources"><div className="area-section-heading"><span className="area-section-icon"><Presentation size={17}/></span><div><h3>Materiales y recursos de este tema</h3><p>Todo el material de consulta y apoyo permanece reunido aquí, sin enlaces a bibliotecas dispersas.</p></div></div><div className="area-resources-panel"><ContentList items={activeTopic.resources ?? []} empty="Este tema aún no tiene materiales vinculados. Los recursos se incorporarán aquí, junto a sus apuntes y actividades."/></div></section>
