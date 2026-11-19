@@ -38,6 +38,7 @@ export default function VitalSignsTrendChart() {
   const [readings, setReadings] = useState<Reading[]>([]);
   const [metric, setMetric] = useState<Metric>("temperature");
   const [message, setMessage] = useState("");
+  const [editingId, setEditingId] = useState<number | null>(null);
   const [form, setForm] = useState({
     time: "07:00",
     temperature: "36.5",
@@ -72,7 +73,7 @@ export default function VitalSignsTrendChart() {
     const numeric = Object.fromEntries(
       Object.entries(form).filter(([key]) => key !== "time").map(([key, value]) => [key, Number(value)])
     ) as Record<Exclude<keyof typeof form, "time">, number>;
-    if (readings.some((reading) => reading.time === form.time)) {
+    if (readings.some((reading) => reading.time === form.time && reading.id !== editingId)) {
       setMessage("Ya existe un registro con esa hora. Elige otra hora para conservar la secuencia.");
       return;
     }
@@ -91,17 +92,31 @@ export default function VitalSignsTrendChart() {
       spo2: numeric.spo2,
       pain: numeric.pain,
     };
-    setReadings((current) => [...current, entry].sort((a, b) => a.time.localeCompare(b.time)));
-    setMessage("Registro agregado a la hoja de evolución.");
+    setReadings((current) => (editingId === null ? [...current, entry] : current.map((reading) => reading.id === editingId ? { ...entry, id: editingId } : reading)).sort((a, b) => a.time.localeCompare(b.time)));
+    setEditingId(null);
+    setMessage(editingId === null ? "Registro agregado a la hoja de evolución." : "Registro actualizado correctamente.");
+  }
+
+  function editReading(reading: Reading) {
+    setEditingId(reading.id);
+    setForm({ time: reading.time, temperature: String(reading.temperature), pulse: String(reading.pulse), respiratory: String(reading.respiratory), systolic: String(reading.systolic), diastolic: String(reading.diastolic), spo2: String(reading.spo2), pain: String(reading.pain) });
+    setMessage(`Editando la medición de las ${reading.time}. Guarda los cambios para actualizar la gráfica.`);
+  }
+
+  function cancelEdit() {
+    setEditingId(null);
+    setMessage("Se canceló la edición. Los registros anteriores permanecen sin cambios.");
   }
 
   function loadExample() {
+    setEditingId(null);
     setReadings(sampleReadings);
-    setMessage("Se cargó un escenario ficticio de tres mediciones. Puedes eliminarlo y capturar tus propios datos.");
+    setMessage("Se cargó un escenario ficticio de tres mediciones. Puedes editarlo, eliminarlo o capturar tus propios datos.");
   }
 
   function clearReadings() {
     setReadings([]);
+    setEditingId(null);
     setMessage("La hoja está vacía y lista para un nuevo ejercicio.");
   }
 
@@ -133,7 +148,8 @@ export default function VitalSignsTrendChart() {
           <label>Dolor (0–10)<input type="number" required min="0" max="10" value={form.pain} onChange={(event) => setForm({ ...form, pain: event.target.value })} /></label>
         </div>
         <div className="vitals-trend-actions">
-          <button className="vitals-trend-primary" type="submit">＋ Agregar medición</button>
+          <button className="vitals-trend-primary" type="submit">{editingId === null ? "＋ Agregar medición" : "Guardar cambios"}</button>
+          {editingId !== null && <button className="vitals-trend-secondary" type="button" onClick={cancelEdit}>Cancelar edición</button>}
           <button className="vitals-trend-secondary" type="button" onClick={loadExample}>Cargar escenario de práctica</button>
           <button className="vitals-trend-secondary" type="button" onClick={clearReadings}>Limpiar hoja</button>
         </div>
@@ -169,8 +185,8 @@ export default function VitalSignsTrendChart() {
       <section className="vitals-trend-table-panel">
         <div className="vitals-trend-section-title"><strong>Hoja de mediciones</strong><span>{readings.length} {readings.length === 1 ? "registro" : "registros"}</span></div>
         {readings.length === 0 ? <p className="vitals-trend-empty">Todavía no hay mediciones registradas.</p> : (
-          <div className="vitals-trend-table-wrap"><table><thead><tr><th>Hora</th><th>Temp.</th><th>FC</th><th>FR</th><th>PA</th><th>SpO₂</th><th>Dolor</th><th>Acción</th></tr></thead><tbody>
-            {readings.map((reading) => <tr key={reading.id}><td>{reading.time}</td><td>{reading.temperature.toFixed(1)} °C</td><td>{reading.pulse}</td><td>{reading.respiratory}</td><td>{reading.systolic}/{reading.diastolic}</td><td>{reading.spo2}%</td><td>{reading.pain}/10</td><td><button type="button" className="vitals-trend-delete" onClick={() => setReadings((current) => current.filter((item) => item.id !== reading.id))} aria-label={`Eliminar registro de las ${reading.time}`}>Eliminar</button></td></tr>)}
+          <div className="vitals-trend-table-wrap"><table><thead><tr><th>Hora</th><th>Temp.</th><th>FC</th><th>FR</th><th>PA</th><th>SpO₂</th><th>Dolor</th><th>Acciones</th></tr></thead><tbody>
+            {readings.map((reading) => <tr key={reading.id}><td>{reading.time}</td><td>{reading.temperature.toFixed(1)} °C</td><td>{reading.pulse}</td><td>{reading.respiratory}</td><td>{reading.systolic}/{reading.diastolic}</td><td>{reading.spo2}%</td><td>{reading.pain}/10</td><td><div className="vitals-trend-actions"><button type="button" className="vitals-trend-secondary" onClick={() => editReading(reading)} aria-label={`Editar registro de las ${reading.time}`}>Editar</button><button type="button" className="vitals-trend-delete" onClick={() => { setReadings((current) => current.filter((item) => item.id !== reading.id)); if (editingId === reading.id) setEditingId(null); }} aria-label={`Eliminar registro de las ${reading.time}`}>Eliminar</button></div></td></tr>)}
           </tbody></table></div>
         )}
       </section>
